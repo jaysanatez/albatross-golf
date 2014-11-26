@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1641C9231A263D8000378BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9221A263D8000378BA4 /* main.m */; };
+		1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9251A263D8000378BA4 /* AppDelegate.m */; };
+		1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */; };
+		1641C92C1A263D8000378BA4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C92B1A263D8000378BA4 /* ViewController.m */; };
+		1641C92F1A263D8000378BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1641C92D1A263D8000378BA4 /* Main.storyboard */; };
+		1641C9311A263D8000378BA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9301A263D8000378BA4 /* Images.xcassets */; };
+		1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9321A263D8000378BA4 /* LaunchScreen.xib */; };
+		1641C9401A263D8100378BA4 /* AlbatrossGolfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1641C93A1A263D8100378BA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1641C9151A263D8000378BA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1641C91C1A263D8000378BA4;
+			remoteInfo = AlbatrossGolf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1641C9241A263D8000378BA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1641C9251A263D8000378BA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1641C9281A263D8000378BA4 /* AlbatrossGolf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlbatrossGolf.xcdatamodel; sourceTree = "<group>"; };
+		1641C92A1A263D8000378BA4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1641C92B1A263D8000378BA4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1641C92E1A263D8000378BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1641C9301A263D8000378BA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1641C9331A263D8000378BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1641C9391A263D8100378BA4 /* AlbatrossGolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbatrossGolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1641C93E1A263D8100378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbatrossGolfTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1641C91A1A263D8000378BA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641C9361A263D8100378BA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1641C9141A263D8000378BA4 = {
+			isa = PBXGroup;
+			children = (
+				1641C91F1A263D8000378BA4 /* AlbatrossGolf */,
+				1641C93C1A263D8100378BA4 /* AlbatrossGolfTests */,
+				1641C91E1A263D8000378BA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1641C91E1A263D8000378BA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */,
+				1641C9391A263D8100378BA4 /* AlbatrossGolfTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1641C91F1A263D8000378BA4 /* AlbatrossGolf */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9241A263D8000378BA4 /* AppDelegate.h */,
+				1641C9251A263D8000378BA4 /* AppDelegate.m */,
+				1641C92A1A263D8000378BA4 /* ViewController.h */,
+				1641C92B1A263D8000378BA4 /* ViewController.m */,
+				1641C92D1A263D8000378BA4 /* Main.storyboard */,
+				1641C9301A263D8000378BA4 /* Images.xcassets */,
+				1641C9321A263D8000378BA4 /* LaunchScreen.xib */,
+				1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */,
+				1641C9201A263D8000378BA4 /* Supporting Files */,
+			);
+			path = AlbatrossGolf;
+			sourceTree = "<group>";
+		};
+		1641C9201A263D8000378BA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9211A263D8000378BA4 /* Info.plist */,
+				1641C9221A263D8000378BA4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1641C93C1A263D8100378BA4 /* AlbatrossGolfTests */ = {
+			isa = PBXGroup;
+			children = (
+				1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */,
+				1641C93D1A263D8100378BA4 /* Supporting Files */,
+			);
+			path = AlbatrossGolfTests;
+			sourceTree = "<group>";
+		};
+		1641C93D1A263D8100378BA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1641C93E1A263D8100378BA4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1641C91C1A263D8000378BA4 /* AlbatrossGolf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1641C9431A263D8100378BA4 /* Build configuration list for PBXNativeTarget "AlbatrossGolf" */;
+			buildPhases = (
+				1641C9191A263D8000378BA4 /* Sources */,
+				1641C91A1A263D8000378BA4 /* Frameworks */,
+				1641C91B1A263D8000378BA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlbatrossGolf;
+			productName = AlbatrossGolf;
+			productReference = 1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1641C9381A263D8100378BA4 /* AlbatrossGolfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1641C9461A263D8100378BA4 /* Build configuration list for PBXNativeTarget "AlbatrossGolfTests" */;
+			buildPhases = (
+				1641C9351A263D8100378BA4 /* Sources */,
+				1641C9361A263D8100378BA4 /* Frameworks */,
+				1641C9371A263D8100378BA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1641C93B1A263D8100378BA4 /* PBXTargetDependency */,
+			);
+			name = AlbatrossGolfTests;
+			productName = AlbatrossGolfTests;
+			productReference = 1641C9391A263D8100378BA4 /* AlbatrossGolfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1641C9151A263D8000378BA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = jacobSanchez;
+				TargetAttributes = {
+					1641C91C1A263D8000378BA4 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					1641C9381A263D8100378BA4 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 1641C91C1A263D8000378BA4;
+					};
+				};
+			};
+			buildConfigurationList = 1641C9181A263D8000378BA4 /* Build configuration list for PBXProject "AlbatrossGolf" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1641C9141A263D8000378BA4;
+			productRefGroup = 1641C91E1A263D8000378BA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1641C91C1A263D8000378BA4 /* AlbatrossGolf */,
+				1641C9381A263D8100378BA4 /* AlbatrossGolfTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1641C91B1A263D8000378BA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641C92F1A263D8000378BA4 /* Main.storyboard in Resources */,
+				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
+				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641C9371A263D8100378BA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1641C9191A263D8000378BA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
+				1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */,
+				1641C92C1A263D8000378BA4 /* ViewController.m in Sources */,
+				1641C9231A263D8000378BA4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641C9351A263D8100378BA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641C9401A263D8100378BA4 /* AlbatrossGolfTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1641C93B1A263D8100378BA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1641C91C1A263D8000378BA4 /* AlbatrossGolf */;
+			targetProxy = 1641C93A1A263D8100378BA4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1641C92D1A263D8000378BA4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1641C92E1A263D8000378BA4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1641C9321A263D8000378BA4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1641C9331A263D8000378BA4 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1641C9411A263D8100378BA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1641C9421A263D8100378BA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1641C9441A263D8100378BA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AlbatrossGolf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1641C9451A263D8100378BA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = AlbatrossGolf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1641C9471A263D8100378BA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AlbatrossGolfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlbatrossGolf.app/AlbatrossGolf";
+			};
+			name = Debug;
+		};
+		1641C9481A263D8100378BA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AlbatrossGolfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlbatrossGolf.app/AlbatrossGolf";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1641C9181A263D8000378BA4 /* Build configuration list for PBXProject "AlbatrossGolf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641C9411A263D8100378BA4 /* Debug */,
+				1641C9421A263D8100378BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1641C9431A263D8100378BA4 /* Build configuration list for PBXNativeTarget "AlbatrossGolf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641C9441A263D8100378BA4 /* Debug */,
+				1641C9451A263D8100378BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1641C9461A263D8100378BA4 /* Build configuration list for PBXNativeTarget "AlbatrossGolfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641C9471A263D8100378BA4 /* Debug */,
+				1641C9481A263D8100378BA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1641C9281A263D8000378BA4 /* AlbatrossGolf.xcdatamodel */,
+			);
+			currentVersion = 1641C9281A263D8000378BA4 /* AlbatrossGolf.xcdatamodel */;
+			path = AlbatrossGolf.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1641C9151A263D8000378BA4 /* Project object */;
+}
