@@ -55,6 +55,7 @@
 		1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */; };
 		1641C9D51A26435E00378BA4 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9D11A26435E00378BA4 /* Game.m */; };
 		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
+		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		1641C9D01A26435E00378BA4 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		1641C9D11A26435E00378BA4 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		1641C9D61A2643AD00378BA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		168E94051A2795500065E1C4 /* RoundHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHole.h; sourceTree = "<group>"; };
+		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +274,8 @@
 				1641C9601A263FB000378BA4 /* Round.m */,
 				1641C9611A263FB000378BA4 /* RoundDAO.h */,
 				1641C9621A263FB000378BA4 /* RoundDAO.m */,
+				168E94051A2795500065E1C4 /* RoundHole.h */,
+				168E94061A2795500065E1C4 /* RoundHole.m */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
@@ -542,6 +547,7 @@
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
 				1641C9B51A2641AB00378BA4 /* RoundStatCell.m in Sources */,
+				168E94071A2795500065E1C4 /* RoundHole.m in Sources */,
 				1641C9671A263FB000378BA4 /* TeeHole.m in Sources */,
 				1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */,
 				1641C9861A26402400378BA4 /* TeeChoiceVC.m in Sources */,
@@ -731,6 +737,7 @@
 				1641C9451A263D8100378BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1641C9461A263D8100378BA4 /* Build configuration list for PBXNativeTarget "AlbatrossGolfTests" */ = {
 			isa = XCConfigurationList;
@@ -739,6 +746,7 @@
 				1641C9481A263D8100378BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
