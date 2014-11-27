@@ -13,6 +13,9 @@
 @interface HoleScore ()
 {
     int holeScore;
+    NSArray *questions;
+    NSArray *descriptions;
+    int questionsAsked;
 }
 
 @end
@@ -20,7 +23,8 @@
 @implementation HoleScore
 
 @synthesize courseLabel,holeLabel,parLabel,teeHole,courseName,textField,popupHoleLabel,popupLengthLabel,popupParLabel;
-@synthesize blurView,handicapLabel,scoreLabel,netLabel,yardLabel,holeScoreView,constraint,enterButton;
+@synthesize blurView,handicapLabel,scoreLabel,netLabel,yardLabel,holeScoreView,constraint,enterButton,holeQuestion;
+@synthesize holeDescription;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,7 +60,13 @@
     popupParLabel.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
     popupLengthLabel.text = [NSString stringWithFormat:@"%@ yds",teeHole.yardage];
     
+    holeDescription.adjustsFontSizeToFitWidth = YES;
     holeScore = 0;
+    questions = [[NSArray alloc] initWithObjects:@"Hit Fairway:",@"GIR:",@"Fairway Bunker:", nil];
+    descriptions = [[NSArray alloc] initWithObjects:@"Did your drive land in the fairway?",@"Did you hit the green in regulation?",@"Did you land in a fairway bunker?", nil];
+    questionsAsked = 0;
+    holeQuestion.text = [questions objectAtIndex:questionsAsked];
+    holeDescription.text = [descriptions objectAtIndex:questionsAsked];
 }
 
 - (IBAction)doneWithHole:(id)sender
@@ -100,6 +110,26 @@
             return @"BOGEY";
         default:
             return @"D. BOGEY+";
+    }
+}
+
+- (void)yesOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (void)noOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (void)presentNextQuestion
+{
+    questionsAsked++;
+    if(questionsAsked < [questions count])
+    {
+        holeQuestion.text = [questions objectAtIndex:questionsAsked];
+        holeDescription.text = [descriptions objectAtIndex:questionsAsked];
     }
 }
 

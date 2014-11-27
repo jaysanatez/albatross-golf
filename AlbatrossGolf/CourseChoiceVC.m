@@ -171,8 +171,6 @@
 
 - (void)displayLoadingScreen:(BOOL)fetchedCourses
 {
-    if(!fetchedCourses)
-        NSLog(@"APPEAR");
     spinnerView.hidden = fetchedCourses;
 }
 
