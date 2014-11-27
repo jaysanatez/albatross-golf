@@ -10,11 +10,51 @@
 		1641C9231A263D8000378BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9221A263D8000378BA4 /* main.m */; };
 		1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9251A263D8000378BA4 /* AppDelegate.m */; };
 		1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */; };
-		1641C92C1A263D8000378BA4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C92B1A263D8000378BA4 /* ViewController.m */; };
-		1641C92F1A263D8000378BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1641C92D1A263D8000378BA4 /* Main.storyboard */; };
 		1641C9311A263D8000378BA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9301A263D8000378BA4 /* Images.xcassets */; };
 		1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9321A263D8000378BA4 /* LaunchScreen.xib */; };
 		1641C9401A263D8100378BA4 /* AlbatrossGolfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */; };
+		1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9491A263EF400378BA4 /* Main.storyboard */; };
+		1641C9501A263F4900378BA4 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C94D1A263F4900378BA4 /* LoginVC.m */; };
+		1641C9511A263F4900378BA4 /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C94F1A263F4900378BA4 /* MenuVC.m */; };
+		1641C9631A263FB000378BA4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9541A263FB000378BA4 /* Course.m */; };
+		1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9561A263FB000378BA4 /* CourseDAO.m */; };
+		1641C9651A263FB000378BA4 /* Tee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9581A263FB000378BA4 /* Tee.m */; };
+		1641C9661A263FB000378BA4 /* TeeDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C95A1A263FB000378BA4 /* TeeDAO.m */; };
+		1641C9671A263FB000378BA4 /* TeeHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C95C1A263FB000378BA4 /* TeeHole.m */; };
+		1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */; };
+		1641C9691A263FB000378BA4 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9601A263FB000378BA4 /* Round.m */; };
+		1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9621A263FB000378BA4 /* RoundDAO.m */; };
+		1641C9831A26402400378BA4 /* RecentTeeChoiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C97A1A26402400378BA4 /* RecentTeeChoiceVC.m */; };
+		1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C97C1A26402400378BA4 /* CourseChoiceVC.m */; };
+		1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C97E1A26402400378BA4 /* CourseChoiceCell.m */; };
+		1641C9861A26402400378BA4 /* TeeChoiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9801A26402400378BA4 /* TeeChoiceVC.m */; };
+		1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9821A26402400378BA4 /* TeeChoiceCell.m */; };
+		1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98A1A26403900378BA4 /* AddCourseVC.m */; };
+		1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98D1A26404900378BA4 /* ScorecardVC.m */; };
+		1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98F1A26404900378BA4 /* HoleScoreCell.m */; };
+		1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9941A26405C00378BA4 /* HoleScoreVC.m */; };
+		1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9951A26405C00378BA4 /* HoleScore.xib */; };
+		1641C9A01A26416E00378BA4 /* 2circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99B1A26416E00378BA4 /* 2circle.png */; };
+		1641C9A11A26416E00378BA4 /* 2square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99C1A26416E00378BA4 /* 2square.png */; };
+		1641C9A21A26416E00378BA4 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99D1A26416E00378BA4 /* circle.png */; };
+		1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99E1A26416E00378BA4 /* whitecheck.png */; };
+		1641C9A41A26416E00378BA4 /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99F1A26416E00378BA4 /* square.png */; };
+		1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9A81A2641A100378BA4 /* PastRoundsVC.m */; };
+		1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AA1A2641A100378BA4 /* PastRoundCell.m */; };
+		1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */; };
+		1641C9B41A2641AB00378BA4 /* HoleLookupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B01A2641AB00378BA4 /* HoleLookupCell.m */; };
+		1641C9B51A2641AB00378BA4 /* RoundStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B21A2641AB00378BA4 /* RoundStatCell.m */; };
+		1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */; };
+		1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B91A2641D000378BA4 /* GroupStatCell.m */; };
+		1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9BE1A2641E400378BA4 /* HorizontalSlider.m */; };
+		1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9C01A2641E400378BA4 /* CustomDropDown.m */; };
+		1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9C21A2641E400378BA4 /* CustomGameList.m */; };
+		1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */; };
+		1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CB1A26435E00378BA4 /* GameDAO.m */; };
+		1641C9D31A26435E00378BA4 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CD1A26435E00378BA4 /* Hole.m */; };
+		1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */; };
+		1641C9D51A26435E00378BA4 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9D11A26435E00378BA4 /* Game.m */; };
+		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +74,87 @@
 		1641C9241A263D8000378BA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1641C9251A263D8000378BA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1641C9281A263D8000378BA4 /* AlbatrossGolf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlbatrossGolf.xcdatamodel; sourceTree = "<group>"; };
-		1641C92A1A263D8000378BA4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1641C92B1A263D8000378BA4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1641C92E1A263D8000378BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1641C9301A263D8000378BA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1641C9331A263D8000378BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1641C9391A263D8100378BA4 /* AlbatrossGolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlbatrossGolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C93E1A263D8100378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbatrossGolfTests.m; sourceTree = "<group>"; };
+		1641C9491A263EF400378BA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1641C94C1A263F4900378BA4 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		1641C94D1A263F4900378BA4 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		1641C94E1A263F4900378BA4 /* MenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuVC.h; sourceTree = "<group>"; };
+		1641C94F1A263F4900378BA4 /* MenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuVC.m; sourceTree = "<group>"; };
+		1641C9531A263FB000378BA4 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		1641C9541A263FB000378BA4 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		1641C9551A263FB000378BA4 /* CourseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDAO.h; sourceTree = "<group>"; };
+		1641C9561A263FB000378BA4 /* CourseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDAO.m; sourceTree = "<group>"; };
+		1641C9571A263FB000378BA4 /* Tee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tee.h; sourceTree = "<group>"; };
+		1641C9581A263FB000378BA4 /* Tee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tee.m; sourceTree = "<group>"; };
+		1641C9591A263FB000378BA4 /* TeeDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeDAO.h; sourceTree = "<group>"; };
+		1641C95A1A263FB000378BA4 /* TeeDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeDAO.m; sourceTree = "<group>"; };
+		1641C95B1A263FB000378BA4 /* TeeHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeHole.h; sourceTree = "<group>"; };
+		1641C95C1A263FB000378BA4 /* TeeHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeHole.m; sourceTree = "<group>"; };
+		1641C95D1A263FB000378BA4 /* TeeHoleDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeHoleDAO.h; sourceTree = "<group>"; };
+		1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeHoleDAO.m; sourceTree = "<group>"; };
+		1641C95F1A263FB000378BA4 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
+		1641C9601A263FB000378BA4 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
+		1641C9611A263FB000378BA4 /* RoundDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundDAO.h; sourceTree = "<group>"; };
+		1641C9621A263FB000378BA4 /* RoundDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundDAO.m; sourceTree = "<group>"; };
+		1641C9791A26402400378BA4 /* RecentTeeChoiceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentTeeChoiceVC.h; sourceTree = "<group>"; };
+		1641C97A1A26402400378BA4 /* RecentTeeChoiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTeeChoiceVC.m; sourceTree = "<group>"; };
+		1641C97B1A26402400378BA4 /* CourseChoiceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseChoiceVC.h; sourceTree = "<group>"; };
+		1641C97C1A26402400378BA4 /* CourseChoiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseChoiceVC.m; sourceTree = "<group>"; };
+		1641C97D1A26402400378BA4 /* CourseChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseChoiceCell.h; sourceTree = "<group>"; };
+		1641C97E1A26402400378BA4 /* CourseChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseChoiceCell.m; sourceTree = "<group>"; };
+		1641C97F1A26402400378BA4 /* TeeChoiceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeChoiceVC.h; sourceTree = "<group>"; };
+		1641C9801A26402400378BA4 /* TeeChoiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeChoiceVC.m; sourceTree = "<group>"; };
+		1641C9811A26402400378BA4 /* TeeChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeChoiceCell.h; sourceTree = "<group>"; };
+		1641C9821A26402400378BA4 /* TeeChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeChoiceCell.m; sourceTree = "<group>"; };
+		1641C9891A26403900378BA4 /* AddCourseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseVC.h; sourceTree = "<group>"; };
+		1641C98A1A26403900378BA4 /* AddCourseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseVC.m; sourceTree = "<group>"; };
+		1641C98C1A26404900378BA4 /* ScorecardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorecardVC.h; sourceTree = "<group>"; };
+		1641C98D1A26404900378BA4 /* ScorecardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorecardVC.m; sourceTree = "<group>"; };
+		1641C98E1A26404900378BA4 /* HoleScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreCell.h; sourceTree = "<group>"; };
+		1641C98F1A26404900378BA4 /* HoleScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreCell.m; sourceTree = "<group>"; };
+		1641C9931A26405C00378BA4 /* HoleScoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreVC.h; sourceTree = "<group>"; };
+		1641C9941A26405C00378BA4 /* HoleScoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreVC.m; sourceTree = "<group>"; };
+		1641C9951A26405C00378BA4 /* HoleScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScore.xib; sourceTree = "<group>"; };
+		1641C99B1A26416E00378BA4 /* 2circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2circle.png; sourceTree = "<group>"; };
+		1641C99C1A26416E00378BA4 /* 2square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2square.png; sourceTree = "<group>"; };
+		1641C99D1A26416E00378BA4 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		1641C99E1A26416E00378BA4 /* whitecheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitecheck.png; sourceTree = "<group>"; };
+		1641C99F1A26416E00378BA4 /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
+		1641C9A71A2641A100378BA4 /* PastRoundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundsVC.h; sourceTree = "<group>"; };
+		1641C9A81A2641A100378BA4 /* PastRoundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundsVC.m; sourceTree = "<group>"; };
+		1641C9A91A2641A100378BA4 /* PastRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundCell.h; sourceTree = "<group>"; };
+		1641C9AA1A2641A100378BA4 /* PastRoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundCell.m; sourceTree = "<group>"; };
+		1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundLookupVC.h; sourceTree = "<group>"; };
+		1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundLookupVC.m; sourceTree = "<group>"; };
+		1641C9AF1A2641AB00378BA4 /* HoleLookupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupCell.h; sourceTree = "<group>"; };
+		1641C9B01A2641AB00378BA4 /* HoleLookupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupCell.m; sourceTree = "<group>"; };
+		1641C9B11A2641AB00378BA4 /* RoundStatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStatCell.h; sourceTree = "<group>"; };
+		1641C9B21A2641AB00378BA4 /* RoundStatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStatCell.m; sourceTree = "<group>"; };
+		1641C9B61A2641D000378BA4 /* MGStatsViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGStatsViewVC.h; sourceTree = "<group>"; };
+		1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGStatsViewVC.m; sourceTree = "<group>"; };
+		1641C9B81A2641D000378BA4 /* GroupStatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatCell.h; sourceTree = "<group>"; };
+		1641C9B91A2641D000378BA4 /* GroupStatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupStatCell.m; sourceTree = "<group>"; };
+		1641C9BD1A2641E400378BA4 /* HorizontalSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalSlider.h; sourceTree = "<group>"; };
+		1641C9BE1A2641E400378BA4 /* HorizontalSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalSlider.m; sourceTree = "<group>"; };
+		1641C9BF1A2641E400378BA4 /* CustomDropDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDropDown.h; sourceTree = "<group>"; };
+		1641C9C01A2641E400378BA4 /* CustomDropDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDropDown.m; sourceTree = "<group>"; };
+		1641C9C11A2641E400378BA4 /* CustomGameList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomGameList.h; sourceTree = "<group>"; };
+		1641C9C21A2641E400378BA4 /* CustomGameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGameList.m; sourceTree = "<group>"; };
+		1641C9C31A2641E400378BA4 /* CustomSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSelectionCell.h; sourceTree = "<group>"; };
+		1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSelectionCell.m; sourceTree = "<group>"; };
+		1641C9CA1A26435E00378BA4 /* GameDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDAO.h; sourceTree = "<group>"; };
+		1641C9CB1A26435E00378BA4 /* GameDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDAO.m; sourceTree = "<group>"; };
+		1641C9CC1A26435E00378BA4 /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
+		1641C9CD1A26435E00378BA4 /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
+		1641C9CE1A26435E00378BA4 /* HoleStatsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleStatsDAO.h; sourceTree = "<group>"; };
+		1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleStatsDAO.m; sourceTree = "<group>"; };
+		1641C9D01A26435E00378BA4 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		1641C9D11A26435E00378BA4 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		1641C9D61A2643AD00378BA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +179,8 @@
 		1641C9141A263D8000378BA4 = {
 			isa = PBXGroup;
 			children = (
+				1641C9D61A2643AD00378BA4 /* CoreData.framework */,
+				1641C99A1A26412B00378BA4 /* thumbnails */,
 				1641C91F1A263D8000378BA4 /* AlbatrossGolf */,
 				1641C93C1A263D8100378BA4 /* AlbatrossGolfTests */,
 				1641C91E1A263D8000378BA4 /* Products */,
@@ -83,14 +199,11 @@
 		1641C91F1A263D8000378BA4 /* AlbatrossGolf */ = {
 			isa = PBXGroup;
 			children = (
-				1641C9241A263D8000378BA4 /* AppDelegate.h */,
-				1641C9251A263D8000378BA4 /* AppDelegate.m */,
-				1641C92A1A263D8000378BA4 /* ViewController.h */,
-				1641C92B1A263D8000378BA4 /* ViewController.m */,
-				1641C92D1A263D8000378BA4 /* Main.storyboard */,
-				1641C9301A263D8000378BA4 /* Images.xcassets */,
-				1641C9321A263D8000378BA4 /* LaunchScreen.xib */,
-				1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */,
+				1641C9521A263F9700378BA4 /* objects */,
+				1641C94B1A263F1A00378BA4 /* main */,
+				1641C96B1A263FE700378BA4 /* scorecard */,
+				1641C9981A2640F000378BA4 /* past rounds */,
+				1641C9991A26410400378BA4 /* multiple round stats */,
 				1641C9201A263D8000378BA4 /* Supporting Files */,
 			);
 			path = AlbatrossGolf;
@@ -120,6 +233,177 @@
 				1641C93E1A263D8100378BA4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1641C94B1A263F1A00378BA4 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9301A263D8000378BA4 /* Images.xcassets */,
+				1641C9321A263D8000378BA4 /* LaunchScreen.xib */,
+				1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */,
+				1641C9241A263D8000378BA4 /* AppDelegate.h */,
+				1641C9251A263D8000378BA4 /* AppDelegate.m */,
+				1641C9491A263EF400378BA4 /* Main.storyboard */,
+				1641C94C1A263F4900378BA4 /* LoginVC.h */,
+				1641C94D1A263F4900378BA4 /* LoginVC.m */,
+				1641C94E1A263F4900378BA4 /* MenuVC.h */,
+				1641C94F1A263F4900378BA4 /* MenuVC.m */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		1641C9521A263F9700378BA4 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9531A263FB000378BA4 /* Course.h */,
+				1641C9541A263FB000378BA4 /* Course.m */,
+				1641C9551A263FB000378BA4 /* CourseDAO.h */,
+				1641C9561A263FB000378BA4 /* CourseDAO.m */,
+				1641C9571A263FB000378BA4 /* Tee.h */,
+				1641C9581A263FB000378BA4 /* Tee.m */,
+				1641C9591A263FB000378BA4 /* TeeDAO.h */,
+				1641C95A1A263FB000378BA4 /* TeeDAO.m */,
+				1641C95B1A263FB000378BA4 /* TeeHole.h */,
+				1641C95C1A263FB000378BA4 /* TeeHole.m */,
+				1641C95D1A263FB000378BA4 /* TeeHoleDAO.h */,
+				1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */,
+				1641C95F1A263FB000378BA4 /* Round.h */,
+				1641C9601A263FB000378BA4 /* Round.m */,
+				1641C9611A263FB000378BA4 /* RoundDAO.h */,
+				1641C9621A263FB000378BA4 /* RoundDAO.m */,
+				1641C9C91A26433400378BA4 /* deprecated */,
+			);
+			name = objects;
+			sourceTree = "<group>";
+		};
+		1641C96B1A263FE700378BA4 /* scorecard */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9791A26402400378BA4 /* RecentTeeChoiceVC.h */,
+				1641C97A1A26402400378BA4 /* RecentTeeChoiceVC.m */,
+				1641C97B1A26402400378BA4 /* CourseChoiceVC.h */,
+				1641C97C1A26402400378BA4 /* CourseChoiceVC.m */,
+				1641C97D1A26402400378BA4 /* CourseChoiceCell.h */,
+				1641C97E1A26402400378BA4 /* CourseChoiceCell.m */,
+				1641C97F1A26402400378BA4 /* TeeChoiceVC.h */,
+				1641C9801A26402400378BA4 /* TeeChoiceVC.m */,
+				1641C9811A26402400378BA4 /* TeeChoiceCell.h */,
+				1641C9821A26402400378BA4 /* TeeChoiceCell.m */,
+				1641C9881A26402A00378BA4 /* manage courses */,
+				1641C98C1A26404900378BA4 /* ScorecardVC.h */,
+				1641C98D1A26404900378BA4 /* ScorecardVC.m */,
+				1641C98E1A26404900378BA4 /* HoleScoreCell.h */,
+				1641C98F1A26404900378BA4 /* HoleScoreCell.m */,
+				1641C9921A26404D00378BA4 /* hole score */,
+			);
+			name = scorecard;
+			sourceTree = "<group>";
+		};
+		1641C9881A26402A00378BA4 /* manage courses */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9891A26403900378BA4 /* AddCourseVC.h */,
+				1641C98A1A26403900378BA4 /* AddCourseVC.m */,
+			);
+			name = "manage courses";
+			sourceTree = "<group>";
+		};
+		1641C9921A26404D00378BA4 /* hole score */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9931A26405C00378BA4 /* HoleScoreVC.h */,
+				1641C9941A26405C00378BA4 /* HoleScoreVC.m */,
+				1641C9951A26405C00378BA4 /* HoleScore.xib */,
+			);
+			name = "hole score";
+			sourceTree = "<group>";
+		};
+		1641C9981A2640F000378BA4 /* past rounds */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9A51A26417E00378BA4 /* past rounds */,
+				1641C9A61A26418400378BA4 /* round lookup */,
+			);
+			name = "past rounds";
+			sourceTree = "<group>";
+		};
+		1641C9991A26410400378BA4 /* multiple round stats */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9B61A2641D000378BA4 /* MGStatsViewVC.h */,
+				1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */,
+				1641C9B81A2641D000378BA4 /* GroupStatCell.h */,
+				1641C9B91A2641D000378BA4 /* GroupStatCell.m */,
+				1641C9BC1A2641D600378BA4 /* sliding stats view */,
+			);
+			name = "multiple round stats";
+			sourceTree = "<group>";
+		};
+		1641C99A1A26412B00378BA4 /* thumbnails */ = {
+			isa = PBXGroup;
+			children = (
+				1641C99B1A26416E00378BA4 /* 2circle.png */,
+				1641C99C1A26416E00378BA4 /* 2square.png */,
+				1641C99D1A26416E00378BA4 /* circle.png */,
+				1641C99E1A26416E00378BA4 /* whitecheck.png */,
+				1641C99F1A26416E00378BA4 /* square.png */,
+			);
+			name = thumbnails;
+			path = AlbatrossGolf;
+			sourceTree = "<group>";
+		};
+		1641C9A51A26417E00378BA4 /* past rounds */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9A71A2641A100378BA4 /* PastRoundsVC.h */,
+				1641C9A81A2641A100378BA4 /* PastRoundsVC.m */,
+				1641C9A91A2641A100378BA4 /* PastRoundCell.h */,
+				1641C9AA1A2641A100378BA4 /* PastRoundCell.m */,
+			);
+			name = "past rounds";
+			sourceTree = "<group>";
+		};
+		1641C9A61A26418400378BA4 /* round lookup */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */,
+				1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */,
+				1641C9AF1A2641AB00378BA4 /* HoleLookupCell.h */,
+				1641C9B01A2641AB00378BA4 /* HoleLookupCell.m */,
+				1641C9B11A2641AB00378BA4 /* RoundStatCell.h */,
+				1641C9B21A2641AB00378BA4 /* RoundStatCell.m */,
+			);
+			name = "round lookup";
+			sourceTree = "<group>";
+		};
+		1641C9BC1A2641D600378BA4 /* sliding stats view */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9BD1A2641E400378BA4 /* HorizontalSlider.h */,
+				1641C9BE1A2641E400378BA4 /* HorizontalSlider.m */,
+				1641C9BF1A2641E400378BA4 /* CustomDropDown.h */,
+				1641C9C01A2641E400378BA4 /* CustomDropDown.m */,
+				1641C9C11A2641E400378BA4 /* CustomGameList.h */,
+				1641C9C21A2641E400378BA4 /* CustomGameList.m */,
+				1641C9C31A2641E400378BA4 /* CustomSelectionCell.h */,
+				1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */,
+			);
+			name = "sliding stats view";
+			sourceTree = "<group>";
+		};
+		1641C9C91A26433400378BA4 /* deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9CA1A26435E00378BA4 /* GameDAO.h */,
+				1641C9CB1A26435E00378BA4 /* GameDAO.m */,
+				1641C9CC1A26435E00378BA4 /* Hole.h */,
+				1641C9CD1A26435E00378BA4 /* Hole.m */,
+				1641C9CE1A26435E00378BA4 /* HoleStatsDAO.h */,
+				1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */,
+				1641C9D01A26435E00378BA4 /* Game.h */,
+				1641C9D11A26435E00378BA4 /* Game.m */,
+			);
+			name = deprecated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,8 +486,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1641C92F1A263D8000378BA4 /* Main.storyboard in Resources */,
+				1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */,
+				1641C9A41A26416E00378BA4 /* square.png in Resources */,
+				1641C9A01A26416E00378BA4 /* 2circle.png in Resources */,
+				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
+				1641C9A11A26416E00378BA4 /* 2square.png in Resources */,
+				1641C9A21A26416E00378BA4 /* circle.png in Resources */,
+				1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,9 +512,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */,
+				1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */,
+				1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */,
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
 				1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */,
-				1641C92C1A263D8000378BA4 /* ViewController.m in Sources */,
+				1641C9501A263F4900378BA4 /* LoginVC.m in Sources */,
+				1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */,
+				1641C9511A263F4900378BA4 /* MenuVC.m in Sources */,
+				1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */,
+				1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */,
+				1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */,
+				1641C9D51A26435E00378BA4 /* Game.m in Sources */,
+				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
+				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
+				1641C9631A263FB000378BA4 /* Course.m in Sources */,
+				1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */,
+				1641C9691A263FB000378BA4 /* Round.m in Sources */,
+				1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */,
+				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,
+				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
+				1641C9B41A2641AB00378BA4 /* HoleLookupCell.m in Sources */,
+				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
+				1641C9D31A26435E00378BA4 /* Hole.m in Sources */,
+				1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */,
+				1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */,
+				1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */,
+				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
+				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
+				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
+				1641C9B51A2641AB00378BA4 /* RoundStatCell.m in Sources */,
+				1641C9671A263FB000378BA4 /* TeeHole.m in Sources */,
+				1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */,
+				1641C9861A26402400378BA4 /* TeeChoiceVC.m in Sources */,
+				1641C9661A263FB000378BA4 /* TeeDAO.m in Sources */,
+				1641C9831A26402400378BA4 /* RecentTeeChoiceVC.m in Sources */,
+				1641C9651A263FB000378BA4 /* Tee.m in Sources */,
 				1641C9231A263D8000378BA4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,14 +571,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1641C92D1A263D8000378BA4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1641C92E1A263D8000378BA4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1641C9321A263D8000378BA4 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
