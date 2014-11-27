@@ -24,7 +24,7 @@
 
 @synthesize courseLabel,holeLabel,parLabel,teeHole,courseName,textField,popupHoleLabel,popupLengthLabel,popupParLabel;
 @synthesize blurView,handicapLabel,scoreLabel,netLabel,yardLabel,holeScoreView,constraint,enterButton,holeQuestion;
-@synthesize holeDescription;
+@synthesize holeDescription,boolView,intView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,10 +60,13 @@
     popupParLabel.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
     popupLengthLabel.text = [NSString stringWithFormat:@"%@ yds",teeHole.yardage];
     
+    boolView.hidden = NO;
+    intView.hidden = YES;
     holeDescription.adjustsFontSizeToFitWidth = YES;
+    holeQuestion.adjustsFontSizeToFitWidth = YES;
     holeScore = 0;
-    questions = [[NSArray alloc] initWithObjects:@"Hit Fairway:",@"GIR:",@"Fairway Bunker:", nil];
-    descriptions = [[NSArray alloc] initWithObjects:@"Did your drive land in the fairway?",@"Did you hit the green in regulation?",@"Did you land in a fairway bunker?", nil];
+    questions = [[NSArray alloc] initWithObjects:@"Hit Fairway:", @"GIR:", @"Fairway Bunker:", @"Greenside Bunker:", @"Putts:", @"Penalty Strokes", nil];
+    descriptions = [[NSArray alloc] initWithObjects:@"Did your drive land in the fairway?", @"Did you hit the green in regulation?", @"Did you land in a fairway bunker?", @"Did you land in a greenside bunker?", @"How many putts did you have?", @"How many penalty strokes did you have?", nil];
     questionsAsked = 0;
     holeQuestion.text = [questions objectAtIndex:questionsAsked];
     holeDescription.text = [descriptions objectAtIndex:questionsAsked];
@@ -128,9 +131,50 @@
     questionsAsked++;
     if(questionsAsked < [questions count])
     {
+        if(questionsAsked == 4)
+        {
+            boolView.hidden = YES;
+            intView.hidden = NO;
+        }
         holeQuestion.text = [questions objectAtIndex:questionsAsked];
         holeDescription.text = [descriptions objectAtIndex:questionsAsked];
     }
+    else
+    {
+        intView.hidden = YES;
+        holeQuestion.text = @"Finished";
+        holeDescription.text = @"";
+    }
+}
+
+- (IBAction)zeroOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (IBAction)oneOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (IBAction)twoOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (IBAction)threeOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (IBAction)fourOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
+}
+
+- (IBAction)fiveOptionTapped:(id)sender
+{
+    [self presentNextQuestion];
 }
 
 @end

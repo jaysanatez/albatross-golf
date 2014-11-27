@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HoleScore">
             <connections>
                 <outlet property="blurView" destination="AGl-le-wkJ" id="SMn-ug-30s"/>
+                <outlet property="boolView" destination="k8k-mW-vjh" id="LWK-Qb-2GI"/>
                 <outlet property="constraint" destination="Mdn-fB-lZ8" id="iSM-CD-wkr"/>
                 <outlet property="courseLabel" destination="g9i-R3-y1C" id="G6U-Bh-ZJ7"/>
                 <outlet property="enterButton" destination="vcz-z6-ccf" id="5GB-hY-hTm"/>
@@ -15,6 +16,7 @@
                 <outlet property="holeLabel" destination="wYp-pq-6Ow" id="Iaf-iE-XrD"/>
                 <outlet property="holeQuestion" destination="AfQ-iP-saS" id="AMt-Md-WF6"/>
                 <outlet property="holeScoreView" destination="BNn-eI-kPP" id="0ff-eI-82x"/>
+                <outlet property="intView" destination="YBB-gi-7gq" id="wCW-qh-4br"/>
                 <outlet property="netLabel" destination="icD-vz-PGI" id="Rnu-GN-ROU"/>
                 <outlet property="parLabel" destination="bCQ-AG-z36" id="7QU-Ra-jgE"/>
                 <outlet property="popupHoleLabel" destination="2am-8T-2Zl" id="knh-Lw-qGt"/>
@@ -82,6 +84,106 @@
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pZ-cw-p23" userLabel="View - Hole Stats Space">
                     <rect key="frame" x="0.0" y="215" width="320" height="300"/>
                     <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBB-gi-7gq" userLabel="View - IntView">
+                            <rect key="frame" x="0.0" y="30" width="320" height="270"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWJ-6v-tXt">
+                                    <rect key="frame" x="215" y="0.0" width="105" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                    <state key="normal" title="2">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="twoOptionTapped:" destination="-1" eventType="touchUpInside" id="liF-YZ-krM"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2B-5o-BPc">
+                                    <rect key="frame" x="215" y="136" width="105" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                    <state key="normal" title="5">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="fiveOptionTapped:" destination="-1" eventType="touchUpInside" id="CaY-fz-iWl"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyy-p7-a0E">
+                                    <rect key="frame" x="107" y="136" width="106" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                    <state key="normal" title="4">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="fourOptionTapped:" destination="-1" eventType="touchUpInside" id="8fm-0u-McM"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="col-jD-Tbe">
+                                    <rect key="frame" x="0.0" y="136" width="105" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                    <state key="normal" title="3">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="threeOptionTapped:" destination="-1" eventType="touchUpInside" id="iUf-aB-T5A"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3p-ia-g2M">
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                    <state key="normal" title="0">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="zeroOptionTapped:" destination="-1" eventType="touchUpInside" id="ghS-ba-gT7"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6W8-hy-fwd">
+                                    <rect key="frame" x="107" y="0.0" width="106" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                    <state key="normal" title="1">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="oneOptionTapped:" destination="-1" eventType="touchUpInside" id="aIy-lv-zVn"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k8k-mW-vjh" userLabel="View - BoolView">
+                            <rect key="frame" x="0.0" y="30" width="320" height="270"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgj-wt-GQF">
+                                    <rect key="frame" x="0.0" y="2" width="320" height="134"/>
+                                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
+                                    <state key="normal" title="YES">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="yesOptionTapped:" destination="-1" eventType="touchUpInside" id="FHX-vU-SHx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGF-fS-IPm">
+                                    <rect key="frame" x="0.0" y="138" width="320" height="133"/>
+                                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
+                                    <state key="normal" title="NO">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="noOptionTapped:" destination="-1" eventType="touchUpInside" id="bXS-O2-UT2"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zTh-BG-U34">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                             <subviews>
@@ -100,28 +202,6 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgj-wt-GQF">
-                            <rect key="frame" x="0.0" y="34" width="320" height="134"/>
-                            <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
-                            <state key="normal" title="YES">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="yesOptionTapped:" destination="-1" eventType="touchUpInside" id="FHX-vU-SHx"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGF-fS-IPm">
-                            <rect key="frame" x="0.0" y="171" width="320" height="133"/>
-                            <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="40"/>
-                            <state key="normal" title="NO">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="noOptionTapped:" destination="-1" eventType="touchUpInside" id="bXS-O2-UT2"/>
-                            </connections>
-                        </button>
                     </subviews>
                 </view>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-eI-kPP" userLabel="View - Hole Score Entry">
