@@ -4,11 +4,8 @@
 //
 //  Created by Jacob Sanchez on 5/21/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "CourseChoiceVC.h"
-#import "Course.h"
-#import "CourseDAO.h"
 #import "CourseChoiceCell.h"
 #import "TeeChoiceVC.h"
 
@@ -24,16 +21,6 @@
 @implementation CourseChoice
 
 @synthesize table, previousPage, nextPage, spinnerView, searchField, segment, noCoursesLabel, continueButton;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -114,24 +101,22 @@
 - (IBAction)searchByTapped:(id)sender
 {
     [searchField resignFirstResponder];
-    [self displayLoadingScreen:NO];
+    [self displayLoadingScreen:YES];
     selectedRow = -1;
     continueButton.enabled = NO;
     int index = [segment selectedSegmentIndex];
     NSString *searchString = searchField.text;
-    switch (index) {
+    switch (index)
+    {
         case 0:
-            [dao fetchCoursesSearchByKeyword:self search:searchString];
+            [dao fetchCoursesSearchByKeyword:searchString];
             break;
-            
         case 1:
-            [dao fetchCoursesSearchByCity:self search:searchString];
+            [dao fetchCoursesSearchByCity:searchString];
             break;
-            
         case 2:
-            [dao fetchCoursesSearchByState:self search:searchString];
+            [dao fetchCoursesSearchByState:searchString];
             break;
-            
         default:
             break;
     }
@@ -139,8 +124,9 @@
 
 - (void)showAllCourses
 {
-    [self displayLoadingScreen:NO];
-    [dao fetchFirstPaginatedCourses:self];
+    [self displayLoadingScreen:YES];
+    dao.delegate = self;
+    [dao fetchFirstPaginatedCourses];
 }
 
 - (IBAction)clearSearchParameters:(id)sender
@@ -152,7 +138,7 @@
 - (void)refreshCourseList:(NSMutableArray *)array
 {
     courses = array;
-    [self displayLoadingScreen:YES];
+    [self displayLoadingScreen:NO];
     [self.table reloadData];
     [self scrollTableToTop];
     noCoursesLabel.hidden = [array count] != 0;
@@ -160,7 +146,7 @@
 
 - (void)alertNoCoursesFetched
 {
-    [self displayLoadingScreen:YES];
+    [self displayLoadingScreen:NO];
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"No Courses found."
                                                    message:@"Either your network connection isn't strong enough or we are experiencing technical difficulties."
                                                   delegate:nil
@@ -169,21 +155,23 @@
     [view show];
 }
 
-- (void)displayLoadingScreen:(BOOL)fetchedCourses
+- (void)displayLoadingScreen:(BOOL)show
 {
-    spinnerView.hidden = fetchedCourses;
+    spinnerView.hidden = !show;
 }
 
 - (IBAction)showPrevPagination:(id)sender
 {
-    [self displayLoadingScreen:NO];
-    [dao fetchPreviousPaginatedBatch:self];
+    [self displayLoadingScreen:YES];
+    dao.delegate = self;
+    [dao fetchPreviousPaginatedBatch];
 }
 
 - (IBAction)showNextPagination:(id)sender
 {
-    [self displayLoadingScreen:NO];
-    [dao fetchNextPaginatedBatch:self];
+    [self displayLoadingScreen:YES];
+    dao.delegate = self;
+    [dao fetchNextPaginatedBatch];
 }
 
 - (void)setPrevButton:(BOOL)prev andNext:(BOOL)next

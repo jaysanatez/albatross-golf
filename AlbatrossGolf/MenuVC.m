@@ -73,6 +73,7 @@
     cell.textLabel.text = [menuOptions objectAtIndex:indexPath.row];
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.font = [UIFont fontWithName:@"Iowan Old Style" size:18];
+    
     // cell.imageView.image = [UIImage imageNamed:[menuThumbs objectAtIndex:indexPath.row]];
     cell.backgroundColor = [UIColor clearColor];
     
@@ -96,12 +97,6 @@
 - (void)logout:(id)sender
 {
     [self.navigationController popViewControllerAnimated:NO];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

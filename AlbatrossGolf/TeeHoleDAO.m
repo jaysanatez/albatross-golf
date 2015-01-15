@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 10/19/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "TeeHoleDAO.h"
 #import "ScorecardVC.h"
@@ -15,9 +14,11 @@
     NSString *urlExt;
 }
 
-static NSString *baseUrl = @"http://api.scorecard.us/v1/";
+static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
-- (void)fetchTeeHolesForTee:(NSNumber *)teeId withDelegate:(NSObject *)delegate
+@synthesize delegate;
+
+- (void)fetchTeeHolesForTee:(NSNumber *)teeId
 {
     __block NSMutableArray *teeHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
@@ -25,7 +26,7 @@ static NSString *baseUrl = @"http://api.scorecard.us/v1/";
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"78d9c1bc30a4127652ded10d5a069a063544d743";
+    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setTimeoutInterval:30.0f];
@@ -41,11 +42,8 @@ static NSString *baseUrl = @"http://api.scorecard.us/v1/";
          {
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [teeHoles addObjectsFromArray:[self parseAllTeeHoleData:data withDelegate:delegate]];
-                 if([delegate isKindOfClass:[Scorecard class]])
-                 {
-                     [(Scorecard *)delegate refreshTeeHoles:teeHoles];
-                 }
+                 [teeHoles addObjectsFromArray:[self parseAllTeeHoleData:data]];
+                 [delegate refreshTeeHoles:teeHoles];
              });
          }
          else if ([data length] == 0)
@@ -59,7 +57,7 @@ static NSString *baseUrl = @"http://api.scorecard.us/v1/";
      }];
 }
 
-- (NSMutableArray *)parseAllTeeHoleData:(NSData *)data withDelegate:(NSObject *)delegate
+- (NSMutableArray *)parseAllTeeHoleData:(NSData *)data
 {
     NSMutableArray *teeHoles = [[NSMutableArray alloc] initWithObjects:nil];
     

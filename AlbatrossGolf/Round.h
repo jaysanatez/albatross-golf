@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 10/19/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 
@@ -14,5 +13,6 @@
 @property (nonatomic, strong) NSDate *date_played;
 @property (nonatomic, strong) NSString *course_name;
 @property BOOL is_complete;
+@property NSMutableArray *roundHoles;
 
 @end

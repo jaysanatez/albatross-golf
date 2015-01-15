@@ -195,8 +195,8 @@
     round_hole.hitGir = [[holeData objectAtIndex:1] boolValue];
     round_hole.hitFairwayBunker = [[holeData objectAtIndex:2] boolValue];
     round_hole.hitGreensideBunker = [[holeData objectAtIndex:3] boolValue];
-    round_hole.putts = [[holeData objectAtIndex:4] intValue];
-    round_hole.penalties = [[holeData objectAtIndex:5] intValue];
+    round_hole.putts = [NSNumber numberWithInt:[[holeData objectAtIndex:4] intValue]];
+    round_hole.penalties = [NSNumber numberWithInt:[[holeData objectAtIndex:5] intValue]];
 }
 
 @end

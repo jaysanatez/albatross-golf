@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 5/31/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "RoundLookupVC.h"
 #import "HoleLookupCell.h"
@@ -26,7 +25,7 @@
 
 @implementation RoundLookupVC
 
-@synthesize game,collecView,holeStats,statsLabel,holeStatsFromDB, tableView;
+@synthesize collecView,holeStats,statsLabel,holeStatsFromDB,game,tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

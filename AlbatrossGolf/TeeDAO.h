@@ -4,13 +4,21 @@
 //
 //  Created by Jacob Sanchez on 10/19/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 
+@protocol TeeFetchDelegate
+
+- (void)refreshTeeList:(NSMutableArray *)tees;
+- (void)alertNoTeesFetched;
+
+@end
+
 @interface TeeDAO : NSObject
 
-- (void)fetchTeesForCourse:(NSNumber *)courseId withDelegate:(NSObject *)delegate;
-- (void)fetchTeesForUser:(NSNumber *)userId withDelegate:(NSObject *)delegate;
+@property (nonatomic, weak) id <TeeFetchDelegate> delegate;
+
+- (void)fetchTeesForCourse:(NSNumber *)courseId;
+- (void)fetchTeesForUser:(NSNumber *)userId;
 
 @end

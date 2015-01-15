@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 10/22/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "RecentTeeChoiceVC.h"
 #import "ScorecardVC.h"
@@ -41,7 +40,8 @@
     moreButton.layer.masksToBounds = YES;
     
     dao = [[TeeDAO alloc] init];
-    [dao fetchTeesForUser:[NSNumber numberWithInt:2] withDelegate:self];
+    dao.delegate = self;
+    [dao fetchTeesForUser:[NSNumber numberWithInt:2]];
     [self displayLoadingScreen:NO];
     noTees.hidden = YES;
     selectedRow = -1;
@@ -118,7 +118,7 @@
         Tee *t = (Tee *)[tees objectAtIndex:path.row];
         controller.courseId = t.course_id;
         controller.teeId = t.id_num;
-        // course name ? yeah
+        controller.courseName = t.course_name;
     }
 }
 

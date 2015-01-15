@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 5/23/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "ScorecardVC.h"
 #import "HoleScoreCell.h"
@@ -22,16 +21,6 @@
 @implementation Scorecard
 
 @synthesize collecView, round, courseId, teeId, courseName, teeHoles, spinnerView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -52,7 +41,8 @@
 {
     [super viewDidAppear:animated];
     [self displayLoadingScreen:NO];
-    [dao fetchTeeHolesForTee:teeId withDelegate:self];
+    dao.delegate = self;
+    [dao fetchTeeHolesForTee:teeId];
 }
 
 - (void)refreshTeeHoles:(NSMutableArray *)tHoles
@@ -94,15 +84,6 @@
 - (void)displayLoadingScreen:(BOOL)fetchedCourses
 {
     spinnerView.hidden = fetchedCourses;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    /* float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
-    if (bottomEdge >= scrollView.contentSize.height)
-    {
-        [self viewDidAppear:NO];
-    } */
 }
 
 @end
