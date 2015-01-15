@@ -43,8 +43,6 @@
 		1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9A81A2641A100378BA4 /* PastRoundsVC.m */; };
 		1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AA1A2641A100378BA4 /* PastRoundCell.m */; };
 		1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */; };
-		1641C9B41A2641AB00378BA4 /* HoleLookupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B01A2641AB00378BA4 /* HoleLookupCell.m */; };
-		1641C9B51A2641AB00378BA4 /* RoundStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B21A2641AB00378BA4 /* RoundStatCell.m */; };
 		1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */; };
 		1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B91A2641D000378BA4 /* GroupStatCell.m */; };
 		1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9BE1A2641E400378BA4 /* HorizontalSlider.m */; };
@@ -58,6 +56,11 @@
 		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
 		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
 		16C3C32E1A676EC3008F297D /* RoundHoleDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */; };
+		16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640BC1A6857F200443472 /* RoundLookupVC.xib */; };
+		16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */; };
+		16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */; };
+		16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */; };
+		16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,10 +138,6 @@
 		1641C9AA1A2641A100378BA4 /* PastRoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundCell.m; sourceTree = "<group>"; };
 		1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundLookupVC.h; sourceTree = "<group>"; };
 		1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundLookupVC.m; sourceTree = "<group>"; };
-		1641C9AF1A2641AB00378BA4 /* HoleLookupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupCell.h; sourceTree = "<group>"; };
-		1641C9B01A2641AB00378BA4 /* HoleLookupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupCell.m; sourceTree = "<group>"; };
-		1641C9B11A2641AB00378BA4 /* RoundStatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStatCell.h; sourceTree = "<group>"; };
-		1641C9B21A2641AB00378BA4 /* RoundStatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStatCell.m; sourceTree = "<group>"; };
 		1641C9B61A2641D000378BA4 /* MGStatsViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGStatsViewVC.h; sourceTree = "<group>"; };
 		1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGStatsViewVC.m; sourceTree = "<group>"; };
 		1641C9B81A2641D000378BA4 /* GroupStatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupStatCell.h; sourceTree = "<group>"; };
@@ -164,6 +163,13 @@
 		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
 		16C3C32C1A676EC3008F297D /* RoundHoleDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHoleDAO.h; sourceTree = "<group>"; };
 		16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHoleDAO.m; sourceTree = "<group>"; };
+		16D640BC1A6857F200443472 /* RoundLookupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundLookupVC.xib; sourceTree = "<group>"; };
+		16D640C11A6863CA00443472 /* HoleLookupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupCollectionViewCell.h; sourceTree = "<group>"; };
+		16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupCollectionViewCell.m; sourceTree = "<group>"; };
+		16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleLookupCollectionViewCell.xib; sourceTree = "<group>"; };
+		16D640C61A686BEB00443472 /* HoleLookupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupTableViewCell.h; sourceTree = "<group>"; };
+		16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupTableViewCell.m; sourceTree = "<group>"; };
+		16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleLookupTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,10 +389,13 @@
 			children = (
 				1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */,
 				1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */,
-				1641C9AF1A2641AB00378BA4 /* HoleLookupCell.h */,
-				1641C9B01A2641AB00378BA4 /* HoleLookupCell.m */,
-				1641C9B11A2641AB00378BA4 /* RoundStatCell.h */,
-				1641C9B21A2641AB00378BA4 /* RoundStatCell.m */,
+				16D640BC1A6857F200443472 /* RoundLookupVC.xib */,
+				16D640C11A6863CA00443472 /* HoleLookupCollectionViewCell.h */,
+				16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */,
+				16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */,
+				16D640C61A686BEB00443472 /* HoleLookupTableViewCell.h */,
+				16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */,
+				16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */,
 			);
 			name = "round lookup";
 			sourceTree = "<group>";
@@ -502,12 +511,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */,
+				16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */,
 				1641C9A41A26416E00378BA4 /* square.png in Resources */,
 				1641C9A01A26416E00378BA4 /* 2circle.png in Resources */,
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
 				1641C9A11A26416E00378BA4 /* 2square.png in Resources */,
 				1641C9A21A26416E00378BA4 /* circle.png in Resources */,
+				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
+				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
 			);
@@ -531,6 +543,7 @@
 				1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */,
 				1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */,
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
+				16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */,
 				1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */,
 				1641C9501A263F4900378BA4 /* LoginVC.m in Sources */,
 				1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */,
@@ -548,7 +561,6 @@
 				1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */,
 				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
-				1641C9B41A2641AB00378BA4 /* HoleLookupCell.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
 				1641C9D31A26435E00378BA4 /* Hole.m in Sources */,
 				1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */,
@@ -557,7 +569,7 @@
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
-				1641C9B51A2641AB00378BA4 /* RoundStatCell.m in Sources */,
+				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,
 				168E94071A2795500065E1C4 /* RoundHole.m in Sources */,
 				1641C9671A263FB000378BA4 /* TeeHole.m in Sources */,
 				1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */,

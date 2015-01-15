@@ -6,26 +6,20 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RoundLookupVC.h"
-#import "HoleLookupCell.h"
-#import "ScorecardVC.h"
-#import "Course.h"
-#import "Game.h"
-#import "RoundStatCell.h"
-#import "HoleStatsDAO.h"
+#import "HoleLookupCollectionViewCell.h"
+#import "HoleLookupTableViewCell.h"
 
 @interface RoundLookupVC ()
 {
-    BOOL hasAllFrontNine;
-    BOOL hasAllBackNine;
-    int parsHad,birdiesHad,bogeysHad,worseThanBogeys,threeScores,numThrees,fourScores,numFours,fiveScores,numFives,numPutts,numOnePutts,numThreePutts,numberPen,numBunkers;
-    NSString *fairHit,*fairwayFrac,*greenFrac,*greensHit,*sandSaves,*sandSavesFrac,*parSaves,*parSavesFrac;
+    // BOOL hasAllFrontNine;
+    // BOOL hasAllBackNine;
 }
 
 @end
 
 @implementation RoundLookupVC
 
-@synthesize collecView,holeStats,statsLabel,holeStatsFromDB,game,tableView;
+@synthesize round, collecView, statsLabel, tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,44 +33,29 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,self.view.bounds.size.width-210,
-                                                                    self.navigationController.navigationBar.bounds.size.height)];
-    titleLabel.text= game.toString;
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont fontWithName:@"Iowan Old Style" size:18];
-    titleLabel.textAlignment = NSTextAlignmentRight;
-    self.navigationItem.titleView = titleLabel;
     
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
-                                                                        green:1.0
-                                                                         blue:102.0/255.0
-                                                                        alpha:0.8];
+    [collecView registerNib:[UINib nibWithNibName:@"HoleLookupCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"HoleLookup"];
+    [tableView registerNib:[UINib nibWithNibName:@"HoleLookupTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"RoundStat"];
+    self.title = @"Round Lookup";
     
-    [[self collecView] setDataSource:self];
-    [[self collecView] setDelegate:self];
-    hasAllFrontNine = YES;
+    /* hasAllFrontNine = YES;
     hasAllBackNine = YES;
-    holeStats = [[NSMutableArray alloc] initWithCapacity:18];
-    for(int i=0; i<18;i++)
-    {
-        [holeStats setObject:[NSNumber numberWithInt:0] atIndexedSubscript:i];
-    }
-    [self getHoleStats];
+    [self getHoleStats];*/
     
-    if(!game.completed)
+    if (!round.is_complete)
     {
         statsLabel.text = @"Complete to compile statistics.";
         statsLabel.textColor = [UIColor redColor];
     }
     else
     {
-        self.navigationItem.rightBarButtonItem.title = @"Edit";
-        [self doTheStats];
+        statsLabel.text = @"Round Statistics";
+        statsLabel.textColor = [UIColor whiteColor];
     }
-    self.tableView.allowsSelection = NO;
+    tableView.allowsSelection = NO;
 }
 
--(void)doTheStats
+/* -(void)doTheStats
 {
     NSMutableArray *actScores = game.coursePlayed.parSequence;
     NSMutableArray *myScores = game.holeScores;
@@ -240,16 +219,10 @@
         sandSavesFrac = @"-/-";
         sandSaves = @"--";
     }
-}
+}*/
 
--(void)getHoleStats
-{
-    HoleStatsDAO *dao = [[HoleStatsDAO alloc] init];
-    holeStats = [dao getHoleStatsForGame:game];
-    holeStatsFromDB = [dao getHoleStatsFromDBForGame:game];
-}
+// collectionview datasource and delegate method
 
-// datasource and delegate method
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
@@ -257,15 +230,19 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [game.coursePlayed.parSequence count]+2;
+    return 20;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"HoleLookup";
-    HoleLookupCell *cell = [collecView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    HoleLookupCollectionViewCell *cell = [collecView dequeueReusableCellWithReuseIdentifier:@"HoleLookup" forIndexPath:indexPath];
    
-    if(indexPath.item < 9)
+    cell.holeNo.text = [NSString stringWithFormat:@"%i", indexPath.row];
+    cell.holePar.text = @"4";
+    cell.holeScore.text = indexPath.row % 2 == 0 ? @"3" : @"5";
+    cell.image.image = [UIImage imageNamed: indexPath.row % 2 == 0 ? @"circle.png" : @"square.png"];
+    
+    /*if(indexPath.item < 9)
     {
         [[cell holePar] setText:[NSString stringWithFormat: @"%@",
                                 [game.coursePlayed.parSequence objectAtIndex:indexPath.item]]];
@@ -361,16 +338,23 @@
                                                          green:1.0
                                                           blue:102.0/255.0
                                                          alpha:0.8];
-        }
+        }*/
     
     return cell;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
     return 2; // This is the minimum inter item spacing, can be more
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(0,0,0,0);
+}
+
 // table view datasource and delegate
+ 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -383,27 +367,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellId = @"statCell";
-    RoundStatCell *cell = (RoundStatCell *)[tableView dequeueReusableCellWithIdentifier:cellId];
+    HoleLookupTableViewCell *cell = (HoleLookupTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RoundStat"];
     
-    if(cell == nil)
-        cell = [[RoundStatCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    if (cell == nil)
+    {
+        cell = [[HoleLookupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RoundStat"];
+    }
     
-    if(!game.completed)
+    if (!round.is_complete)
     {
         cell.statName.text = @"";
         cell.statFig.text = @"";
         cell.statFrac.text = @"";
         return cell;
     }
+    else
+    {
+        cell.statName.text = @"Category";
+        cell.statFig.text = @"##";
+        cell.statFrac.text = @"#/##";
+    }
     
-    switch (indexPath.row) {
-        case 0:
+    switch (indexPath.row)
+    {
+        /*case 0:
             cell.statName.text = @"Pars";
             cell.statFig.text = [NSString stringWithFormat:@"%i",parsHad];
             cell.statFrac.text = @"";
             break;
-        
+            
         case 1:
             cell.statName.text = @"Birdies";
             cell.statFig.text = [NSString stringWithFormat:@"%i",birdiesHad];
@@ -439,11 +431,10 @@
             cell.statFig.text = [[NSString stringWithFormat:@"%f",((double) fiveScores)/numFives] substringToIndex:4];
             cell.statFrac.text = @"";
             break;
-            
         case 7:
             cell.statName.text = @"Fairways";
-            cell.statFrac.text = [NSString stringWithFormat:@"%@",fairwayFrac];
-            cell.statFig.text = [NSString stringWithFormat:@"%@%%",fairHit];
+            cell.statFrac.text = [self getFairwaysHitFraction];
+            cell.statFig.text = [self getFairwaysHitPercentage];
             break;
             
         case 8:
@@ -492,11 +483,12 @@
             cell.statName.text = @"Penalty Strokes";
             cell.statFig.text = [NSString stringWithFormat:@"%i",numberPen];
             cell.statFrac.text = @"";
-            break;
+            break;*/
             
         default:
             break;
     }
+    
     return cell;
 }
 

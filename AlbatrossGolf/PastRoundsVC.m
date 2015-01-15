@@ -45,9 +45,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section > 0)
-        return 20;
-    return 30;
+    return section > 0 ? 20 :30;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -62,24 +60,37 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString *cellIdentifier = @"customCell";
     PastRoundCell *cell = (PastRoundCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil)
         cell = [[PastRoundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
-    if (indexPath.section == 0)
-    {
-        cell.round = (Round *)[incompleteRounds objectAtIndex:indexPath.row];
-    }
-    else
-    {
-        cell.round = (Round *)[completeRounds objectAtIndex:indexPath.row];
-    }
+    cell.round = [self retrieveRoundForIndexPath:indexPath];
 
     [cell reloadLabels];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tabView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Round *round = [self retrieveRoundForIndexPath:indexPath];
+    
+    RoundLookupVC *controller = [[RoundLookupVC alloc] initWithNibName:@"RoundLookupVC" bundle:[NSBundle mainBundle]];
+    controller.round = round;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (Round *)retrieveRoundForIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        return (Round *)[incompleteRounds objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        return (Round *)[completeRounds objectAtIndex:indexPath.row];
+    }
 }
 
 - (void)refreshRoundList:(NSMutableArray *)rounds
@@ -127,19 +138,6 @@
         {
             [incompleteRounds addObject:r];
         }
-    }
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    return ![identifier isEqualToString:@"roundLookup"];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"roundLookup"])
-    {
-        // something
     }
 }
 
