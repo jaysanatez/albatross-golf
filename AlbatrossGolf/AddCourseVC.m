@@ -4,12 +4,10 @@
 //
 //  Created by Jacob Sanchez on 5/28/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "AddCourseVC.h"
 #import "CourseChoiceVC.h"
 #import "Course.h"
-#import "MenuVC.h"
 #import "CourseDAO.h"
 
 @interface AddCourse ()
@@ -180,7 +178,6 @@
         [array addObject:[NSNumber numberWithInt:parNum]];
         holeNum++;
     }
-    !IS_IPHONE_5 ? [self scrollTextViewToBottom] : nil;
 }
 
 -(IBAction)undoParSequenceEntry:(id)sender
@@ -194,7 +191,6 @@
                 string = [NSString stringWithFormat:@"%@ %@ \tHole %i:",string,[array objectAtIndex:i],i+2];
         pars.text = string;
     }
-    !IS_IPHONE_5 ? [self scrollTextViewToBottom] : nil;
 }
 
 -(void)scrollTextViewToBottom

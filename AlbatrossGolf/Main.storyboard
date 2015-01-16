@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ivz-gj-4hx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -16,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="440-Gb-NyW">
-                                <rect key="frame" x="35" y="320" width="250" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="440-Gb-NyW">
+                                <rect key="frame" x="35" y="319" width="250" height="40"/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="QiW-VH-w8d"/>
+                                    <constraint firstAttribute="height" constant="40" id="nRu-8A-GXR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="28"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,27 +32,49 @@
                                     <segue destination="vXZ-lx-hvc" kind="push" id="1sV-3r-sjh"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkC-Wd-wzg">
-                                <rect key="frame" x="35" y="210" width="250" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkC-Wd-wzg">
+                                <rect key="frame" x="35" y="209" width="250" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="JE0-oO-oQC"/>
+                                    <constraint firstAttribute="height" constant="40" id="oRd-4B-XRG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-Ye-HTz">
-                                <rect key="frame" x="35" y="265" width="250" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WnW-Ye-HTz">
+                                <rect key="frame" x="35" y="264" width="250" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="5c3-hC-NdI"/>
+                                    <constraint firstAttribute="height" constant="40" id="zZY-Dq-ug7"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Albatross Golf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8g-Wh-a4m">
-                                <rect key="frame" x="0.0" y="78" width="320" height="58"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albatross Golf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8g-Wh-a4m">
+                                <rect key="frame" x="0.0" y="79" width="320" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Dfr-cZ-2IW"/>
+                                    <constraint firstAttribute="width" constant="320" id="Tir-C3-JQN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="41"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="440-Gb-NyW" firstAttribute="top" secondItem="WnW-Ye-HTz" secondAttribute="bottom" constant="15" id="2D9-0L-efu"/>
+                            <constraint firstAttribute="centerX" secondItem="s8g-Wh-a4m" secondAttribute="centerX" id="Sjd-gD-w7r"/>
+                            <constraint firstItem="WnW-Ye-HTz" firstAttribute="top" secondItem="lkC-Wd-wzg" secondAttribute="bottom" constant="15" id="T8o-vl-bhm"/>
+                            <constraint firstAttribute="centerX" secondItem="lkC-Wd-wzg" secondAttribute="centerX" id="Tzv-ep-gdd"/>
+                            <constraint firstAttribute="centerY" secondItem="WnW-Ye-HTz" secondAttribute="centerY" id="dGs-cx-McC"/>
+                            <constraint firstItem="s8g-Wh-a4m" firstAttribute="top" secondItem="Hag-cy-cNv" secondAttribute="bottom" constant="15" id="dQ0-gg-Ouc"/>
+                            <constraint firstAttribute="centerX" secondItem="WnW-Ye-HTz" secondAttribute="centerX" id="xCl-oI-K2t"/>
+                            <constraint firstAttribute="centerX" secondItem="440-Gb-NyW" secondAttribute="centerX" id="xan-rh-apE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HAk-EP-sFu"/>
                     <connections>
@@ -60,10 +87,10 @@
             </objects>
             <point key="canvasLocation" x="4" y="-618"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vXZ-lx-hvc" customClass="MenuViewController" customModule="AlbatrossGolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cgq-qQ-Zza"/>
                         <viewControllerLayoutGuide type="bottom" id="z1n-jp-ZZt"/>
@@ -72,13 +99,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-nG-yfu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ynh-nG-yfu">
                                 <rect key="frame" x="0.0" y="120" width="320" height="360"/>
                                 <color key="tintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="360" id="1Ks-qP-W1B"/>
-                                    <constraint firstAttribute="width" constant="320" id="3If-vF-6GR"/>
-                                </constraints>
                                 <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="goToChooseCourse" id="V2U-Oz-vj0">
@@ -88,7 +111,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="0HN-I4-ohi" kind="push" identifier="goToChooseCourse" id="MGV-Bb-62R"/>
                                         </connections>
@@ -111,9 +133,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="77k-MN-VD1" kind="push" identifier="goToMultiStats" id="69W-Zq-3eP"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="goToCompStats" id="nU5-31-Fsf">
                                         <rect key="frame" x="0.0" y="232" width="320" height="70"/>
@@ -130,12 +149,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="2YO-JH-Kef"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="kEs-At-cAB"/>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="mGf-fl-thT"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="TaI-7o-jkh"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Albatross Golf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbR-la-aVT">
@@ -145,7 +163,7 @@
                                     <constraint firstAttribute="width" constant="161" id="2HK-Ne-vAU"/>
                                     <constraint firstAttribute="height" constant="35" id="ooF-05-D75"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -155,7 +173,7 @@
                                     <constraint firstAttribute="width" constant="266" id="Mcz-bL-FQz"/>
                                     <constraint firstAttribute="height" constant="18" id="wGG-4x-d1Y"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="IowanOldStyle-Roman" family="Iowan Old Style" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -163,25 +181,27 @@
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="dbM-IV-y43" firstAttribute="top" secondItem="ynh-nG-yfu" secondAttribute="bottom" constant="11" id="LNc-Vx-FZc"/>
                             <constraint firstAttribute="centerX" secondItem="dbM-IV-y43" secondAttribute="centerX" id="Mww-6R-3sY"/>
                             <constraint firstAttribute="centerX" secondItem="AbR-la-aVT" secondAttribute="centerX" id="Ugh-zB-pXb"/>
                             <constraint firstItem="ynh-nG-yfu" firstAttribute="top" secondItem="AbR-la-aVT" secondAttribute="bottom" constant="8" id="WHY-VG-Qsy"/>
                             <constraint firstItem="AbR-la-aVT" firstAttribute="top" secondItem="Cgq-qQ-Zza" secondAttribute="bottom" constant="13" id="WQT-2C-dvW"/>
+                            <constraint firstItem="ynh-nG-yfu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="eOa-tG-VRM"/>
                             <constraint firstItem="z1n-jp-ZZt" firstAttribute="top" secondItem="dbM-IV-y43" secondAttribute="bottom" constant="15" id="mSQ-xx-KU0"/>
-                            <constraint firstAttribute="centerX" secondItem="ynh-nG-yfu" secondAttribute="centerX" id="mlZ-Sb-t2y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ynh-nG-yfu" secondAttribute="trailing" constant="-16" id="qmo-xA-Nu8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jrA-GC-X2E">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="pIP-wG-gEx">
                             <connections>
-                                <action selector="logout:" destination="vXZ-lx-hvc" id="Hno-ql-D9E"/>
+                                <action selector="logout" destination="vXZ-lx-hvc" id="5Dv-so-2jy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <connections>
-                        <outlet property="tableView" destination="ynh-nG-yfu" id="TxI-WT-UNM"/>
+                        <outlet property="tableView" destination="ynh-nG-yfu" id="xNK-Do-GdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
