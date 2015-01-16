@@ -33,7 +33,6 @@
 		1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9941A26405C00378BA4 /* HoleScoreVC.m */; };
 		1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9951A26405C00378BA4 /* HoleScore.xib */; };
 		1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9A81A2641A100378BA4 /* PastRoundsVC.m */; };
-		1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AA1A2641A100378BA4 /* PastRoundCell.m */; };
 		1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */; };
 		1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */; };
 		1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B91A2641D000378BA4 /* GroupStatCell.m */; };
@@ -56,7 +55,8 @@
 		16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CC1A688E3D00443472 /* LoginViewController.swift */; };
 		16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CE1A68920C00443472 /* MenuViewController.swift */; };
 		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
-		16D640D51A68A0F100443472 /* PastRoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D41A68A0F100443472 /* PastRoundCell.xib */; };
+		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
+		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,8 +119,6 @@
 		1641C9951A26405C00378BA4 /* HoleScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScore.xib; sourceTree = "<group>"; };
 		1641C9A71A2641A100378BA4 /* PastRoundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundsVC.h; sourceTree = "<group>"; };
 		1641C9A81A2641A100378BA4 /* PastRoundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundsVC.m; sourceTree = "<group>"; };
-		1641C9A91A2641A100378BA4 /* PastRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundCell.h; sourceTree = "<group>"; };
-		1641C9AA1A2641A100378BA4 /* PastRoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundCell.m; sourceTree = "<group>"; };
 		1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundLookupVC.h; sourceTree = "<group>"; };
 		1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundLookupVC.m; sourceTree = "<group>"; };
 		1641C9B61A2641D000378BA4 /* MGStatsViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGStatsViewVC.h; sourceTree = "<group>"; };
@@ -159,7 +157,8 @@
 		16D640CC1A688E3D00443472 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		16D640CE1A68920C00443472 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		16D640D11A689F4A00443472 /* PastRoundsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundsVC.xib; sourceTree = "<group>"; };
-		16D640D41A68A0F100443472 /* PastRoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundCell.xib; sourceTree = "<group>"; };
+		16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRoundTableViewCell.swift; sourceTree = "<group>"; };
+		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,9 +351,8 @@
 				1641C9A71A2641A100378BA4 /* PastRoundsVC.h */,
 				1641C9A81A2641A100378BA4 /* PastRoundsVC.m */,
 				16D640D11A689F4A00443472 /* PastRoundsVC.xib */,
-				1641C9A91A2641A100378BA4 /* PastRoundCell.h */,
-				1641C9AA1A2641A100378BA4 /* PastRoundCell.m */,
-				16D640D41A68A0F100443472 /* PastRoundCell.xib */,
+				16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */,
+				16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */,
 			);
 			name = "past rounds";
 			sourceTree = "<group>";
@@ -486,7 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */,
-				16D640D51A68A0F100443472 /* PastRoundCell.xib in Resources */,
+				16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */,
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
@@ -521,13 +519,13 @@
 				1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */,
 				1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */,
 				1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */,
+				16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */,
 				1641C9D51A26435E00378BA4 /* Game.m in Sources */,
 				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
 				1641C9631A263FB000378BA4 /* Course.m in Sources */,
 				1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */,
 				1641C9691A263FB000378BA4 /* Round.m in Sources */,
-				1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */,
 				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
