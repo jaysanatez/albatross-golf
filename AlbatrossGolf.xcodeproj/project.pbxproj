@@ -55,6 +55,8 @@
 		16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */; };
 		16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CC1A688E3D00443472 /* LoginViewController.swift */; };
 		16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CE1A68920C00443472 /* MenuViewController.swift */; };
+		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
+		16D640D51A68A0F100443472 /* PastRoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D41A68A0F100443472 /* PastRoundCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,8 @@
 		16D640CB1A688E3C00443472 /* AlbatrossGolf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlbatrossGolf-Bridging-Header.h"; sourceTree = "<group>"; };
 		16D640CC1A688E3D00443472 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		16D640CE1A68920C00443472 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		16D640D11A689F4A00443472 /* PastRoundsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundsVC.xib; sourceTree = "<group>"; };
+		16D640D41A68A0F100443472 /* PastRoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,8 +351,10 @@
 			children = (
 				1641C9A71A2641A100378BA4 /* PastRoundsVC.h */,
 				1641C9A81A2641A100378BA4 /* PastRoundsVC.m */,
+				16D640D11A689F4A00443472 /* PastRoundsVC.xib */,
 				1641C9A91A2641A100378BA4 /* PastRoundCell.h */,
 				1641C9AA1A2641A100378BA4 /* PastRoundCell.m */,
+				16D640D41A68A0F100443472 /* PastRoundCell.xib */,
 			);
 			name = "past rounds";
 			sourceTree = "<group>";
@@ -480,12 +486,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */,
+				16D640D51A68A0F100443472 /* PastRoundCell.xib in Resources */,
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
+				16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

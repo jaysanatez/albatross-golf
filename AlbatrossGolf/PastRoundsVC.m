@@ -25,9 +25,18 @@
 
 @synthesize tableView;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    return self;
+}
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    [tableView registerNib:[UINib nibWithNibName:@"PastRoundCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PastRound"];
+    self.title = @"Past Rounds";
+    
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     r_dao = [[RoundDAO alloc] init];
     rh_dao = [[RoundHoleDAO alloc] init];
@@ -60,13 +69,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"customCell";
+    static NSString *cellIdentifier = @"PastRound";
     PastRoundCell *cell = (PastRoundCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil)
+    {
         cell = [[PastRoundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     cell.round = [self retrieveRoundForIndexPath:indexPath];
+    cell.backgroundColor = [UIColor colorWithRed:0.3f green:0.3f blue:0.3f alpha:1.0];
 
     [cell reloadLabels];
     return cell;
