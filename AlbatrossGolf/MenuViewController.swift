@@ -71,23 +71,6 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    /*
-    - (UITableViewCell *)tableView: (UITableView *)tabView cellForRowAtIndexPath: (NSIndexPath *)indexPath
-    {
-    
-    if(cell == nil)
-    {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-    {
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    }
-    
-    cell.textLabel.textColor = [UIColor blackColor];
-    
-    */
-    
     @IBAction func logout()
     {
         self.navigationController?.popViewControllerAnimated(true)
