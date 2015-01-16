@@ -76,11 +76,11 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         
         rs.total_score = [d valueForKey:@"score"];
         
-        rs.num_putts = [d valueForKey:@""];
-        rs.num_penalty_strokes = [d valueForKey:@""];
+        rs.num_putts = [d valueForKey:@"putt"];
+        rs.num_penalty_strokes = [d valueForKey:@"penalty_strokes"];
         
-        rs.num_one_putts = [d valueForKey:@""];
-        rs.num_three_putts = [d valueForKey:@""];
+        rs.num_one_putts = [d valueForKey:@"one_putt"];
+        rs.num_three_putts = [d valueForKey:@"three_putt"];
         
         rs.num_bunkers_hit = [d valueForKey:@"bunker_hit"];
         
