@@ -9,5 +9,4 @@
 
 @implementation HoleLookupTableViewCell
 
-
 @end

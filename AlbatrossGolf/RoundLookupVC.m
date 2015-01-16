@@ -42,7 +42,7 @@
     
     if (!round.is_complete)
     {
-        statsLabel.text = @"Complete to compile statistics.";
+        statsLabel.text = @"Complete for final statistics.";
         statsLabel.textColor = [UIColor redColor];
     }
     else
@@ -91,7 +91,9 @@
     }
     else if (indexPath.row == 9)
     {
-        [cell loadDisplay];
+        cell.holeNo.text = @"OUT";
+        cell.holePar.text = [NSString stringWithFormat:@"%i",[round getFrontNinePar]];
+        cell.holeScore.text = [round frontNineIsCompleted] ? [NSString stringWithFormat:@"%i",[round getFrontNineTotal]] : @"-";
     }
     else if (indexPath.row > 9 && indexPath.row < 19)
     {
@@ -101,7 +103,9 @@
     }
     else
     {
-        [cell loadDisplay];
+        cell.holeNo.text = @"IN";
+        cell.holePar.text = [NSString stringWithFormat:@"%i",[round getBackNinePar]];
+        cell.holeScore.text = [round backNineIsComplete] ? [NSString stringWithFormat:@"%i",[round getBackNineTotal]] : @"-";
     }
     
     return cell;
@@ -171,7 +175,7 @@
             
         case 4:
             cell.statName.text = @"D. Bogeys+";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",rs.num_double_bogeys.integerValue + rs.num_doubles_plus.intValue];
+            cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_double_bogeys.integerValue + rs.num_doubles_plus.intValue];
             cell.statFrac.text = @"";
             break;
             

@@ -17,4 +17,11 @@
 @property NSMutableArray *round_holes, *round_scores;
 @property RoundStats *round_stats;
 
+- (BOOL)frontNineIsCompleted;
+- (BOOL)backNineIsComplete;
+- (int)getFrontNineTotal;
+- (int)getBackNineTotal;
+- (int)getFrontNinePar;
+- (int)getBackNinePar;
+
 @end
