@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "PastRoundsVC.h"
-#import "PastRoundCell.h"
+#import "AlbatrossGolf-Swift.h"
 #import "Course.h"
 #import "Round.h"
 #import "RoundLookupVC.h"
@@ -25,9 +25,18 @@
 
 @synthesize tableView;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    return self;
+}
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    [tableView registerNib:[UINib nibWithNibName:@"PastRoundTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PastRound"];
+    self.title = @"Past Rounds";
+    
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     r_dao = [[RoundDAO alloc] init];
     rh_dao = [[RoundHoleDAO alloc] init];
@@ -55,20 +64,22 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (section == 0) ? [incompleteRounds count] : [completeRounds count];
+    return section == 0 ? [incompleteRounds count] : [completeRounds count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"customCell";
-    PastRoundCell *cell = (PastRoundCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"PastRound";
+    PastRoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil)
-        cell = [[PastRoundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    {
+        cell = [[PastRoundTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
     
     cell.round = [self retrieveRoundForIndexPath:indexPath];
-
     [cell reloadLabels];
+    
     return cell;
 }
 

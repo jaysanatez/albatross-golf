@@ -71,6 +71,15 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if indexPath.row == 1
+        {
+            var controller:PastRoundsVC = PastRoundsVC(nibName:"PastRoundsVC", bundle:NSBundle.mainBundle())
+            self.navigationController?.pushViewController(controller, animated:true)
+        }
+    }
+    
     @IBAction func logout()
     {
         self.navigationController?.popViewControllerAnimated(true)

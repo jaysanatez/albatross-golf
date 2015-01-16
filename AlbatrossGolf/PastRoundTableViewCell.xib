@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PastRoundTableViewCell" customModule="AlbatrossGolf" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="277" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WY-VX-xAH">
+                        <rect key="frame" x="121" y="35" width="150" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="WGc-oJ-6B4"/>
+                            <constraint firstAttribute="height" constant="25" id="cTH-Lz-vKW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                        <color key="textColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odL-7F-9jt">
+                        <rect key="frame" x="10" y="35" width="100" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="294-tG-lAP"/>
+                            <constraint firstAttribute="height" constant="25" id="fn4-Wv-Vgm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTU-jI-054">
+                        <rect key="frame" x="10" y="5" width="200" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="Lc1-Xl-ViD"/>
+                            <constraint firstAttribute="height" constant="40" id="vgm-e4-2IQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="21"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoR-xy-V5b">
+                        <rect key="frame" x="0.0" y="57" width="277" height="2"/>
+                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="Zsc-tq-ZtP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="AoR-xy-V5b" secondAttribute="trailing" constant="-8" id="77W-e1-6yo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="3WY-VX-xAH" secondAttribute="bottom" constant="-9" id="Hnf-zK-ESf"/>
+                    <constraint firstItem="pTU-jI-054" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="LLk-L1-u2y"/>
+                    <constraint firstItem="AoR-xy-V5b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Sat-ub-Vbe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="odL-7F-9jt" secondAttribute="bottom" constant="-9" id="bJG-Q2-xvh"/>
+                    <constraint firstItem="3WY-VX-xAH" firstAttribute="leading" secondItem="odL-7F-9jt" secondAttribute="trailing" constant="11" id="kt9-gp-B5c"/>
+                    <constraint firstItem="pTU-jI-054" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="oja-Do-a9a"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="AoR-xy-V5b" secondAttribute="bottom" constant="-8" id="pWX-ha-RD9"/>
+                    <constraint firstItem="odL-7F-9jt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zwJ-Io-4Th"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="course_name" destination="pTU-jI-054" id="9ws-5I-Awz"/>
+                <outlet property="date_player" destination="odL-7F-9jt" id="Rou-8P-kRG"/>
+                <outlet property="total_score" destination="3WY-VX-xAH" id="ZfZ-e1-FID"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
