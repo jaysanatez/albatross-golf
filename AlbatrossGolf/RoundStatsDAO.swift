@@ -7,7 +7,7 @@
 
 import UIKit
 
-@objc class RoundStatsDAO
+class RoundStatsDAO
 {
     let base_url:String = "http://brobin.pythonanywhere.com/v1/"
     var delegate:RoundStatsFetchDelegate?
@@ -15,11 +15,6 @@ import UIKit
     init()
     {
     
-    }
-    
-    class func newInstance() -> RoundStatsDAO
-    {
-        return RoundStatsDAO()
     }
     
     func fetchStatsForRound(round_id:NSNumber)
@@ -68,7 +63,7 @@ import UIKit
     
     func swiftIsDumb(round_id:NSNumber, r_s:RoundStats)
     {
-        delegate?.roundStatsForRound(round_id, roundStats:r_s)
+        // delegate?.roundStatsForRound(round_id, roundStats:r_s)
     }
     
     func parseRoundStatData(data:NSData) -> RoundStats

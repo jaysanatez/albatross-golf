@@ -10,7 +10,6 @@
 #import "Round.h"
 #import "RoundLookupVC.h"
 #import "AlbatrossGolf-Swift.h"
-@class RoundStatsDAO;
 
 @interface PastRoundsVC ()
 {
@@ -42,7 +41,7 @@
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     r_dao = [[RoundDAO alloc] init];
     rh_dao = [[RoundHoleDAO alloc] init];
-    rs_dao = [RoundStatsDAO newInstance];
+    rs_dao = [[RoundStatsDAO alloc] init];
     r_dao.delegate = self;
     [r_dao fetchAllRoundsForUser:[NSNumber numberWithInt:2]];
     incompleteRounds = [[NSMutableArray alloc] init];

@@ -8,13 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "RoundDAO.h"
 #import "RoundHoleDAO.h"
-@class RoundStats;
-
-@protocol RoundStatsFetchDelegate
-
--(void)roundStatsForRound:(NSNumber *)roundId roundStats:(RoundStats *)roundStats;
-
-@end
+#import "RoundStats.h"
+#import "RoundStatsDAO.h"
 
 @interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate, RoundHoleFetchDelegate, RoundStatsFetchDelegate>
 

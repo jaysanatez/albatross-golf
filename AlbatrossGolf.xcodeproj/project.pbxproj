@@ -59,6 +59,8 @@
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
 		16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DA1A68C8B600443472 /* RoundStats.swift */; };
 		16D640DD1A68D06500443472 /* RoundStatsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DC1A68D06500443472 /* RoundStatsDAO.swift */; };
+		16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BEC1A68E50200D885C2 /* RoundStats.m */; };
+		16FF7BF11A68E77400D885C2 /* RoundStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,10 @@
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
 		16D640DA1A68C8B600443472 /* RoundStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStats.swift; sourceTree = "<group>"; };
 		16D640DC1A68D06500443472 /* RoundStatsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStatsDAO.swift; sourceTree = "<group>"; };
+		16FF7BEB1A68E50200D885C2 /* RoundStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStats.h; sourceTree = "<group>"; };
+		16FF7BEC1A68E50200D885C2 /* RoundStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStats.m; sourceTree = "<group>"; };
+		16FF7BEF1A68E77400D885C2 /* RoundStatsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStatsDAO.h; sourceTree = "<group>"; };
+		16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStatsDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,8 +287,11 @@
 				168E94061A2795500065E1C4 /* RoundHole.m */,
 				16C3C32C1A676EC3008F297D /* RoundHoleDAO.h */,
 				16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */,
-				16D640DA1A68C8B600443472 /* RoundStats.swift */,
-				16D640DC1A68D06500443472 /* RoundStatsDAO.swift */,
+				16FF7BEB1A68E50200D885C2 /* RoundStats.h */,
+				16FF7BEC1A68E50200D885C2 /* RoundStats.m */,
+				16FF7BEF1A68E77400D885C2 /* RoundStatsDAO.h */,
+				16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */,
+				16FF7BEE1A68E5F000D885C2 /* swift copies */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
@@ -409,6 +418,15 @@
 			name = deprecated;
 			sourceTree = "<group>";
 		};
+		16FF7BEE1A68E5F000D885C2 /* swift copies */ = {
+			isa = PBXGroup;
+			children = (
+				16D640DA1A68C8B600443472 /* RoundStats.swift */,
+				16D640DC1A68D06500443472 /* RoundStatsDAO.swift */,
+			);
+			name = "swift copies";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -526,6 +544,7 @@
 				1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */,
 				1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */,
 				16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */,
+				16FF7BF11A68E77400D885C2 /* RoundStatsDAO.m in Sources */,
 				1641C9D51A26435E00378BA4 /* Game.m in Sources */,
 				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
@@ -539,6 +558,7 @@
 				1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */,
 				1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */,
 				1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */,
+				16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */,
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
 				16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */,
