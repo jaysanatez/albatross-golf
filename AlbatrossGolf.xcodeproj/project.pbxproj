@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		162439181A697B8E00A7A049 /* HoleScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 162439171A697B8E00A7A049 /* HoleScore.m */; };
+		1624391B1A697E3B00A7A049 /* HoleScoreDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624391A1A697E3B00A7A049 /* HoleScoreDAO.m */; };
 		1641C9231A263D8000378BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9221A263D8000378BA4 /* main.m */; };
 		1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9251A263D8000378BA4 /* AppDelegate.m */; };
 		1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */; };
@@ -32,7 +33,7 @@
 		1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98D1A26404900378BA4 /* ScorecardVC.m */; };
 		1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98F1A26404900378BA4 /* HoleScoreCell.m */; };
 		1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9941A26405C00378BA4 /* HoleScoreVC.m */; };
-		1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9951A26405C00378BA4 /* HoleScore.xib */; };
+		1641C9971A26405C00378BA4 /* HoleScoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9951A26405C00378BA4 /* HoleScoreVC.xib */; };
 		1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9A81A2641A100378BA4 /* PastRoundsVC.m */; };
 		1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */; };
 		1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9B71A2641D000378BA4 /* MGStatsViewVC.m */; };
@@ -77,6 +78,8 @@
 /* Begin PBXFileReference section */
 		162439161A697B8E00A7A049 /* HoleScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScore.h; sourceTree = "<group>"; };
 		162439171A697B8E00A7A049 /* HoleScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScore.m; sourceTree = "<group>"; };
+		162439191A697E3B00A7A049 /* HoleScoreDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreDAO.h; sourceTree = "<group>"; };
+		1624391A1A697E3B00A7A049 /* HoleScoreDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreDAO.m; sourceTree = "<group>"; };
 		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,7 +126,7 @@
 		1641C98F1A26404900378BA4 /* HoleScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreCell.m; sourceTree = "<group>"; };
 		1641C9931A26405C00378BA4 /* HoleScoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreVC.h; sourceTree = "<group>"; };
 		1641C9941A26405C00378BA4 /* HoleScoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreVC.m; sourceTree = "<group>"; };
-		1641C9951A26405C00378BA4 /* HoleScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScore.xib; sourceTree = "<group>"; };
+		1641C9951A26405C00378BA4 /* HoleScoreVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScoreVC.xib; sourceTree = "<group>"; };
 		1641C9A71A2641A100378BA4 /* PastRoundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundsVC.h; sourceTree = "<group>"; };
 		1641C9A81A2641A100378BA4 /* PastRoundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundsVC.m; sourceTree = "<group>"; };
 		1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundLookupVC.h; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 				16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */,
 				162439161A697B8E00A7A049 /* HoleScore.h */,
 				162439171A697B8E00A7A049 /* HoleScore.m */,
+				162439191A697E3B00A7A049 /* HoleScoreDAO.h */,
+				1624391A1A697E3B00A7A049 /* HoleScoreDAO.m */,
 				16FF7BEE1A68E5F000D885C2 /* swift copies */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
@@ -339,7 +344,7 @@
 			children = (
 				1641C9931A26405C00378BA4 /* HoleScoreVC.h */,
 				1641C9941A26405C00378BA4 /* HoleScoreVC.m */,
-				1641C9951A26405C00378BA4 /* HoleScore.xib */,
+				1641C9951A26405C00378BA4 /* HoleScoreVC.xib */,
 			);
 			name = "hole score";
 			sourceTree = "<group>";
@@ -518,7 +523,7 @@
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
-				1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */,
+				1641C9971A26405C00378BA4 /* HoleScoreVC.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
 				16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */,
 			);
@@ -540,6 +545,7 @@
 			files = (
 				1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */,
 				1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */,
+				1624391B1A697E3B00A7A049 /* HoleScoreDAO.m in Sources */,
 				1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */,
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
 				16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */,

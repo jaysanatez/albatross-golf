@@ -74,7 +74,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    HoleScore *holeScore = [[HoleScore alloc] initWithNibName:@"HoleScore" bundle:[NSBundle mainBundle]];
+    HoleScoreVC *holeScore = [[HoleScoreVC alloc] initWithNibName:@"HoleScoreVC" bundle:[NSBundle mainBundle]];
     TeeHole *tHole = (TeeHole *)[teeHoles objectAtIndex:indexPath.row];
     holeScore.teeHole = tHole;
     holeScore.courseName = courseName;

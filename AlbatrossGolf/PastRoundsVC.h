@@ -10,8 +10,9 @@
 #import "RoundHoleDAO.h"
 #import "RoundStats.h"
 #import "RoundStatsDAO.h"
+#import "HoleScoreDAO.h"
 
-@interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate, RoundHoleFetchDelegate, RoundStatsFetchDelegate>
+@interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate, RoundHoleFetchDelegate, RoundStatsFetchDelegate, HoleScoreFetchDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 

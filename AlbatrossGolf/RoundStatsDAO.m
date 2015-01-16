@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 1/16/15.
 //  Copyright (c) 2015 jacobSanchez. All rights reserved.
-//
 
 #import "RoundStatsDAO.h"
 
@@ -22,8 +21,6 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 - (void)submitRoundFetchRequest:(NSString *)urlString forRound:(NSNumber *)roundId
 {
-    __block NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
-    
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
