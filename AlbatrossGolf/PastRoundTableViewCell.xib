@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTU-jI-054">
-                        <rect key="frame" x="10" y="5" width="200" height="40"/>
+                        <rect key="frame" x="10" y="1" width="200" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="Lc1-Xl-ViD"/>
                             <constraint firstAttribute="height" constant="40" id="vgm-e4-2IQ"/>
@@ -59,7 +59,7 @@
                     <constraint firstItem="AoR-xy-V5b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Sat-ub-Vbe"/>
                     <constraint firstAttribute="bottomMargin" secondItem="odL-7F-9jt" secondAttribute="bottom" constant="-9" id="bJG-Q2-xvh"/>
                     <constraint firstItem="3WY-VX-xAH" firstAttribute="leading" secondItem="odL-7F-9jt" secondAttribute="trailing" constant="11" id="kt9-gp-B5c"/>
-                    <constraint firstItem="pTU-jI-054" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="oja-Do-a9a"/>
+                    <constraint firstItem="pTU-jI-054" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-7" id="oja-Do-a9a"/>
                     <constraint firstAttribute="bottomMargin" secondItem="AoR-xy-V5b" secondAttribute="bottom" constant="-8" id="pWX-ha-RD9"/>
                     <constraint firstItem="odL-7F-9jt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="zwJ-Io-4Th"/>
                 </constraints>
