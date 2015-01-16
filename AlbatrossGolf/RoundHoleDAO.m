@@ -1,39 +1,28 @@
 //
-//  TeeDAO.m
-//  Albatross Golf
+//  RoundHoleDAO.m
+//  AlbatrossGolf
 //
-//  Created by Jacob Sanchez on 10/19/14.
-//  Copyright (c) 2014 jacobSanchez. All rights reserved.
+//  Created by Jacob Sanchez on 1/14/15.
+//  Copyright (c) 2015 jacobSanchez. All rights reserved.
 
-#import "TeeDAO.h"
-#import "Tee.h"
-#import "RecentTeeChoiceVC.h"
-#import "TeeChoiceVC.h"
+#import "RoundHoleDAO.h"
+#import "RoundHole.h"
 
-@implementation TeeDAO
-{
-    NSString *urlExt;
-}
-
-@synthesize delegate;
+@implementation RoundHoleDAO
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
-- (void)fetchTeesForCourse:(NSNumber *)courseId
+@synthesize delegate;
+
+- (void)matchRoundHolesWithRound:(NSNumber *)round_id
 {
-    NSString *urlString = [NSString stringWithFormat:@"course/%@/tees",[courseId stringValue]];
-    [self submitCourseFetchRequest:urlString];
+    NSString *urlString = [NSString stringWithFormat:@"round/%@/holes",[round_id stringValue]];
+    [self submitRoundFetchRequest:urlString forRound:round_id];
 }
 
-- (void)fetchTeesForUser:(NSNumber *)userId
+- (void)submitRoundFetchRequest:(NSString *)urlString forRound:(NSNumber *)roundId
 {
-    NSString *urlString = [NSString stringWithFormat:@"user/%@/tees",[userId stringValue]];
-    [self submitCourseFetchRequest:urlString];
-}
-
-- (void)submitCourseFetchRequest:(NSString *)urlString
-{
-    __block NSMutableArray *tees = [[NSMutableArray alloc] initWithObjects:nil];
+    __block NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
@@ -42,6 +31,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    
     [urlRequest setTimeoutInterval:30.0f];
     [urlRequest setHTTPMethod:@"GET"];
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
@@ -55,26 +45,24 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
          {
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [tees addObjectsFromArray:[self parseAllTeeData:data]];
-                 [delegate refreshTeeList:tees];
-             });
+                [roundHoles addObjectsFromArray:[self parseAllRoundHoleData:data]];
+                [delegate roundHolesForRound:roundHoles roundId:roundId];
+            });
          }
          else if ([data length] == 0)
          {
-             NSLog(@"Tee retrieval returned an empty response.");
-             [delegate alertNoTeesFetched];
+             NSLog(@"Round retrieval returned an empty response.");
          }
          else if (error != nil)
          {
              NSLog(@"Error = %@",[error description]);
-             [delegate alertNoTeesFetched];
          }
      }];
 }
 
-- (NSMutableArray *)parseAllTeeData:(NSData *)data
+- (NSMutableArray *)parseAllRoundHoleData:(NSData *)data
 {
-    NSMutableArray *tees = [[NSMutableArray alloc] initWithObjects:nil];
+    NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
     NSString *myData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"JSON data = %@...", [myData length] > 100 ? [myData substringToIndex:100] : myData);
@@ -86,24 +74,26 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     {
         NSLog(@"Successfully deserialized.");
         
-        for(NSDictionary *teeDict in jsonObject)
+        for(NSDictionary *rhDict in jsonObject)
         {
-            Tee *tee = [[Tee alloc] init];
+            RoundHole *rh = [[RoundHole alloc] init];
             
-            tee.id_num = [teeDict objectForKey:@"id"];
-            tee.name = [teeDict objectForKey:@"name"];
-            tee.slope = [teeDict objectForKey:@"slope"];
-            tee.rating = [teeDict objectForKey:@"rating"];
-            tee.isMale = [[teeDict objectForKey:@"gender"] isEqualToString:@"M"];
+            rh.score = [rhDict valueForKey:@"score"];
+            rh.putts = [rhDict valueForKey:@"putts"];
+            rh.penalties = [rhDict valueForKey:@"penalties"];
             
-            NSDictionary *courseDict = [teeDict objectForKey:@"course"];
-            tee.course_id = [courseDict objectForKey:@"id"];
-            tee.course_name = [courseDict objectForKey:@"name"];
+            rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
+            rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
+            rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
+            rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
             
-            [tees addObject:tee];
+            rh.round_id = [rhDict valueForKey:@"round"];
+            rh.hole_id = [rhDict valueForKey:@"hole"];
+        
+            [roundHoles addObject:rh];
         }
     }
-    return tees;
+    return roundHoles;
 }
 
 @end

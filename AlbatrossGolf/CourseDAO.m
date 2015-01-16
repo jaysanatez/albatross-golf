@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 9/3/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "CourseDAO.h"
 #import "Course.h"
@@ -15,57 +14,59 @@
     NSString *urlExt, *prevPag, *nextPag;
 }
 
-static NSString *baseUrl = @"http://api.scorecard.us/v1/";
+static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 static NSString *searchParam = @"%20";
 static NSString *cityParam = @"%20";
 static NSString *stateParam = @"%20";
 
-- (void)fetchFirstPaginatedCourses:(NSObject *)delegate
+@synthesize delegate;
+
+- (void)fetchFirstPaginatedCourses
 {
     urlExt = @"courses";
-    [self submitCourseFetchRequest:delegate urlString:urlExt];
+    [self submitCourseFetchRequest:urlExt];
 }
 
-- (void)fetchCoursesSearchByKeyword:(NSObject *)delegate search:(NSString *)keyword
+- (void)fetchCoursesSearchByKeyword:(NSString *)keyword
 {
     searchParam = keyword;
     cityParam = @"%20";
     stateParam = @"%20";
     urlExt = [NSString stringWithFormat:@"courses/search/%@/city/%@/state/%@",searchParam,cityParam,stateParam];
-    [self submitCourseFetchRequest:delegate urlString:urlExt];
+    [self submitCourseFetchRequest:urlExt];
 }
 
-- (void)fetchCoursesSearchByCity:(NSObject *)delegate search:(NSString *)city
+- (void)fetchCoursesSearchByCity:(NSString *)city
 {
     searchParam = @"%20";
     cityParam = city;
     stateParam = @"%20";
     urlExt = [NSString stringWithFormat:@"courses/search/%@/city/%@/state/%@",searchParam,cityParam,stateParam];
-    [self submitCourseFetchRequest:delegate urlString:urlExt];
+    [self submitCourseFetchRequest:urlExt];
 }
 
-- (void)fetchCoursesSearchByState:(NSObject *)delegate search:(NSString *)state
+- (void)fetchCoursesSearchByState:(NSString *)state
 {
     searchParam = @"%20";
     cityParam = @"%20";
     stateParam = state;
     urlExt = [NSString stringWithFormat:@"courses/search/%@/city/%@/state/%@",searchParam,cityParam,stateParam];
-    [self submitCourseFetchRequest:delegate urlString:urlExt];
+    [self submitCourseFetchRequest:urlExt];
 }
 
-- (void)fetchPreviousPaginatedBatch:(NSObject *)delegate
+- (void)fetchPreviousPaginatedBatch
 {
     NSString *previousString = [NSString stringWithFormat:@"%@%@",urlExt,prevPag];
-    [self submitCourseFetchRequest:delegate urlString:previousString];
+    [self submitCourseFetchRequest:previousString];
 }
 
-- (void)fetchNextPaginatedBatch:(NSObject *)delegate
+- (void)fetchNextPaginatedBatch
 {
     NSString *nextString = [NSString stringWithFormat:@"%@%@",urlExt,nextPag];
-    [self submitCourseFetchRequest:delegate urlString:nextString];
+    [self submitCourseFetchRequest:nextString];
 }
 
--(void)submitCourseFetchRequest:(NSObject *)delegate urlString:(NSString *)urlString
+-(void)submitCourseFetchRequest:(NSString *)urlString
 {
     __block NSMutableArray *courses = [[NSMutableArray alloc] initWithObjects:nil];
     
@@ -73,9 +74,10 @@ static NSString *stateParam = @"%20";
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"78d9c1bc30a4127652ded10d5a069a063544d743";
+    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    
     [urlRequest setTimeoutInterval:30.0f];
     [urlRequest setHTTPMethod:@"GET"];
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
@@ -89,37 +91,28 @@ static NSString *stateParam = @"%20";
          {
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [courses addObjectsFromArray:[self parseAllCourseData:data withDelegate:delegate]];
-                 if([delegate isKindOfClass:[CourseChoice class]])
-                 {
-                     [(CourseChoice *)delegate refreshCourseList:courses];
-                     [(CourseChoice *)delegate setPrevButton:(prevPag != (id)[NSNull null]) && ([prevPag length] != 0)
-                                                     andNext:(nextPag != (id)[NSNull null]) && ([nextPag length] != 0)];
-                 }
+                 [courses addObjectsFromArray:[self parseAllCourseData:data]];
+                 [delegate refreshCourseList:courses];
+                 [delegate setPrevButton:(prevPag != (id)[NSNull null]) && ([prevPag length] != 0)
+                                 andNext:(nextPag != (id)[NSNull null]) && ([nextPag length] != 0)];
              });
          }
          else if ([data length] == 0)
          {
              NSLog(@"Course retrieval returned an empty response.");
-             if([delegate isKindOfClass:[CourseChoice class]])
-             {
-                 [(CourseChoice *)delegate alertNoCoursesFetched];
-                 [(CourseChoice *)delegate setPrevButton:NO andNext:NO];
-             }
+             [delegate alertNoCoursesFetched];
+             [delegate setPrevButton:NO andNext:NO];
          }
          else if (error != nil)
          {
              NSLog(@"Error = %@",[error description]);
-             if([delegate isKindOfClass:[CourseChoice class]])
-             {
-                 [(CourseChoice *)delegate alertNoCoursesFetched];
-                 [(CourseChoice *)delegate setPrevButton:NO andNext:NO];
-             }
+             [delegate alertNoCoursesFetched];
+             [delegate setPrevButton:NO andNext:NO];
          }
      }];
 }
 
-- (NSMutableArray *)parseAllCourseData:(NSData *)data withDelegate:(NSObject *)delegate
+- (NSMutableArray *)parseAllCourseData:(NSData *)data
 {
     NSMutableArray *courses = [[NSMutableArray alloc] initWithObjects:nil];
     
@@ -153,11 +146,6 @@ static NSString *stateParam = @"%20";
         }
         prevPag = [jsonObject objectForKey:@"previous"];
         nextPag = [jsonObject objectForKey:@"next"];
-        
-        if([delegate isKindOfClass:[CourseChoice class]])
-        {
-            [(CourseChoice *)delegate setPrevButton:YES andNext:YES];
-        }
     }
     return courses;
 }

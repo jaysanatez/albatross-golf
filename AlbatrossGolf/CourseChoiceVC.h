@@ -4,12 +4,12 @@
 //
 //  Created by Jacob Sanchez on 5/21/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import "Course.h"
+#import "CourseDAO.h"
 
-@interface CourseChoice : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CourseChoice : UIViewController <UITableViewDataSource, UITableViewDelegate, CourseFetchDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *searchField;
 @property (nonatomic, weak) IBOutlet UILabel *noCoursesLabel;
@@ -18,7 +18,6 @@
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segment;
 @property (nonatomic, weak) IBOutlet UIButton *previousPage, *nextPage, *continueButton;
 
-- (void)refreshCourseList:(NSMutableArray *)array;
 - (void)alertNoCoursesFetched;
 - (void)setPrevButton:(BOOL)prev andNext:(BOOL)next;
 - (IBAction)clearSearchParameters:(id)sender;

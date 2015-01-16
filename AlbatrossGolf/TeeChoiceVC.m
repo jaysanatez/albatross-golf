@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 10/18/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "TeeChoiceVC.h"
 #import "TeeDAO.h"
@@ -35,7 +34,8 @@
     beginButton.layer.masksToBounds = YES;
         
     dao = [[TeeDAO alloc] init];
-    [dao fetchTeesForCourse:course.id_num withDelegate:self];
+    dao.delegate = self;
+    [dao fetchTeesForCourse:course.id_num];
     courseName.text = course.name;
     courseName.adjustsFontSizeToFitWidth = YES;
     selectedRow = -1;
@@ -89,6 +89,11 @@
 {
     tees = teeList;
     [table reloadData];
+}
+
+- (void)alertNoTeesFetched
+{
+    NSLog(@"No Tees Fetched");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

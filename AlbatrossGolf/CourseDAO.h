@@ -4,18 +4,30 @@
 //
 //  Created by Jacob Sanchez on 9/3/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "Course.h"
 #import <Foundation/Foundation.h>
 
+@protocol CourseFetchDelegate
+
+- (void)refreshCourseList:(NSMutableArray *)array;
+- (void)alertNoCoursesFetched;
+
+@optional
+
+- (void)setPrevButton:(BOOL)prev andNext:(BOOL)next;
+
+@end
+
 @interface CourseDAO : NSObject
 
-- (void)fetchFirstPaginatedCourses:(NSObject *)delegate;
-- (void)fetchNextPaginatedBatch:(NSObject *)delegate;
-- (void)fetchPreviousPaginatedBatch:(NSObject *)delegate;
-- (void)fetchCoursesSearchByKeyword:(NSObject *)delegate search:(NSString *)keyword;
-- (void)fetchCoursesSearchByCity:(NSObject *)delegate search:(NSString *)city;
-- (void)fetchCoursesSearchByState:(NSObject *)delegate search:(NSString *)state;
+@property (nonatomic, weak) id <CourseFetchDelegate> delegate;
+
+- (void)fetchFirstPaginatedCourses;
+- (void)fetchNextPaginatedBatch;
+- (void)fetchPreviousPaginatedBatch;
+- (void)fetchCoursesSearchByKeyword:(NSString *)keyword;
+- (void)fetchCoursesSearchByCity:(NSString *)city;
+- (void)fetchCoursesSearchByState:(NSString *)state;
 
 @end

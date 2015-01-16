@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HoleLookupCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="25" height="75"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="25" height="75"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-sO-4X2">
+                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="3wT-us-Q5Y"/>
+                            <constraint firstAttribute="width" constant="25" id="AJH-4O-f4R"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p16-F3-jYS">
+                        <rect key="frame" x="0.0" y="25" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="2j4-bD-OgO"/>
+                            <constraint firstAttribute="height" constant="25" id="Ll2-Kl-JXs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwC-NI-hIY">
+                        <rect key="frame" x="0.0" y="50" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="G6X-Zp-14o"/>
+                            <constraint firstAttribute="height" constant="25" id="W9H-IP-3sY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DTx-gx-sQh">
+                        <rect key="frame" x="0.0" y="50" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="4Rt-Db-FY7"/>
+                            <constraint firstAttribute="width" constant="25" id="4uh-yy-cbn"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DTx-gx-sQh" firstAttribute="top" secondItem="p16-F3-jYS" secondAttribute="bottom" id="0K8-6q-3zo"/>
+                <constraint firstItem="GUe-sO-4X2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="226-Cj-TZQ"/>
+                <constraint firstItem="p16-F3-jYS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5TF-GZ-XQV"/>
+                <constraint firstItem="AwC-NI-hIY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7ap-AK-Mvr"/>
+                <constraint firstAttribute="bottom" secondItem="DTx-gx-sQh" secondAttribute="bottom" id="Dfz-hg-ch6"/>
+                <constraint firstAttribute="bottom" secondItem="AwC-NI-hIY" secondAttribute="bottom" id="GLn-ac-Tsz"/>
+                <constraint firstItem="p16-F3-jYS" firstAttribute="top" secondItem="GUe-sO-4X2" secondAttribute="bottom" id="GmJ-NV-dUf"/>
+                <constraint firstAttribute="trailing" secondItem="GUe-sO-4X2" secondAttribute="trailing" id="IFE-8L-EJV"/>
+                <constraint firstAttribute="trailing" secondItem="DTx-gx-sQh" secondAttribute="trailing" id="YQ5-aG-nrs"/>
+                <constraint firstItem="AwC-NI-hIY" firstAttribute="top" secondItem="p16-F3-jYS" secondAttribute="bottom" id="bIh-O5-Vdu"/>
+                <constraint firstAttribute="trailing" secondItem="AwC-NI-hIY" secondAttribute="trailing" id="lip-WZ-osM"/>
+                <constraint firstAttribute="trailing" secondItem="p16-F3-jYS" secondAttribute="trailing" id="sdm-zO-c7D"/>
+                <constraint firstItem="DTx-gx-sQh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uiS-1a-ZS3"/>
+                <constraint firstItem="GUe-sO-4X2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wbn-q1-Nhm"/>
+            </constraints>
+            <connections>
+                <outlet property="holeNo" destination="GUe-sO-4X2" id="fOh-bw-AKW"/>
+                <outlet property="holePar" destination="p16-F3-jYS" id="fiV-YL-lrK"/>
+                <outlet property="holeScore" destination="AwC-NI-hIY" id="fej-no-41c"/>
+                <outlet property="image" destination="DTx-gx-sQh" id="lI7-jQ-epe"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

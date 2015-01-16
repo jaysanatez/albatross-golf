@@ -4,20 +4,19 @@
 //
 //  Created by Jacob Sanchez on 5/31/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "PastRoundsVC.h"
 #import "PastRoundCell.h"
 #import "Course.h"
 #import "Round.h"
-#import "RoundDAO.h"
 #import "RoundLookupVC.h"
 
 @interface PastRoundsVC ()
 {
-    RoundDAO *dao;
+    RoundDAO *r_dao;
+    RoundHoleDAO *rh_dao;
     NSArray *sections;
-    NSMutableArray *completeRounds, *incompleteRounds;
+    NSMutableArray *allRounds, *completeRounds, *incompleteRounds;
 }
 
 @end
@@ -26,22 +25,14 @@
 
 @synthesize tableView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
-    dao = [[RoundDAO alloc] init];
-    [dao fetchAllRoundsForUser:[NSNumber numberWithInt:2] forDelegate:self];
+    r_dao = [[RoundDAO alloc] init];
+    rh_dao = [[RoundHoleDAO alloc] init];
+    r_dao.delegate = self;
+    [r_dao fetchAllRoundsForUser:[NSNumber numberWithInt:2]];
     incompleteRounds = [[NSMutableArray alloc] init];
     completeRounds = [[NSMutableArray alloc] init];
 }
@@ -54,9 +45,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section > 0)
-        return 20;
-    return 30;
+    return section > 0 ? 20 :30;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -71,47 +60,84 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString *cellIdentifier = @"customCell";
     PastRoundCell *cell = (PastRoundCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil)
         cell = [[PastRoundCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     
-    
-    cell.round = (Round *)[completeRounds objectAtIndex:indexPath.row];
+    cell.round = [self retrieveRoundForIndexPath:indexPath];
+
     [cell reloadLabels];
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tabView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Round *round = [self retrieveRoundForIndexPath:indexPath];
+    
+    RoundLookupVC *controller = [[RoundLookupVC alloc] initWithNibName:@"RoundLookupVC" bundle:[NSBundle mainBundle]];
+    controller.round = round;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (Round *)retrieveRoundForIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0)
+    {
+        return (Round *)[incompleteRounds objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        return (Round *)[completeRounds objectAtIndex:indexPath.row];
+    }
 }
 
 - (void)refreshRoundList:(NSMutableArray *)rounds
 {
-    [self splitIntoCompletedAndNah:rounds];
+    allRounds = rounds;
+    [self splitIntoCompletedAndNah];
+    
+    rh_dao.delegate = self;
+    for (Round *r in allRounds)
+    {
+        [rh_dao matchRoundHolesWithRound:r.id_num];
+    }
+}
+
+- (void)roundHolesForRound:(NSMutableArray *)roundHoles roundId:(NSNumber *)roundId
+{
+    for(Round *r in allRounds)
+    {
+        if (r.id_num == roundId)
+        {
+            r.roundHoles = roundHoles;
+        }
+    }
+    
+    for(Round *r in allRounds)
+    {
+        if (!r.roundHoles)
+        {
+            return;
+        }
+    }
+    
     [tableView reloadData];
 }
 
-- (void)splitIntoCompletedAndNah:(NSMutableArray *)allRounds
+- (void)splitIntoCompletedAndNah
 {
     for (Round *r in allRounds)
     {
         if (r.is_complete)
+        {
             [completeRounds addObject:r];
+        }
         else
+        {
             [incompleteRounds addObject:r];
-    }
-}
-
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
-    return ![identifier isEqualToString:@"roundLookup"];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"roundLookup"])
-    {
-        // something
+        }
     }
 }
 
