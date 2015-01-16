@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		160EB0A21A67320E00AEF031 /* RootMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 160EB0A11A67320E00AEF031 /* RootMenuVC.m */; };
 		1641C9231A263D8000378BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9221A263D8000378BA4 /* main.m */; };
 		1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9251A263D8000378BA4 /* AppDelegate.m */; };
 		1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */; };
@@ -15,8 +14,6 @@
 		1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9321A263D8000378BA4 /* LaunchScreen.xib */; };
 		1641C9401A263D8100378BA4 /* AlbatrossGolfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */; };
 		1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9491A263EF400378BA4 /* Main.storyboard */; };
-		1641C9501A263F4900378BA4 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C94D1A263F4900378BA4 /* LoginVC.m */; };
-		1641C9511A263F4900378BA4 /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C94F1A263F4900378BA4 /* MenuVC.m */; };
 		1641C9631A263FB000378BA4 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9541A263FB000378BA4 /* Course.m */; };
 		1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9561A263FB000378BA4 /* CourseDAO.m */; };
 		1641C9651A263FB000378BA4 /* Tee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9581A263FB000378BA4 /* Tee.m */; };
@@ -35,11 +32,6 @@
 		1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98F1A26404900378BA4 /* HoleScoreCell.m */; };
 		1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9941A26405C00378BA4 /* HoleScoreVC.m */; };
 		1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9951A26405C00378BA4 /* HoleScore.xib */; };
-		1641C9A01A26416E00378BA4 /* 2circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99B1A26416E00378BA4 /* 2circle.png */; };
-		1641C9A11A26416E00378BA4 /* 2square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99C1A26416E00378BA4 /* 2square.png */; };
-		1641C9A21A26416E00378BA4 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99D1A26416E00378BA4 /* circle.png */; };
-		1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99E1A26416E00378BA4 /* whitecheck.png */; };
-		1641C9A41A26416E00378BA4 /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99F1A26416E00378BA4 /* square.png */; };
 		1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9A81A2641A100378BA4 /* PastRoundsVC.m */; };
 		1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AA1A2641A100378BA4 /* PastRoundCell.m */; };
 		1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */; };
@@ -61,6 +53,8 @@
 		16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */; };
 		16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */; };
 		16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */; };
+		16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CC1A688E3D00443472 /* LoginViewController.swift */; };
+		16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CE1A68920C00443472 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +68,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		160EB0A01A67320E00AEF031 /* RootMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootMenuVC.h; sourceTree = "<group>"; };
-		160EB0A11A67320E00AEF031 /* RootMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootMenuVC.m; sourceTree = "<group>"; };
 		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,10 +80,6 @@
 		1641C93E1A263D8100378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C93F1A263D8100378BA4 /* AlbatrossGolfTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlbatrossGolfTests.m; sourceTree = "<group>"; };
 		1641C9491A263EF400378BA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		1641C94C1A263F4900378BA4 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		1641C94D1A263F4900378BA4 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
-		1641C94E1A263F4900378BA4 /* MenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuVC.h; sourceTree = "<group>"; };
-		1641C94F1A263F4900378BA4 /* MenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuVC.m; sourceTree = "<group>"; };
 		1641C9531A263FB000378BA4 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		1641C9541A263FB000378BA4 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		1641C9551A263FB000378BA4 /* CourseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDAO.h; sourceTree = "<group>"; };
@@ -127,11 +115,6 @@
 		1641C9931A26405C00378BA4 /* HoleScoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreVC.h; sourceTree = "<group>"; };
 		1641C9941A26405C00378BA4 /* HoleScoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreVC.m; sourceTree = "<group>"; };
 		1641C9951A26405C00378BA4 /* HoleScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScore.xib; sourceTree = "<group>"; };
-		1641C99B1A26416E00378BA4 /* 2circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2circle.png; sourceTree = "<group>"; };
-		1641C99C1A26416E00378BA4 /* 2square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2square.png; sourceTree = "<group>"; };
-		1641C99D1A26416E00378BA4 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
-		1641C99E1A26416E00378BA4 /* whitecheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitecheck.png; sourceTree = "<group>"; };
-		1641C99F1A26416E00378BA4 /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		1641C9A71A2641A100378BA4 /* PastRoundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundsVC.h; sourceTree = "<group>"; };
 		1641C9A81A2641A100378BA4 /* PastRoundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundsVC.m; sourceTree = "<group>"; };
 		1641C9A91A2641A100378BA4 /* PastRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundCell.h; sourceTree = "<group>"; };
@@ -170,6 +153,9 @@
 		16D640C61A686BEB00443472 /* HoleLookupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupTableViewCell.h; sourceTree = "<group>"; };
 		16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupTableViewCell.m; sourceTree = "<group>"; };
 		16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleLookupTableViewCell.xib; sourceTree = "<group>"; };
+		16D640CB1A688E3C00443472 /* AlbatrossGolf-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlbatrossGolf-Bridging-Header.h"; sourceTree = "<group>"; };
+		16D640CC1A688E3D00443472 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		16D640CE1A68920C00443472 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				1641C9D61A2643AD00378BA4 /* CoreData.framework */,
-				1641C99A1A26412B00378BA4 /* thumbnails */,
 				1641C91F1A263D8000378BA4 /* AlbatrossGolf */,
 				1641C93C1A263D8100378BA4 /* AlbatrossGolfTests */,
 				1641C91E1A263D8000378BA4 /* Products */,
@@ -259,12 +244,9 @@
 				1641C9241A263D8000378BA4 /* AppDelegate.h */,
 				1641C9251A263D8000378BA4 /* AppDelegate.m */,
 				1641C9491A263EF400378BA4 /* Main.storyboard */,
-				1641C94C1A263F4900378BA4 /* LoginVC.h */,
-				1641C94D1A263F4900378BA4 /* LoginVC.m */,
-				1641C94E1A263F4900378BA4 /* MenuVC.h */,
-				1641C94F1A263F4900378BA4 /* MenuVC.m */,
-				160EB0A01A67320E00AEF031 /* RootMenuVC.h */,
-				160EB0A11A67320E00AEF031 /* RootMenuVC.m */,
+				16D640CC1A688E3D00443472 /* LoginViewController.swift */,
+				16D640CE1A68920C00443472 /* MenuViewController.swift */,
+				16D640CB1A688E3C00443472 /* AlbatrossGolf-Bridging-Header.h */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -358,19 +340,6 @@
 				1641C9BC1A2641D600378BA4 /* sliding stats view */,
 			);
 			name = "multiple round stats";
-			sourceTree = "<group>";
-		};
-		1641C99A1A26412B00378BA4 /* thumbnails */ = {
-			isa = PBXGroup;
-			children = (
-				1641C99B1A26416E00378BA4 /* 2circle.png */,
-				1641C99C1A26416E00378BA4 /* 2square.png */,
-				1641C99D1A26416E00378BA4 /* circle.png */,
-				1641C99E1A26416E00378BA4 /* whitecheck.png */,
-				1641C99F1A26416E00378BA4 /* square.png */,
-			);
-			name = thumbnails;
-			path = AlbatrossGolf;
 			sourceTree = "<group>";
 		};
 		1641C9A51A26417E00378BA4 /* past rounds */ = {
@@ -510,14 +479,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */,
 				16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */,
-				1641C9A41A26416E00378BA4 /* square.png in Resources */,
-				1641C9A01A26416E00378BA4 /* 2circle.png in Resources */,
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
-				1641C9A11A26416E00378BA4 /* 2square.png in Resources */,
-				1641C9A21A26416E00378BA4 /* circle.png in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */,
@@ -545,11 +509,8 @@
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
 				16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */,
 				1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */,
-				1641C9501A263F4900378BA4 /* LoginVC.m in Sources */,
 				1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */,
-				1641C9511A263F4900378BA4 /* MenuVC.m in Sources */,
 				1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */,
-				160EB0A21A67320E00AEF031 /* RootMenuVC.m in Sources */,
 				1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */,
 				1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */,
 				1641C9D51A26435E00378BA4 /* Game.m in Sources */,
@@ -568,9 +529,11 @@
 				1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */,
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
+				16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
 				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,
 				168E94071A2795500065E1C4 /* RoundHole.m in Sources */,
+				16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */,
 				1641C9671A263FB000378BA4 /* TeeHole.m in Sources */,
 				1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */,
 				1641C9861A26402400378BA4 /* TeeChoiceVC.m in Sources */,
@@ -692,9 +655,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AlbatrossGolf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlbatrossGolf/AlbatrossGolf-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -702,9 +668,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AlbatrossGolf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AlbatrossGolf/AlbatrossGolf-Bridging-Header.h";
 			};
 			name = Release;
 		};
