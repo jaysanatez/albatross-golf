@@ -12,10 +12,6 @@
 #import "HoleScore.h"
 
 @interface RoundLookupVC ()
-{
-    // BOOL hasAllFrontNine;
-    // BOOL hasAllBackNine;
-}
 
 @end
 
@@ -36,9 +32,6 @@
     [collecView registerNib:[UINib nibWithNibName:@"HoleLookupCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"HoleLookup"];
     [tableView registerNib:[UINib nibWithNibName:@"HoleLookupTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"RoundStat"];
     self.title = @"Round Lookup";
-    
-    /* hasAllFrontNine = YES;
-    hasAllBackNine = YES;*/
     
     if (!round.is_complete)
     {
@@ -64,10 +57,6 @@
     }
     return nil;
 }
-
-
-
-// collectionview datasource and delegate method
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

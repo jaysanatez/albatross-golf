@@ -7,9 +7,8 @@
 
 import UIKit
 
-class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class MenuViewController: UIViewController
 {
-    @IBOutlet var tableView:UITableView!
     var menuOptions:NSArray
 
     required init(coder aDecoder: NSCoder)
@@ -22,66 +21,27 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         super.viewDidLoad()
         self.title = "Menu"
-        
-        tableView.rowHeight = UIScreen.mainScreen().bounds.size.height == 568 ? 70 : 55
     }
     
-    override func viewWillAppear(animated: Bool)
+    @IBAction func playRoundTapped()
     {
-        super.viewWillAppear(animated)
-        if tableView.indexPathForSelectedRow() != nil
-        {
-            tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow()!, animated:true)
-        }
+    
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    @IBAction func pastRoundsTapped()
     {
-        return menuOptions.count
+        var controller:PastRoundsVC = PastRoundsVC(nibName: "PastRoundsVC", bundle: NSBundle.mainBundle())
+        navigationController?.pushViewController(controller, animated:true)
+        
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    @IBAction func multiRoundStatsTapped()
     {
-        var cellIdentifier:String
-        
-        switch indexPath.row
-        {
-        case 0:
-            cellIdentifier = "goToChooseCourse"
-            break
-        case 1:
-            cellIdentifier = "goToPastRounds"
-            break
-        case 2:
-            cellIdentifier = "goToMultiStats"
-            break
-        case 3:
-            cellIdentifier = "goToCompStats"
-            break
-        default:
-            cellIdentifier = "goToAbout"
-            break
-        }
-        
-        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath:indexPath) as UITableViewCell
-        
-        cell.textLabel?.text = menuOptions.objectAtIndex(indexPath.row) as? String
-        cell.textLabel?.font = UIFont(name:"Apple SD Gothic Neo", size:18)
-        
-        return cell
+    
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    @IBAction func comparativeStatsTapped()
     {
-        if indexPath.row == 1
-        {
-            var controller:PastRoundsVC = PastRoundsVC(nibName:"PastRoundsVC", bundle:NSBundle.mainBundle())
-            self.navigationController?.pushViewController(controller, animated:true)
-        }
-    }
-    
-    @IBAction func logout()
-    {
-        self.navigationController?.popViewControllerAnimated(true)
+        
     }
 }
