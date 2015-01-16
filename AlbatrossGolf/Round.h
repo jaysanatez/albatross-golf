@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *course_name;
 @property BOOL is_complete;
 @property NSMutableArray *roundHoles;
+@property RoundStats *round_stats;
 
 @end

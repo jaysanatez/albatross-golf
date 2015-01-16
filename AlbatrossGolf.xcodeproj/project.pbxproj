@@ -57,6 +57,7 @@
 		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
 		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
+		16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DA1A68C8B600443472 /* RoundStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		16D640D11A689F4A00443472 /* PastRoundsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundsVC.xib; sourceTree = "<group>"; };
 		16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRoundTableViewCell.swift; sourceTree = "<group>"; };
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
+		16D640DA1A68C8B600443472 /* RoundStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 				168E94061A2795500065E1C4 /* RoundHole.m */,
 				16C3C32C1A676EC3008F297D /* RoundHoleDAO.h */,
 				16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */,
+				16D640DA1A68C8B600443472 /* RoundStats.swift */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
@@ -535,6 +538,7 @@
 				1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */,
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
+				16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */,
 				16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
 				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,
