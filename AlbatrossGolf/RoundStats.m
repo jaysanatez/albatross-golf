@@ -18,6 +18,11 @@
 
 - (NSString *)getGIRPerc
 {
+    if (num_greens_possible.integerValue == 0)
+    {
+        return @"--.-%";
+    }
+    
     double perc = [num_greens_hit doubleValue] / [num_greens_possible doubleValue] * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
@@ -29,6 +34,11 @@
 
 - (NSString *)getFairwayPerc
 {
+    if (num_fairways_possible.integerValue == 0)
+    {
+        return @"--.-%";
+    }
+    
     double perc = [num_fairways_hit doubleValue] / [num_fairways_possible doubleValue] * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
@@ -40,6 +50,11 @@
 
 - (NSString *)getParSavePerc
 {
+    if (num_par_saves_possible.integerValue == 0)
+    {
+        return @"--.-%";
+    }
+    
     double perc = [num_par_saves doubleValue] / [num_par_saves_possible doubleValue] * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
@@ -51,6 +66,11 @@
 
 - (NSString *)getSandSavePerc
 {
+    if (num_sand_saves_possible.integerValue == 0)
+    {
+        return @"--.-%";
+    }
+    
     double perc = [num_sand_saves doubleValue] / [num_sand_saves_possible doubleValue] * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }

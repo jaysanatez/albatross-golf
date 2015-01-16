@@ -53,7 +53,7 @@
     tableView.allowsSelection = NO;
 }
 
-- (HoleScore *)findHoleScoreForHole:(int)hole_number
+- (HoleScore *)findHoleScoreForHole:(NSInteger)hole_number
 {
     for (HoleScore *hs in round.round_scores)
     {
@@ -135,14 +135,6 @@
     if (cell == nil)
     {
         cell = [[HoleLookupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RoundStat"];
-    }
-    
-    if (!round.is_complete)
-    {
-        cell.statName.text = @"";
-        cell.statFig.text = @"";
-        cell.statFrac.text = @"";
-        return cell;
     }
     
     RoundStats *rs = round.round_stats;
