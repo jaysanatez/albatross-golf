@@ -13,5 +13,6 @@
 
 - (int)getDifference;
 - (NSString *)getScoreName;
+- (NSString *)getScorecardSymbol;
 
 @end

@@ -39,4 +39,22 @@
     }
 }
 
+- (NSString *)getScorecardSymbol
+{
+    int diff = [self getDifference];
+    
+    if (diff < -1)
+    {
+        return @"Eagle";
+    }
+    else if (diff > 1)
+    {
+        return @"Double_Bogey";
+    }
+    else
+    {
+        return [self getScoreName];
+    }
+}
+
 @end

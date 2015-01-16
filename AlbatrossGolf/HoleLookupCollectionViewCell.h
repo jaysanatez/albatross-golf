@@ -6,10 +6,14 @@
 //  Copyright (c) 2015 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import "HoleScore.h"
 
 @interface HoleLookupCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *holePar, *holeScore, *holeNo;
 @property (nonatomic, strong) IBOutlet UIImageView *image;
+@property (nonatomic, strong) HoleScore *hole_score;
+
+- (void)loadDisplay;
 
 @end

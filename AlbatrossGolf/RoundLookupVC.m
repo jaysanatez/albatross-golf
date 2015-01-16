@@ -9,6 +9,7 @@
 #import "HoleLookupCollectionViewCell.h"
 #import "HoleLookupTableViewCell.h"
 #import "RoundStats.h"
+#import "HoleScore.h"
 
 @interface RoundLookupVC ()
 {
@@ -52,6 +53,18 @@
     tableView.allowsSelection = NO;
 }
 
+- (HoleScore *)findHoleScoreForHole:(int)hole_number
+{
+    for (HoleScore *hs in round.round_scores)
+    {
+        if (hs.hole_number.integerValue == hole_number)
+        {
+            return hs;
+        }
+    }
+    return nil;
+}
+
 
 
 // collectionview datasource and delegate method
@@ -69,109 +82,27 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HoleLookupCollectionViewCell *cell = [collecView dequeueReusableCellWithReuseIdentifier:@"HoleLookup" forIndexPath:indexPath];
-   
-    cell.holeNo.text = [NSString stringWithFormat:@"%i", indexPath.row];
-    cell.holePar.text = @"4";
-    cell.holeScore.text = indexPath.row % 2 == 0 ? @"3" : @"5";
-    cell.image.image = [UIImage imageNamed: indexPath.row % 2 == 0 ? @"circle.png" : @"square.png"];
     
-    /*if(indexPath.item < 9)
+    if (indexPath.row < 9)
     {
-        [[cell holePar] setText:[NSString stringWithFormat: @"%@",
-                                [game.coursePlayed.parSequence objectAtIndex:indexPath.item]]];
-        [[cell holeScore] setText:[NSString stringWithFormat:@"%@",
-                                   [game.holeScores objectAtIndex:indexPath.item]]];
-        [[cell holeNo] setText:[NSString stringWithFormat:@"%i",(indexPath.item+1)]];
-        
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] > 1)
-            [[cell image] setImage:[UIImage imageNamed:@"2circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] == 1)
-            [[cell image] setImage:[UIImage imageNamed:@"circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] == -1)
-            [[cell image] setImage:[UIImage imageNamed:@"square.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] < -1)
-            [[cell image] setImage:[UIImage imageNamed:@"2square.png"]];
-        
-        if([[cell holeScore].text isEqualToString:@"0"])
-        {
-            [cell holeScore].text = @"-";
-            hasAllFrontNine = NO;
-            [cell image].image = nil;
-        }
+        HoleScore *hs = [self findHoleScoreForHole:indexPath.row + 1];
+        cell.hole_score = hs;
+        [cell loadDisplay];
     }
-        else if (indexPath.item == 9)
-        {
-            [[cell holeNo] setText:@"IN"];
-            
-            int frontNinePar = 0;
-            for(int i=0; i<9;i++)
-                frontNinePar += [[game.coursePlayed.parSequence objectAtIndex:i] intValue];
-            [[cell holePar] setText:[NSString stringWithFormat: @"%i",frontNinePar]];
-        
-            int frontNineScore = 0;
-            for(int i=0; i<9;i++)
-                frontNineScore += [[game.holeScores objectAtIndex:i] intValue];
-            [[cell holeScore] setText:[NSString stringWithFormat: @"%i",frontNineScore]];
-            if(!hasAllFrontNine)
-                [cell holeScore].text = @"-";
-            [cell holeScore].textColor = [UIColor colorWithRed:102.0/255.5
-                                                         green:1.0
-                                                          blue:102.0/255.0
-                                                         alpha:0.8];
-        }
-    else if (indexPath.item < 19)
+    else if (indexPath.row == 9)
     {
-        [[cell holePar] setText:[NSString stringWithFormat: @"%@",
-                                [game.coursePlayed.parSequence objectAtIndex:(indexPath.item-1)]]];
-        [[cell holeScore] setText:[NSString stringWithFormat:@"%@",
-                               [game.holeScores objectAtIndex:(indexPath.item-1)]]];
-        [[cell holeNo] setText:[NSString stringWithFormat:@"%i",indexPath.item]];
-        
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] >1)
-            [[cell image] setImage:[UIImage imageNamed:@"2circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] == 1)
-            [[cell image] setImage:[UIImage imageNamed:@"circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] == -1)
-            [[cell image] setImage:[UIImage imageNamed:@"square.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] < -1)
-            [[cell image] setImage:[UIImage imageNamed:@"2square.png"]];
-        
-        if([[cell holeScore].text isEqualToString:@"0"])
-        {
-            [cell holeScore].text = @"-";
-            hasAllBackNine = NO;
-
-            [cell image].image = nil;
-        }
+        [cell loadDisplay];
     }
-        else
-        {
-            [[cell holeNo] setText:@"OUT"];
-        
-            int backNinePar = 0;
-            for(int i=9; i<18;i++)
-                backNinePar += [[game.coursePlayed.parSequence objectAtIndex:i] intValue];
-            [[cell holePar] setText:[NSString stringWithFormat: @"%i",backNinePar]];
-        
-            int backNineScore = 0;
-            for(int i=9; i<18;i++)
-                backNineScore += [[game.holeScores objectAtIndex:i] intValue];
-            [[cell holeScore] setText:[NSString stringWithFormat: @"%i",backNineScore]];
-            if(!hasAllBackNine)
-                [[cell holeScore] setText:@"-"];
-            [cell holeScore].textColor = [UIColor colorWithRed:102.0/255.5
-                                                         green:1.0
-                                                          blue:102.0/255.0
-                                                         alpha:0.8];
-        }*/
+    else if (indexPath.row > 9 && indexPath.row < 19)
+    {
+        HoleScore *hs = [self findHoleScoreForHole:indexPath.row];
+        cell.hole_score = hs;
+        [cell loadDisplay];
+    }
+    else
+    {
+        [cell loadDisplay];
+    }
     
     return cell;
 }
@@ -179,11 +110,6 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 2; // This is the minimum inter item spacing, can be more
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0,0,0,0);
 }
 
 // table view datasource and delegate
