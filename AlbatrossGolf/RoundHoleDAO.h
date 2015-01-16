@@ -17,6 +17,6 @@
 
 @property (nonatomic, weak) id <RoundHoleFetchDelegate> delegate;
 
-- (void)matchRoundHolesWithRound:(NSNumber *)round_id;
+- (void)fetchRoundHolesWithRound:(NSNumber *)round_id;
 
 @end

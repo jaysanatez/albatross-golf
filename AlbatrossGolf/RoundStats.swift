@@ -9,21 +9,21 @@ import UIKit
 
 class RoundStats
 {
-    var total_score:NSInteger?
+    var total_score:NSInteger
     
-    var par_3_avg:Double?
-    var par_4_avg:Double?
-    var par_5_avg:Double?
+    var par_3_avg:Double
+    var par_4_avg:Double
+    var par_5_avg:Double
     
-    var num_eagles:NSInteger?
-    var num_birdies:NSInteger?
-    var num_pars:NSInteger?
-    var num_bogeys:NSInteger?
-    var num_double_bogeys:NSInteger?
-    var num_doubles_plus:NSInteger?
+    var num_eagles:NSInteger
+    var num_birdies:NSInteger
+    var num_pars:NSInteger
+    var num_bogeys:NSInteger
+    var num_double_bogeys:NSInteger
+    var num_doubles_plus:NSInteger
     
-    var num_greens_hit:NSInteger?
-    var num_greens_possible:NSInteger?
+    var num_greens_hit:NSInteger
+    var num_greens_possible:NSInteger
     
     var num_fairways_hit:NSInteger?
     var num_fairways_possible:NSInteger?
@@ -44,22 +44,36 @@ class RoundStats
     
     init()
     {
-    
+        total_score = 0
+        
+        par_3_avg = 0
+        par_4_avg = 0
+        par_5_avg = 0
+        
+        num_eagles = 0
+        num_birdies = 0
+        num_pars = 0
+        num_bogeys = 0
+        num_double_bogeys = 0
+        num_doubles_plus = 0
+        
+        num_greens_hit = 0
+        num_greens_possible = 0
     }
     
     func getGIRFrac() -> String
     {
-        return "\(num_greens_hit!)/\(num_greens_possible!)"
+        return "\(num_greens_hit)/\(num_greens_possible)"
     }
     
     func getGIRPerc() -> String
     {
-        return NSString(format: "%.2f", Double(num_greens_hit!) / Double(num_greens_possible!) * 100)
+        return NSString(format: "%.2f", Double(num_greens_hit) / Double(num_greens_possible) * 100)
     }
     
     func getFairwayFrac() -> String
     {
-        return "\(num_fairways_hit!)/\(num_fairways_possible!)"
+        return "\(num_fairways_hit)/\(num_fairways_possible)"
     }
     
     func getFairwayPerc() -> String

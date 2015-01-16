@@ -14,7 +14,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 @synthesize delegate;
 
-- (void)matchRoundHolesWithRound:(NSNumber *)round_id
+- (void)fetchRoundHolesWithRound:(NSNumber *)round_id
 {
     NSString *urlString = [NSString stringWithFormat:@"round/%@/holes",[round_id stringValue]];
     [self submitRoundFetchRequest:urlString forRound:round_id];

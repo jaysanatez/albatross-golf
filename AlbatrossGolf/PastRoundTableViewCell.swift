@@ -36,7 +36,7 @@ class PastRoundTableViewCell: UITableViewCell
     {
         var score:Int = 0
         
-        for rh in round.roundHoles
+        for rh in round.round_holes
         {
             score += (rh as RoundHole).score.integerValue
         }

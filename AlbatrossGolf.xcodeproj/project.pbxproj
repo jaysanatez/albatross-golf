@@ -58,6 +58,7 @@
 		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
 		16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DA1A68C8B600443472 /* RoundStats.swift */; };
+		16D640DD1A68D06500443472 /* RoundStatsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DC1A68D06500443472 /* RoundStatsDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRoundTableViewCell.swift; sourceTree = "<group>"; };
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
 		16D640DA1A68C8B600443472 /* RoundStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStats.swift; sourceTree = "<group>"; };
+		16D640DC1A68D06500443472 /* RoundStatsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStatsDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 				16C3C32C1A676EC3008F297D /* RoundHoleDAO.h */,
 				16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */,
 				16D640DA1A68C8B600443472 /* RoundStats.swift */,
+				16D640DC1A68D06500443472 /* RoundStatsDAO.swift */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
@@ -550,6 +553,7 @@
 				1641C9661A263FB000378BA4 /* TeeDAO.m in Sources */,
 				1641C9831A26402400378BA4 /* RecentTeeChoiceVC.m in Sources */,
 				16C3C32E1A676EC3008F297D /* RoundHoleDAO.m in Sources */,
+				16D640DD1A68D06500443472 /* RoundStatsDAO.swift in Sources */,
 				1641C9651A263FB000378BA4 /* Tee.m in Sources */,
 				1641C9231A263D8000378BA4 /* main.m in Sources */,
 			);
