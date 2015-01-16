@@ -32,11 +32,6 @@
 		1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98F1A26404900378BA4 /* HoleScoreCell.m */; };
 		1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9941A26405C00378BA4 /* HoleScoreVC.m */; };
 		1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1641C9951A26405C00378BA4 /* HoleScore.xib */; };
-		1641C9A01A26416E00378BA4 /* 2circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99B1A26416E00378BA4 /* 2circle.png */; };
-		1641C9A11A26416E00378BA4 /* 2square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99C1A26416E00378BA4 /* 2square.png */; };
-		1641C9A21A26416E00378BA4 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99D1A26416E00378BA4 /* circle.png */; };
-		1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99E1A26416E00378BA4 /* whitecheck.png */; };
-		1641C9A41A26416E00378BA4 /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 1641C99F1A26416E00378BA4 /* square.png */; };
 		1641C9AB1A2641A100378BA4 /* PastRoundsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9A81A2641A100378BA4 /* PastRoundsVC.m */; };
 		1641C9AC1A2641A100378BA4 /* PastRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AA1A2641A100378BA4 /* PastRoundCell.m */; };
 		1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */; };
@@ -120,11 +115,6 @@
 		1641C9931A26405C00378BA4 /* HoleScoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreVC.h; sourceTree = "<group>"; };
 		1641C9941A26405C00378BA4 /* HoleScoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreVC.m; sourceTree = "<group>"; };
 		1641C9951A26405C00378BA4 /* HoleScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScore.xib; sourceTree = "<group>"; };
-		1641C99B1A26416E00378BA4 /* 2circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2circle.png; sourceTree = "<group>"; };
-		1641C99C1A26416E00378BA4 /* 2square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2square.png; sourceTree = "<group>"; };
-		1641C99D1A26416E00378BA4 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
-		1641C99E1A26416E00378BA4 /* whitecheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitecheck.png; sourceTree = "<group>"; };
-		1641C99F1A26416E00378BA4 /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		1641C9A71A2641A100378BA4 /* PastRoundsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundsVC.h; sourceTree = "<group>"; };
 		1641C9A81A2641A100378BA4 /* PastRoundsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRoundsVC.m; sourceTree = "<group>"; };
 		1641C9A91A2641A100378BA4 /* PastRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRoundCell.h; sourceTree = "<group>"; };
@@ -191,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				1641C9D61A2643AD00378BA4 /* CoreData.framework */,
-				1641C99A1A26412B00378BA4 /* thumbnails */,
 				1641C91F1A263D8000378BA4 /* AlbatrossGolf */,
 				1641C93C1A263D8100378BA4 /* AlbatrossGolfTests */,
 				1641C91E1A263D8000378BA4 /* Products */,
@@ -353,19 +342,6 @@
 			name = "multiple round stats";
 			sourceTree = "<group>";
 		};
-		1641C99A1A26412B00378BA4 /* thumbnails */ = {
-			isa = PBXGroup;
-			children = (
-				1641C99B1A26416E00378BA4 /* 2circle.png */,
-				1641C99C1A26416E00378BA4 /* 2square.png */,
-				1641C99D1A26416E00378BA4 /* circle.png */,
-				1641C99E1A26416E00378BA4 /* whitecheck.png */,
-				1641C99F1A26416E00378BA4 /* square.png */,
-			);
-			name = thumbnails;
-			path = AlbatrossGolf;
-			sourceTree = "<group>";
-		};
 		1641C9A51A26417E00378BA4 /* past rounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,14 +479,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1641C9A31A26416E00378BA4 /* whitecheck.png in Resources */,
 				16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */,
-				1641C9A41A26416E00378BA4 /* square.png in Resources */,
-				1641C9A01A26416E00378BA4 /* 2circle.png in Resources */,
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
-				1641C9A11A26416E00378BA4 /* 2square.png in Resources */,
-				1641C9A21A26416E00378BA4 /* circle.png in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScore.xib in Resources */,
