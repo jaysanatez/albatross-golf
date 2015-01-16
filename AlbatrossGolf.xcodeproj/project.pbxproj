@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		162439181A697B8E00A7A049 /* HoleScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 162439171A697B8E00A7A049 /* HoleScore.m */; };
 		1641C9231A263D8000378BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9221A263D8000378BA4 /* main.m */; };
 		1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9251A263D8000378BA4 /* AppDelegate.m */; };
 		1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */; };
@@ -74,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		162439161A697B8E00A7A049 /* HoleScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScore.h; sourceTree = "<group>"; };
+		162439171A697B8E00A7A049 /* HoleScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScore.m; sourceTree = "<group>"; };
 		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -291,6 +294,8 @@
 				16FF7BEC1A68E50200D885C2 /* RoundStats.m */,
 				16FF7BEF1A68E77400D885C2 /* RoundStatsDAO.h */,
 				16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */,
+				162439161A697B8E00A7A049 /* HoleScore.h */,
+				162439171A697B8E00A7A049 /* HoleScore.m */,
 				16FF7BEE1A68E5F000D885C2 /* swift copies */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
@@ -563,6 +568,7 @@
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
 				16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */,
 				16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */,
+				162439181A697B8E00A7A049 /* HoleScore.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
 				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,
 				168E94071A2795500065E1C4 /* RoundHole.m in Sources */,
