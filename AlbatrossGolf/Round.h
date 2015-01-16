@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <Foundation/Foundation.h>
+@class RoundStats;
 
 @interface Round : NSObject
 
@@ -13,6 +14,14 @@
 @property (nonatomic, strong) NSDate *date_played;
 @property (nonatomic, strong) NSString *course_name;
 @property BOOL is_complete;
-@property NSMutableArray *roundHoles;
+@property NSMutableArray *round_holes, *round_scores;
+@property RoundStats *round_stats;
+
+- (BOOL)frontNineIsCompleted;
+- (BOOL)backNineIsComplete;
+- (int)getFrontNineTotal;
+- (int)getBackNineTotal;
+- (int)getFrontNinePar;
+- (int)getBackNinePar;
 
 @end

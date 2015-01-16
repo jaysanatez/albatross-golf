@@ -10,7 +10,7 @@
 #import "ScorecardVC.h"
 #import "RoundHole.h"
 
-@interface HoleScore ()
+@interface HoleScoreVC ()
 {
     int holeScore;
     NSArray *questions, *descriptions;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation HoleScore
+@implementation HoleScoreVC
 
 @synthesize courseLabel,holeLabel,parLabel,teeHole,courseName,textField,popupHoleLabel,popupLengthLabel,popupParLabel;
 @synthesize blurView,handicapLabel,scoreLabel,netLabel,yardLabel,holeScoreView,constraint,enterButton,holeQuestion;

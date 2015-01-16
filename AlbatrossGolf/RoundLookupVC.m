@@ -8,6 +8,8 @@
 #import "RoundLookupVC.h"
 #import "HoleLookupCollectionViewCell.h"
 #import "HoleLookupTableViewCell.h"
+#import "RoundStats.h"
+#import "HoleScore.h"
 
 @interface RoundLookupVC ()
 {
@@ -24,9 +26,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
@@ -39,12 +38,11 @@
     self.title = @"Round Lookup";
     
     /* hasAllFrontNine = YES;
-    hasAllBackNine = YES;
-    [self getHoleStats];*/
+    hasAllBackNine = YES;*/
     
     if (!round.is_complete)
     {
-        statsLabel.text = @"Complete to compile statistics.";
+        statsLabel.text = @"Complete for final statistics.";
         statsLabel.textColor = [UIColor redColor];
     }
     else
@@ -55,171 +53,19 @@
     tableView.allowsSelection = NO;
 }
 
-/* -(void)doTheStats
+- (HoleScore *)findHoleScoreForHole:(NSInteger)hole_number
 {
-    NSMutableArray *actScores = game.coursePlayed.parSequence;
-    NSMutableArray *myScores = game.holeScores;
-    int holesPlayed = [actScores count];
-    parsHad = 0;
-    birdiesHad = 0;
-    bogeysHad = 0;
-    worseThanBogeys = 0;
-    threeScores = 0;
-    numThrees = 0;
-    fourScores = 0;
-    numFours = 0;
-    fiveScores = 0;
-    numFives = 0;
-    
-    for(int i=0; i<holesPlayed; i++)
+    for (HoleScore *hs in round.round_scores)
     {
-        NSNumber *real = [actScores objectAtIndex:i];
-        NSNumber *me = [myScores objectAtIndex:i];
-        int diff = [me intValue] - [real intValue];
-        switch (diff) {
-            case 0:
-                parsHad++;
-                break;
-            case -1:
-                birdiesHad++;
-                break;
-            case 1:
-                bogeysHad++;
-                break;
-            default:
-                break;
-        }
-        if(diff > 1)
-            worseThanBogeys++;
-        
-        switch ([real intValue]) {
-            case 3:
-                threeScores += [me intValue];
-                numThrees++;
-                break;
-            case 4:
-                fourScores += [me intValue];
-                numFours++;
-                break;
-            case 5:
-                fiveScores += [me intValue];
-                numFives++;
-                break;
-            default:
-                break;
-        }
-    }
-    
-    int fHit = 0, gHit = 0, saveSucc = 0, saveChances = 0, sandSucc = 0, sandChances=0;
-    numBunkers = 0;
-    numberPen = 0;
-    numPutts = 0;
-    numOnePutts = 0;
-    numThreePutts = 0;
-    for(Hole *hole in holeStats)
-    {
-        if(hole.hitFairway)
-            fHit++;
-        if(hole.gir)
-            gHit++;
-        else
+        if (hs.hole_number.integerValue == hole_number)
         {
-            saveChances++;
-            NSNumber *par = [actScores objectAtIndex:([hole.holeNumber intValue]-1)];
-            NSNumber *score = [myScores objectAtIndex:([hole.holeNumber intValue]-1)];
-            if(par == score)
-                saveSucc++;
-        }
-        
-        numPutts += [hole.putts intValue];
-        numberPen += [hole.penalties intValue];
-        
-        if([hole.putts intValue] == 1)
-            numOnePutts++;
-        if([hole.putts intValue] == 3)
-            numThreePutts++;
-            
-        if(hole.fairBunk)
-            numBunkers++;
-        if(hole.greenBunk)
-        {
-            numBunkers++;
-            sandChances++;
-            NSNumber *par = [actScores objectAtIndex:([hole.holeNumber intValue]-1)];
-            NSNumber *score = [myScores objectAtIndex:([hole.holeNumber intValue]-1)];
-            if(par == score)
-                sandSucc++;
+            return hs;
         }
     }
-    
-    if(numFours+numFives != 0)
-    {
-        fairwayFrac = [NSString stringWithFormat:@"%i/%i",fHit,(numFours+numFives)];
-        if(fHit == 0)
-        {
-            fairHit = @"0%";
-        }
-        else
-        {
-            fairHit = [[NSString stringWithFormat:@"%f",
-                              100*((double) fHit)/(numFours+numFives)] substringToIndex:2];
-        }
-    }
-    else
-    {
-        fairwayFrac = @"-/-";
-        fairHit = @"--";
-    }
-    
-    greenFrac = [NSString stringWithFormat:@"%i/18",gHit];
-    
-    if(gHit == 0)
-    {
-        greensHit = @"0%";
-    }
-    else
-    {
-        NSString *greHit = [[NSString stringWithFormat:@"%f",100*((double) gHit)/18.0] substringToIndex:2];
-        greensHit = [NSString stringWithFormat:@"%@",greHit];
-    }
+    return nil;
+}
 
-    if(saveChances != 0){
-        parSavesFrac = [NSString stringWithFormat:@"%i/%i",saveSucc,saveChances];
-        if(saveSucc == 0)
-        {
-            parSaves = @"0%";
-        }
-        else
-        {
-            NSString *ps = [[NSString stringWithFormat:@"%f",100*((double) saveSucc)/saveChances] substringToIndex:2];
-            parSaves = [NSString stringWithFormat:@"%@",ps];
-        }
-    }
-    else
-    {
-        parSavesFrac = @"-/-";
-        parSaves = @"--";
-    }
-    
-    if(sandChances != 0)
-    {
-        sandSavesFrac = [NSString stringWithFormat:@"%i/%i",sandSucc,sandChances];
-        if(sandSucc == 0)
-        {
-            sandSaves = @"0%";
-        }
-        else
-        {
-            NSString *ss = [[NSString stringWithFormat:@"%f",100*((double) sandSucc)/sandChances] substringToIndex:2];
-            sandSaves = [NSString stringWithFormat:@"%@",ss];
-        }
-    }
-    else
-    {
-        sandSavesFrac = @"-/-";
-        sandSaves = @"--";
-    }
-}*/
+
 
 // collectionview datasource and delegate method
 
@@ -236,109 +82,31 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HoleLookupCollectionViewCell *cell = [collecView dequeueReusableCellWithReuseIdentifier:@"HoleLookup" forIndexPath:indexPath];
-   
-    cell.holeNo.text = [NSString stringWithFormat:@"%i", indexPath.row];
-    cell.holePar.text = @"4";
-    cell.holeScore.text = indexPath.row % 2 == 0 ? @"3" : @"5";
-    cell.image.image = [UIImage imageNamed: indexPath.row % 2 == 0 ? @"circle.png" : @"square.png"];
     
-    /*if(indexPath.item < 9)
+    if (indexPath.row < 9)
     {
-        [[cell holePar] setText:[NSString stringWithFormat: @"%@",
-                                [game.coursePlayed.parSequence objectAtIndex:indexPath.item]]];
-        [[cell holeScore] setText:[NSString stringWithFormat:@"%@",
-                                   [game.holeScores objectAtIndex:indexPath.item]]];
-        [[cell holeNo] setText:[NSString stringWithFormat:@"%i",(indexPath.item+1)]];
-        
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] > 1)
-            [[cell image] setImage:[UIImage imageNamed:@"2circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] == 1)
-            [[cell image] setImage:[UIImage imageNamed:@"circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] == -1)
-            [[cell image] setImage:[UIImage imageNamed:@"square.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item] intValue] < -1)
-            [[cell image] setImage:[UIImage imageNamed:@"2square.png"]];
-        
-        if([[cell holeScore].text isEqualToString:@"0"])
-        {
-            [cell holeScore].text = @"-";
-            hasAllFrontNine = NO;
-            [cell image].image = nil;
-        }
+        HoleScore *hs = [self findHoleScoreForHole:indexPath.row + 1];
+        cell.hole_score = hs;
+        [cell loadDisplay];
     }
-        else if (indexPath.item == 9)
-        {
-            [[cell holeNo] setText:@"IN"];
-            
-            int frontNinePar = 0;
-            for(int i=0; i<9;i++)
-                frontNinePar += [[game.coursePlayed.parSequence objectAtIndex:i] intValue];
-            [[cell holePar] setText:[NSString stringWithFormat: @"%i",frontNinePar]];
-        
-            int frontNineScore = 0;
-            for(int i=0; i<9;i++)
-                frontNineScore += [[game.holeScores objectAtIndex:i] intValue];
-            [[cell holeScore] setText:[NSString stringWithFormat: @"%i",frontNineScore]];
-            if(!hasAllFrontNine)
-                [cell holeScore].text = @"-";
-            [cell holeScore].textColor = [UIColor colorWithRed:102.0/255.5
-                                                         green:1.0
-                                                          blue:102.0/255.0
-                                                         alpha:0.8];
-        }
-    else if (indexPath.item < 19)
+    else if (indexPath.row == 9)
     {
-        [[cell holePar] setText:[NSString stringWithFormat: @"%@",
-                                [game.coursePlayed.parSequence objectAtIndex:(indexPath.item-1)]]];
-        [[cell holeScore] setText:[NSString stringWithFormat:@"%@",
-                               [game.holeScores objectAtIndex:(indexPath.item-1)]]];
-        [[cell holeNo] setText:[NSString stringWithFormat:@"%i",indexPath.item]];
-        
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] >1)
-            [[cell image] setImage:[UIImage imageNamed:@"2circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] == 1)
-            [[cell image] setImage:[UIImage imageNamed:@"circle.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] == -1)
-            [[cell image] setImage:[UIImage imageNamed:@"square.png"]];
-        if([[game.coursePlayed.parSequence objectAtIndex:indexPath.item-1] intValue]
-           - [[game.holeScores objectAtIndex:indexPath.item-1] intValue] < -1)
-            [[cell image] setImage:[UIImage imageNamed:@"2square.png"]];
-        
-        if([[cell holeScore].text isEqualToString:@"0"])
-        {
-            [cell holeScore].text = @"-";
-            hasAllBackNine = NO;
-
-            [cell image].image = nil;
-        }
+        cell.holeNo.text = @"OUT";
+        cell.holePar.text = [NSString stringWithFormat:@"%i",[round getFrontNinePar]];
+        cell.holeScore.text = [round frontNineIsCompleted] ? [NSString stringWithFormat:@"%i",[round getFrontNineTotal]] : @"-";
     }
-        else
-        {
-            [[cell holeNo] setText:@"OUT"];
-        
-            int backNinePar = 0;
-            for(int i=9; i<18;i++)
-                backNinePar += [[game.coursePlayed.parSequence objectAtIndex:i] intValue];
-            [[cell holePar] setText:[NSString stringWithFormat: @"%i",backNinePar]];
-        
-            int backNineScore = 0;
-            for(int i=9; i<18;i++)
-                backNineScore += [[game.holeScores objectAtIndex:i] intValue];
-            [[cell holeScore] setText:[NSString stringWithFormat: @"%i",backNineScore]];
-            if(!hasAllBackNine)
-                [[cell holeScore] setText:@"-"];
-            [cell holeScore].textColor = [UIColor colorWithRed:102.0/255.5
-                                                         green:1.0
-                                                          blue:102.0/255.0
-                                                         alpha:0.8];
-        }*/
+    else if (indexPath.row > 9 && indexPath.row < 19)
+    {
+        HoleScore *hs = [self findHoleScoreForHole:indexPath.row];
+        cell.hole_score = hs;
+        [cell loadDisplay];
+    }
+    else
+    {
+        cell.holeNo.text = @"IN";
+        cell.holePar.text = [NSString stringWithFormat:@"%i",[round getBackNinePar]];
+        cell.holeScore.text = [round backNineIsComplete] ? [NSString stringWithFormat:@"%i",[round getBackNineTotal]] : @"-";
+    }
     
     return cell;
 }
@@ -346,11 +114,6 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return 2; // This is the minimum inter item spacing, can be more
-}
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(0,0,0,0);
 }
 
 // table view datasource and delegate
@@ -362,7 +125,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 16;
+    return 17;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -374,116 +137,110 @@
         cell = [[HoleLookupTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RoundStat"];
     }
     
-    if (!round.is_complete)
-    {
-        cell.statName.text = @"";
-        cell.statFig.text = @"";
-        cell.statFrac.text = @"";
-        return cell;
-    }
-    else
-    {
-        cell.statName.text = @"Category";
-        cell.statFig.text = @"##";
-        cell.statFrac.text = @"#/##";
-    }
+    RoundStats *rs = round.round_stats;
     
     switch (indexPath.row)
     {
-        /*case 0:
+        case 0:
             cell.statName.text = @"Pars";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",parsHad];
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_pars];
             cell.statFrac.text = @"";
             break;
             
         case 1:
-            cell.statName.text = @"Birdies";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",birdiesHad];
-            cell.statFrac.text = @"";
-            break;
-        
-        case 2:
-            cell.statName.text = @"Bogeys";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",bogeysHad];
+            cell.statName.text = @"Eagles";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_eagles];
             cell.statFrac.text = @"";
             break;
             
+        case 2:
+            cell.statName.text = @"Birdies";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_birdies];
+            cell.statFrac.text = @"";
+            break;
+        
         case 3:
-            cell.statName.text = @"D. Bogeys+";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",worseThanBogeys];
+            cell.statName.text = @"Bogeys";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_bogeys];
             cell.statFrac.text = @"";
             break;
             
         case 4:
-            cell.statName.text = @"Par 3 Avg.";
-            cell.statFig.text = [[NSString stringWithFormat:@"%f",((double) threeScores)/numThrees] substringToIndex:4];
+            cell.statName.text = @"D. Bogeys+";
+            cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_double_bogeys.integerValue + rs.num_doubles_plus.intValue];
             cell.statFrac.text = @"";
             break;
             
         case 5:
-            cell.statName.text = @"Par 4 Avg.";
-            cell.statFig.text = [[NSString stringWithFormat:@"%f",((double) fourScores)/numFours] substringToIndex:4];
+            cell.statName.text = @"Par 3 Avg.";
+            cell.statFig.text = [NSString stringWithFormat:@"%.2f", rs.par_3_avg.doubleValue];
             cell.statFrac.text = @"";
             break;
             
         case 6:
-            cell.statName.text = @"Par 5 Avg.";
-            cell.statFig.text = [[NSString stringWithFormat:@"%f",((double) fiveScores)/numFives] substringToIndex:4];
+            cell.statName.text = @"Par 4 Avg.";
+            cell.statFig.text = [NSString stringWithFormat:@"%.2f",rs.par_4_avg.doubleValue];
             cell.statFrac.text = @"";
             break;
-        case 7:
-            cell.statName.text = @"Fairways";
-            cell.statFrac.text = [self getFairwaysHitFraction];
-            cell.statFig.text = [self getFairwaysHitPercentage];
-            break;
             
+        case 7:
+            cell.statName.text = @"Par 5 Avg.";
+            cell.statFig.text = [NSString stringWithFormat:@"%.2f",rs.par_5_avg.doubleValue];
+            cell.statFrac.text = @"";
+            break;
         case 8:
-            cell.statName.text = @"GIR";
-            cell.statFrac.text = [NSString stringWithFormat:@"%@",greenFrac];
-            cell.statFig.text = [NSString stringWithFormat:@"%@%%",greensHit];
+            cell.statName.text = @"Fairways";
+            cell.statFig.text = [rs getFairwayPerc];
+            cell.statFrac.text = [rs getFairwayFrac];
             break;
             
         case 9:
-            cell.statName.text = @"Putts";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",numPutts];
-            cell.statFrac.text = @"";
+            cell.statName.text = @"GIR";
+            cell.statFig.text = [rs getGIRPerc];
+            cell.statFrac.text = [rs getGIRFrac];
             break;
             
         case 10:
-            cell.statName.text = @"1 Putts";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",numOnePutts];
+            cell.statName.text = @"Putts";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_putts];
             cell.statFrac.text = @"";
             break;
             
         case 11:
-            cell.statName.text = @"3 Putts";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",numThreePutts];
+            cell.statName.text = @"1 Putts";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_one_putts];
             cell.statFrac.text = @"";
             break;
             
         case 12:
-            cell.statName.text = @"Par Saves";
-            cell.statFig.text = [NSString stringWithFormat:@"%@%%",parSaves];
-            cell.statFrac.text = [NSString stringWithFormat:@"%@",parSavesFrac];
+            cell.statName.text = @"3 Putts";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_three_putts];
+            cell.statFrac.text = @"";
             break;
             
         case 13:
-            cell.statName.text = @"Bunkers";
-            cell.statFig.text = [NSString stringWithFormat:@"%i", numBunkers];
-            cell.statFrac.text = @"";
+            cell.statName.text = @"Par Saves";
+            cell.statFig.text = [rs getParSavePerc];
+            cell.statFrac.text = [rs getParSaveFrac];
             break;
             
         case 14:
             cell.statName.text = @"Sand Saves";
-            cell.statFig.text = [NSString stringWithFormat:@"%@%%",sandSaves];
-            cell.statFrac.text = [NSString stringWithFormat:@"%@",sandSavesFrac];
+            cell.statFig.text = [rs getSandSavePerc];
+            cell.statFrac.text = [rs getSandSaveFrac];
             break;
             
         case 15:
-            cell.statName.text = @"Penalty Strokes";
-            cell.statFig.text = [NSString stringWithFormat:@"%i",numberPen];
+            cell.statName.text = @"Bunkers";
+            cell.statFig.text = [NSString stringWithFormat:@"%@", rs.num_bunkers_hit];
             cell.statFrac.text = @"";
-            break;*/
+            break;
+            
+        case 16:
+            cell.statName.text = @"Penalty Strokes";
+            cell.statFig.text = [NSString stringWithFormat:@"%@",rs.num_penalty_strokes];
+            cell.statFrac.text = @"";
+            break;
             
         default:
             break;

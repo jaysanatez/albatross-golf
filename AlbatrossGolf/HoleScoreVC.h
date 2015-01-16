@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TeeHole.h"
 
-@interface HoleScore : UIViewController
+@interface HoleScoreVC : UIViewController
 
 @property (nonatomic, weak) IBOutlet UILabel *handicapLabel, *scoreLabel, *yardLabel, *netLabel, *courseLabel;
 @property (nonatomic, weak) IBOutlet UILabel *popupHoleLabel,*popupParLabel, *popupLengthLabel, *holeLabel, *parLabel;

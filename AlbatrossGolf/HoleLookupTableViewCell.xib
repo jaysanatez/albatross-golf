@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fraction" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FO-Ms-EKw" userLabel="Fraction">
-                        <rect key="frame" x="140" y="15" width="75" height="20"/>
+                        <rect key="frame" x="127" y="15" width="75" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="75" id="1BL-pm-nt7"/>
                             <constraint firstAttribute="height" constant="20" id="Vy3-8D-OZA"/>
@@ -48,7 +48,7 @@
                 <constraints>
                     <constraint firstItem="ttm-5j-GrO" firstAttribute="width" secondItem="LwP-0J-uy9" secondAttribute="width" id="2MX-LB-Jek"/>
                     <constraint firstAttribute="bottomMargin" secondItem="LwP-0J-uy9" secondAttribute="bottom" constant="-4" id="Bbf-WO-I09"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4FO-Ms-EKw" secondAttribute="trailing" constant="57" id="Jkm-0Y-i2s"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4FO-Ms-EKw" secondAttribute="trailing" constant="70" id="Jkm-0Y-i2s"/>
                     <constraint firstItem="MOQ-Gb-aST" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="LoI-NT-vnV"/>
                     <constraint firstAttribute="bottomMargin" secondItem="4FO-Ms-EKw" secondAttribute="bottom" constant="1" id="Luy-yP-8xa"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MOQ-Gb-aST" secondAttribute="trailing" constant="-8" id="MB2-OQ-0JH"/>

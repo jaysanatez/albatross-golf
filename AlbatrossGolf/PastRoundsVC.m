@@ -6,15 +6,17 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "PastRoundsVC.h"
-#import "AlbatrossGolf-Swift.h"
 #import "Course.h"
 #import "Round.h"
 #import "RoundLookupVC.h"
+#import "AlbatrossGolf-Swift.h"
 
 @interface PastRoundsVC ()
 {
     RoundDAO *r_dao;
     RoundHoleDAO *rh_dao;
+    RoundStatsDAO *rs_dao;
+    HoleScoreDAO *hs_dao;
     NSArray *sections;
     NSMutableArray *allRounds, *completeRounds, *incompleteRounds;
 }
@@ -38,8 +40,12 @@
     self.title = @"Past Rounds";
     
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
+    
     r_dao = [[RoundDAO alloc] init];
     rh_dao = [[RoundHoleDAO alloc] init];
+    rs_dao = [[RoundStatsDAO alloc] init];
+    hs_dao = [[HoleScoreDAO alloc] init];
+    
     r_dao.delegate = self;
     [r_dao fetchAllRoundsForUser:[NSNumber numberWithInt:2]];
     incompleteRounds = [[NSMutableArray alloc] init];
@@ -110,9 +116,13 @@
     [self splitIntoCompletedAndNah];
     
     rh_dao.delegate = self;
+    rs_dao.delegate = self;
+    hs_dao.delegate = self;
     for (Round *r in allRounds)
     {
-        [rh_dao matchRoundHolesWithRound:r.id_num];
+        [rh_dao fetchRoundHolesWithRound:r.id_num];
+        [rs_dao fetchStatsForRound:r.id_num];
+        [hs_dao fetchHoleScoresForRoundId:r.id_num];
     }
 }
 
@@ -122,13 +132,44 @@
     {
         if (r.id_num == roundId)
         {
-            r.roundHoles = roundHoles;
+            r.round_holes = roundHoles;
         }
     }
     
+    [self displayIfComplete];
+}
+
+- (void)roundStatsForRound:(NSNumber *)roundId roundStats:(RoundStats *)roundStats
+{
     for(Round *r in allRounds)
     {
-        if (!r.roundHoles)
+        if (r.id_num == roundId)
+        {
+            r.round_stats = roundStats;
+        }
+    }
+    
+    [self displayIfComplete];
+}
+
+- (void)holeScoresFetched:(NSMutableArray *)holeScores forRoundId:(NSNumber *)round_id
+{
+    for(Round *r in allRounds)
+    {
+        if (r.id_num == round_id)
+        {
+            r.round_scores = holeScores;
+        }
+    }
+    
+    [self displayIfComplete];
+}
+
+- (void)displayIfComplete
+{
+    for(Round *r in allRounds)
+    {
+        if(!r.round_stats || !r.round_holes || !r.round_scores)
         {
             return;
         }

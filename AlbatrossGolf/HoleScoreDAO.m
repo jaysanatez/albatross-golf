@@ -1,28 +1,28 @@
 //
-//  RoundHoleDAO.m
+//  HoleScoreDAO.m
 //  AlbatrossGolf
 //
-//  Created by Jacob Sanchez on 1/14/15.
+//  Created by Jacob Sanchez on 1/16/15.
 //  Copyright (c) 2015 jacobSanchez. All rights reserved.
 
-#import "RoundHoleDAO.h"
-#import "RoundHole.h"
+#import "HoleScoreDAO.h"
+#import "HoleScore.h"
 
-@implementation RoundHoleDAO
+@implementation HoleScoreDAO
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 @synthesize delegate;
 
-- (void)fetchRoundHolesWithRound:(NSNumber *)round_id
+- (void)fetchHoleScoresForRoundId:(NSNumber *)round_id
 {
-    NSString *urlString = [NSString stringWithFormat:@"round/%@/holes",[round_id stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"round/%@/scores",[round_id stringValue]];
     [self submitRoundFetchRequest:urlString forRound:round_id];
 }
 
 - (void)submitRoundFetchRequest:(NSString *)urlString forRound:(NSNumber *)roundId
 {
-    __block NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
+    __block NSMutableArray *holeScores = [[NSMutableArray alloc] initWithObjects:nil];
     
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
@@ -45,9 +45,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
          {
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
-                [roundHoles addObjectsFromArray:[self parseAllRoundHoleData:data]];
-                [delegate roundHolesForRound:roundHoles roundId:roundId];
-            });
+                 [holeScores addObjectsFromArray:[self parseAllHoleScoreData:data]];
+                 [delegate holeScoresFetched:holeScores forRoundId:roundId];
+             });
          }
          else if ([data length] == 0)
          {
@@ -60,9 +60,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
      }];
 }
 
-- (NSMutableArray *)parseAllRoundHoleData:(NSData *)data
+- (NSMutableArray *)parseAllHoleScoreData:(NSData *)data
 {
-    NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
+    NSMutableArray *holeScores = [[NSMutableArray alloc] initWithObjects:nil];
     
     NSString *myData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"JSON data = %@...", [myData length] > 100 ? [myData substringToIndex:100] : myData);
@@ -74,26 +74,18 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     {
         NSLog(@"Successfully deserialized.");
         
-        for(NSDictionary *rhDict in jsonObject)
+        for(NSDictionary *hsDict in jsonObject)
         {
-            RoundHole *rh = [[RoundHole alloc] init];
+            HoleScore *hs = [[HoleScore alloc] init];
             
-            rh.score = [rhDict valueForKey:@"score"];
-            rh.putts = [rhDict valueForKey:@"putts"];
-            rh.penalties = [rhDict valueForKey:@"penalties"];
+            hs.hole_number = [hsDict valueForKey:@"hole"];
+            hs.hole_par = [hsDict valueForKey:@"par"];
+            hs.score = [hsDict valueForKey:@"score"];
             
-            rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
-            rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
-            rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
-            rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
-            
-            rh.round_id = [rhDict valueForKey:@"round"];
-            rh.hole_id = [rhDict valueForKey:@"hole"];
-        
-            [roundHoles addObject:rh];
+            [holeScores addObject:hs];
         }
     }
-    return roundHoles;
+    return holeScores;
 }
 
 @end
