@@ -14,13 +14,14 @@
 @interface ScorecardVC ()
 {
     TeeHoleDAO *dao;
+    Round *round;
 }
 
 @end
 
 @implementation ScorecardVC
 
-@synthesize collecView, round, tee, teeHoles, spinnerView;
+@synthesize collecView, tee, teeHoles, spinnerView;
 
 - (void)viewDidLoad
 {
@@ -37,14 +38,18 @@
                                                                          blue:102.0/255.0
                                                                         alpha:0.8];
     dao = [[TeeHoleDAO alloc] init];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    
     [self displayLoadingScreen:NO];
     dao.delegate = self;
     [dao fetchTeeHolesForTee:tee.id_num];
+    
+    round = [[Round alloc] init];
+    round.tee_id = tee.id_num;
+    round.course_id = tee.course_id;
+    round.course_name = tee.course_name;
+    round.is_complete = NO;
+    round.round_holes = [[NSMutableArray alloc] init];
+    round.date_played = [NSDate date];
 }
 
 - (void)refreshTeeHoles:(NSMutableArray *)tHoles
@@ -80,12 +85,18 @@
     TeeHole *tHole = (TeeHole *)[teeHoles objectAtIndex:indexPath.row];
     holeScore.teeHole = tHole;
     holeScore.courseName = tee.course_name;
+    holeScore.delegate = self;
     [self.navigationController pushViewController:holeScore animated:YES];
 }
 
 - (void)displayLoadingScreen:(BOOL)fetchedCourses
 {
     spinnerView.hidden = fetchedCourses;
+}
+
+- (void)postRoundHole:(RoundHole *)roundHole
+{
+    [round.round_holes addObject:roundHole];
 }
 
 @end

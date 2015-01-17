@@ -9,10 +9,10 @@
 #import "Round.h"
 #import "TeeHoleDAO.h"
 #import "Tee.h"
+#import "HoleScoreVC.h"
 
-@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate>
+@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate, RoundHolePostable>
 
-@property (nonatomic, weak) Round *round;
 @property (nonatomic, weak) Tee *tee;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, strong) NSMutableArray *teeHoles;

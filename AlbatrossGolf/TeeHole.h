@@ -9,6 +9,6 @@
 
 @interface TeeHole : NSObject
 
-@property (nonatomic, strong) NSNumber *id_num, *yardage, *par, *handicap, *hole_num;
+@property (nonatomic, strong) NSNumber *id_num, *yardage, *par, *handicap, *hole_id, *tee_id;
 
 @end

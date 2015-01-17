@@ -79,9 +79,10 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
             tHole.yardage = [tHoleDict objectForKey:@"yardage"];
             tHole.par = [tHoleDict objectForKey:@"par"];
             tHole.handicap = [tHoleDict objectForKey:@"handicap"];
-            tHole.hole_num = [tHoleDict objectForKey:@"hole"];
+            tHole.hole_id = [tHoleDict objectForKey:@"hole"];
+            tHole.tee_id = [tHoleDict objectForKey:@"tee"];
             
-            [teeHoles insertObject:tHole atIndex:([tHole.hole_num intValue]-1)];
+            [teeHoles insertObject:tHole atIndex:([tHole.hole_id intValue]-1)]; // murder
         }
     }
     return teeHoles;
