@@ -256,17 +256,18 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         {
             RoundHole *rh = [[RoundHole alloc] init];
             
-            rh.score = [rhDict valueForKey:@"score"];
-            rh.putts = [rhDict valueForKey:@"putts"];
-            rh.penalties = [rhDict valueForKey:@"penalties"];
+            rh.score = [[rhDict valueForKey:@"score"] longValue];
+            rh.putts = [[rhDict valueForKey:@"putts"] longValue];
+            rh.penalties = [[rhDict valueForKey:@"penalties"] longValue];
             
             rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
             rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
             rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
             rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
             
-            rh.round_id = [rhDict valueForKey:@"round"];
-            rh.hole_id = [rhDict valueForKey:@"hole"];
+            rh.id_num = [[rhDict valueForKey:@"id"] longValue];
+            rh.round_id = [[rhDict valueForKey:@"round"] longValue];
+            rh.hole_id = [[rhDict valueForKey:@"hole"] longValue];
             
             [roundHoles addObject:rh];
         }
