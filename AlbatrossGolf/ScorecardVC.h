@@ -8,13 +8,13 @@
 #import <UIKit/UIKit.h>
 #import "Round.h"
 #import "TeeHoleDAO.h"
+#import "Tee.h"
 
 @interface Scorecard : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate>
 
 @property (nonatomic, weak) Round *round;
-@property (nonatomic, strong) NSNumber *courseId, *teeId;
+@property (nonatomic, weak) Tee *tee;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
-@property (nonatomic, weak) NSString *courseName;
 @property (nonatomic, strong) NSMutableArray *teeHoles;
 @property (nonatomic, weak) IBOutlet UIView *spinnerView;
 

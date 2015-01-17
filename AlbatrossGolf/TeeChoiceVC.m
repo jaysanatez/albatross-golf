@@ -59,10 +59,6 @@
     if(cell == nil)
     {
         cell = [[TeeChoiceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-        {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
     }
     
     cell.tee = (Tee *)tees[indexPath.row];
@@ -101,10 +97,8 @@
     if([[segue identifier] isEqualToString:@"beginRound"])
     {
         Scorecard *controller = [segue destinationViewController];
-        controller.courseId = course.id_num;
-        controller.courseName = course.name;
         NSIndexPath *path = [table indexPathForSelectedRow];
-        controller.teeId = ((Tee *)[tees objectAtIndex:path.row]).id_num;
+        controller.tee = (Tee *)[tees objectAtIndex:path.row];
 
     }
 }

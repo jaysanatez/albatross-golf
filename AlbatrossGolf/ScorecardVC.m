@@ -20,7 +20,7 @@
 
 @implementation Scorecard
 
-@synthesize collecView, round, courseId, teeId, courseName, teeHoles, spinnerView;
+@synthesize collecView, round, tee, teeHoles, spinnerView;
 
 - (void)viewDidLoad
 {
@@ -29,7 +29,7 @@
     spinnerView.layer.cornerRadius = 8;
     spinnerView.layer.masksToBounds = YES;
     
-    self.title = courseName;
+    self.title = tee.course_name;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
                                                                         green:1.0
                                                                          blue:102.0/255.0
@@ -42,7 +42,7 @@
     [super viewDidAppear:animated];
     [self displayLoadingScreen:NO];
     dao.delegate = self;
-    [dao fetchTeeHolesForTee:teeId];
+    [dao fetchTeeHolesForTee:tee.id_num];
 }
 
 - (void)refreshTeeHoles:(NSMutableArray *)tHoles
@@ -77,7 +77,7 @@
     HoleScoreVC *holeScore = [[HoleScoreVC alloc] initWithNibName:@"HoleScoreVC" bundle:[NSBundle mainBundle]];
     TeeHole *tHole = (TeeHole *)[teeHoles objectAtIndex:indexPath.row];
     holeScore.teeHole = tHole;
-    holeScore.courseName = courseName;
+    holeScore.courseName = tee.course_name;
     [self.navigationController pushViewController:holeScore animated:YES];
 }
 

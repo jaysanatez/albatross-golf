@@ -28,22 +28,17 @@
 {
     [super viewDidLoad];
     
-    // spinner view corners
-    spinnerView.layer.cornerRadius = 8;
-    spinnerView.layer.masksToBounds = YES;
-    
-    // button corners
-    playButton.layer.cornerRadius = 8;
-    playButton.layer.masksToBounds = YES;
-    
-    moreButton.layer.cornerRadius = 8;
-    moreButton.layer.masksToBounds = YES;
+    NSArray *array = @[spinnerView, playButton, moreButton];
+    for (UIView *v in array)
+    {
+        v.layer.cornerRadius = 8;
+        v.layer.masksToBounds = YES;
+    }
     
     dao = [[TeeDAO alloc] init];
     dao.delegate = self;
     [dao fetchTeesForUser:[NSNumber numberWithInt:2]];
     [self displayLoadingScreen:NO];
-    noTees.hidden = YES;
     selectedRow = -1;
 }
 
@@ -94,6 +89,7 @@
 - (void)refreshTeeList:(NSMutableArray *)teeList
 {
     tees = teeList;
+    noTees.hidden = [teeList count] != 0;
     [table reloadData];
     [self displayLoadingScreen:YES];
 }
@@ -116,9 +112,7 @@
         Scorecard *controller = [segue destinationViewController];
         NSIndexPath *path = [table indexPathForSelectedRow];
         Tee *t = (Tee *)[tees objectAtIndex:path.row];
-        controller.courseId = t.course_id;
-        controller.teeId = t.id_num;
-        controller.courseName = t.course_name;
+        controller.tee = t;
     }
 }
 
