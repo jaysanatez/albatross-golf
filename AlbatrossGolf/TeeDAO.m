@@ -11,17 +11,14 @@
 #import "TeeChoiceVC.h"
 
 @implementation TeeDAO
-{
-    NSString *urlExt;
-}
 
 @synthesize delegate;
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
-- (void)fetchTeesForCourse:(NSNumber *)courseId
+- (void)fetchTeesForCourse:(long)courseId
 {
-    NSString *urlString = [NSString stringWithFormat:@"course/%@/tees",[courseId stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"course/%li/tees",courseId];
     [self submitCourseFetchRequest:urlString];
 }
 
@@ -90,14 +87,14 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         {
             Tee *tee = [[Tee alloc] init];
             
-            tee.id_num = [teeDict objectForKey:@"id"];
-            tee.name = [teeDict objectForKey:@"name"];
-            tee.slope = [teeDict objectForKey:@"slope"];
-            tee.rating = [teeDict objectForKey:@"rating"];
-            tee.isMale = [[teeDict objectForKey:@"gender"] isEqualToString:@"M"];
+            tee.id_num = [[teeDict valueForKey:@"id"] longValue];
+            tee.name = [teeDict valueForKey:@"name"];
+            tee.slope = [[teeDict valueForKey:@"slope"] longValue];
+            tee.rating = [[teeDict valueForKey:@"rating"] doubleValue];
+            tee.isMale = [[teeDict valueForKey:@"gender"] isEqualToString:@"M"];
             
             NSDictionary *courseDict = [teeDict objectForKey:@"course"];
-            tee.course_id = [courseDict objectForKey:@"id"];
+            tee.course_id = [[courseDict objectForKey:@"id"] longValue];
             tee.course_name = [courseDict objectForKey:@"name"];
             
             [tees addObject:tee];

@@ -10,7 +10,8 @@
 @interface Tee : NSObject
 
 @property (nonatomic, strong) NSString *name, *course_name;
-@property (nonatomic, strong) NSNumber *rating, *slope, *id_num, *course_id;
+@property long slope, id_num, course_id;
+@property double rating;
 @property BOOL isMale;
 
 @end

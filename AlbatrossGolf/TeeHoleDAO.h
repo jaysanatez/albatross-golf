@@ -17,6 +17,6 @@
 
 @property (nonatomic, weak) id <TeeHoleFetchDelegate> delegate;
 
-- (void)fetchTeeHolesForTee:(NSNumber *)teeId;
+- (void)fetchTeeHolesForTee:(long)teeId;
 
 @end

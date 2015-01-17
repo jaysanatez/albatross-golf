@@ -18,11 +18,11 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 @synthesize delegate;
 
-- (void)fetchTeeHolesForTee:(NSNumber *)teeId
+- (void)fetchTeeHolesForTee:(long)teeId
 {
     __block NSMutableArray *teeHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@%@",baseUrl,@"tee/",[teeId stringValue],@"/holes"];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@tee/%li/holes",baseUrl,teeId];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
@@ -75,14 +75,14 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         {
             TeeHole *tHole = [[TeeHole alloc] init];
             
-            tHole.id_num = [tHoleDict objectForKey:@"id"];
-            tHole.yardage = [tHoleDict objectForKey:@"yardage"];
-            tHole.par = [tHoleDict objectForKey:@"par"];
-            tHole.handicap = [tHoleDict objectForKey:@"handicap"];
-            tHole.hole_id = [tHoleDict objectForKey:@"hole"];
-            tHole.tee_id = [tHoleDict objectForKey:@"tee"];
+            tHole.id_num = [[tHoleDict valueForKey:@"id"] longValue];
+            tHole.yardage = [[tHoleDict valueForKey:@"yardage"] longValue];
+            tHole.par = [[tHoleDict valueForKey:@"par"] longValue];
+            tHole.handicap = [[tHoleDict valueForKey:@"handicap"] longValue];
+            tHole.hole_id = [[tHoleDict valueForKey:@"hole"] longValue];
+            tHole.tee_id = [[tHoleDict valueForKey:@"tee"] longValue];
             
-            [teeHoles insertObject:tHole atIndex:([tHole.hole_id intValue]-1)]; // murder
+            [teeHoles insertObject:tHole atIndex:(tHole.hole_id -1)]; // MURDER
         }
     }
     return teeHoles;

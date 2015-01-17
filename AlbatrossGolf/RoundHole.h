@@ -10,6 +10,6 @@
 @interface RoundHole : NSObject
 
 @property BOOL hitFairway, hitGir, hitFairwayBunker, hitGreensideBunker;
-@property (nonatomic, weak) NSNumber *round_id, *hole_id, *putts, *penalties, *score;
+@property long hole_id, round_id, putts, penalties, score, id_num;
 
 @end

@@ -10,8 +10,12 @@
 @interface Course : NSObject
 
 // keep name -> zip, id_num
-@property (nonatomic, strong) NSString *courseName, *courseLocation, *name, *address, *city, *state, *zip;
-@property (nonatomic, strong) NSNumber *coursePar, *courseRating, *courseSlope, *id_num;
+@property (nonatomic, strong) NSString *name, *address, *city, *state, *zip;
+@property long id_num;
+
+// MURDER
+@property (nonatomic, strong) NSString *courseName, *courseLocation;
+@property (nonatomic, strong) NSNumber *coursePar, *courseRating, *courseSlope;
 @property (nonatomic, strong) NSMutableArray *parSequence;
 
 @end

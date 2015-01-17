@@ -16,7 +16,7 @@
 {
     for (HoleScore *hs in round_scores)
     {
-        if(hs.hole_number > 0 && hs.hole_number.integerValue < 10 && hs.score.integerValue == -1)
+        if(hs.hole_number > 0 && hs.hole_number < 10 && hs.score == -1)
         {
             return false;
         }
@@ -28,7 +28,7 @@
 {
     for (HoleScore *hs in round_scores)
     {
-        if(hs.hole_number.integerValue > 9 && hs.hole_number.integerValue < 19 && hs.score.integerValue == -1)
+        if(hs.hole_number > 9 && hs.hole_number < 19 && hs.score == -1)
         {
             return false;
         }
@@ -42,9 +42,9 @@
     
     for (HoleScore *hs in round_scores)
     {
-        if(hs.hole_number > 0 && hs.hole_number.integerValue < 10)
+        if(hs.hole_number > 0 && hs.hole_number < 10)
         {
-            par_total += hs.hole_par.integerValue;
+            par_total += hs.hole_par;
         }
     }
     
@@ -57,9 +57,9 @@
     
     for (HoleScore *hs in round_scores)
     {
-        if(hs.hole_number.integerValue > 9 && hs.hole_number.integerValue < 19)
+        if(hs.hole_number > 9 && hs.hole_number < 19)
         {
-            par_total += hs.hole_par.integerValue;
+            par_total += hs.hole_par;
         }
     }
     
@@ -72,9 +72,9 @@
     
     for (HoleScore *hs in round_scores)
     {
-        if(hs.hole_number > 0 && hs.hole_number.integerValue < 10)
+        if(hs.hole_number > 0 && hs.hole_number < 10)
         {
-            par_total += hs.score.integerValue;
+            par_total += hs.score;
         }
     }
     
@@ -87,9 +87,9 @@
     
     for (HoleScore *hs in round_scores)
     {
-        if(hs.hole_number.integerValue > 9 && hs.hole_number.integerValue < 19)
+        if(hs.hole_number > 9 && hs.hole_number < 19)
         {
-            par_total += hs.score.integerValue;
+            par_total += hs.score;
         }
     }
     
