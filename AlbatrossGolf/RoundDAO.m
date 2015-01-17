@@ -13,27 +13,27 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 @synthesize delegate;
 
-- (void)fetchAllRoundsForUser:(NSNumber *)user_id
+- (void)fetchAllRoundsForUser:(long)user_id
 {
-    NSString *urlString = [NSString stringWithFormat:@"user/%@/rounds",[user_id stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"user/%li/rounds",user_id];
     [self submitRoundFetchRequest:urlString];
 }
 
-- (void)fetchRoundHolesWithRound:(NSNumber *)round_id
+- (void)fetchRoundHolesWithRound:(long)round_id
 {
-    NSString *urlString = [NSString stringWithFormat:@"round/%@/holes",[round_id stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"round/%li/holes",round_id];
     [self submitRoundHoleFetchRequest:urlString forRound:round_id];
 }
 
-- (void)fetchStatsForRound:(NSNumber *)round_id
+- (void)fetchStatsForRound:(long)round_id
 {
-    NSString *urlString = [NSString stringWithFormat:@"round/%@/stats",[round_id stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"round/%li/stats",round_id ];
     [self submitRoundStatFetchRequest:urlString forRound:round_id];
 }
 
-- (void)fetchHoleScoresForRoundId:(NSNumber *)round_id
+- (void)fetchHoleScoresForRoundId:(long)round_id
 {
-    NSString *urlString = [NSString stringWithFormat:@"round/%@/scores",[round_id stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"round/%li/scores",round_id];
     [self submitHoleScoreFetchRequest:urlString forRound:round_id];
 }
 
@@ -79,7 +79,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
      }];
 }
 
-- (void)submitRoundHoleFetchRequest:(NSString *)urlString forRound:(NSNumber *)roundId
+- (void)submitRoundHoleFetchRequest:(NSString *)urlString forRound:(long)roundId
 {
     __block NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
@@ -119,7 +119,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
      }];
 }
 
-- (void)submitRoundStatFetchRequest:(NSString *)urlString forRound:(NSNumber *)roundId
+- (void)submitRoundStatFetchRequest:(NSString *)urlString forRound:(long)roundId
 {
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
@@ -156,7 +156,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
      }];
 }
 
-- (void)submitHoleScoreFetchRequest:(NSString *)urlString forRound:(NSNumber *)roundId
+- (void)submitHoleScoreFetchRequest:(NSString *)urlString forRound:(long)roundId
 {
     __block NSMutableArray *holeScores = [[NSMutableArray alloc] initWithObjects:nil];
     
@@ -220,16 +220,16 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         {
             Round *round = [[Round alloc] init];
             
-            round.id_num = [roundDict objectForKey:@"id"];
-            round.user_id = [roundDict objectForKey:@"user"];
+            round.id_num = [[roundDict valueForKey:@"id"] longValue];
+            round.user_id = [[roundDict valueForKey:@"user"] longValue];
             
             NSDictionary *courseDict = [roundDict objectForKey:@"course"];
-            round.course_name = [courseDict objectForKey:@"name"];
-            round.course_id = [courseDict objectForKey:@"id"];
+            round.course_name = [courseDict valueForKey:@"name"];
+            round.course_id = [[courseDict valueForKey:@"id"] longValue];
             
             dateString = [roundDict objectForKey:@"date"];
             round.date_played = [dateFormat dateFromString:dateString];
-            round.tee_id = [roundDict objectForKey:@"tee"];
+            round.tee_id = [[roundDict valueForKey:@"tee"] longValue];
             round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
             
             [rounds addObject:round];

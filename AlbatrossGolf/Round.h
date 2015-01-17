@@ -10,8 +10,7 @@
 
 @interface Round : NSObject
 
-@property long tee_id, course_id;
-@property (nonatomic, strong) NSNumber *id_num, *user_id;
+@property long tee_id, course_id, id_num, user_id;
 @property (nonatomic, strong) NSDate *date_played;
 @property (nonatomic, strong) NSString *course_name;
 @property BOOL is_complete;

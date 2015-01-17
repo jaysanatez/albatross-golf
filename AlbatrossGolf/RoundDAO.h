@@ -14,9 +14,9 @@
 @protocol RoundFetchDelegate
 
 - (void)refreshRoundList:(NSMutableArray *)rounds;
-- (void)roundHolesFetched:(NSMutableArray *)roundHoles forRoundId:(NSNumber *)round_id;
-- (void)roundStatsFetched:(RoundStats *)roundStats forRoundId:(NSNumber *)round_id;
-- (void)holeScoresFetched:(NSMutableArray *)holeScores forRoundId:(NSNumber *)round_id;
+- (void)roundHolesFetched:(NSMutableArray *)roundHoles forRoundId:(long)round_id;
+- (void)roundStatsFetched:(RoundStats *)roundStats forRoundId:(long)round_id;
+- (void)holeScoresFetched:(NSMutableArray *)holeScores forRoundId:(long)round_id;
 
 @end
 
@@ -24,10 +24,10 @@
 
 @property (nonatomic, weak) id <RoundFetchDelegate> delegate;
 
-- (void)fetchAllRoundsForUser:(NSNumber *)user_id;
-- (void)fetchRoundHolesWithRound:(NSNumber *)round_id;
-- (void)fetchStatsForRound:(NSNumber *)round_id;
-- (void)fetchHoleScoresForRoundId:(NSNumber *)round_id;
+- (void)fetchAllRoundsForUser:(long)user_id;
+- (void)fetchRoundHolesWithRound:(long)round_id;
+- (void)fetchStatsForRound:(long)round_id;
+- (void)fetchHoleScoresForRoundId:(long)round_id;
 
 @end
 

@@ -23,9 +23,9 @@
 
 -(void)reloadLabels
 {
-    holeNumber.text = [NSString stringWithFormat:@"%@",teeHole.hole_id]; // MURDER
-    holePar.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
-    holeYardage.text = [NSString stringWithFormat:@"%@ yds",teeHole.yardage];
+    holeNumber.text = [NSString stringWithFormat:@"%li",teeHole.hole_id]; // MURDER
+    holePar.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
+    holeYardage.text = [NSString stringWithFormat:@"%li yds",teeHole.yardage];
 }
 
 @end

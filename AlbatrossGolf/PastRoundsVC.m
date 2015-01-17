@@ -40,7 +40,7 @@
     
     dao = [[RoundDAO alloc] init];
     dao.delegate = self;
-    [dao fetchAllRoundsForUser:[NSNumber numberWithInt:2]];
+    [dao fetchAllRoundsForUser:2];
     incompleteRounds = [[NSMutableArray alloc] init];
     completeRounds = [[NSMutableArray alloc] init];
 }
@@ -115,7 +115,7 @@
         [dao fetchHoleScoresForRoundId:r.id_num];
     }
 }
-- (void)roundHolesFetched:(NSMutableArray *)roundHoles forRoundId:(NSNumber *)round_id
+- (void)roundHolesFetched:(NSMutableArray *)roundHoles forRoundId:(long)round_id
 {
     for(Round *r in allRounds)
     {
@@ -127,7 +127,7 @@
     
     [self displayIfComplete];
 }
-- (void)roundStatsFetched:(RoundStats *)roundStats forRoundId:(NSNumber *)round_id
+- (void)roundStatsFetched:(RoundStats *)roundStats forRoundId:(long)round_id
 {
     for(Round *r in allRounds)
     {
@@ -140,7 +140,7 @@
     [self displayIfComplete];
 }
 
-- (void)holeScoresFetched:(NSMutableArray *)holeScores forRoundId:(NSNumber *)round_id
+- (void)holeScoresFetched:(NSMutableArray *)holeScores forRoundId:(long)round_id
 {
     for(Round *r in allRounds)
     {

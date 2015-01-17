@@ -42,10 +42,10 @@
     
     self.title =  @"Scoring Breakdown";
     courseLabel.text = courseName;
-    holeLabel.text = [NSString stringWithFormat: @"Hole #%@",teeHole.hole_id]; // MURDER
-    parLabel.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
-    handicapLabel.text = [NSString stringWithFormat:@"Handicap: %@",teeHole.handicap];
-    yardLabel.text = [NSString stringWithFormat:@"Length: %@ yds",teeHole.yardage];
+    holeLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole_id]; // MURDER
+    parLabel.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
+    handicapLabel.text = [NSString stringWithFormat:@"Handicap: %li",teeHole.handicap];
+    yardLabel.text = [NSString stringWithFormat:@"Length: %li yds",teeHole.yardage];
     scoreLabel.text = @"Score: ---";
     netLabel.text = @"-----";
     
@@ -56,9 +56,9 @@
     enterButton.layer.masksToBounds = YES;
     
     // popup stuff
-    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%@",teeHole.hole_id]; //MURDER
-    popupParLabel.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
-    popupLengthLabel.text = [NSString stringWithFormat:@"%@ yds",teeHole.yardage];
+    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole_id]; //MURDER
+    popupParLabel.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
+    popupLengthLabel.text = [NSString stringWithFormat:@"%li yds",teeHole.yardage];
     
     boolView.hidden = NO;
     intView.hidden = YES;
@@ -100,7 +100,7 @@
 
 -(NSString *)stringForScore:(NSNumber *)score
 {
-    int net = [score intValue] - [teeHole.par intValue];
+    int net = [score intValue] - teeHole.par;
     switch (net)
     {
         case -3:
