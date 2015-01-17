@@ -290,38 +290,38 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         NSLog(@"Successfully deserialized.");
         NSDictionary *d = (NSDictionary *)jsonObject;
         
-        rs.total_score = [d valueForKey:@"score"];
+        rs.total_score = [[d valueForKey:@"score"] longValue];
         
-        rs.num_putts = [d valueForKey:@"putt"];
-        rs.num_penalty_strokes = [d valueForKey:@"penalty_strokes"];
+        rs.num_putts = [[d valueForKey:@"putt"] longValue];
+        rs.num_penalty_strokes = [[d valueForKey:@"penalty_strokes"] longValue];
         
-        rs.num_one_putts = [d valueForKey:@"one_putt"];
-        rs.num_three_putts = [d valueForKey:@"three_putt"];
+        rs.num_one_putts = [[d valueForKey:@"one_putt"] longValue];
+        rs.num_three_putts = [[d valueForKey:@"three_putt"] longValue];
         
-        rs.num_bunkers_hit = [d valueForKey:@"bunker_hit"];
+        rs.num_bunkers_hit = [[d valueForKey:@"bunker_hit"] longValue];
         
-        rs.par_3_avg = [d valueForKey:@"par_3_avg"];
-        rs.par_4_avg = [d valueForKey:@"par_4_avg"];
-        rs.par_5_avg = [d valueForKey:@"par_5_avg"];
+        rs.par_3_avg = [[d valueForKey:@"par_3_avg"] doubleValue];
+        rs.par_4_avg = [[d valueForKey:@"par_4_avg"] doubleValue];
+        rs.par_5_avg = [[d valueForKey:@"par_5_avg"] doubleValue];
         
-        rs.num_eagles = [d valueForKey:@"eagle"];
-        rs.num_birdies = [d valueForKey:@"birdie"];
-        rs.num_pars = [d valueForKey:@"par"];
-        rs.num_bogeys = [d valueForKey:@"bogey"];
-        rs.num_double_bogeys = [d valueForKey:@"double_bogey"];
-        rs.num_doubles_plus = [d valueForKey:@"double_bogey_plus"];
+        rs.num_eagles = [[d valueForKey:@"eagle"] longValue];
+        rs.num_birdies = [[d valueForKey:@"birdie"] longValue];
+        rs.num_pars = [[d valueForKey:@"par"] longValue];
+        rs.num_bogeys = [[d valueForKey:@"bogey"] longValue];
+        rs.num_double_bogeys = [[d valueForKey:@"double_bogey"] longValue];
+        rs.num_doubles_plus = [[d valueForKey:@"double_bogey_plus"] longValue];
         
-        rs.num_greens_hit = [d valueForKey:@"hit_green"];
-        rs.num_greens_possible = [d valueForKey:@"green_possible"];
+        rs.num_greens_hit = [[d valueForKey:@"hit_green"] longValue];
+        rs.num_greens_possible = [[d valueForKey:@"green_possible"] longValue];
         
-        rs.num_fairways_hit = [d valueForKey:@"hit_fairway"];
-        rs.num_fairways_possible = [d valueForKey:@"fairway_possible"];
+        rs.num_fairways_hit = [[d valueForKey:@"hit_fairway"] longValue];
+        rs.num_fairways_possible = [[d valueForKey:@"fairway_possible"] longValue];
         
-        rs.num_par_saves = [d valueForKey:@"par_save"];
-        rs.num_par_saves_possible = [d valueForKey:@"par_save_possible"];
+        rs.num_par_saves = [[d valueForKey:@"par_save"] longValue];
+        rs.num_par_saves_possible = [[d valueForKey:@"par_save_possible"] longValue];
         
-        rs.num_sand_saves = [d valueForKey:@"sand_save"];
-        rs.num_sand_saves_possible = [d valueForKey:@"sand_save_possible"];
+        rs.num_sand_saves = [[d valueForKey:@"sand_save"] longValue];
+        rs.num_sand_saves_possible = [[d valueForKey:@"sand_save_possible"] longValue];
     }
     return rs;
 }

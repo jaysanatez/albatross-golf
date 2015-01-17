@@ -13,65 +13,65 @@
 
 - (NSString *)getGIRFrac
 {
-    return [NSString stringWithFormat:@"%@/%@", num_greens_hit, num_greens_possible];
+    return [NSString stringWithFormat:@"%li/%li", num_greens_hit, num_greens_possible];
 }
 
 - (NSString *)getGIRPerc
 {
-    if (num_greens_possible.integerValue == 0)
+    if (num_greens_possible == 0)
     {
         return @"--.-%";
     }
     
-    double perc = [num_greens_hit doubleValue] / [num_greens_possible doubleValue] * 100;
+    double perc = (double)num_greens_hit / (double)num_greens_possible * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
 
 - (NSString *)getFairwayFrac
 {
-    return [NSString stringWithFormat:@"%@/%@", num_fairways_hit, num_fairways_possible];
+    return [NSString stringWithFormat:@"%li/%li", num_fairways_hit, num_fairways_possible];
 }
 
 - (NSString *)getFairwayPerc
 {
-    if (num_fairways_possible.integerValue == 0)
+    if (num_fairways_possible == 0)
     {
         return @"--.-%";
     }
-    
-    double perc = [num_fairways_hit doubleValue] / [num_fairways_possible doubleValue] * 100;
+
+    double perc = (double)num_fairways_hit / (double)num_fairways_possible * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
 
 - (NSString *)getParSaveFrac
 {
-    return [NSString stringWithFormat:@"%@/%@", num_par_saves, num_par_saves_possible];
+    return [NSString stringWithFormat:@"%li/%li", num_par_saves, num_par_saves_possible];
 }
 
 - (NSString *)getParSavePerc
 {
-    if (num_par_saves_possible.integerValue == 0)
+    if (num_par_saves_possible == 0)
     {
         return @"--.-%";
     }
     
-    double perc = [num_par_saves doubleValue] / [num_par_saves_possible doubleValue] * 100;
+    double perc = (double)num_par_saves / (double)num_par_saves_possible * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
 
 - (NSString *)getSandSaveFrac
 {
-    return [NSString stringWithFormat:@"%@/%@", num_sand_saves, num_sand_saves_possible];
+    return [NSString stringWithFormat:@"%li/%li", num_sand_saves, num_sand_saves_possible];
 }
 
 - (NSString *)getSandSavePerc
 {
-    if (num_sand_saves_possible.integerValue == 0)
+    if (num_sand_saves_possible == 0)
     {
         return @"--.-%";
     }
     
-    double perc = [num_sand_saves doubleValue] / [num_sand_saves_possible doubleValue] * 100;
+    double perc = (double)num_sand_saves / (double)num_sand_saves_possible * 100;
     return [NSString stringWithFormat:@"%.1f%%",perc];
 }
 
