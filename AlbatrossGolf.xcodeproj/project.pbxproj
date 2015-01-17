@@ -61,6 +61,8 @@
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
 		16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DA1A68C8B600443472 /* RoundStats.swift */; };
 		16D640DD1A68D06500443472 /* RoundStatsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DC1A68D06500443472 /* RoundStatsDAO.swift */; };
+		16E723C51A6A20C0008E8FB6 /* LoadingThrobberVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */; };
+		16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */; };
 		16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BEC1A68E50200D885C2 /* RoundStats.m */; };
 		16FF7BF11A68E77400D885C2 /* RoundStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */; };
 /* End PBXBuildFile section */
@@ -171,6 +173,8 @@
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
 		16D640DA1A68C8B600443472 /* RoundStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStats.swift; sourceTree = "<group>"; };
 		16D640DC1A68D06500443472 /* RoundStatsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStatsDAO.swift; sourceTree = "<group>"; };
+		16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingThrobberVIew.swift; sourceTree = "<group>"; };
+		16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingThrobberView.xib; sourceTree = "<group>"; };
 		16FF7BEB1A68E50200D885C2 /* RoundStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStats.h; sourceTree = "<group>"; };
 		16FF7BEC1A68E50200D885C2 /* RoundStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStats.m; sourceTree = "<group>"; };
 		16FF7BEF1A68E77400D885C2 /* RoundStatsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStatsDAO.h; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 				1641C9491A263EF400378BA4 /* Main.storyboard */,
 				16D640CC1A688E3D00443472 /* LoginViewController.swift */,
 				16D640CE1A68920C00443472 /* MenuViewController.swift */,
+				16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */,
+				16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */,
 				16D640CB1A688E3C00443472 /* AlbatrossGolf-Bridging-Header.h */,
 			);
 			name = main;
@@ -522,6 +528,7 @@
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
+				16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */,
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScoreVC.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
@@ -560,6 +567,7 @@
 				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
 				1641C9631A263FB000378BA4 /* Course.m in Sources */,
+				16E723C51A6A20C0008E8FB6 /* LoadingThrobberVIew.swift in Sources */,
 				1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */,
 				1641C9691A263FB000378BA4 /* Round.m in Sources */,
 				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,
