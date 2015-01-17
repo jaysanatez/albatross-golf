@@ -13,17 +13,17 @@
 
 - (void)loadDisplay
 {
-    if(hole_score != nil && hole_score.score.integerValue != -1)
+    if(hole_score != nil && hole_score.score != -1)
     {
-        holeNo.text = [NSString stringWithFormat:@"%li",(long)hole_score.hole_number.integerValue];
-        holePar.text = [NSString stringWithFormat:@"%li",(long)hole_score.hole_par.integerValue];
-        holeScore.text = [NSString stringWithFormat:@"%li",(long)hole_score.score.integerValue];
+        holeNo.text = [NSString stringWithFormat:@"%li",hole_score.hole_number];
+        holePar.text = [NSString stringWithFormat:@"%li",hole_score.hole_par];
+        holeScore.text = [NSString stringWithFormat:@"%li",hole_score.score];
         image.image = [UIImage imageNamed:[hole_score getScorecardSymbol]];
     }
     else if (hole_score != nil)
     {
-        holeNo.text = [NSString stringWithFormat:@"%li",(long)hole_score.hole_number.integerValue];
-        holePar.text = [NSString stringWithFormat:@"%li",(long)hole_score.hole_par.integerValue];
+        holeNo.text = [NSString stringWithFormat:@"%li",hole_score.hole_number];
+        holePar.text = [NSString stringWithFormat:@"%li",hole_score.hole_par];
         holeScore.text = @"-";
     }
     else

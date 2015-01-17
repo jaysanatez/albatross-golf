@@ -344,9 +344,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         {
             HoleScore *hs = [[HoleScore alloc] init];
             
-            hs.hole_number = [hsDict valueForKey:@"hole"];
-            hs.hole_par = [hsDict valueForKey:@"par"];
-            hs.score = [hsDict valueForKey:@"score"];
+            hs.hole_number = [[hsDict valueForKey:@"hole"] longValue];
+            hs.hole_par = [[hsDict valueForKey:@"par"] longValue];
+            hs.score = [[hsDict valueForKey:@"score"] longValue];
             
             [holeScores addObject:hs];
         }

@@ -9,7 +9,7 @@
 
 @interface HoleScore : NSObject
 
-@property (nonatomic, strong) NSNumber *hole_number, *hole_par, *score;
+@property long hole_number, hole_par, score;
 
 - (int)getDifference;
 - (NSString *)getScoreName;

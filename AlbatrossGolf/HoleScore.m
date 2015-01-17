@@ -13,7 +13,7 @@
 
 - (int)getDifference
 {
-    return score.integerValue - hole_par.integerValue;
+    return score - hole_par;
 }
 
 - (NSString *)getScoreName

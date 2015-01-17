@@ -50,7 +50,7 @@
 {
     for (HoleScore *hs in round.round_scores)
     {
-        if (hs.hole_number.integerValue == hole_number)
+        if (hs.hole_number == hole_number)
         {
             return hs;
         }

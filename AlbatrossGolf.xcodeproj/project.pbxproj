@@ -272,10 +272,6 @@
 			children = (
 				16FB796C1A6ABE7B008F2277 /* models */,
 				16FB796D1A6ABE82008F2277 /* DAOs */,
-				16FF7BEB1A68E50200D885C2 /* RoundStats.h */,
-				16FF7BEC1A68E50200D885C2 /* RoundStats.m */,
-				162439161A697B8E00A7A049 /* HoleScore.h */,
-				162439171A697B8E00A7A049 /* HoleScore.m */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
@@ -417,6 +413,10 @@
 				1641C9601A263FB000378BA4 /* Round.m */,
 				168E94051A2795500065E1C4 /* RoundHole.h */,
 				168E94061A2795500065E1C4 /* RoundHole.m */,
+				16FF7BEB1A68E50200D885C2 /* RoundStats.h */,
+				16FF7BEC1A68E50200D885C2 /* RoundStats.m */,
+				162439161A697B8E00A7A049 /* HoleScore.h */,
+				162439171A697B8E00A7A049 /* HoleScore.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
