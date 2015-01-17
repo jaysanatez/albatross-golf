@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		162439181A697B8E00A7A049 /* HoleScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 162439171A697B8E00A7A049 /* HoleScore.m */; };
-		1624391B1A697E3B00A7A049 /* HoleScoreDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1624391A1A697E3B00A7A049 /* HoleScoreDAO.m */; };
 		1641C9231A263D8000378BA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9221A263D8000378BA4 /* main.m */; };
 		1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9251A263D8000378BA4 /* AppDelegate.m */; };
 		1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9271A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld */; };
@@ -48,7 +47,6 @@
 		1641C9D51A26435E00378BA4 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9D11A26435E00378BA4 /* Game.m */; };
 		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
 		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
-		16C3C32E1A676EC3008F297D /* RoundHoleDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */; };
 		16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640BC1A6857F200443472 /* RoundLookupVC.xib */; };
 		16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */; };
 		16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */; };
@@ -59,14 +57,11 @@
 		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
 		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
-		16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DA1A68C8B600443472 /* RoundStats.swift */; };
-		16D640DD1A68D06500443472 /* RoundStatsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640DC1A68D06500443472 /* RoundStatsDAO.swift */; };
 		16E723C51A6A20C0008E8FB6 /* LoadingThrobberVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */; };
 		16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */; };
 		16E723CE1A6A2404008E8FB6 /* HoleScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */; };
 		16E723D01A6A2459008E8FB6 /* ScorecardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */; };
 		16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BEC1A68E50200D885C2 /* RoundStats.m */; };
-		16FF7BF11A68E77400D885C2 /* RoundStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +77,6 @@
 /* Begin PBXFileReference section */
 		162439161A697B8E00A7A049 /* HoleScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScore.h; sourceTree = "<group>"; };
 		162439171A697B8E00A7A049 /* HoleScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScore.m; sourceTree = "<group>"; };
-		162439191A697E3B00A7A049 /* HoleScoreDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreDAO.h; sourceTree = "<group>"; };
-		1624391A1A697E3B00A7A049 /* HoleScoreDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScoreDAO.m; sourceTree = "<group>"; };
 		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -158,8 +151,6 @@
 		1641C9D61A2643AD00378BA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		168E94051A2795500065E1C4 /* RoundHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHole.h; sourceTree = "<group>"; };
 		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
-		16C3C32C1A676EC3008F297D /* RoundHoleDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHoleDAO.h; sourceTree = "<group>"; };
-		16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHoleDAO.m; sourceTree = "<group>"; };
 		16D640BC1A6857F200443472 /* RoundLookupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundLookupVC.xib; sourceTree = "<group>"; };
 		16D640C11A6863CA00443472 /* HoleLookupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupCollectionViewCell.h; sourceTree = "<group>"; };
 		16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupCollectionViewCell.m; sourceTree = "<group>"; };
@@ -173,16 +164,12 @@
 		16D640D11A689F4A00443472 /* PastRoundsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundsVC.xib; sourceTree = "<group>"; };
 		16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRoundTableViewCell.swift; sourceTree = "<group>"; };
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
-		16D640DA1A68C8B600443472 /* RoundStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStats.swift; sourceTree = "<group>"; };
-		16D640DC1A68D06500443472 /* RoundStatsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundStatsDAO.swift; sourceTree = "<group>"; };
 		16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingThrobberVIew.swift; sourceTree = "<group>"; };
 		16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingThrobberView.xib; sourceTree = "<group>"; };
 		16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScoreCell.xib; sourceTree = "<group>"; };
 		16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScorecardVC.xib; sourceTree = "<group>"; };
 		16FF7BEB1A68E50200D885C2 /* RoundStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStats.h; sourceTree = "<group>"; };
 		16FF7BEC1A68E50200D885C2 /* RoundStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStats.m; sourceTree = "<group>"; };
-		16FF7BEF1A68E77400D885C2 /* RoundStatsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStatsDAO.h; sourceTree = "<group>"; };
-		16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStatsDAO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,8 +270,8 @@
 		1641C9521A263F9700378BA4 /* objects */ = {
 			isa = PBXGroup;
 			children = (
-				1641C9531A263FB000378BA4 /* Course.h */,
-				1641C9541A263FB000378BA4 /* Course.m */,
+				16FB796C1A6ABE7B008F2277 /* models */,
+				16FB796D1A6ABE82008F2277 /* DAOs */,
 				1641C9551A263FB000378BA4 /* CourseDAO.h */,
 				1641C9561A263FB000378BA4 /* CourseDAO.m */,
 				1641C9571A263FB000378BA4 /* Tee.h */,
@@ -297,21 +284,12 @@
 				1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */,
 				1641C95F1A263FB000378BA4 /* Round.h */,
 				1641C9601A263FB000378BA4 /* Round.m */,
-				1641C9611A263FB000378BA4 /* RoundDAO.h */,
-				1641C9621A263FB000378BA4 /* RoundDAO.m */,
 				168E94051A2795500065E1C4 /* RoundHole.h */,
 				168E94061A2795500065E1C4 /* RoundHole.m */,
-				16C3C32C1A676EC3008F297D /* RoundHoleDAO.h */,
-				16C3C32D1A676EC3008F297D /* RoundHoleDAO.m */,
 				16FF7BEB1A68E50200D885C2 /* RoundStats.h */,
 				16FF7BEC1A68E50200D885C2 /* RoundStats.m */,
-				16FF7BEF1A68E77400D885C2 /* RoundStatsDAO.h */,
-				16FF7BF01A68E77400D885C2 /* RoundStatsDAO.m */,
 				162439161A697B8E00A7A049 /* HoleScore.h */,
 				162439171A697B8E00A7A049 /* HoleScore.m */,
-				162439191A697E3B00A7A049 /* HoleScoreDAO.h */,
-				1624391A1A697E3B00A7A049 /* HoleScoreDAO.m */,
-				16FF7BEE1A68E5F000D885C2 /* swift copies */,
 				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
@@ -440,13 +418,22 @@
 			name = deprecated;
 			sourceTree = "<group>";
 		};
-		16FF7BEE1A68E5F000D885C2 /* swift copies */ = {
+		16FB796C1A6ABE7B008F2277 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				16D640DA1A68C8B600443472 /* RoundStats.swift */,
-				16D640DC1A68D06500443472 /* RoundStatsDAO.swift */,
+				1641C9531A263FB000378BA4 /* Course.h */,
+				1641C9541A263FB000378BA4 /* Course.m */,
 			);
-			name = "swift copies";
+			name = models;
+			sourceTree = "<group>";
+		};
+		16FB796D1A6ABE82008F2277 /* DAOs */ = {
+			isa = PBXGroup;
+			children = (
+				1641C9611A263FB000378BA4 /* RoundDAO.h */,
+				1641C9621A263FB000378BA4 /* RoundDAO.m */,
+			);
+			name = DAOs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,7 +547,6 @@
 			files = (
 				1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */,
 				1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */,
-				1624391B1A697E3B00A7A049 /* HoleScoreDAO.m in Sources */,
 				1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */,
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
 				16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */,
@@ -570,7 +556,6 @@
 				1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */,
 				1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */,
 				16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */,
-				16FF7BF11A68E77400D885C2 /* RoundStatsDAO.m in Sources */,
 				1641C9D51A26435E00378BA4 /* Game.m in Sources */,
 				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
@@ -588,7 +573,6 @@
 				16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */,
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
-				16D640DB1A68C8B600443472 /* RoundStats.swift in Sources */,
 				16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */,
 				162439181A697B8E00A7A049 /* HoleScore.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
@@ -600,8 +584,6 @@
 				1641C9861A26402400378BA4 /* TeeChoiceVC.m in Sources */,
 				1641C9661A263FB000378BA4 /* TeeDAO.m in Sources */,
 				1641C9831A26402400378BA4 /* RecentTeeChoiceVC.m in Sources */,
-				16C3C32E1A676EC3008F297D /* RoundHoleDAO.m in Sources */,
-				16D640DD1A68D06500443472 /* RoundStatsDAO.swift in Sources */,
 				1641C9651A263FB000378BA4 /* Tee.m in Sources */,
 				1641C9231A263D8000378BA4 /* main.m in Sources */,
 			);

@@ -13,10 +13,7 @@
 
 @interface PastRoundsVC ()
 {
-    RoundDAO *r_dao;
-    RoundHoleDAO *rh_dao;
-    RoundStatsDAO *rs_dao;
-    HoleScoreDAO *hs_dao;
+    RoundDAO *dao;
     NSArray *sections;
     NSMutableArray *allRounds, *completeRounds, *incompleteRounds;
 }
@@ -41,13 +38,9 @@
     
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     
-    r_dao = [[RoundDAO alloc] init];
-    rh_dao = [[RoundHoleDAO alloc] init];
-    rs_dao = [[RoundStatsDAO alloc] init];
-    hs_dao = [[HoleScoreDAO alloc] init];
-    
-    r_dao.delegate = self;
-    [r_dao fetchAllRoundsForUser:[NSNumber numberWithInt:2]];
+    dao = [[RoundDAO alloc] init];
+    dao.delegate = self;
+    [dao fetchAllRoundsForUser:[NSNumber numberWithInt:2]];
     incompleteRounds = [[NSMutableArray alloc] init];
     completeRounds = [[NSMutableArray alloc] init];
 }
@@ -114,23 +107,19 @@
 {
     allRounds = rounds;
     [self splitIntoCompletedAndNah];
-    
-    rh_dao.delegate = self;
-    rs_dao.delegate = self;
-    hs_dao.delegate = self;
+
     for (Round *r in allRounds)
     {
-        [rh_dao fetchRoundHolesWithRound:r.id_num];
-        [rs_dao fetchStatsForRound:r.id_num];
-        [hs_dao fetchHoleScoresForRoundId:r.id_num];
+        [dao fetchRoundHolesWithRound:r.id_num];
+        [dao fetchStatsForRound:r.id_num];
+        [dao fetchHoleScoresForRoundId:r.id_num];
     }
 }
-
-- (void)roundHolesForRound:(NSMutableArray *)roundHoles roundId:(NSNumber *)roundId
+- (void)roundHolesFetched:(NSMutableArray *)roundHoles forRoundId:(NSNumber *)round_id
 {
     for(Round *r in allRounds)
     {
-        if (r.id_num == roundId)
+        if (r.id_num == round_id)
         {
             r.round_holes = roundHoles;
         }
@@ -138,12 +127,11 @@
     
     [self displayIfComplete];
 }
-
-- (void)roundStatsForRound:(NSNumber *)roundId roundStats:(RoundStats *)roundStats
+- (void)roundStatsFetched:(RoundStats *)roundStats forRoundId:(NSNumber *)round_id
 {
     for(Round *r in allRounds)
     {
-        if (r.id_num == roundId)
+        if (r.id_num == round_id)
         {
             r.round_stats = roundStats;
         }
