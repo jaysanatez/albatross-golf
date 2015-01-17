@@ -16,4 +16,6 @@
 @property (nonatomic, weak) Course *course;
 @property (nonatomic, weak) IBOutlet UIButton *beginButton;
 
+-(IBAction)pushScorecard:(id)sender;
+
 @end

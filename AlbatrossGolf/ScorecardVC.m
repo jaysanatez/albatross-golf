@@ -11,38 +11,45 @@
 #import "TeeHoleDAO.h"
 #import "TeeHole.h"
 
-@interface Scorecard ()
+@interface ScorecardVC ()
 {
     TeeHoleDAO *dao;
+    Round *round;
 }
 
 @end
 
-@implementation Scorecard
+@implementation ScorecardVC
 
-@synthesize collecView, round, courseId, teeId, courseName, teeHoles, spinnerView;
+@synthesize collecView, tee, teeHoles, spinnerView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
+    
     spinnerView.layer.cornerRadius = 8;
     spinnerView.layer.masksToBounds = YES;
     
-    self.title = courseName;
+    self.title = tee.course_name;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
                                                                         green:1.0
                                                                          blue:102.0/255.0
                                                                         alpha:0.8];
     dao = [[TeeHoleDAO alloc] init];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    
     [self displayLoadingScreen:NO];
     dao.delegate = self;
-    [dao fetchTeeHolesForTee:teeId];
+    [dao fetchTeeHolesForTee:tee.id_num];
+    
+    round = [[Round alloc] init];
+    round.tee_id = tee.id_num;
+    round.course_id = tee.course_id;
+    round.course_name = tee.course_name;
+    round.is_complete = NO;
+    round.round_holes = [[NSMutableArray alloc] init];
+    round.date_played = [NSDate date];
 }
 
 - (void)refreshTeeHoles:(NSMutableArray *)tHoles
@@ -77,13 +84,19 @@
     HoleScoreVC *holeScore = [[HoleScoreVC alloc] initWithNibName:@"HoleScoreVC" bundle:[NSBundle mainBundle]];
     TeeHole *tHole = (TeeHole *)[teeHoles objectAtIndex:indexPath.row];
     holeScore.teeHole = tHole;
-    holeScore.courseName = courseName;
+    holeScore.courseName = tee.course_name;
+    holeScore.delegate = self;
     [self.navigationController pushViewController:holeScore animated:YES];
 }
 
 - (void)displayLoadingScreen:(BOOL)fetchedCourses
 {
     spinnerView.hidden = fetchedCourses;
+}
+
+- (void)postRoundHole:(RoundHole *)roundHole
+{
+    [round.round_holes addObject:roundHole];
 }
 
 @end

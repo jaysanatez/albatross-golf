@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 5/26/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "HoleScoreCell.h"
 
@@ -24,7 +23,7 @@
 
 -(void)reloadLabels
 {
-    holeNumber.text = [NSString stringWithFormat:@"%@",teeHole.hole_num];
+    holeNumber.text = [NSString stringWithFormat:@"%@",teeHole.hole_id]; // MURDER
     holePar.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
     holeYardage.text = [NSString stringWithFormat:@"%@ yds",teeHole.yardage];
 }

@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 5/27/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "HoleScoreVC.h"
 #import "ScorecardVC.h"
@@ -12,7 +11,7 @@
 
 @interface HoleScoreVC ()
 {
-    int holeScore;
+    NSNumber *holeScore;
     NSArray *questions, *descriptions;
     NSMutableArray *holeData;
     int questionsAsked;
@@ -25,7 +24,7 @@
 
 @synthesize courseLabel,holeLabel,parLabel,teeHole,courseName,textField,popupHoleLabel,popupLengthLabel,popupParLabel;
 @synthesize blurView,handicapLabel,scoreLabel,netLabel,yardLabel,holeScoreView,constraint,enterButton,holeQuestion;
-@synthesize holeDescription,boolView,intView;
+@synthesize holeDescription,boolView,intView,delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,7 +42,7 @@
     
     self.title =  @"Scoring Breakdown";
     courseLabel.text = courseName;
-    holeLabel.text = [NSString stringWithFormat: @"Hole #%@",teeHole.hole_num];
+    holeLabel.text = [NSString stringWithFormat: @"Hole #%@",teeHole.hole_id]; // MURDER
     parLabel.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
     handicapLabel.text = [NSString stringWithFormat:@"Handicap: %@",teeHole.handicap];
     yardLabel.text = [NSString stringWithFormat:@"Length: %@ yds",teeHole.yardage];
@@ -57,7 +56,7 @@
     enterButton.layer.masksToBounds = YES;
     
     // popup stuff
-    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%@",teeHole.hole_num];
+    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%@",teeHole.hole_id]; //MURDER
     popupParLabel.text = [NSString stringWithFormat:@"Par %@",teeHole.par];
     popupLengthLabel.text = [NSString stringWithFormat:@"%@ yds",teeHole.yardage];
     
@@ -65,7 +64,6 @@
     intView.hidden = YES;
     holeDescription.adjustsFontSizeToFitWidth = YES;
     holeQuestion.adjustsFontSizeToFitWidth = YES;
-    holeScore = 0;
     questions = [[NSArray alloc] initWithObjects:@"Hit Fairway:", @"GIR:", @"Fairway Bunker:", @"Greenside Bunker:", @"Putts:", @"Penalty Strokes", nil];
     descriptions = [[NSArray alloc] initWithObjects:@"Did your drive land in the fairway?", @"Did you hit the green in regulation?", @"Did you land in a fairway bunker?", @"Did you land in a greenside bunker?", @"How many putts did you have?", @"How many penalty strokes did you have?", nil];
     questionsAsked = 0;
@@ -74,8 +72,10 @@
     holeData = [[NSMutableArray alloc] initWithObjects:nil];
 }
 
-- (IBAction)doneWithHole:(id)sender
+- (void)doneWithHole
 {
+    [self constructRoundHole];
+    [delegate postRoundHole:round_hole];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -86,9 +86,9 @@
         return;
     }
     
-    NSNumber *score = [NSNumber numberWithInt:[textField.text integerValue]];
-    scoreLabel.text = [NSString stringWithFormat:@"Score: %@",score];
-    netLabel.text = [self stringForScore:score];
+    holeScore = [NSNumber numberWithInt:[textField.text integerValue]];
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %@",holeScore];
+    netLabel.text = [self stringForScore:holeScore];
     constraint.constant = -130;
     [UIView animateWithDuration:0.4f animations:^{
         [self.view layoutIfNeeded];
@@ -118,18 +118,6 @@
     }
 }
 
-- (void)yesOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithBool:true] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (void)noOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithBool:false] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
 - (void)presentNextQuestion
 {
     questionsAsked++;
@@ -148,8 +136,20 @@
         intView.hidden = YES;
         holeQuestion.text = @"Finished";
         holeDescription.text = @"";
-        [self constructRoundHole];
+        [self doneWithHole];
     }
+}
+
+- (void)yesOptionTapped:(id)sender
+{
+    [holeData insertObject:[NSNumber numberWithBool:true] atIndex:questionsAsked];
+    [self presentNextQuestion];
+}
+
+- (void)noOptionTapped:(id)sender
+{
+    [holeData insertObject:[NSNumber numberWithBool:false] atIndex:questionsAsked];
+    [self presentNextQuestion];
 }
 
 - (IBAction)zeroOptionTapped:(id)sender
@@ -191,6 +191,9 @@
 - (void)constructRoundHole
 {
     round_hole = [[RoundHole alloc] init];
+    round_hole.hole_id = teeHole.hole_id;
+    round_hole.score = holeScore;
+    
     round_hole.hitFairway = [[holeData objectAtIndex:0] boolValue];
     round_hole.hitGir = [[holeData objectAtIndex:1] boolValue];
     round_hole.hitFairwayBunker = [[holeData objectAtIndex:2] boolValue];

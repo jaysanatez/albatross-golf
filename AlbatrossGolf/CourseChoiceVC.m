@@ -26,21 +26,16 @@
 {
     [super viewDidLoad];
     
-    // spinner view corners
-    spinnerView.layer.cornerRadius = 8;
-    spinnerView.layer.masksToBounds = YES;
+    NSArray *array = @[spinnerView, continueButton, previousPage, nextPage];
+    for (UIView *v in array)
+    {
+        v.layer.cornerRadius = 8;
+        v.layer.masksToBounds = YES;
+    }
     
     // button borders
     continueButton.layer.borderWidth = 1.0f;
     continueButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    continueButton.layer.cornerRadius = 8;
-    continueButton.layer.masksToBounds = YES;
-    
-    previousPage.layer.cornerRadius = 8;
-    previousPage.layer.masksToBounds = YES;
-    
-    nextPage.layer.cornerRadius = 8;
-    nextPage.layer.masksToBounds = YES;
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
                                                                         green:1.0
@@ -104,7 +99,7 @@
     [self displayLoadingScreen:YES];
     selectedRow = -1;
     continueButton.enabled = NO;
-    int index = [segment selectedSegmentIndex];
+    NSInteger index = [segment selectedSegmentIndex];
     NSString *searchString = searchField.text;
     switch (index)
     {
@@ -147,6 +142,7 @@
 - (void)alertNoCoursesFetched
 {
     [self displayLoadingScreen:NO];
+    noCoursesLabel.hidden = NO;
     UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"No Courses found."
                                                    message:@"Either your network connection isn't strong enough or we are experiencing technical difficulties."
                                                   delegate:nil
@@ -183,7 +179,9 @@
 - (void)scrollTableToTop
 {
     if([courses count] > 0)
+    {
         [table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

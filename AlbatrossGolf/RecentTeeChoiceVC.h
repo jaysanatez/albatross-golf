@@ -15,4 +15,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *noTees;
 @property (nonatomic, weak) IBOutlet UITableView *table;
 
+-(IBAction)pushScorecard:(id)sender;
+
 @end

@@ -59,10 +59,6 @@
     if(cell == nil)
     {
         cell = [[TeeChoiceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-        {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
     }
     
     cell.tee = (Tee *)tees[indexPath.row];
@@ -96,17 +92,11 @@
     NSLog(@"No Tees Fetched");
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)pushScorecard:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"beginRound"])
-    {
-        Scorecard *controller = [segue destinationViewController];
-        controller.courseId = course.id_num;
-        controller.courseName = course.name;
-        NSIndexPath *path = [table indexPathForSelectedRow];
-        controller.teeId = ((Tee *)[tees objectAtIndex:path.row]).id_num;
-
-    }
+    ScorecardVC *controller = [[ScorecardVC alloc] init];
+    NSIndexPath *path = [table indexPathForSelectedRow];
+    controller.tee = (Tee *)[tees objectAtIndex:path.row];
 }
 
 @end
