@@ -11,20 +11,22 @@
 #import "TeeHoleDAO.h"
 #import "TeeHole.h"
 
-@interface Scorecard ()
+@interface ScorecardVC ()
 {
     TeeHoleDAO *dao;
 }
 
 @end
 
-@implementation Scorecard
+@implementation ScorecardVC
 
 @synthesize collecView, round, tee, teeHoles, spinnerView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
     
     spinnerView.layer.cornerRadius = 8;
     spinnerView.layer.masksToBounds = YES;

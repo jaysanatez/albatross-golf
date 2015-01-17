@@ -357,7 +357,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yV7-PM-Fdh" kind="push" identifier="cheapShotSupreme" id="UY5-a5-lN3"/>
+                                    <action selector="pushScorecard:" destination="0HN-I4-ohi" eventType="touchUpInside" id="WMG-Jg-vDi"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tees were found." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuC-4F-xAX">
@@ -1163,7 +1163,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yV7-PM-Fdh" kind="push" identifier="beginRound" id="DhG-oh-1je"/>
+                                    <action selector="pushScorecard:" destination="t37-0n-5mh" eventType="touchUpInside" id="utb-NP-LcS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1464,137 +1464,6 @@
             </objects>
             <point key="canvasLocation" x="3085" y="-618"/>
         </scene>
-        <!--Scorecard-->
-        <scene sceneID="43I-Vd-eID">
-            <objects>
-                <viewController id="yV7-PM-Fdh" customClass="Scorecard" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="q4n-p4-7Jk"/>
-                        <viewControllerLayoutGuide type="bottom" id="Fb8-wc-PAS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ii1-Ac-F1b">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dOS-hB-iVb">
-                                <rect key="frame" x="20" y="20" width="280" height="528"/>
-                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Avg-Ea-LOh">
-                                    <size key="itemSize" width="75" height="94"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HoleScore" id="shz-sq-Veo" customClass="HoleScoreCell">
-                                        <rect key="frame" x="0.0" y="64" width="75" height="74"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="75" height="94"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Par #" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djs-RW-D3G">
-                                                    <rect key="frame" x="0.0" y="43" width="75" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="hNF-7I-r3F"/>
-                                                        <constraint firstAttribute="width" constant="75" id="sZW-H3-VRb"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-EF-jbV">
-                                                    <rect key="frame" x="0.0" y="64" width="75" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="b1g-tr-KgF"/>
-                                                        <constraint firstAttribute="width" constant="75" id="y7x-1P-TS4"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miq-zu-xKm">
-                                                    <rect key="frame" x="0.0" y="1" width="75" height="54"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="54" id="6kK-tL-B5s"/>
-                                                        <constraint firstAttribute="width" constant="75" id="9VY-YI-Kvr"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="36"/>
-                                                    <color key="textColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wY2-U4-QhZ">
-                                                    <rect key="frame" x="58" y="21" width="14" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="Ard-dh-p49"/>
-                                                        <constraint firstAttribute="height" constant="14" id="nrd-eh-wHF"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="gFX-EF-jbV" firstAttribute="top" secondItem="miq-zu-xKm" secondAttribute="bottom" constant="9" id="9tq-i1-LRk"/>
-                                            <constraint firstAttribute="centerX" secondItem="djs-RW-D3G" secondAttribute="centerX" id="Pd2-qT-CVc"/>
-                                            <constraint firstItem="djs-RW-D3G" firstAttribute="top" secondItem="shz-sq-Veo" secondAttribute="topMargin" constant="35" id="SrL-zs-Guu"/>
-                                            <constraint firstAttribute="centerX" secondItem="miq-zu-xKm" secondAttribute="centerX" id="V4e-kY-PVf"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="wY2-U4-QhZ" secondAttribute="trailing" constant="-5" id="VTl-f1-kjt"/>
-                                            <constraint firstItem="wY2-U4-QhZ" firstAttribute="top" secondItem="shz-sq-Veo" secondAttribute="topMargin" constant="13" id="mq9-ma-f7g"/>
-                                            <constraint firstAttribute="centerX" secondItem="gFX-EF-jbV" secondAttribute="centerX" id="pP3-iq-jhH"/>
-                                            <constraint firstItem="miq-zu-xKm" firstAttribute="top" secondItem="shz-sq-Veo" secondAttribute="topMargin" constant="-7" id="zkc-Of-CcZ"/>
-                                        </constraints>
-                                        <size key="customSize" width="75" height="94"/>
-                                        <connections>
-                                            <outlet property="checkImage" destination="wY2-U4-QhZ" id="Kif-nI-09Z"/>
-                                            <outlet property="holeNumber" destination="miq-zu-xKm" id="TH7-6Q-dHR"/>
-                                            <outlet property="holePar" destination="djs-RW-D3G" id="sFw-az-LQl"/>
-                                            <outlet property="holeYardage" destination="gFX-EF-jbV" id="guZ-X9-laH"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="yV7-PM-Fdh" id="Rbd-Kt-V2I"/>
-                                    <outlet property="delegate" destination="yV7-PM-Fdh" id="bOE-t2-VrG"/>
-                                </connections>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGn-v0-5pK" userLabel="View - Loading Throbber" customClass="LoadingThrobberVIew" customModule="AlbatrossGolf" customModuleProvider="target">
-                                <rect key="frame" x="110" y="234" width="100" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="gUR-ca-b1w"/>
-                                    <constraint firstAttribute="height" constant="100" id="t10-1a-17P"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dOS-hB-iVb" secondAttribute="bottom" constant="20" id="8Q0-2m-o8P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dOS-hB-iVb" secondAttribute="trailing" constant="4" id="DMS-8i-5Mg"/>
-                            <constraint firstItem="dOS-hB-iVb" firstAttribute="top" secondItem="ii1-Ac-F1b" secondAttribute="top" constant="20" id="Di8-H0-KVn"/>
-                            <constraint firstAttribute="centerX" secondItem="bGn-v0-5pK" secondAttribute="centerX" id="Hv8-ck-Id8"/>
-                            <constraint firstItem="dOS-hB-iVb" firstAttribute="leading" secondItem="ii1-Ac-F1b" secondAttribute="leadingMargin" constant="4" id="dST-I2-ZoO"/>
-                            <constraint firstAttribute="centerY" secondItem="bGn-v0-5pK" secondAttribute="centerY" id="mip-sT-SGy"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="bal-s8-VmX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="OCY-1h-22v">
-                            <connections>
-                                <action selector="saveScorecard:" destination="yV7-PM-Fdh" id="uae-xg-cop"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="collecView" destination="dOS-hB-iVb" id="YnA-6x-Cum"/>
-                        <outlet property="spinnerView" destination="bGn-v0-5pK" id="AUO-EP-2o0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qdl-a7-GXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2595" y="-618"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="cWj-0T-CrV">
             <objects>
@@ -1624,8 +1493,5 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="UY5-a5-lN3"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.40000000000000002" green="1" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

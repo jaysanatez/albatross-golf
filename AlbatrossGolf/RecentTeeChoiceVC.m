@@ -105,15 +105,13 @@
     spinnerView.hidden = fetchedCourses;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)pushScorecard:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"cheapShotSupreme"])
-    {
-        Scorecard *controller = [segue destinationViewController];
-        NSIndexPath *path = [table indexPathForSelectedRow];
-        Tee *t = (Tee *)[tees objectAtIndex:path.row];
-        controller.tee = t;
-    }
+    ScorecardVC *controller = [[ScorecardVC alloc] init];
+    NSIndexPath *path = [table indexPathForSelectedRow];
+    Tee *t = (Tee *)[tees objectAtIndex:path.row];
+    controller.tee = t;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

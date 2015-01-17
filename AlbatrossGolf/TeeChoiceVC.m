@@ -92,15 +92,11 @@
     NSLog(@"No Tees Fetched");
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)pushScorecard:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"beginRound"])
-    {
-        Scorecard *controller = [segue destinationViewController];
-        NSIndexPath *path = [table indexPathForSelectedRow];
-        controller.tee = (Tee *)[tees objectAtIndex:path.row];
-
-    }
+    ScorecardVC *controller = [[ScorecardVC alloc] init];
+    NSIndexPath *path = [table indexPathForSelectedRow];
+    controller.tee = (Tee *)[tees objectAtIndex:path.row];
 }
 
 @end

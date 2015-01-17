@@ -10,7 +10,7 @@
 #import "TeeHoleDAO.h"
 #import "Tee.h"
 
-@interface Scorecard : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate>
+@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate>
 
 @property (nonatomic, weak) Round *round;
 @property (nonatomic, weak) Tee *tee;
