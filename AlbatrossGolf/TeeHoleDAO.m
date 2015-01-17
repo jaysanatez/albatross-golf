@@ -18,11 +18,11 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 @synthesize delegate;
 
-- (void)fetchTeeHolesForTee:(NSNumber *)teeId
+- (void)fetchTeeHolesForTee:(long)teeId
 {
     __block NSMutableArray *teeHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@%@",baseUrl,@"tee/",[teeId stringValue],@"/holes"];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@tee/%li/holes",baseUrl,teeId];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";

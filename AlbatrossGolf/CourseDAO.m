@@ -132,20 +132,21 @@ static NSString *stateParam = @"%20";
         {
             Course *course = [[Course alloc] init];
             
-            course.id_num = [courseDict objectForKey:@"id"];
-            course.name = [courseDict objectForKey:@"name"];
-            course.city = [courseDict objectForKey:@"city"];
-            course.state = [courseDict objectForKey:@"state"];
-            course.address = [courseDict objectForKey:@"address"];
-            course.zip = [courseDict objectForKey:@"zip_code"];
+            course.id_num = [[courseDict valueForKey:@"id"] longValue];
+            course.name = [courseDict valueForKey:@"name"];
+            course.city = [courseDict valueForKey:@"city"];
+            course.state = [courseDict valueForKey:@"state"];
+            course.address = [courseDict valueForKey:@"address"];
+            course.zip = [courseDict valueForKey:@"zip_code"];
             
-            course.courseName = course.name;
-            course.courseLocation = course.city;
+            course.courseName = course.name; // MURDER
+            course.courseLocation = course.city; // MURDER
             
             [courses addObject:course];
         }
-        prevPag = [jsonObject objectForKey:@"previous"];
-        nextPag = [jsonObject objectForKey:@"next"];
+        
+        prevPag = [jsonObject valueForKey:@"previous"];
+        nextPag = [jsonObject valueForKey:@"next"];
     }
     return courses;
 }

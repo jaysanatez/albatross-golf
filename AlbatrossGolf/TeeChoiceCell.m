@@ -21,8 +21,8 @@
 {
     name.adjustsFontSizeToFitWidth = YES;
     name.text = [NSString stringWithFormat:@"%@ - %@ Tees",tee.course_name,tee.name];
-    slope.text = [NSString stringWithFormat:@"Slope: %d",[tee.slope intValue]];
-    rating.text = [NSString stringWithFormat:@"Rating: %0.1f",[tee.rating doubleValue]];
+    slope.text = [NSString stringWithFormat:@"Slope: %ld",tee.slope];
+    rating.text = [NSString stringWithFormat:@"Rating: %0.1f",tee.rating];
     gender.text = tee.isMale ? @"Men's" : @"Women's";
 }
 
