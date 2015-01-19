@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingThrobberVIew" customModule="AlbatrossGolf" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingThrobberView" customModule="AlbatrossGolf" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="iN0-l3-epB" id="4fh-2d-jUK"/>
             </connections>

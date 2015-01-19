@@ -29,8 +29,8 @@
     
     [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
     
-    spinnerView.layer.cornerRadius = 8;
-    spinnerView.layer.masksToBounds = YES;
+    ((UIView *)spinnerView).layer.cornerRadius = 8;
+    ((UIView *)spinnerView).layer.masksToBounds = YES;
     
     self.title = tee.course_name;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
@@ -91,7 +91,7 @@
 
 - (void)displayLoadingScreen:(BOOL)fetchedCourses
 {
-    spinnerView.hidden = fetchedCourses;
+    ((UIView *)spinnerView).hidden = fetchedCourses;
 }
 
 - (void)postRoundHole:(RoundHole *)roundHole

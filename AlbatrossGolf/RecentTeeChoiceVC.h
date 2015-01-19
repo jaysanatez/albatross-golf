@@ -7,11 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TeeDAO.h"
+@class LoadingThrobberView;
 
 @interface RecentTeeChoiceVC : UIViewController<UITableViewDelegate, UITableViewDataSource, TeeFetchDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *playButton, *moreButton;
-@property (nonatomic, weak) IBOutlet UIView *spinnerView;
+@property (nonatomic, weak) IBOutlet LoadingThrobberView *spinnerView;
 @property (nonatomic, weak) IBOutlet UILabel *noTees;
 @property (nonatomic, weak) IBOutlet UITableView *table;
 

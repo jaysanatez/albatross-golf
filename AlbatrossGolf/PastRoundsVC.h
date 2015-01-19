@@ -8,9 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "RoundDAO.h"
 #import "RoundStats.h"
+@class LoadingThrobberView;
 
 @interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet LoadingThrobberView *loadingView;
 
 @end

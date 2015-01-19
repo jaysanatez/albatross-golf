@@ -370,7 +370,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZO-K4-Ie3" userLabel="View - Loading Throbber" customClass="LoadingThrobberVIew" customModule="AlbatrossGolf" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rZO-K4-Ie3" userLabel="View - Loading Throbber" customClass="LoadingThrobberView" customModule="AlbatrossGolf" customModuleProvider="target">
                                 <rect key="frame" x="110" y="234" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -502,7 +502,7 @@
                         <outlet property="moreButton" destination="Qy7-lY-oIe" id="Myo-eX-r7D"/>
                         <outlet property="noTees" destination="FuC-4F-xAX" id="oat-Kl-wHJ"/>
                         <outlet property="playButton" destination="O8B-LC-nZz" id="Dt3-JG-mfn"/>
-                        <outlet property="spinnerView" destination="rZO-K4-Ie3" id="Web-Fj-No9"/>
+                        <outlet property="spinnerView" destination="rZO-K4-Ie3" id="I37-0s-NEG"/>
                         <outlet property="table" destination="VIk-hq-phm" id="nSo-3v-MeW"/>
                     </connections>
                 </viewController>
@@ -886,7 +886,7 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvq-Og-aRJ" userLabel="View - Loading Throbber" customClass="LoadingThrobberVIew" customModule="AlbatrossGolf" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xvq-Og-aRJ" userLabel="View - Loading Throbber" customClass="LoadingThrobberView" customModule="AlbatrossGolf" customModuleProvider="target">
                                 <rect key="frame" x="110" y="234" width="100" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1037,7 +1037,7 @@
                         <outlet property="previousPage" destination="rbG-6K-qgD" id="FHy-0g-y6u"/>
                         <outlet property="searchField" destination="j89-gc-zcx" id="GD4-xu-piI"/>
                         <outlet property="segment" destination="rXC-pz-2X1" id="21k-h0-LnA"/>
-                        <outlet property="spinnerView" destination="Xvq-Og-aRJ" id="SJC-yo-NdK"/>
+                        <outlet property="spinnerView" destination="Xvq-Og-aRJ" id="pOu-zb-wnu"/>
                         <outlet property="table" destination="SnH-0i-cPC" id="TfZ-OA-OGt"/>
                     </connections>
                 </viewController>
