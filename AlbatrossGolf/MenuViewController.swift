@@ -31,8 +31,10 @@ class MenuViewController: UIViewController
     @IBAction func pastRoundsTapped()
     {
         var controller:PastRoundsVC = PastRoundsVC(nibName: "PastRoundsVC", bundle: NSBundle.mainBundle())
+        var u:User = User()
+        u.id_num = 2
+        controller.user = u
         navigationController?.pushViewController(controller, animated:true)
-        
     }
     
     @IBAction func multiRoundStatsTapped()
@@ -43,5 +45,13 @@ class MenuViewController: UIViewController
     @IBAction func comparativeStatsTapped()
     {
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        var controller:RecentTeeChoiceVC = segue.destinationViewController as RecentTeeChoiceVC
+        var u:User = User()
+        u.id_num = 2
+        controller.user = u
     }
 }

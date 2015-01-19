@@ -7,7 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScorecardVC">
             <connections>
                 <outlet property="collecView" destination="gpa-EL-Yzb" id="CQp-vp-jRM"/>
-                <outlet property="spinnerView" destination="KtO-Yr-sh0" id="8UY-ZW-j8w"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ka7-cC-Kz3"/>
             </connections>
         </placeholder>
@@ -30,23 +29,13 @@
                         <outlet property="delegate" destination="-1" id="WO6-ad-7AE"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtO-Yr-sh0" customClass="LoadingThrobberView" customModule="AlbatrossGolf" customModuleProvider="target">
-                    <rect key="frame" x="110" y="234" width="100" height="100"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="100" id="ZPG-rS-ZZT"/>
-                        <constraint firstAttribute="width" constant="100" id="yLN-uA-SfC"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="gpa-EL-Yzb" secondAttribute="trailing" constant="20" id="7Jf-tP-w4A"/>
                 <constraint firstItem="gpa-EL-Yzb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="BBR-cK-7jE"/>
                 <constraint firstAttribute="bottom" secondItem="gpa-EL-Yzb" secondAttribute="bottom" constant="20" id="Euu-6b-cWI"/>
-                <constraint firstAttribute="centerX" secondItem="KtO-Yr-sh0" secondAttribute="centerX" id="IPc-wa-3q2"/>
                 <constraint firstItem="gpa-EL-Yzb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Iz3-t3-Ci7"/>
-                <constraint firstAttribute="centerY" secondItem="KtO-Yr-sh0" secondAttribute="centerY" id="emT-Fg-nkE"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

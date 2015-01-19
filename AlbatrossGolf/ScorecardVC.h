@@ -7,16 +7,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Round.h"
-#import "TeeHoleDAO.h"
 #import "Tee.h"
 #import "HoleScoreVC.h"
+#import "Scorecard.h"
 @class LoadingThrobberView;
 
-@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate, RoundHolePostable>
+@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundHolePostable>
 
-@property (nonatomic, weak) Tee *tee;
+@property (nonatomic, strong) Scorecard *scorecard;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
-@property (nonatomic, strong) NSMutableArray *teeHoles;
-@property (nonatomic, weak) IBOutlet LoadingThrobberView *spinnerView;
 
 @end

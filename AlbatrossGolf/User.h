@@ -1,12 +1,14 @@
 //
-//  Hole.m
+//  USe.h
 //  AlbatrossGolf
 //
 //  Created by Jacob Sanchez on 1/18/15.
 //  Copyright (c) 2015 jacobSanchez. All rights reserved.
 
-#import "Hole.h"
+#import <Foundation/Foundation.h>
 
-@implementation Hole
+@interface User : NSObject
+
+@property long id_num;
 
 @end

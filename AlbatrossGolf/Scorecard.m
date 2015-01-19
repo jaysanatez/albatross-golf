@@ -1,12 +1,12 @@
 //
-//  Hole.m
+//  Scorecard.m
 //  AlbatrossGolf
 //
 //  Created by Jacob Sanchez on 1/18/15.
 //  Copyright (c) 2015 jacobSanchez. All rights reserved.
 
-#import "Hole.h"
+#import "Scorecard.h"
 
-@implementation Hole
+@implementation Scorecard
 
 @end

@@ -95,8 +95,24 @@
 - (void)pushScorecard:(id)sender
 {
     ScorecardVC *controller = [[ScorecardVC alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    // CONFIGURE THE SCORECARD
+    Scorecard *sc = [[Scorecard alloc] init];
     NSIndexPath *path = [table indexPathForSelectedRow];
-    controller.tee = (Tee *)[tees objectAtIndex:path.row];
+    Tee *t = (Tee *)[tees objectAtIndex:path.row];
+    
+    Course *c = [[Course alloc] init];
+    c.id_num = t.course_id;
+    c.name = t.course_name;
+    
+    sc.user = nil; // MURDER
+    sc.course = c;
+    sc.tee = t;
+    sc.tee_holes = t.tee_holes;
+    
+    controller.scorecard = sc;
+    [controller.collecView reloadData];
 }
 
 @end

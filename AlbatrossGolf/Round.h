@@ -12,7 +12,7 @@
 
 @property long tee_id, course_id, id_num, user_id;
 @property (nonatomic, strong) NSDate *date_played;
-@property (nonatomic, strong) NSString *course_name;
+@property NSString *course_name;
 @property BOOL is_complete;
 @property NSMutableArray *round_holes, *round_scores;
 @property RoundStats *round_stats;

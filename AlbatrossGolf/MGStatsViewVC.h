@@ -4,7 +4,6 @@
 //
 //  Created by Jacob Sanchez on 6/15/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import "HorizontalSlider.h"

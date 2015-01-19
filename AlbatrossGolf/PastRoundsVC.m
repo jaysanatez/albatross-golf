@@ -22,7 +22,7 @@
 
 @implementation PastRoundsVC
 
-@synthesize tableView, loadingView;
+@synthesize tableView, loadingView, user;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,7 @@
     dao.delegate = self;
     [dao fetchAllRoundsForUser:2];
     [self displaySpinnerView:YES];
+    
     incompleteRounds = [[NSMutableArray alloc] init];
     completeRounds = [[NSMutableArray alloc] init];
 }

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 #import "TeeDAO.h"
 @class LoadingThrobberView;
 
@@ -15,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet LoadingThrobberView *spinnerView;
 @property (nonatomic, weak) IBOutlet UILabel *noTees;
 @property (nonatomic, weak) IBOutlet UITableView *table;
+@property User *user;
 
 -(IBAction)pushScorecard:(id)sender;
 
