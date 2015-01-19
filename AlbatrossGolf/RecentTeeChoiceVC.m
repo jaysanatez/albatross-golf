@@ -102,7 +102,7 @@
 
 - (void)displayLoadingScreen:(BOOL)fetchedCourses
 {
-    spinnerView.hidden = fetchedCourses;
+    ((UIView *)spinnerView).hidden = fetchedCourses;
 }
 
 - (void)pushScorecard:(id)sender
