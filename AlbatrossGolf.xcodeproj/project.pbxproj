@@ -59,7 +59,7 @@
 		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
 		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
-		16E723C51A6A20C0008E8FB6 /* LoadingThrobberVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */; };
+		16E723C51A6A20C0008E8FB6 /* LoadingThrobberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */; };
 		16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */; };
 		16E723CE1A6A2404008E8FB6 /* HoleScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */; };
 		16E723D01A6A2459008E8FB6 /* ScorecardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */; };
@@ -170,7 +170,7 @@
 		16D640D11A689F4A00443472 /* PastRoundsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundsVC.xib; sourceTree = "<group>"; };
 		16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRoundTableViewCell.swift; sourceTree = "<group>"; };
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
-		16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingThrobberVIew.swift; sourceTree = "<group>"; };
+		16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingThrobberView.swift; sourceTree = "<group>"; };
 		16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingThrobberView.xib; sourceTree = "<group>"; };
 		16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScoreCell.xib; sourceTree = "<group>"; };
 		16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScorecardVC.xib; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 				1641C9491A263EF400378BA4 /* Main.storyboard */,
 				16D640CC1A688E3D00443472 /* LoginViewController.swift */,
 				16D640CE1A68920C00443472 /* MenuViewController.swift */,
-				16E723C41A6A20C0008E8FB6 /* LoadingThrobberVIew.swift */,
+				16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */,
 				16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */,
 				16D640CB1A688E3C00443472 /* AlbatrossGolf-Bridging-Header.h */,
 			);
@@ -570,7 +570,7 @@
 				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
 				1641C9631A263FB000378BA4 /* Course.m in Sources */,
-				16E723C51A6A20C0008E8FB6 /* LoadingThrobberVIew.swift in Sources */,
+				16E723C51A6A20C0008E8FB6 /* LoadingThrobberView.swift in Sources */,
 				1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */,
 				1641C9691A263FB000378BA4 /* Round.m in Sources */,
 				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,

@@ -8,13 +8,14 @@
 #import <UIKit/UIKit.h>
 #import "Course.h"
 #import "CourseDAO.h"
+@class LoadingThrobberView;
 
 @interface CourseChoice : UIViewController <UITableViewDataSource, UITableViewDelegate, CourseFetchDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *searchField;
 @property (nonatomic, weak) IBOutlet UILabel *noCoursesLabel;
 @property (nonatomic, weak) IBOutlet UITableView *table;
-@property (nonatomic, weak) IBOutlet UIView *spinnerView;
+@property (nonatomic, weak) IBOutlet LoadingThrobberView *spinnerView;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segment;
 @property (nonatomic, weak) IBOutlet UIButton *previousPage, *nextPage, *continueButton;
 

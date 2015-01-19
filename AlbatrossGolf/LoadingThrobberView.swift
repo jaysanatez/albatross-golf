@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadingThrobberVIew: UIView
+class LoadingThrobberView: UIView
 {
     @IBOutlet var view:UIView!
     

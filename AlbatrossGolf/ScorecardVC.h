@@ -10,12 +10,13 @@
 #import "TeeHoleDAO.h"
 #import "Tee.h"
 #import "HoleScoreVC.h"
+@class LoadingThrobberView;
 
 @interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, TeeHoleFetchDelegate, RoundHolePostable>
 
 @property (nonatomic, weak) Tee *tee;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, strong) NSMutableArray *teeHoles;
-@property (nonatomic, weak) IBOutlet UIView *spinnerView;
+@property (nonatomic, weak) IBOutlet LoadingThrobberView *spinnerView;
 
 @end

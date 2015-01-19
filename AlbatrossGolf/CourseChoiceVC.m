@@ -153,7 +153,7 @@
 
 - (void)displayLoadingScreen:(BOOL)show
 {
-    spinnerView.hidden = !show;
+    ((UIView *)spinnerView).hidden = !show;
 }
 
 - (IBAction)showPrevPagination:(id)sender

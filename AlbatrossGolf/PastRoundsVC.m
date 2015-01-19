@@ -22,7 +22,7 @@
 
 @implementation PastRoundsVC
 
-@synthesize tableView, user;
+@synthesize tableView, loadingView, user;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,11 +36,16 @@
     [tableView registerNib:[UINib nibWithNibName:@"PastRoundTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PastRound"];
     self.title = @"Past Rounds";
     
+    loadingView.layer.cornerRadius = 8;
+    loadingView.clipsToBounds = YES;
+    
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     
     dao = [[RoundDAO alloc] init];
     dao.delegate = self;
-    [dao fetchAllRoundsForUser:user.id_num];
+    [dao fetchAllRoundsForUser:2];
+    [self displaySpinnerView:YES];
+    
     incompleteRounds = [[NSMutableArray alloc] init];
     completeRounds = [[NSMutableArray alloc] init];
 }
@@ -164,6 +169,7 @@
     }
     
     [tableView reloadData];
+    [self displaySpinnerView:NO];
 }
 
 - (void)splitIntoCompletedAndNah
@@ -184,6 +190,11 @@
 -(NSString*)tableView:(UITableView *) tableView titleForHeaderInSection:(NSInteger)section
 {
     return [sections objectAtIndex:section];
+}
+
+-(void)displaySpinnerView:(BOOL)show
+{
+    ((UIView *)loadingView).hidden = !show;
 }
 
 @end
