@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *holeNumber, *holePar, *holeYardage;
 @property (nonatomic, weak) IBOutlet UIImageView *checkImage;
 @property (nonatomic, weak) TeeHole *teeHole;
+@property BOOL showImage;
 
 - (void)reloadLabels;
 

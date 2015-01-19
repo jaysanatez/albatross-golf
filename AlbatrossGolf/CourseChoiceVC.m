@@ -36,11 +36,7 @@
     // button borders
     continueButton.layer.borderWidth = 1.0f;
     continueButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
-                                                                        green:1.0
-                                                                         blue:102.0/255.0
-                                                                        alpha:0.8];
+
     selectedRow = -1;
     dao = [[CourseDAO alloc] init];
     [self showAllCourses];

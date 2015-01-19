@@ -10,7 +10,7 @@
 
 @interface TeeHole : NSObject
 
-@property long id_num, yardage, par, handicap, hole_id, tee_id;
+@property long id_num, yardage, par, handicap, tee_id;
 @property Hole *hole;
 
 @end

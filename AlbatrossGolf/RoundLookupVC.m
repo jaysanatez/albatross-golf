@@ -48,7 +48,7 @@
 
 - (HoleScore *)findHoleScoreForHole:(NSInteger)hole_number
 {
-    for (HoleScore *hs in round.round_scores)
+    for (HoleScore *hs in round.hole_scores)
     {
         if (hs.hole_number == hole_number)
         {

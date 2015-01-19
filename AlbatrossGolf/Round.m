@@ -10,11 +10,11 @@
 
 @implementation Round
 
-@synthesize round_scores;
+@synthesize hole_scores;
 
 - (BOOL)frontNineIsCompleted
 {
-    for (HoleScore *hs in round_scores)
+    for (HoleScore *hs in hole_scores)
     {
         if(hs.hole_number > 0 && hs.hole_number < 10 && hs.score == -1)
         {
@@ -26,7 +26,7 @@
 
 - (BOOL)backNineIsComplete
 {
-    for (HoleScore *hs in round_scores)
+    for (HoleScore *hs in hole_scores)
     {
         if(hs.hole_number > 9 && hs.hole_number < 19 && hs.score == -1)
         {
@@ -40,7 +40,7 @@
 {
     int par_total = 0;
     
-    for (HoleScore *hs in round_scores)
+    for (HoleScore *hs in hole_scores)
     {
         if(hs.hole_number > 0 && hs.hole_number < 10)
         {
@@ -55,7 +55,7 @@
 {
     int par_total = 0;
     
-    for (HoleScore *hs in round_scores)
+    for (HoleScore *hs in hole_scores)
     {
         if(hs.hole_number > 9 && hs.hole_number < 19)
         {
@@ -70,7 +70,7 @@
 {
     int par_total = 0;
     
-    for (HoleScore *hs in round_scores)
+    for (HoleScore *hs in hole_scores)
     {
         if(hs.hole_number > 0 && hs.hole_number < 10)
         {
@@ -85,7 +85,7 @@
 {
     int par_total = 0;
     
-    for (HoleScore *hs in round_scores)
+    for (HoleScore *hs in hole_scores)
     {
         if(hs.hole_number > 9 && hs.hole_number < 19)
         {

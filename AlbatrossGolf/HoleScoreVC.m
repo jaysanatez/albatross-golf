@@ -7,199 +7,228 @@
 
 #import "HoleScoreVC.h"
 #import "ScorecardVC.h"
-#import "RoundHole.h"
 
 @interface HoleScoreVC ()
 {
-    NSNumber *holeScore;
-    NSArray *questions, *descriptions;
-    NSMutableArray *holeData;
+    long *holeScore;
+    NSArray *questions;
     int questionsAsked;
-    RoundHole *round_hole;
 }
 
 @end
 
 @implementation HoleScoreVC
 
-@synthesize courseLabel,holeLabel,parLabel,teeHole,courseName,textField,popupHoleLabel,popupLengthLabel,popupParLabel;
-@synthesize blurView,handicapLabel,scoreLabel,netLabel,yardLabel,holeScoreView,constraint,enterButton,holeQuestion;
-@synthesize holeDescription,boolView,intView,delegate;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize delegate, handicapLabel, scoreLabel, yardLabel, netLabel, holeLabel, courseLabel, parLabel, tee_hole, course_name, score_entry_view, score_field, data_entry_view, hole_score, round_hole, questionLabel, intSelectionRightConstraint, hole_data_view;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title =  @"Scoring Breakdown";
-    courseLabel.text = courseName;
-    holeLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole.number];
-    parLabel.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
-    handicapLabel.text = [NSString stringWithFormat:@"Handicap: %li",teeHole.handicap];
-    yardLabel.text = [NSString stringWithFormat:@"Length: %li yds",teeHole.yardage];
-    scoreLabel.text = @"Score: ---";
-    netLabel.text = @"-----";
+    courseLabel.text = course_name;
+    holeLabel.text = [NSString stringWithFormat: @"Hole #%li",tee_hole.hole.number];
+    parLabel.text = [NSString stringWithFormat:@"Par %li",tee_hole.par];
+    handicapLabel.text = [NSString stringWithFormat:@"Handicap: %li",tee_hole.handicap];
+    yardLabel.text = [NSString stringWithFormat:@"Length: %li yds",tee_hole.yardage];
+    netLabel.adjustsFontSizeToFitWidth = YES;
+    
+    if (hole_score)
+    {
+        score_entry_view.hidden = YES;
+        data_entry_view.alpha = 1;
+        
+        scoreLabel.text = [NSString stringWithFormat:@"Score: %li",hole_score.score ];
+        netLabel.text = hole_score.getScoreName;
+    }
+    else
+    {
+        scoreLabel.text = @"Score: ---";
+        netLabel.text = @"----";
+        
+        hole_score = [[HoleScore alloc] init];
+    }
+    
+    if (round_hole)
+    {
+        [self showDataOverview:NO];
+    }
+    else
+    {
+        round_hole = [[RoundHole alloc] init];
+        round_hole.hole_id = tee_hole.hole.id_num;
+    }
     
     netLabel.layer.cornerRadius = 8;
     netLabel.layer.masksToBounds = YES;
     
-    enterButton.layer.cornerRadius = 8;
-    enterButton.layer.masksToBounds = YES;
-    
-    // popup stuff
-    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole.number];
-    popupParLabel.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
-    popupLengthLabel.text = [NSString stringWithFormat:@"%li yds",teeHole.yardage];
-    
-    boolView.hidden = NO;
-    intView.hidden = YES;
-    holeDescription.adjustsFontSizeToFitWidth = YES;
-    holeQuestion.adjustsFontSizeToFitWidth = YES;
-    questions = [[NSArray alloc] initWithObjects:@"Hit Fairway:", @"GIR:", @"Fairway Bunker:", @"Greenside Bunker:", @"Putts:", @"Penalty Strokes", nil];
-    descriptions = [[NSArray alloc] initWithObjects:@"Did your drive land in the fairway?", @"Did you hit the green in regulation?", @"Did you land in a fairway bunker?", @"Did you land in a greenside bunker?", @"How many putts did you have?", @"How many penalty strokes did you have?", nil];
+    questions = [[NSArray alloc] initWithObjects:@"Did your drive hit in the fairway?", @"Did you get on the green in regulation?", @"Did you hit it in a fairway bunker?", @"Did you hit it in a greenside bunker?", @"How many putts did you have?", @"How many penalty strokes did you have?", nil];
     questionsAsked = 0;
-    holeQuestion.text = [questions objectAtIndex:questionsAsked];
-    holeDescription.text = [descriptions objectAtIndex:questionsAsked];
-    holeData = [[NSMutableArray alloc] initWithObjects:nil];
+    questionLabel.text = [questions objectAtIndex:0];
+    
+    hole_data_view.delegate = self;
 }
 
-- (void)doneWithHole
+- (void)scoreEntered:(id)sender
 {
-    [self constructRoundHole];
-    [delegate postRoundHole:round_hole];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)enterHoleScore:(id)sender
-{
-    if([textField.text isEqualToString:@""])
+    if ([score_field.text isEqualToString:@""])
     {
         return;
     }
     
-    holeScore = [NSNumber numberWithInt:[textField.text integerValue]];
-    scoreLabel.text = [NSString stringWithFormat:@"Score: %@",holeScore];
-    netLabel.text = [self stringForScore:holeScore];
-    constraint.constant = -130;
-    [UIView animateWithDuration:0.4f animations:^{
-        [self.view layoutIfNeeded];
-        blurView.alpha = 0;
-    } completion:^(BOOL completed){
-        holeScoreView.hidden = YES;
+    long score = [score_field.text intValue];
+    
+    if (score <= 0)
+    {
+        return;
+    }
+    
+    hole_score.hole_number = tee_hole.hole.number;
+    hole_score.hole_par = tee_hole.par;
+    hole_score.score = score;
+    round_hole.score = score;
+    
+    scoreLabel.text = [NSString stringWithFormat:@"Score: %li",hole_score.score ];
+    netLabel.text = hole_score.getScoreName;
+    
+    [UIView animateWithDuration:1 animations:^{
+        score_entry_view.alpha = 0;
+        data_entry_view.alpha = 1;
+    } completion:^(BOOL finished){
+        score_entry_view.hidden = YES;
     }];
 }
 
--(NSString *)stringForScore:(NSNumber *)score
+- (void)postHoleData
 {
-    int net = [score intValue] - teeHole.par;
-    switch (net)
+    [delegate postHoleScore:hole_score];
+    [delegate postRoundHole:round_hole];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)yesButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithBool:YES];
+}
+
+- (void)noButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithBool:NO];
+}
+
+- (void)nextQuestionAnsweredWithBool:(BOOL)answer
+{
+    switch (questionsAsked)
     {
-        case -3:
-            return @"ALBATROSS";
-        case -2:
-            return @"EAGLE";
-        case -1:
-            return @"BIRDIE";
         case 0:
-            return @"PAR";
+            round_hole.hitFairway = answer;
+            break;
+            
         case 1:
-            return @"BOGEY";
+            round_hole.hitGir = answer;
+            break;
+            
+        case 2:
+            round_hole.hitFairwayBunker = answer;
+            break;
+            
+        case 3:
+            round_hole.hitGreensideBunker = answer;
+            [self switchToIntSelection];
+            break;
+            
         default:
-            return @"D. BOGEY+";
+            break;
+    }
+    
+    [self presentNextQuestion];
+}
+
+- (void)zeroButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithInt:0];
+}
+
+- (void)oneButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithInt:1];
+}
+
+- (void)twoButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithInt:2];
+}
+
+- (void)threeButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithInt:3];
+}
+
+- (void)fourButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithInt:4];
+}
+
+- (void)fiveButtonTapped:(id)sender
+{
+    [self nextQuestionAnsweredWithInt:5];
+}
+
+- (void)nextQuestionAnsweredWithInt:(int)answer
+{
+    switch (questionsAsked)
+    {
+        case 4:
+            round_hole.putts = answer;
+            break;
+            
+        case 5:
+            round_hole.penalties = answer;
+            break;
+            
+        default:
+            break;
+    }
+    
+    if (questionsAsked > 4) // last question
+    {
+        [self showDataOverview:YES];
+    }
+    else
+    {
+        [self presentNextQuestion];
     }
 }
 
 - (void)presentNextQuestion
 {
     questionsAsked++;
-    if(questionsAsked < [questions count])
-    {
-        if(questionsAsked == 4)
-        {
-            boolView.hidden = YES;
-            intView.hidden = NO;
-        }
-        holeQuestion.text = [questions objectAtIndex:questionsAsked];
-        holeDescription.text = [descriptions objectAtIndex:questionsAsked];
-    }
-    else
-    {
-        intView.hidden = YES;
-        holeQuestion.text = @"Finished";
-        holeDescription.text = @"";
-        [self doneWithHole];
-    }
+    questionLabel.text = [questions objectAtIndex:questionsAsked];
 }
 
-- (void)yesOptionTapped:(id)sender
+- (void)switchToIntSelection
 {
-    [holeData insertObject:[NSNumber numberWithBool:true] atIndex:questionsAsked];
-    [self presentNextQuestion];
+    intSelectionRightConstraint.constant = 5;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
-- (void)noOptionTapped:(id)sender
+- (void)showDataOverview:(BOOL)animated
 {
-    [holeData insertObject:[NSNumber numberWithBool:false] atIndex:questionsAsked];
-    [self presentNextQuestion];
+    hole_data_view.round_hole = round_hole;
+    [UIView animateWithDuration: animated ? 1 : 0 animations:^{
+        hole_data_view.alpha = 1;
+        data_entry_view.alpha = 0;
+    } completion:^(BOOL finished){
+        score_entry_view.hidden = YES;
+    }];
 }
 
-- (IBAction)zeroOptionTapped:(id)sender
+- (void)finishedWithHole:(RoundHole *)rh
 {
-    [holeData insertObject:[NSNumber numberWithInt:0] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (IBAction)oneOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithInt:1] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (IBAction)twoOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithInt:2] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (IBAction)threeOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithInt:3] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (IBAction)fourOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithInt:4] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (IBAction)fiveOptionTapped:(id)sender
-{
-    [holeData insertObject:[NSNumber numberWithInt:5] atIndex:questionsAsked];
-    [self presentNextQuestion];
-}
-
-- (void)constructRoundHole
-{
-    round_hole = [[RoundHole alloc] init];
-    round_hole.hole_id = teeHole.hole_id;
-    round_hole.score = holeScore;
-    
-    round_hole.hitFairway = [[holeData objectAtIndex:0] boolValue];
-    round_hole.hitGir = [[holeData objectAtIndex:1] boolValue];
-    round_hole.hitFairwayBunker = [[holeData objectAtIndex:2] boolValue];
-    round_hole.hitGreensideBunker = [[holeData objectAtIndex:3] boolValue];
-    round_hole.putts = [NSNumber numberWithInt:[[holeData objectAtIndex:4] intValue]];
-    round_hole.penalties = [NSNumber numberWithInt:[[holeData objectAtIndex:5] intValue]];
+    round_hole = rh;
+    [self postHoleData];
 }
 
 @end

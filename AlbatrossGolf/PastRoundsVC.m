@@ -151,7 +151,7 @@
     {
         if (r.id_num == round_id)
         {
-            r.round_scores = holeScores;
+            r.hole_scores = holeScores;
         }
     }
     
@@ -162,7 +162,7 @@
 {
     for(Round *r in allRounds)
     {
-        if(!r.round_stats || !r.round_holes || !r.round_scores)
+        if(!r.round_stats || !r.round_holes || !r.hole_scores)
         {
             return;
         }
