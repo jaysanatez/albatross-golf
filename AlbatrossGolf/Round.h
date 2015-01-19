@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSDate *date_played;
 @property NSString *course_name;
 @property BOOL is_complete;
-@property NSMutableArray *round_holes, *round_scores;
+@property NSMutableArray *round_holes, *hole_scores;
 @property RoundStats *round_stats;
 
 - (BOOL)frontNineIsCompleted;

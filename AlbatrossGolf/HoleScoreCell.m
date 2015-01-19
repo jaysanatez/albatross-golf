@@ -9,7 +9,7 @@
 
 @implementation HoleScoreCell
 
-@synthesize teeHole, holeNumber, holePar, holeYardage;
+@synthesize teeHole, holeNumber, holePar, holeYardage, checkImage, showImage;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -26,6 +26,7 @@
     holeNumber.text = [NSString stringWithFormat:@"%li",teeHole.hole.number];
     holePar.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
     holeYardage.text = [NSString stringWithFormat:@"%li yds",teeHole.yardage];
+    checkImage.image = showImage ? [UIImage imageNamed:@"whitecheck"] : nil;
 }
 
 @end

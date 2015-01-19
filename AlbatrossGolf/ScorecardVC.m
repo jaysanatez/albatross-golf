@@ -28,10 +28,15 @@
     [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
     
     self.title = scorecard.course.name;
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:102.0/255.5
-                                                                        green:1.0
-                                                                         blue:102.0/255.0
-                                                                        alpha:0.8];
+    round = [[Round alloc] init];
+    round.hole_scores = [[NSMutableArray alloc] init];
+    round.round_holes = [[NSMutableArray alloc] init];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [collecView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -50,6 +55,7 @@
     HoleScoreCell *hole = [collecView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     TeeHole *tHole = (TeeHole *)[scorecard.tee_holes objectAtIndex:indexPath.row];
     hole.teeHole = tHole;
+    hole.showImage = [self hasAssociatedHoleScore:tHole];
     [hole reloadLabels];
     return hole;
 }
@@ -64,9 +70,27 @@
     [self.navigationController pushViewController:holeScore animated:YES];
 }
 
+- (BOOL)hasAssociatedHoleScore:(TeeHole *)tHole
+{
+    for(HoleScore *hs in round.hole_scores)
+    {
+        if (hs.hole_number == tHole.hole.number)
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
 - (void)postRoundHole:(RoundHole *)roundHole
 {
     [round.round_holes addObject:roundHole];
+}
+
+- (void)postHoleScore:(HoleScore *)holeScore
+{
+    [round.hole_scores addObject:holeScore];
 }
 
 @end
