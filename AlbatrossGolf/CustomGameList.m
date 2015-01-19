@@ -4,11 +4,9 @@
 //
 //  Created by Jacob Sanchez on 8/28/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
-//
 
 #import "CustomGameList.h"
 #import "CustomSelectionCell.h"
-#import "Game.h"
 
 @implementation CustomGameList
 
@@ -22,7 +20,7 @@
     }
     return self;
 }
-
+/*
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -84,14 +82,6 @@
     }
     
     return selectedGames;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
 }
 */
 

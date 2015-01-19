@@ -41,10 +41,6 @@
 		1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9C01A2641E400378BA4 /* CustomDropDown.m */; };
 		1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9C21A2641E400378BA4 /* CustomGameList.m */; };
 		1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */; };
-		1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CB1A26435E00378BA4 /* GameDAO.m */; };
-		1641C9D31A26435E00378BA4 /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CD1A26435E00378BA4 /* Hole.m */; };
-		1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */; };
-		1641C9D51A26435E00378BA4 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9D11A26435E00378BA4 /* Game.m */; };
 		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
 		1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9731A6CA1EA00F5198D /* Scorecard.m */; };
 		1649A9771A6CA2F300F5198D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9761A6CA2F300F5198D /* User.m */; };
@@ -142,14 +138,6 @@
 		1641C9C21A2641E400378BA4 /* CustomGameList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomGameList.m; sourceTree = "<group>"; };
 		1641C9C31A2641E400378BA4 /* CustomSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSelectionCell.h; sourceTree = "<group>"; };
 		1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSelectionCell.m; sourceTree = "<group>"; };
-		1641C9CA1A26435E00378BA4 /* GameDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDAO.h; sourceTree = "<group>"; };
-		1641C9CB1A26435E00378BA4 /* GameDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDAO.m; sourceTree = "<group>"; };
-		1641C9CC1A26435E00378BA4 /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
-		1641C9CD1A26435E00378BA4 /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
-		1641C9CE1A26435E00378BA4 /* HoleStatsDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleStatsDAO.h; sourceTree = "<group>"; };
-		1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleStatsDAO.m; sourceTree = "<group>"; };
-		1641C9D01A26435E00378BA4 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		1641C9D11A26435E00378BA4 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		1641C9D61A2643AD00378BA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1649A9721A6CA1EA00F5198D /* Scorecard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scorecard.h; sourceTree = "<group>"; };
 		1649A9731A6CA1EA00F5198D /* Scorecard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scorecard.m; sourceTree = "<group>"; };
@@ -278,7 +266,6 @@
 			children = (
 				16FB796C1A6ABE7B008F2277 /* models */,
 				16FB796D1A6ABE82008F2277 /* DAOs */,
-				1641C9C91A26433400378BA4 /* deprecated */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -389,21 +376,6 @@
 				1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */,
 			);
 			name = "sliding stats view";
-			sourceTree = "<group>";
-		};
-		1641C9C91A26433400378BA4 /* deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				1641C9CA1A26435E00378BA4 /* GameDAO.h */,
-				1641C9CB1A26435E00378BA4 /* GameDAO.m */,
-				1641C9CC1A26435E00378BA4 /* Hole.h */,
-				1641C9CD1A26435E00378BA4 /* Hole.m */,
-				1641C9CE1A26435E00378BA4 /* HoleStatsDAO.h */,
-				1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */,
-				1641C9D01A26435E00378BA4 /* Game.h */,
-				1641C9D11A26435E00378BA4 /* Game.m */,
-			);
-			name = deprecated;
 			sourceTree = "<group>";
 		};
 		16FB796C1A6ABE7B008F2277 /* models */ = {
@@ -557,16 +529,13 @@
 			files = (
 				1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */,
 				1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */,
-				1641C9D21A26435E00378BA4 /* GameDAO.m in Sources */,
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
 				16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */,
 				1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */,
 				1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */,
-				1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */,
 				1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */,
 				1641C9641A263FB000378BA4 /* CourseDAO.m in Sources */,
 				16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */,
-				1641C9D51A26435E00378BA4 /* Game.m in Sources */,
 				1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */,
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
 				1641C9631A263FB000378BA4 /* Course.m in Sources */,
@@ -576,7 +545,6 @@
 				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
-				1641C9D31A26435E00378BA4 /* Hole.m in Sources */,
 				1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */,
 				1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */,
 				1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */,
