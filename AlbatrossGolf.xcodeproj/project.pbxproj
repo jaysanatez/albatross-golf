@@ -54,6 +54,8 @@
 		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
 		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
 		16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */; };
+		16E214FE1A6DA25F0076EFD6 /* HoleDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E214FD1A6DA25F0076EFD6 /* HoleDataView.xib */; };
+		16E215011A6DA27C0076EFD6 /* HoleDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E215001A6DA27C0076EFD6 /* HoleDataView.m */; };
 		16E723C51A6A20C0008E8FB6 /* LoadingThrobberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */; };
 		16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */; };
 		16E723CE1A6A2404008E8FB6 /* HoleScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */; };
@@ -155,6 +157,9 @@
 		16D640D11A689F4A00443472 /* PastRoundsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundsVC.xib; sourceTree = "<group>"; };
 		16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastRoundTableViewCell.swift; sourceTree = "<group>"; };
 		16D640D71A68C0E000443472 /* PastRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastRoundTableViewCell.xib; sourceTree = "<group>"; };
+		16E214FD1A6DA25F0076EFD6 /* HoleDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleDataView.xib; sourceTree = "<group>"; };
+		16E214FF1A6DA27C0076EFD6 /* HoleDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleDataView.h; sourceTree = "<group>"; };
+		16E215001A6DA27C0076EFD6 /* HoleDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleDataView.m; sourceTree = "<group>"; };
 		16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingThrobberView.swift; sourceTree = "<group>"; };
 		16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingThrobberView.xib; sourceTree = "<group>"; };
 		16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScoreCell.xib; sourceTree = "<group>"; };
@@ -292,6 +297,9 @@
 				1641C9931A26405C00378BA4 /* HoleScoreVC.h */,
 				1641C9941A26405C00378BA4 /* HoleScoreVC.m */,
 				1641C9951A26405C00378BA4 /* HoleScoreVC.xib */,
+				16E214FF1A6DA27C0076EFD6 /* HoleDataView.h */,
+				16E215001A6DA27C0076EFD6 /* HoleDataView.m */,
+				16E214FD1A6DA25F0076EFD6 /* HoleDataView.xib */,
 			);
 			name = "hole score";
 			sourceTree = "<group>";
@@ -504,6 +512,7 @@
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScoreVC.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
+				16E214FE1A6DA25F0076EFD6 /* HoleDataView.xib in Resources */,
 				16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +559,7 @@
 				162439181A697B8E00A7A049 /* HoleScore.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
 				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,
+				16E215011A6DA27C0076EFD6 /* HoleDataView.m in Sources */,
 				168E94071A2795500065E1C4 /* RoundHole.m in Sources */,
 				16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */,
 				1641C9671A263FB000378BA4 /* TeeHole.m in Sources */,

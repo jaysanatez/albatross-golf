@@ -10,6 +10,7 @@
                 <outlet property="data_entry_view" destination="gXh-sd-BJC" id="FTs-u4-sLS"/>
                 <outlet property="handicapLabel" destination="q9Z-dW-5tb" id="4k1-4a-soh"/>
                 <outlet property="holeLabel" destination="wYp-pq-6Ow" id="Iaf-iE-XrD"/>
+                <outlet property="hole_data_view" destination="NtE-wK-Pqo" id="lYk-kd-oEC"/>
                 <outlet property="intSelectionRightConstraint" destination="hj8-xz-hD6" id="b0l-0C-I5E"/>
                 <outlet property="netLabel" destination="icD-vz-PGI" id="Rnu-GN-ROU"/>
                 <outlet property="parLabel" destination="bCQ-AG-z36" id="7QU-Ra-jgE"/>
@@ -129,10 +130,10 @@
                             </constraints>
                         </view>
                         <view alpha="0.95000000000000007" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxx-Hg-7UO" userLabel="View - Hole Entry">
-                            <rect key="frame" x="160" y="0.0" width="160" height="150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hole Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycA-jb-5OM">
-                                    <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Go1-Hz-Eoq"/>
                                     </constraints>
@@ -141,10 +142,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-zB-CnQ" userLabel="Text Entry">
-                                    <rect key="frame" x="0.0" y="40" width="160" height="55"/>
+                                    <rect key="frame" x="0.0" y="40" width="320" height="55"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10S-iI-jOo">
-                                            <rect key="frame" x="30" y="13" width="100" height="30"/>
+                                            <rect key="frame" x="110" y="13" width="100" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Q5A-Vl-WYu"/>
                                                 <constraint firstAttribute="width" constant="100" id="Ufk-ga-hip"/>
@@ -160,7 +161,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yym-7I-E6s">
-                                    <rect key="frame" x="0.0" y="95" width="160" height="55"/>
+                                    <rect key="frame" x="0.0" y="95" width="320" height="55"/>
                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                     <state key="normal" title="Enter">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -189,6 +190,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="wxx-Hg-7UO" firstAttribute="leading" secondItem="6Ft-1R-k3l" secondAttribute="leading" id="6uk-a7-e4b"/>
                         <constraint firstItem="wxx-Hg-7UO" firstAttribute="top" secondItem="6Ft-1R-k3l" secondAttribute="top" id="7Ku-jL-bfi"/>
                         <constraint firstAttribute="bottom" secondItem="ajr-SW-oeC" secondAttribute="bottom" id="7Vx-2M-ymO"/>
                         <constraint firstAttribute="trailing" secondItem="hnV-pd-jsJ" secondAttribute="trailing" id="7gK-gw-Qqj"/>
@@ -204,8 +206,11 @@
                         <constraint firstItem="hnV-pd-jsJ" firstAttribute="top" secondItem="g9i-R3-y1C" secondAttribute="bottom" id="grn-GY-Eed"/>
                         <constraint firstAttribute="bottom" secondItem="hnV-pd-jsJ" secondAttribute="bottom" id="mJP-8s-ZR0"/>
                         <constraint firstItem="g9i-R3-y1C" firstAttribute="leading" secondItem="6Ft-1R-k3l" secondAttribute="leading" id="pfp-Tf-cNZ"/>
-                        <constraint firstItem="wxx-Hg-7UO" firstAttribute="leading" secondItem="ajr-SW-oeC" secondAttribute="trailing" id="q4J-z5-mgj"/>
                     </constraints>
+                </view>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-wK-Pqo" customClass="HoleDataView">
+                    <rect key="frame" x="0.0" y="225" width="320" height="338"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXh-sd-BJC" userLabel="View - Hole Data Space">
                     <rect key="frame" x="0.0" y="225" width="320" height="338"/>
@@ -394,7 +399,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="UcH-Ir-fh6" secondAttribute="bottom" id="Blb-F8-ICr"/>
                         <constraint firstItem="UcH-Ir-fh6" firstAttribute="top" secondItem="gXh-sd-BJC" secondAttribute="top" id="Dtb-i3-Art"/>
@@ -414,11 +419,15 @@
             <constraints>
                 <constraint firstItem="6Ft-1R-k3l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0iW-yB-vjI"/>
                 <constraint firstAttribute="trailing" secondItem="6Ft-1R-k3l" secondAttribute="trailing" id="1sm-Sv-mFv"/>
+                <constraint firstAttribute="trailing" secondItem="NtE-wK-Pqo" secondAttribute="trailing" id="6d5-S0-YWF"/>
                 <constraint firstAttribute="bottom" secondItem="gXh-sd-BJC" secondAttribute="bottom" constant="5" id="QXn-ca-Q4e"/>
+                <constraint firstAttribute="bottom" secondItem="NtE-wK-Pqo" secondAttribute="bottom" constant="5" id="Xye-Es-hGq"/>
                 <constraint firstAttribute="trailing" secondItem="gXh-sd-BJC" secondAttribute="trailing" id="cKJ-qK-g8z"/>
                 <constraint firstItem="6Ft-1R-k3l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="lWQ-nn-h9B"/>
+                <constraint firstItem="NtE-wK-Pqo" firstAttribute="top" secondItem="6Ft-1R-k3l" secondAttribute="bottom" constant="10" id="lcr-E9-UeV"/>
                 <constraint firstItem="gXh-sd-BJC" firstAttribute="top" secondItem="6Ft-1R-k3l" secondAttribute="bottom" constant="10" id="pDk-0D-g6U"/>
                 <constraint firstItem="gXh-sd-BJC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wq2-QW-Bhp"/>
+                <constraint firstItem="NtE-wK-Pqo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xnN-6C-Yoe"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>
         </view>

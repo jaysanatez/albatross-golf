@@ -19,7 +19,7 @@
 
 @implementation HoleScoreVC
 
-@synthesize delegate, handicapLabel, scoreLabel, yardLabel, netLabel, holeLabel, courseLabel, parLabel, tee_hole, course_name, score_entry_view, score_field, data_entry_view, hole_score, round_hole, questionLabel, intSelectionRightConstraint;
+@synthesize delegate, handicapLabel, scoreLabel, yardLabel, netLabel, holeLabel, courseLabel, parLabel, tee_hole, course_name, score_entry_view, score_field, data_entry_view, hole_score, round_hole, questionLabel, intSelectionRightConstraint, hole_data_view;
 
 - (void)viewDidLoad
 {
@@ -44,14 +44,14 @@
     else
     {
         scoreLabel.text = @"Score: ---";
-        netLabel.text = @"-----";
+        netLabel.text = @"----";
         
         hole_score = [[HoleScore alloc] init];
     }
     
     if (round_hole)
     {
-        [self showDataOverview];
+        [self showDataOverview:NO];
     }
     else
     {
@@ -65,6 +65,8 @@
     questions = [[NSArray alloc] initWithObjects:@"Did your drive hit in the fairway?", @"Did you get on the green in regulation?", @"Did you hit it in a fairway bunker?", @"Did you hit it in a greenside bunker?", @"How many putts did you have?", @"How many penalty strokes did you have?", nil];
     questionsAsked = 0;
     questionLabel.text = [questions objectAtIndex:0];
+    
+    hole_data_view.delegate = self;
 }
 
 - (void)scoreEntered:(id)sender
@@ -190,7 +192,7 @@
     
     if (questionsAsked > 4) // last question
     {
-        [self showDataOverview];
+        [self showDataOverview:YES];
     }
     else
     {
@@ -212,7 +214,17 @@
     }];
 }
 
-- (void)showDataOverview
+- (void)showDataOverview:(BOOL)animated
+{
+    [UIView animateWithDuration: animated ? 1 : 0 animations:^{
+        hole_data_view.alpha = 1;
+        data_entry_view.alpha = 0;
+    } completion:^(BOOL finished){
+        score_entry_view.hidden = YES;
+    }];
+}
+
+- (void)finishedWithHole
 {
     [self postHoleData];
 }

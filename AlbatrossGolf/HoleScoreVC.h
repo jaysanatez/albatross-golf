@@ -9,6 +9,7 @@
 #import "TeeHole.h"
 #import "RoundHole.h"
 #import "HoleScore.h"
+#import "HoleDataView.h"
 
 @protocol RoundHolePostable
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface HoleScoreVC : UIViewController
+@interface HoleScoreVC : UIViewController <HoleDataViewDelegate>
 
 @property (nonatomic, weak) id <RoundHolePostable> delegate;
 
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) HoleScore *hole_score;
 @property (nonatomic, weak) NSString *course_name;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *intSelectionRightConstraint;
+@property (nonatomic, weak) IBOutlet HoleDataView *hole_data_view;
 
 - (IBAction)scoreEntered:(id)sender;
 
