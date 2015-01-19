@@ -216,6 +216,7 @@
 
 - (void)showDataOverview:(BOOL)animated
 {
+    hole_data_view.round_hole = round_hole;
     [UIView animateWithDuration: animated ? 1 : 0 animations:^{
         hole_data_view.alpha = 1;
         data_entry_view.alpha = 0;
@@ -224,8 +225,9 @@
     }];
 }
 
-- (void)finishedWithHole
+- (void)finishedWithHole:(RoundHole *)rh
 {
+    round_hole = rh;
     [self postHoleData];
 }
 

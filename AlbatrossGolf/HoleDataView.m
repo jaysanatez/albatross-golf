@@ -9,7 +9,7 @@
 
 @implementation HoleDataView
 
-@synthesize view, delegate;
+@synthesize view, delegate, round_hole;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -23,7 +23,12 @@
 
 - (void)finishTapped:(id)sender
 {
-    [delegate finishedWithHole];
+    [delegate finishedWithHole:round_hole];
+}
+
+- (void)displayRoundHole:(RoundHole *)rh
+{
+    round_hole = rh;
 }
 
 @end
