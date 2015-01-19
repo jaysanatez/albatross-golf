@@ -55,7 +55,7 @@
     HoleScoreCell *hole = [collecView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     TeeHole *tHole = (TeeHole *)[scorecard.tee_holes objectAtIndex:indexPath.row];
     hole.teeHole = tHole;
-    hole.showImage = [self hasAssociatedHoleScore:tHole];
+    hole.showImage = [self getAssociatedHoleScore:tHole] != nil;
     [hole reloadLabels];
     return hole;
 }
@@ -64,23 +64,38 @@
 {
     HoleScoreVC *holeScore = [[HoleScoreVC alloc] initWithNibName:@"HoleScoreVC" bundle:[NSBundle mainBundle]];
     TeeHole *tHole = (TeeHole *)[scorecard.tee_holes objectAtIndex:indexPath.row];
-    holeScore.teeHole = tHole;
-    holeScore.courseName = scorecard.course.name;
+    holeScore.tee_hole = tHole;
+    holeScore.course_name = scorecard.course.name;
     holeScore.delegate = self;
+    holeScore.hole_score = [self getAssociatedHoleScore:tHole];
+    holeScore.round_hole = [self getAssociatedRoundHole:tHole];
     [self.navigationController pushViewController:holeScore animated:YES];
 }
 
-- (BOOL)hasAssociatedHoleScore:(TeeHole *)tHole
+- (HoleScore *)getAssociatedHoleScore:(TeeHole *)tHole
 {
     for(HoleScore *hs in round.hole_scores)
     {
         if (hs.hole_number == tHole.hole.number)
         {
-            return true;
+            return hs;
         }
     }
     
-    return false;
+    return nil;
+}
+
+- (RoundHole *)getAssociatedRoundHole:(TeeHole *)tHole
+{
+    for(RoundHole *rh in round.round_holes)
+    {
+        if (rh.hole_id == tHole.hole.id_num)
+        {
+            return rh;
+        }
+    }
+    
+    return nil;
 }
 
 - (void)postRoundHole:(RoundHole *)roundHole

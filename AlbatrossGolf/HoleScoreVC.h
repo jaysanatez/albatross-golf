@@ -22,13 +22,25 @@
 @property (nonatomic, weak) id <RoundHolePostable> delegate;
 
 @property (nonatomic, weak) IBOutlet UILabel *handicapLabel, *scoreLabel, *yardLabel, *netLabel;
-@property (nonatomic, weak) IBOutlet UILabel *holeLabel;
-@property (nonatomic, weak) IBOutlet UILabel *courseLabel, *parLabel;
-@property (nonatomic, weak) IBOutlet UIView *score_entry_view;
+@property (nonatomic, weak) IBOutlet UILabel *holeLabel, *courseLabel, *parLabel, *questionLabel;
+@property (nonatomic, weak) IBOutlet UIView *score_entry_view, *data_entry_view;
 @property (nonatomic, weak) IBOutlet UITextField *score_field;
-@property (nonatomic, weak) TeeHole *teeHole;
-@property (nonatomic, weak) NSString *courseName;
+@property (nonatomic, weak) TeeHole *tee_hole;
+@property (nonatomic, strong) RoundHole *round_hole;
+@property (nonatomic, strong) HoleScore *hole_score;
+@property (nonatomic, weak) NSString *course_name;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *intSelectionRightConstraint;
 
 - (IBAction)scoreEntered:(id)sender;
+
+- (IBAction)yesButtonTapped:(id)sender;
+- (IBAction)noButtonTapped:(id)sender;
+
+- (IBAction)zeroButtonTapped:(id)sender;
+- (IBAction)oneButtonTapped:(id)sender;
+- (IBAction)twoButtonTapped:(id)sender;
+- (IBAction)threeButtonTapped:(id)sender;
+- (IBAction)fourButtonTapped:(id)sender;
+- (IBAction)fiveButtonTapped:(id)sender;
 
 @end

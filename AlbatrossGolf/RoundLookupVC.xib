@@ -46,7 +46,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ljQ-eU-07E">
-                    <rect key="frame" x="20" y="295" width="280" height="223"/>
+                    <rect key="frame" x="20" y="295" width="280" height="253"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="jqY-Gt-GC3"/>
@@ -63,7 +63,7 @@
                 <constraint firstAttribute="centerX" secondItem="gur-oa-1RQ" secondAttribute="centerX" id="TpZ-EL-jae"/>
                 <constraint firstItem="bX1-So-fmV" firstAttribute="top" secondItem="gur-oa-1RQ" secondAttribute="bottom" constant="10" id="VEy-es-X2u"/>
                 <constraint firstItem="bX1-So-fmV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Zb8-av-d7I"/>
-                <constraint firstAttribute="bottom" secondItem="ljQ-eU-07E" secondAttribute="bottom" constant="50" id="opI-t6-11E"/>
+                <constraint firstAttribute="bottom" secondItem="ljQ-eU-07E" secondAttribute="bottom" constant="20" id="opI-t6-11E"/>
                 <constraint firstAttribute="trailing" secondItem="bX1-So-fmV" secondAttribute="trailing" constant="20" id="q0S-d0-qWu"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

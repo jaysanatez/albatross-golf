@@ -27,7 +27,6 @@
 		1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C97E1A26402400378BA4 /* CourseChoiceCell.m */; };
 		1641C9861A26402400378BA4 /* TeeChoiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9801A26402400378BA4 /* TeeChoiceVC.m */; };
 		1641C9871A26402400378BA4 /* TeeChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9821A26402400378BA4 /* TeeChoiceCell.m */; };
-		1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98A1A26403900378BA4 /* AddCourseVC.m */; };
 		1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98D1A26404900378BA4 /* ScorecardVC.m */; };
 		1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C98F1A26404900378BA4 /* HoleScoreCell.m */; };
 		1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9941A26405C00378BA4 /* HoleScoreVC.m */; };
@@ -111,8 +110,6 @@
 		1641C9801A26402400378BA4 /* TeeChoiceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeChoiceVC.m; sourceTree = "<group>"; };
 		1641C9811A26402400378BA4 /* TeeChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeChoiceCell.h; sourceTree = "<group>"; };
 		1641C9821A26402400378BA4 /* TeeChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeChoiceCell.m; sourceTree = "<group>"; };
-		1641C9891A26403900378BA4 /* AddCourseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseVC.h; sourceTree = "<group>"; };
-		1641C98A1A26403900378BA4 /* AddCourseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseVC.m; sourceTree = "<group>"; };
 		1641C98C1A26404900378BA4 /* ScorecardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorecardVC.h; sourceTree = "<group>"; };
 		1641C98D1A26404900378BA4 /* ScorecardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorecardVC.m; sourceTree = "<group>"; };
 		1641C98E1A26404900378BA4 /* HoleScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScoreCell.h; sourceTree = "<group>"; };
@@ -283,25 +280,10 @@
 				1641C9801A26402400378BA4 /* TeeChoiceVC.m */,
 				1641C9811A26402400378BA4 /* TeeChoiceCell.h */,
 				1641C9821A26402400378BA4 /* TeeChoiceCell.m */,
-				1641C9881A26402A00378BA4 /* manage courses */,
-				1641C98C1A26404900378BA4 /* ScorecardVC.h */,
-				1641C98D1A26404900378BA4 /* ScorecardVC.m */,
-				16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */,
-				1641C98E1A26404900378BA4 /* HoleScoreCell.h */,
-				1641C98F1A26404900378BA4 /* HoleScoreCell.m */,
-				16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */,
+				16E214FC1A6D87570076EFD6 /* scorecard */,
 				1641C9921A26404D00378BA4 /* hole score */,
 			);
 			name = scorecard;
-			sourceTree = "<group>";
-		};
-		1641C9881A26402A00378BA4 /* manage courses */ = {
-			isa = PBXGroup;
-			children = (
-				1641C9891A26403900378BA4 /* AddCourseVC.h */,
-				1641C98A1A26403900378BA4 /* AddCourseVC.m */,
-			);
-			name = "manage courses";
 			sourceTree = "<group>";
 		};
 		1641C9921A26404D00378BA4 /* hole score */ = {
@@ -376,6 +358,19 @@
 				1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */,
 			);
 			name = "sliding stats view";
+			sourceTree = "<group>";
+		};
+		16E214FC1A6D87570076EFD6 /* scorecard */ = {
+			isa = PBXGroup;
+			children = (
+				1641C98C1A26404900378BA4 /* ScorecardVC.h */,
+				1641C98D1A26404900378BA4 /* ScorecardVC.m */,
+				16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */,
+				1641C98E1A26404900378BA4 /* HoleScoreCell.h */,
+				1641C98F1A26404900378BA4 /* HoleScoreCell.m */,
+				16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */,
+			);
+			name = scorecard;
 			sourceTree = "<group>";
 		};
 		16FB796C1A6ABE7B008F2277 /* models */ = {
@@ -540,7 +535,6 @@
 				1641C9C81A2641E400378BA4 /* CustomSelectionCell.m in Sources */,
 				1641C9631A263FB000378BA4 /* Course.m in Sources */,
 				16E723C51A6A20C0008E8FB6 /* LoadingThrobberView.swift in Sources */,
-				1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */,
 				1641C9691A263FB000378BA4 /* Round.m in Sources */,
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
