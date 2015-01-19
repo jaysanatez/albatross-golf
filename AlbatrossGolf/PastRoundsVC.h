@@ -8,9 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "RoundDAO.h"
 #import "RoundStats.h"
+#import "User.h"
 
 @interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property User *user;
 
 @end

@@ -1,6 +1,4 @@
-//
-//  Use this file to import your target's public headers that you would like to expose to Swift.
-
 #import "PastRoundsVC.h"
 #import "Round.h"
 #import "RoundHole.h"
+#import "RecentTeeChoiceVC.h"

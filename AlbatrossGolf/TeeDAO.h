@@ -19,6 +19,6 @@
 @property (nonatomic, weak) id <TeeFetchDelegate> delegate;
 
 - (void)fetchTeesForCourse:(long)courseId;
-- (void)fetchTeesForUser:(NSNumber *)userId;
+- (void)fetchTeesForUser:(long)userId;
 
 @end

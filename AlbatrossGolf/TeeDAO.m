@@ -22,9 +22,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     [self submitCourseFetchRequest:urlString];
 }
 
-- (void)fetchTeesForUser:(NSNumber *)userId
+- (void)fetchTeesForUser:(long)userId
 {
-    NSString *urlString = [NSString stringWithFormat:@"user/%@/tees",[userId stringValue]];
+    NSString *urlString = [NSString stringWithFormat:@"user/%li/tees",userId];
     [self submitCourseFetchRequest:urlString];
 }
 

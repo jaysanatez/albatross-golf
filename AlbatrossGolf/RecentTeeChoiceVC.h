@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 #import "TeeDAO.h"
 
 @interface RecentTeeChoiceVC : UIViewController<UITableViewDelegate, UITableViewDataSource, TeeFetchDelegate>
@@ -14,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UIView *spinnerView;
 @property (nonatomic, weak) IBOutlet UILabel *noTees;
 @property (nonatomic, weak) IBOutlet UITableView *table;
+@property User *user;
 
 -(IBAction)pushScorecard:(id)sender;
 

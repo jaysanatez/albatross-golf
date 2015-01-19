@@ -46,6 +46,8 @@
 		1641C9D41A26435E00378BA4 /* HoleStatsDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9CF1A26435E00378BA4 /* HoleStatsDAO.m */; };
 		1641C9D51A26435E00378BA4 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9D11A26435E00378BA4 /* Game.m */; };
 		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
+		1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9731A6CA1EA00F5198D /* Scorecard.m */; };
+		1649A9771A6CA2F300F5198D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9761A6CA2F300F5198D /* User.m */; };
 		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
 		16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640BC1A6857F200443472 /* RoundLookupVC.xib */; };
 		16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */; };
@@ -149,6 +151,10 @@
 		1641C9D01A26435E00378BA4 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		1641C9D11A26435E00378BA4 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		1641C9D61A2643AD00378BA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1649A9721A6CA1EA00F5198D /* Scorecard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scorecard.h; sourceTree = "<group>"; };
+		1649A9731A6CA1EA00F5198D /* Scorecard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scorecard.m; sourceTree = "<group>"; };
+		1649A9751A6CA2F300F5198D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1649A9761A6CA2F300F5198D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		168E94051A2795500065E1C4 /* RoundHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHole.h; sourceTree = "<group>"; };
 		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
 		16D640BC1A6857F200443472 /* RoundLookupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundLookupVC.xib; sourceTree = "<group>"; };
@@ -403,6 +409,8 @@
 		16FB796C1A6ABE7B008F2277 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				1649A9751A6CA2F300F5198D /* User.h */,
+				1649A9761A6CA2F300F5198D /* User.m */,
 				1641C9531A263FB000378BA4 /* Course.h */,
 				1641C9541A263FB000378BA4 /* Course.m */,
 				1641C9571A263FB000378BA4 /* Tee.h */,
@@ -417,6 +425,8 @@
 				16FF7BEC1A68E50200D885C2 /* RoundStats.m */,
 				162439161A697B8E00A7A049 /* HoleScore.h */,
 				162439171A697B8E00A7A049 /* HoleScore.m */,
+				1649A9721A6CA1EA00F5198D /* Scorecard.h */,
+				1649A9731A6CA1EA00F5198D /* Scorecard.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -567,6 +577,7 @@
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
 				1641C9D31A26435E00378BA4 /* Hole.m in Sources */,
+				1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */,
 				1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */,
 				1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */,
 				1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */,
@@ -585,6 +596,7 @@
 				1641C9661A263FB000378BA4 /* TeeDAO.m in Sources */,
 				1641C9831A26402400378BA4 /* RecentTeeChoiceVC.m in Sources */,
 				1641C9651A263FB000378BA4 /* Tee.m in Sources */,
+				1649A9771A6CA2F300F5198D /* User.m in Sources */,
 				1641C9231A263D8000378BA4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

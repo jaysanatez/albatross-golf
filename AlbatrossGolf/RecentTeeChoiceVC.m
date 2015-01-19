@@ -22,7 +22,7 @@
 
 @implementation RecentTeeChoiceVC
 
-@synthesize playButton,moreButton,table,spinnerView,noTees;
+@synthesize playButton,moreButton,table,spinnerView,noTees,user;
 
 - (void)viewDidLoad
 {
@@ -37,7 +37,7 @@
     
     dao = [[TeeDAO alloc] init];
     dao.delegate = self;
-    [dao fetchTeesForUser:[NSNumber numberWithInt:2]];
+    [dao fetchTeesForUser:user.id_num];
     [self displayLoadingScreen:NO];
     selectedRow = -1;
 }
