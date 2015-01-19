@@ -42,7 +42,7 @@
     
     self.title =  @"Scoring Breakdown";
     courseLabel.text = courseName;
-    holeLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole_id]; // MURDER
+    holeLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole.number];
     parLabel.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
     handicapLabel.text = [NSString stringWithFormat:@"Handicap: %li",teeHole.handicap];
     yardLabel.text = [NSString stringWithFormat:@"Length: %li yds",teeHole.yardage];
@@ -56,7 +56,7 @@
     enterButton.layer.masksToBounds = YES;
     
     // popup stuff
-    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole_id]; //MURDER
+    popupHoleLabel.text = [NSString stringWithFormat: @"Hole #%li",teeHole.hole.number];
     popupParLabel.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
     popupLengthLabel.text = [NSString stringWithFormat:@"%li yds",teeHole.yardage];
     

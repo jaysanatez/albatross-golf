@@ -23,7 +23,7 @@
 
 -(void)reloadLabels
 {
-    holeNumber.text = [NSString stringWithFormat:@"%li",teeHole.hole_id]; // MURDER
+    holeNumber.text = [NSString stringWithFormat:@"%li",teeHole.hole.number];
     holePar.text = [NSString stringWithFormat:@"Par %li",teeHole.par];
     holeYardage.text = [NSString stringWithFormat:@"%li yds",teeHole.yardage];
 }

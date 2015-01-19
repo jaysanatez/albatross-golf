@@ -20,7 +20,6 @@
 		1641C9651A263FB000378BA4 /* Tee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9581A263FB000378BA4 /* Tee.m */; };
 		1641C9661A263FB000378BA4 /* TeeDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C95A1A263FB000378BA4 /* TeeDAO.m */; };
 		1641C9671A263FB000378BA4 /* TeeHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C95C1A263FB000378BA4 /* TeeHole.m */; };
-		1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */; };
 		1641C9691A263FB000378BA4 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9601A263FB000378BA4 /* Round.m */; };
 		1641C96A1A263FB000378BA4 /* RoundDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C9621A263FB000378BA4 /* RoundDAO.m */; };
 		1641C9831A26402400378BA4 /* RecentTeeChoiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1641C97A1A26402400378BA4 /* RecentTeeChoiceVC.m */; };
@@ -44,6 +43,7 @@
 		1641C9D71A2643AD00378BA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1641C9D61A2643AD00378BA4 /* CoreData.framework */; };
 		1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9731A6CA1EA00F5198D /* Scorecard.m */; };
 		1649A9771A6CA2F300F5198D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9761A6CA2F300F5198D /* User.m */; };
+		1649A97A1A6CBBB100F5198D /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9791A6CBBB100F5198D /* Hole.m */; };
 		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
 		16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640BC1A6857F200443472 /* RoundLookupVC.xib */; };
 		16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */; };
@@ -97,8 +97,6 @@
 		1641C95A1A263FB000378BA4 /* TeeDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeDAO.m; sourceTree = "<group>"; };
 		1641C95B1A263FB000378BA4 /* TeeHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeHole.h; sourceTree = "<group>"; };
 		1641C95C1A263FB000378BA4 /* TeeHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeHole.m; sourceTree = "<group>"; };
-		1641C95D1A263FB000378BA4 /* TeeHoleDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeeHoleDAO.h; sourceTree = "<group>"; };
-		1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeeHoleDAO.m; sourceTree = "<group>"; };
 		1641C95F1A263FB000378BA4 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
 		1641C9601A263FB000378BA4 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		1641C9611A263FB000378BA4 /* RoundDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundDAO.h; sourceTree = "<group>"; };
@@ -143,6 +141,8 @@
 		1649A9731A6CA1EA00F5198D /* Scorecard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scorecard.m; sourceTree = "<group>"; };
 		1649A9751A6CA2F300F5198D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1649A9761A6CA2F300F5198D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		1649A9781A6CBBB100F5198D /* Hole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hole.h; sourceTree = "<group>"; };
+		1649A9791A6CBBB100F5198D /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
 		168E94051A2795500065E1C4 /* RoundHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHole.h; sourceTree = "<group>"; };
 		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
 		16D640BC1A6857F200443472 /* RoundLookupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundLookupVC.xib; sourceTree = "<group>"; };
@@ -389,6 +389,8 @@
 				1641C9581A263FB000378BA4 /* Tee.m */,
 				1641C95B1A263FB000378BA4 /* TeeHole.h */,
 				1641C95C1A263FB000378BA4 /* TeeHole.m */,
+				1649A9781A6CBBB100F5198D /* Hole.h */,
+				1649A9791A6CBBB100F5198D /* Hole.m */,
 				1641C95F1A263FB000378BA4 /* Round.h */,
 				1641C9601A263FB000378BA4 /* Round.m */,
 				168E94051A2795500065E1C4 /* RoundHole.h */,
@@ -410,8 +412,6 @@
 				1641C9561A263FB000378BA4 /* CourseDAO.m */,
 				1641C9591A263FB000378BA4 /* TeeDAO.h */,
 				1641C95A1A263FB000378BA4 /* TeeDAO.m */,
-				1641C95D1A263FB000378BA4 /* TeeHoleDAO.h */,
-				1641C95E1A263FB000378BA4 /* TeeHoleDAO.m */,
 				1641C9611A263FB000378BA4 /* RoundDAO.h */,
 				1641C9621A263FB000378BA4 /* RoundDAO.m */,
 			);
@@ -542,7 +542,6 @@
 				16E723C51A6A20C0008E8FB6 /* LoadingThrobberView.swift in Sources */,
 				1641C98B1A26403900378BA4 /* AddCourseVC.m in Sources */,
 				1641C9691A263FB000378BA4 /* Round.m in Sources */,
-				1641C9681A263FB000378BA4 /* TeeHoleDAO.m in Sources */,
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
 				1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */,
@@ -552,6 +551,7 @@
 				16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */,
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
+				1649A97A1A6CBBB100F5198D /* Hole.m in Sources */,
 				16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */,
 				162439181A697B8E00A7A049 /* HoleScore.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,

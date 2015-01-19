@@ -139,9 +139,6 @@ static NSString *stateParam = @"%20";
             course.address = [courseDict valueForKey:@"address"];
             course.zip = [courseDict valueForKey:@"zip_code"];
             
-            course.courseName = course.name; // MURDER
-            course.courseLocation = course.city; // MURDER
-            
             [courses addObject:course];
         }
         

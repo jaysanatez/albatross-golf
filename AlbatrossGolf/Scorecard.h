@@ -17,7 +17,7 @@
 @property User *user;
 @property Course *course;
 @property Tee *tee;
-@property NSMutableArray *holes;
+@property NSMutableArray *tee_holes;
 @property Round *current_round;
 
 @end

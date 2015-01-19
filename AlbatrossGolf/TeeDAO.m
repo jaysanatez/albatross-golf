@@ -7,6 +7,8 @@
 
 #import "TeeDAO.h"
 #import "Tee.h"
+#import "TeeHole.h"
+#import "Hole.h"
 #import "RecentTeeChoiceVC.h"
 #import "TeeChoiceVC.h"
 
@@ -83,19 +85,46 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     {
         NSLog(@"Successfully deserialized.");
         
-        for(NSDictionary *teeDict in jsonObject)
+        for(NSDictionary *tee_dict in jsonObject)
         {
             Tee *tee = [[Tee alloc] init];
             
-            tee.id_num = [[teeDict valueForKey:@"id"] longValue];
-            tee.name = [teeDict valueForKey:@"name"];
-            tee.slope = [[teeDict valueForKey:@"slope"] longValue];
-            tee.rating = [[teeDict valueForKey:@"rating"] doubleValue];
-            tee.isMale = [[teeDict valueForKey:@"gender"] isEqualToString:@"M"];
+            tee.id_num = [[tee_dict valueForKey:@"id"] longValue];
+            tee.name = [tee_dict valueForKey:@"name"];
+            tee.slope = [[tee_dict valueForKey:@"slope"] longValue];
+            tee.rating = [[tee_dict valueForKey:@"rating"] doubleValue];
+            tee.isMale = [[tee_dict valueForKey:@"gender"] isEqualToString:@"M"];
             
-            NSDictionary *courseDict = [teeDict objectForKey:@"course"];
-            tee.course_id = [[courseDict objectForKey:@"id"] longValue];
-            tee.course_name = [courseDict objectForKey:@"name"];
+            NSDictionary *course_dict = [tee_dict objectForKey:@"course"];
+            tee.course_id = [[course_dict objectForKey:@"id"] longValue];
+            tee.course_name = [course_dict objectForKey:@"name"];
+            
+            NSArray *tee_holes_dict = [tee_dict objectForKey:@"tee_holes"];
+            NSMutableArray *tee_holes = [[NSMutableArray alloc] init];
+            
+            for(NSDictionary *thDict in tee_holes_dict)
+            {
+                TeeHole *th = [[TeeHole alloc] init];
+                
+                th.id_num = [[thDict valueForKey:@"id"] longValue];
+                th.yardage = [[thDict valueForKey:@"yardage"] longValue];
+                th.par = [[thDict valueForKey:@"par"] longValue];
+                th.handicap = [[thDict valueForKey:@"handicap"] longValue];
+                
+                NSDictionary *holeDict = [thDict objectForKey:@"hole"];
+                
+                Hole *h = [[Hole alloc] init];
+                
+                h.id_num = [[holeDict valueForKey:@"id"] longValue];
+                h.number = [[holeDict valueForKey:@"number"] longValue];
+                h.name = [holeDict valueForKey:@"name"];
+                
+                th.hole = h;
+                
+                [tee_holes addObject:th];
+            }
+            
+            tee.tee_holes = tee_holes;
             
             [tees addObject:tee];
         }

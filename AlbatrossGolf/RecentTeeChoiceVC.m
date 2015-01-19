@@ -7,6 +7,7 @@
 
 #import "RecentTeeChoiceVC.h"
 #import "ScorecardVC.h"
+#import "Scorecard.h"
 #import "TeeChoiceCell.h"
 #import "TeeDAO.h"
 #import "Tee.h"
@@ -108,10 +109,24 @@
 - (void)pushScorecard:(id)sender
 {
     ScorecardVC *controller = [[ScorecardVC alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    // CONFIGURE THE SCORECARD
+    Scorecard *sc = [[Scorecard alloc] init];
     NSIndexPath *path = [table indexPathForSelectedRow];
     Tee *t = (Tee *)[tees objectAtIndex:path.row];
-    controller.tee = t;
-    [self.navigationController pushViewController:controller animated:YES];
+    
+    Course *c = [[Course alloc] init];
+    c.id_num = t.course_id;
+    c.name = t.course_name;
+    
+    sc.user = user;
+    sc.course = c;
+    sc.tee = t;
+    sc.tee_holes = t.tee_holes;
+    
+    controller.scorecard = sc;
+    [controller.collecView reloadData];
 }
 
 @end
