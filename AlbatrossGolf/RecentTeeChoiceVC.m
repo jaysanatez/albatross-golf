@@ -36,10 +36,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self displayLoadingScreen:NO];
+    [self displayLoadingScreen:YES];
     dao = [[TeeDAO alloc] init];
     tees = [dao fetchTeesForUser:user.id_num];
-    [self displayLoadingScreen:YES];
+    [self displayLoadingScreen:NO];
     
     noTees.hidden = [tees count] != 0;
     [table reloadData];
@@ -89,15 +89,9 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-- (void)alertNoTeesFetched
+- (void)displayLoadingScreen:(BOOL)show
 {
-    noTees.hidden = NO;
-    [self displayLoadingScreen:YES];
-}
-
-- (void)displayLoadingScreen:(BOOL)fetchedCourses
-{
-    ((UIView *)spinnerView).hidden = fetchedCourses;
+    ((UIView *)spinnerView).hidden = !show;
 }
 
 - (void)pushScorecard:(id)sender
