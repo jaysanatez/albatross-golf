@@ -11,6 +11,8 @@
 #import "RoundStats.h"
 #import "HoleScore.h"
 #import "ScorecardVC.h"
+#import "TeeDao.h"
+#import "Tee.h"
 
 @interface RoundLookupVC ()
 
@@ -67,8 +69,7 @@
 
 - (void)pushScorecard:(id)sender
 {
-    NSLog(@"Push");
-    /* ScorecardVC *controller = [[ScorecardVC alloc] init];
+    ScorecardVC *controller = [[ScorecardVC alloc] initWithNibName:@"ScorecardVC" bundle:[NSBundle mainBundle]];
     
     // CONFIGURE THE SCORECARD
     Scorecard *sc = [[Scorecard alloc] init];
@@ -79,13 +80,15 @@
     
     sc.user = nil; // MURDER
     sc.course = c;
-     
+    sc.round = round;
+    
     // fetch tees for round
-    // sc.tee = t;
-    // sc.tee_holes = t.tee_holes;
+    TeeDAO *tee_dao = [[TeeDAO alloc] init];
+    Tee *t = [tee_dao fetchTeeWithTeeId:round.tee_id];
+    sc.tee = t;
     
     controller.scorecard = sc;
-    [self.navigationController pushViewController:controller animated:YES]*/
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

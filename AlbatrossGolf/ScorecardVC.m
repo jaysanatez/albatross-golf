@@ -20,7 +20,7 @@
 
 @implementation ScorecardVC
 
-@synthesize collecView, scorecard, saving_throbber, round;
+@synthesize collecView, scorecard, saving_throbber;
 
 - (void)viewDidLoad
 {
@@ -33,11 +33,11 @@
     
     self.title = scorecard.course.name;
     
-    if(!round)
+    if(!scorecard.round)
     {
-        round = [[Round alloc] init];
-        round.hole_scores = [[NSMutableArray alloc] init];
-        round.round_holes = [[NSMutableArray alloc] init];
+        scorecard.round = [[Round alloc] init];
+        scorecard.round.hole_scores = [[NSMutableArray alloc] init];
+        scorecard.round.round_holes = [[NSMutableArray alloc] init];
     }
     
     dao = [[RoundDAO alloc] init];
@@ -86,16 +86,18 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [scorecard.tee_holes count];
+    return [scorecard.tee.tee_holes count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"HoleScore";
     HoleScoreCell *hole = [collecView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    TeeHole *tHole = (TeeHole *)[scorecard.tee_holes objectAtIndex:indexPath.row];
+    TeeHole *tHole = (TeeHole *)[scorecard.tee.tee_holes objectAtIndex:indexPath.row];
     hole.teeHole = tHole;
-    hole.showImage = [self getAssociatedHoleScore:tHole] != nil;
+    
+    HoleScore *hs = [self getAssociatedHoleScore:tHole];
+    hole.showImage = hs != nil && hs.score != -1;
     [hole reloadLabels];
     return hole;
 }
@@ -103,7 +105,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HoleScoreVC *holeScore = [[HoleScoreVC alloc] initWithNibName:@"HoleScoreVC" bundle:[NSBundle mainBundle]];
-    TeeHole *tHole = (TeeHole *)[scorecard.tee_holes objectAtIndex:indexPath.row];
+    TeeHole *tHole = (TeeHole *)[scorecard.tee.tee_holes objectAtIndex:indexPath.row];
     holeScore.tee_hole = tHole;
     holeScore.course_name = scorecard.course.name;
     holeScore.delegate = self;
@@ -114,7 +116,7 @@
 
 - (HoleScore *)getAssociatedHoleScore:(TeeHole *)tHole
 {
-    for(HoleScore *hs in round.hole_scores)
+    for(HoleScore *hs in scorecard.round.hole_scores)
     {
         if (hs.hole_number == tHole.hole.number)
         {
@@ -127,7 +129,7 @@
 
 - (RoundHole *)getAssociatedRoundHole:(TeeHole *)tHole
 {
-    for(RoundHole *rh in round.round_holes)
+    for(RoundHole *rh in scorecard.round.round_holes)
     {
         if (rh.hole_id == tHole.hole.id_num)
         {
@@ -140,27 +142,27 @@
 
 - (void)postRoundHole:(RoundHole *)roundHole
 {
-    [round.round_holes addObject:roundHole];
+    [scorecard.round.round_holes addObject:roundHole];
     unsaved_data = true;
 }
 
 - (void)postHoleScore:(HoleScore *)holeScore
 {
-    [round.hole_scores addObject:holeScore];
+    [scorecard.round.hole_scores addObject:holeScore];
     unsaved_data = true;
 }
 
 - (void)saveRound
 {
-    round.course_id = scorecard.course.id_num;
-    round.tee_id = scorecard.tee.id_num;
+    scorecard.round.course_id = scorecard.course.id_num;
+    scorecard.round.tee_id = scorecard.tee.id_num;
     
     [self displaySavingThrobber:YES];
-    long round_id = [dao postRound:round forUser:2];
+    long round_id = [dao postRound:scorecard.round forUser:2];
     
     if (round_id != -1)
     {
-        for(RoundHole *rh in round.round_holes)
+        for(RoundHole *rh in scorecard.round.round_holes)
         {
             rh.round_id = round_id;
             [dao postRoundHole:rh forUser:2];

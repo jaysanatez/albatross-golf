@@ -16,7 +16,6 @@
 @interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundDataPostable, RoundPostDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) Scorecard *scorecard;
-@property (nonatomic, strong) Round *round;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, weak) IBOutlet SavingThrobberView *saving_throbber;
 

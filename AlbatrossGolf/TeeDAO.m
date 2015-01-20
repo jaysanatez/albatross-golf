@@ -14,25 +14,29 @@
 
 @implementation TeeDAO
 
-@synthesize delegate;
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
-- (void)fetchTeesForCourse:(long)courseId
+- (NSMutableArray *)fetchTeesForCourse:(long)courseId
 {
     NSString *urlString = [NSString stringWithFormat:@"course/%li/tees",courseId];
-    [self submitCourseFetchRequest:urlString];
+    return [self submitCourseFetchRequest:urlString];
 }
 
-- (void)fetchTeesForUser:(long)userId
+- (NSMutableArray *)fetchTeesForUser:(long)userId
 {
     NSString *urlString = [NSString stringWithFormat:@"user/%li/tees",userId];
-    [self submitCourseFetchRequest:urlString];
+    return [self submitCourseFetchRequest:urlString];
 }
 
-- (void)submitCourseFetchRequest:(NSString *)urlString
+- (Tee *)fetchTeeWithTeeId:(long)teeId
 {
-    __block NSMutableArray *tees = [[NSMutableArray alloc] initWithObjects:nil];
+    NSString *urlString = [NSString stringWithFormat:@"tee/%li",teeId];
+    return (Tee *)[[self submitCourseFetchRequest:urlString] objectAtIndex:0];
+}
+
+- (NSMutableArray *)submitCourseFetchRequest:(NSString *)urlString
+{
     
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
@@ -45,30 +49,26 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     [urlRequest setHTTPMethod:@"GET"];
     [urlRequest setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
-    // the donger
-    [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:
-     ^(NSURLResponse *response, NSData *data, NSError *error){
-         if([data length] > 0 && error == nil)
-         {
-             // do the things
-             dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [tees addObjectsFromArray:[self parseAllTeeData:data]];
-                 [delegate refreshTeeList:tees];
-             });
-         }
-         else if ([data length] == 0)
-         {
-             NSLog(@"Tee retrieval returned an empty response.");
-             [delegate alertNoTeesFetched];
-         }
-         else if (error != nil)
-         {
-             NSLog(@"Error = %@",[error description]);
-             [delegate alertNoTeesFetched];
-         }
-     }];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error]; // the donger
+    
+    if([data length] > 0 && error == nil)
+    {
+        // normal execution
+        return [self parseAllTeeData:data];
+    }
+    else if ([data length] == 0)
+    {
+        NSLog(@"Tee retrieval returned an empty response.");
+    }
+    else if (error != nil)
+    {
+        NSLog(@"Error = %@",[error description]);
+    }
+    
+    return nil;
 }
 
 - (NSMutableArray *)parseAllTeeData:(NSData *)data
@@ -87,49 +87,58 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         
         for(NSDictionary *tee_dict in jsonObject)
         {
-            Tee *tee = [[Tee alloc] init];
-            
-            tee.id_num = [[tee_dict valueForKey:@"id"] longValue];
-            tee.name = [tee_dict valueForKey:@"name"];
-            tee.slope = [[tee_dict valueForKey:@"slope"] longValue];
-            tee.rating = [[tee_dict valueForKey:@"rating"] doubleValue];
-            tee.isMale = [[tee_dict valueForKey:@"gender"] isEqualToString:@"M"];
-            
-            NSDictionary *course_dict = [tee_dict objectForKey:@"course"];
-            tee.course_id = [[course_dict objectForKey:@"id"] longValue];
-            tee.course_name = [course_dict objectForKey:@"name"];
-            
-            NSArray *tee_holes_dict = [tee_dict objectForKey:@"tee_holes"];
-            NSMutableArray *tee_holes = [[NSMutableArray alloc] init];
-            
-            for(NSDictionary *thDict in tee_holes_dict)
-            {
-                TeeHole *th = [[TeeHole alloc] init];
-                
-                th.id_num = [[thDict valueForKey:@"id"] longValue];
-                th.yardage = [[thDict valueForKey:@"yardage"] longValue];
-                th.par = [[thDict valueForKey:@"par"] longValue];
-                th.handicap = [[thDict valueForKey:@"handicap"] longValue];
-                
-                NSDictionary *holeDict = [thDict objectForKey:@"hole"];
-                
-                Hole *h = [[Hole alloc] init];
-                
-                h.id_num = [[holeDict valueForKey:@"id"] longValue];
-                h.number = [[holeDict valueForKey:@"number"] longValue];
-                h.name = [holeDict valueForKey:@"name"];
-                
-                th.hole = h;
-                
-                [tee_holes addObject:th];
-            }
-            
-            tee.tee_holes = tee_holes;
-            
-            [tees addObject:tee];
+            [tees addObject:[self parseSingleTee:tee_dict]];
         }
     }
+    else if (jsonObject != nil && error == nil && [jsonObject isKindOfClass:[NSDictionary class]])
+    {
+        NSLog(@"Successfully deserialized.");
+        [tees addObject:[self parseSingleTee:jsonObject]];
+    }
     return tees;
+}
+
+- (Tee *)parseSingleTee:(NSDictionary *)tee_dict
+{
+    Tee *tee = [[Tee alloc] init];
+    
+    tee.id_num = [[tee_dict valueForKey:@"id"] longValue];
+    tee.name = [tee_dict valueForKey:@"name"];
+    tee.slope = [[tee_dict valueForKey:@"slope"] longValue];
+    tee.rating = [[tee_dict valueForKey:@"rating"] doubleValue];
+    tee.isMale = [[tee_dict valueForKey:@"gender"] isEqualToString:@"M"];
+    
+    NSDictionary *course_dict = [tee_dict objectForKey:@"course"];
+    tee.course_id = [[course_dict objectForKey:@"id"] longValue];
+    tee.course_name = [course_dict objectForKey:@"name"];
+    
+    NSArray *tee_holes_dict = [tee_dict objectForKey:@"tee_holes"];
+    NSMutableArray *tee_holes = [[NSMutableArray alloc] init];
+    
+    for(NSDictionary *thDict in tee_holes_dict)
+    {
+        TeeHole *th = [[TeeHole alloc] init];
+        
+        th.id_num = [[thDict valueForKey:@"id"] longValue];
+        th.yardage = [[thDict valueForKey:@"yardage"] longValue];
+        th.par = [[thDict valueForKey:@"par"] longValue];
+        th.handicap = [[thDict valueForKey:@"handicap"] longValue];
+        
+        NSDictionary *holeDict = [thDict objectForKey:@"hole"];
+        
+        Hole *h = [[Hole alloc] init];
+        
+        h.id_num = [[holeDict valueForKey:@"id"] longValue];
+        h.number = [[holeDict valueForKey:@"number"] longValue];
+        h.name = [holeDict valueForKey:@"name"];
+        
+        th.hole = h;
+        
+        [tee_holes addObject:th];
+    }
+    
+    tee.tee_holes = tee_holes;
+    return tee;
 }
 
 @end

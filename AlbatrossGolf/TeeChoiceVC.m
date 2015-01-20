@@ -34,11 +34,17 @@
     beginButton.layer.masksToBounds = YES;
         
     dao = [[TeeDAO alloc] init];
-    dao.delegate = self;
-    [dao fetchTeesForCourse:course.id_num];
+    
     courseName.text = course.name;
     courseName.adjustsFontSizeToFitWidth = YES;
+    
     selectedRow = -1;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    tees = [dao fetchTeesForCourse:course.id_num];
+    [table reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -81,12 +87,6 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-- (void)refreshTeeList:(NSMutableArray *)teeList
-{
-    tees = teeList;
-    [table reloadData];
-}
-
 - (void)alertNoTeesFetched
 {
     NSLog(@"No Tees Fetched");
@@ -108,7 +108,6 @@
     sc.user = nil; // MURDER
     sc.course = c;
     sc.tee = t;
-    sc.tee_holes = t.tee_holes;
     
     controller.scorecard = sc;
     [self.navigationController pushViewController:controller animated:YES];

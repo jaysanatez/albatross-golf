@@ -33,7 +33,7 @@
     yardLabel.text = [NSString stringWithFormat:@"Length: %li yds",tee_hole.yardage];
     netLabel.adjustsFontSizeToFitWidth = YES;
     
-    if (hole_score)
+    if (hole_score && hole_score.score != -1)
     {
         score_entry_view.hidden = YES;
         data_entry_view.alpha = 1;

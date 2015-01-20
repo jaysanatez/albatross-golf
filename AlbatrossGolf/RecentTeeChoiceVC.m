@@ -36,11 +36,18 @@
         v.layer.masksToBounds = YES;
     }
     
-    dao = [[TeeDAO alloc] init];
-    dao.delegate = self;
-    [dao fetchTeesForUser:user.id_num];
-    [self displayLoadingScreen:NO];
     selectedRow = -1;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self displayLoadingScreen:NO];
+    dao = [[TeeDAO alloc] init];
+    tees = [dao fetchTeesForUser:user.id_num];
+    [self displayLoadingScreen:YES];
+    
+    noTees.hidden = [tees count] != 0;
+    [table reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -87,14 +94,6 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-- (void)refreshTeeList:(NSMutableArray *)teeList
-{
-    tees = teeList;
-    noTees.hidden = [teeList count] != 0;
-    [table reloadData];
-    [self displayLoadingScreen:YES];
-}
-
 - (void)alertNoTeesFetched
 {
     noTees.hidden = NO;
@@ -122,7 +121,6 @@
     sc.user = user;
     sc.course = c;
     sc.tee = t;
-    sc.tee_holes = t.tee_holes;
     
     controller.scorecard = sc;
     [self.navigationController pushViewController:controller animated:YES];

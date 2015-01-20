@@ -9,7 +9,7 @@
 #import "Course.h"
 #import "TeeDAO.h"
 
-@interface TeeChoiceVC : UIViewController<UITableViewDataSource, UITableViewDelegate, TeeFetchDelegate>
+@interface TeeChoiceVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *courseName;
 @property (nonatomic, weak) IBOutlet UITableView *table;
