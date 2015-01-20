@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScorecardVC">
             <connections>
                 <outlet property="collecView" destination="gpa-EL-Yzb" id="CQp-vp-jRM"/>
+                <outlet property="saveButton" destination="QwS-Pm-i05" id="fba-9f-U1c"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ka7-cC-Kz3"/>
             </connections>
         </placeholder>
@@ -31,6 +32,7 @@
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwS-Pm-i05">
                     <rect key="frame" x="20" y="518" width="280" height="40"/>
+                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="jix-HR-vwa"/>
                     </constraints>

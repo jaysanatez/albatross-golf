@@ -20,9 +20,18 @@
 
 @end
 
-@interface RoundDAO : NSObject
+@protocol RoundPostDelegate
 
-@property (nonatomic, weak) id <RoundFetchDelegate> delegate;
+- (void)roundPostTimedOut;
+- (void)roundPostThrewError:(NSError *)error;
+- (void)roundPostSucceeded;
+
+@end
+
+@interface RoundDAO : NSObject <NSURLConnectionDataDelegate>
+
+@property (nonatomic, weak) id <RoundFetchDelegate> fetch_delegate;
+@property (nonatomic, weak) id <RoundPostDelegate> post_delegate;
 
 - (void)fetchAllRoundsForUser:(long)user_id;
 - (void)fetchRoundHolesWithRound:(long)round_id;

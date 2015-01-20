@@ -11,7 +11,7 @@
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
-@synthesize delegate;
+@synthesize fetch_delegate, post_delegate;
 
 - (void)fetchAllRoundsForUser:(long)user_id
 {
@@ -65,7 +65,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
                  [rounds addObjectsFromArray:[self parseAllRoundData:data]];
-                 [delegate refreshRoundList:rounds];
+                 [fetch_delegate refreshRoundList:rounds];
              });
          }
          else if ([data length] == 0)
@@ -105,7 +105,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
                  [roundHoles addObjectsFromArray:[self parseAllRoundHoleData:data]];
-                 [delegate roundHolesFetched:roundHoles forRoundId:roundId];
+                 [fetch_delegate roundHolesFetched:roundHoles forRoundId:roundId];
              });
          }
          else if ([data length] == 0)
@@ -142,7 +142,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
          {
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [delegate roundStatsFetched:[self parseAllRoundStatData:data] forRoundId:roundId];
+                 [fetch_delegate roundStatsFetched:[self parseAllRoundStatData:data] forRoundId:roundId];
              });
          }
          else if ([data length] == 0)
@@ -182,7 +182,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
                  [holeScores addObjectsFromArray:[self parseAllHoleScoreData:data]];
-                 [delegate holeScoresFetched:holeScores forRoundId:roundId];
+                 [fetch_delegate holeScoresFetched:holeScores forRoundId:roundId];
              });
          }
          else if ([data length] == 0)
@@ -385,6 +385,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
             NSLog(@"Successfully deserialized.");
             
             Round *r = [self parseSingleRoundData:jsonObject];
+            
+            [post_delegate roundPostSucceeded];
+            
             return r.id_num;
         }
     }
@@ -392,9 +395,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     return -1;
 }
 
-- (long)postRoundHole:(RoundHole *)round forUser:(long)user_id
+- (long)postRoundHole:(RoundHole *)round_hole forUser:(long)user_id
 {
-    NSLog(@"Posting Round Hole.");
+    NSLog(@"Posting Round Hole: %@",round_hole);
     return 0; // TO-DO
 }
 
@@ -419,6 +422,26 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
     
     return round;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    // post request handlers
+    if([[connection.originalRequest HTTPMethod] isEqualToString:@"GET"])
+    {
+        return;
+    }
+    
+    if (error.code == NSURLErrorTimedOut)
+    {
+        NSLog(@"Round Post Timeout");
+        [post_delegate roundPostTimedOut];
+    }
+    else
+    {
+        NSLog(@"Something else went wrong");
+        [post_delegate roundPostThrewError:error];
+    }
 }
 
 @end

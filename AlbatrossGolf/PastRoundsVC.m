@@ -42,7 +42,7 @@
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     
     dao = [[RoundDAO alloc] init];
-    dao.delegate = self;
+    dao.fetch_delegate = self;
     [dao fetchAllRoundsForUser:2];
     [self displaySpinnerView:YES];
     

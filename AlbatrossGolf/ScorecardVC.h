@@ -10,12 +10,14 @@
 #import "Tee.h"
 #import "HoleScoreVC.h"
 #import "Scorecard.h"
+#import "RoundDAO.h"
 @class LoadingThrobberView;
 
-@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundHolePostable>
+@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundDataPostable, RoundPostDelegate>
 
 @property (nonatomic, strong) Scorecard *scorecard;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
+@property (nonatomic, weak) IBOutlet UIButton *saveButton;
 
 - (IBAction)saveRound:(id)sender;
 

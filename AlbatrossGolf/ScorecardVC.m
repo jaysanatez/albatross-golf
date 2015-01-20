@@ -9,7 +9,6 @@
 #import "HoleScoreCell.h"
 #import "HoleScoreVC.h"
 #import "TeeHole.h"
-#import "RoundDAO.h"
 
 @interface ScorecardVC ()
 {
@@ -21,7 +20,7 @@
 
 @implementation ScorecardVC
 
-@synthesize collecView, scorecard;
+@synthesize collecView, scorecard, saveButton;
 
 - (void)viewDidLoad
 {
@@ -29,12 +28,17 @@
     
     [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
     
+    // save button styling
+    saveButton.layer.cornerRadius = 8;
+    saveButton.clipsToBounds = YES;
+    
     self.title = scorecard.course.name;
     round = [[Round alloc] init];
     round.hole_scores = [[NSMutableArray alloc] init];
     round.round_holes = [[NSMutableArray alloc] init];
     
     dao = [[RoundDAO alloc] init];
+    dao.post_delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -126,14 +130,31 @@
             rh.round_id = round_id;
             [dao postRoundHole:rh forUser:2];
         }
-        
-        // pop view controller
     }
-    else
+    else // round post returned no data
     {
-        // alert user for bad post
-        NSLog(@"You fail at posting. Try later.");
+        [self roundPostThrewError:nil];
     }
+}
+
+- (void)roundPostSucceeded
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Successful" message:@"The round was saved successfully! View it under Past Rounds." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
+    
+    // pop to menu / push round lookup view
+}
+
+- (void)roundPostThrewError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure to Save" message:@"The round was not saved successfully. Please try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)roundPostTimedOut
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"A Timeout Occurred" message:@"A timeout occurred when trying to save your round. Make sure you have a sufficient data connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
