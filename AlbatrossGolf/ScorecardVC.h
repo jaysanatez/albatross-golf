@@ -11,13 +11,14 @@
 #import "HoleScoreVC.h"
 #import "Scorecard.h"
 #import "RoundDAO.h"
-@class LoadingThrobberView;
+@class SavingThrobberView;
 
 @interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundDataPostable, RoundPostDelegate>
 
 @property (nonatomic, strong) Scorecard *scorecard;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, weak) IBOutlet UIButton *saveButton;
+@property (nonatomic, weak) IBOutlet SavingThrobberView *saving_throbber;
 
 - (IBAction)saveRound:(id)sender;
 

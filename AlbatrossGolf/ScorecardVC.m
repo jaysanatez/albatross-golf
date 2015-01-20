@@ -20,7 +20,7 @@
 
 @implementation ScorecardVC
 
-@synthesize collecView, scorecard, saveButton;
+@synthesize collecView, scorecard, saveButton, saving_throbber;
 
 - (void)viewDidLoad
 {
@@ -30,7 +30,10 @@
     
     // save button styling
     saveButton.layer.cornerRadius = 8;
-    saveButton.clipsToBounds = YES;
+    saveButton.layer.masksToBounds = YES;
+    
+    ((UIView *)saving_throbber).layer.cornerRadius = 8;
+    ((UIView *)saving_throbber).layer.masksToBounds = YES;
     
     self.title = scorecard.course.name;
     round = [[Round alloc] init];
@@ -121,6 +124,7 @@
     round.course_id = scorecard.course.id_num;
     round.tee_id = scorecard.tee.id_num;
     
+    [self displaySavingThrobber:YES];
     long round_id = [dao postRound:round forUser:2];
     
     if (round_id != -1)
@@ -139,6 +143,7 @@
 
 - (void)roundPostSucceeded
 {
+    [self displaySavingThrobber:NO];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Successful" message:@"The round was saved successfully! View it under Past Rounds." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
     [alert show];
     
@@ -147,14 +152,22 @@
 
 - (void)roundPostThrewError:(NSError *)error
 {
+    [self displaySavingThrobber:NO];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure to Save" message:@"The round was not saved successfully. Please try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
     [alert show];
 }
 
 - (void)roundPostTimedOut
 {
+    [self displaySavingThrobber:NO];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"A Timeout Occurred" message:@"A timeout occurred when trying to save your round. Make sure you have a sufficient data connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)displaySavingThrobber:(BOOL)show
+{
+    ((UIView *)saving_throbber).hidden = !show;
+    NSLog(show ? @"SHOW" : @"HIDE");
 }
 
 @end

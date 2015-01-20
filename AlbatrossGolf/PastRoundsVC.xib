@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="60" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="74A-UT-Xtl">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="2" y="2" width="316" height="564"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -36,12 +36,12 @@
             </subviews>
             <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="74A-UT-Xtl" secondAttribute="trailing" id="ArS-PS-cQQ"/>
-                <constraint firstItem="74A-UT-Xtl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QoN-J5-CAa"/>
-                <constraint firstItem="74A-UT-Xtl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TxQ-BO-BMa"/>
+                <constraint firstAttribute="trailing" secondItem="74A-UT-Xtl" secondAttribute="trailing" constant="2" id="ArS-PS-cQQ"/>
+                <constraint firstItem="74A-UT-Xtl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="2" id="QoN-J5-CAa"/>
+                <constraint firstItem="74A-UT-Xtl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="2" id="TxQ-BO-BMa"/>
                 <constraint firstAttribute="centerY" secondItem="u2k-aG-v8A" secondAttribute="centerY" id="cGl-c7-3a4"/>
                 <constraint firstAttribute="centerX" secondItem="u2k-aG-v8A" secondAttribute="centerX" id="jaN-tJ-SQA"/>
-                <constraint firstAttribute="bottom" secondItem="74A-UT-Xtl" secondAttribute="bottom" id="uTS-ha-S3N"/>
+                <constraint firstAttribute="bottom" secondItem="74A-UT-Xtl" secondAttribute="bottom" constant="2" id="uTS-ha-S3N"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="218" y="368"/>
