@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomGameList.h"
+#import "MGStatsViewVC.h"
 
 @interface CustomDropDown : UIView
 

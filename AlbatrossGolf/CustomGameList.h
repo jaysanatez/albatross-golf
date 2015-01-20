@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import "CustomSelectionCell.h"
 
 @interface CustomGameList : UIView <UITableViewDataSource, UITableViewDelegate>
 

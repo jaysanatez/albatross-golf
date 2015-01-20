@@ -9,6 +9,7 @@
 #import "HorizontalSlider.h"
 #import "CustomDropDown.h"
 #import "CustomGameList.h"
+#import "GroupStatCell.h"
 
 @interface MGStatsViewVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

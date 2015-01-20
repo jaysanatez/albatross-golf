@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "CustomGameList.h"
-#import "CustomSelectionCell.h"
 
 @implementation CustomGameList
 

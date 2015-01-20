@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "CustomDropDown.h"
-#import "MGStatsViewVC.h"
 
 @implementation CustomDropDown
 
