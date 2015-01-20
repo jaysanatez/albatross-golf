@@ -6,10 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "PastRoundsVC.h"
-#import "Course.h"
-#import "Round.h"
-#import "RoundLookupVC.h"
-#import "AlbatrossGolf-Swift.h"
 
 @interface PastRoundsVC ()
 {

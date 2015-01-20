@@ -6,13 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RoundLookupVC.h"
-#import "HoleLookupCollectionViewCell.h"
-#import "HoleLookupTableViewCell.h"
-#import "RoundStats.h"
-#import "HoleScore.h"
-#import "ScorecardVC.h"
-#import "TeeDao.h"
-#import "Tee.h"
 
 @interface RoundLookupVC ()
 

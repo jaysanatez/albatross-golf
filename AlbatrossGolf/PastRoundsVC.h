@@ -9,6 +9,10 @@
 #import "RoundDAO.h"
 #import "RoundStats.h"
 #import "User.h"
+#import "Course.h"
+#import "Round.h"
+#import "RoundLookupVC.h"
+#import "AlbatrossGolf-Swift.h"
 @class LoadingThrobberView;
 
 @interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate>
