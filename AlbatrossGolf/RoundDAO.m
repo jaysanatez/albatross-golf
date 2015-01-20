@@ -212,27 +212,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     {
         NSLog(@"Successfully deserialized.");
         
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-        NSString *dateString;
-        
         for(NSDictionary *roundDict in jsonObject)
         {
-            Round *round = [[Round alloc] init];
-            
-            round.id_num = [[roundDict valueForKey:@"id"] longValue];
-            round.user_id = [[roundDict valueForKey:@"user"] longValue];
-            
-            NSDictionary *courseDict = [roundDict objectForKey:@"course"];
-            round.course_name = [courseDict valueForKey:@"name"];
-            round.course_id = [[courseDict valueForKey:@"id"] longValue];
-            
-            dateString = [roundDict objectForKey:@"date"];
-            round.date_played = [dateFormat dateFromString:dateString];
-            round.tee_id = [[roundDict valueForKey:@"tee"] longValue];
-            round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
-            
-            [rounds addObject:round];
+            [rounds addObject:[self parseSingleRoundData:roundDict]];
         }
     }
     return rounds;
@@ -354,7 +336,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     return holeScores;
 }
 
-- (void)postRound:(Round *)round forUser:(long)user_id
+- (long)postRound:(Round *)round forUser:(long)user_id
 {
     NSString *post = [NSString stringWithFormat:@"course=%li&tee=%li",round.course_id,round.tee_id];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -362,41 +344,81 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
     
     NSString *urlString = [NSString stringWithFormat:@"%@user/%li/rounds",baseUrl,user_id];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSLog(@"POSTING TO: %@", urlString);
     
     NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     
-    [request setTimeoutInterval:30.0f];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
-    [request setHTTPBody:postData];
+    [urlRequest setTimeoutInterval:30.0f];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
+    [urlRequest setHTTPBody:postData];
     
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                        returningResponse:&response
+                                                     error:&error];
+    
+    if(error != nil)
+    {
+        NSLog(@"Error returned of %@",error);
+    }
+    else if([data length] == 0)
+    {
+        NSLog(@"Round posting returned no data.");
+    }
+    else
+    {
+        // normal execution here
+        NSString *decodedData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSError *json_error = nil;
+        NSLog(@"Data from round post: %@",decodedData);
+        
+        //parsing the JSON response
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&json_error];
+        if (jsonObject != nil && error == nil && [jsonObject isKindOfClass:[NSDictionary class]])
+        {
+            NSLog(@"Successfully deserialized.");
+            
+            Round *r = [self parseSingleRoundData:jsonObject];
+            return r.id_num;
+        }
+    }
+    
+    return -1;
 }
 
-- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+- (long)postRoundHole:(RoundHole *)round forUser:(long)user_id
 {
-    NSLog(@"Total bytes written: %li",totalBytesWritten);
-    NSLog(@"Bytes to write: %li",totalBytesExpectedToWrite);
+    NSLog(@"Posting Round Hole.");
+    return 0; // TO-DO
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+- (Round *)parseSingleRoundData:(NSDictionary *)roundDict
 {
-    NSLog(@"Response: %@",response);
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSLog(@"Data: %@",data);
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"Error: %@",error);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    NSString *dateString;
+    
+    Round *round = [[Round alloc] init];
+    
+    round.id_num = [[roundDict valueForKey:@"id"] longValue];
+    round.user_id = [[roundDict valueForKey:@"user"] longValue];
+    
+    NSDictionary *courseDict = [roundDict objectForKey:@"course"];
+    round.course_name = [courseDict valueForKey:@"name"];
+    round.course_id = [[courseDict valueForKey:@"id"] longValue];
+    
+    dateString = [roundDict objectForKey:@"date"];
+    round.date_played = [dateFormat dateFromString:dateString];
+    round.tee_id = [[roundDict valueForKey:@"tee"] longValue];
+    round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
+    
+    return round;
 }
 
 @end

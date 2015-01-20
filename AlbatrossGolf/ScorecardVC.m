@@ -117,7 +117,23 @@
     round.course_id = scorecard.course.id_num;
     round.tee_id = scorecard.tee.id_num;
     
-    [dao postRound:round forUser:2];
+    long round_id = [dao postRound:round forUser:2];
+    
+    if (round_id != -1)
+    {
+        for(RoundHole *rh in round.round_holes)
+        {
+            rh.round_id = round_id;
+            [dao postRoundHole:rh forUser:2];
+        }
+        
+        // pop view controller
+    }
+    else
+    {
+        // alert user for bad post
+        NSLog(@"You fail at posting. Try later.");
+    }
 }
 
 @end

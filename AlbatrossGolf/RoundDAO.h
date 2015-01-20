@@ -20,7 +20,7 @@
 
 @end
 
-@interface RoundDAO : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface RoundDAO : NSObject
 
 @property (nonatomic, weak) id <RoundFetchDelegate> delegate;
 
@@ -29,7 +29,8 @@
 - (void)fetchStatsForRound:(long)round_id;
 - (void)fetchHoleScoresForRoundId:(long)round_id;
 
-- (void)postRound:(Round *)round forUser:(long)user_id;
+- (long)postRound:(Round *)round forUser:(long)user_id;
+- (long)postRoundHole:(RoundHole *)round forUser:(long)user_id;
 
 @end
 
