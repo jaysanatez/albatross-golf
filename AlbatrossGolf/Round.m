@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "Round.h"
-#import "HoleScore.h"
 
 @implementation Round
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <Foundation/Foundation.h>
+#import "HoleScore.h"
 @class RoundStats;
 
 @interface Round : NSObject

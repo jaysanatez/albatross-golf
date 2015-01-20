@@ -9,7 +9,6 @@
 #import "User.h"
 #import "Course.h"
 #import "Tee.h"
-#import "TeeHole.h"
 #import "Round.h"
 
 @interface Scorecard : NSObject
