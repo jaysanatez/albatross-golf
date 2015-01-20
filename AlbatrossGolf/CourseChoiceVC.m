@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "CourseChoiceVC.h"
-#import "CourseChoiceCell.h"
-#import "TeeChoiceVC.h"
 
 @interface CourseChoice ()
 {

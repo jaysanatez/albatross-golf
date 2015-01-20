@@ -11,7 +11,7 @@
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
-@synthesize delegate;
+@synthesize fetch_delegate, post_delegate;
 
 - (void)fetchAllRoundsForUser:(long)user_id
 {
@@ -65,7 +65,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
                  [rounds addObjectsFromArray:[self parseAllRoundData:data]];
-                 [delegate refreshRoundList:rounds];
+                 [fetch_delegate refreshRoundList:rounds];
              });
          }
          else if ([data length] == 0)
@@ -105,7 +105,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
                  [roundHoles addObjectsFromArray:[self parseAllRoundHoleData:data]];
-                 [delegate roundHolesFetched:roundHoles forRoundId:roundId];
+                 [fetch_delegate roundHolesFetched:roundHoles forRoundId:roundId];
              });
          }
          else if ([data length] == 0)
@@ -142,7 +142,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
          {
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
-                 [delegate roundStatsFetched:[self parseAllRoundStatData:data] forRoundId:roundId];
+                 [fetch_delegate roundStatsFetched:[self parseAllRoundStatData:data] forRoundId:roundId];
              });
          }
          else if ([data length] == 0)
@@ -182,7 +182,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
              // do the things
              dispatch_async(dispatch_get_main_queue(), ^(void){
                  [holeScores addObjectsFromArray:[self parseAllHoleScoreData:data]];
-                 [delegate holeScoresFetched:holeScores forRoundId:roundId];
+                 [fetch_delegate holeScoresFetched:holeScores forRoundId:roundId];
              });
          }
          else if ([data length] == 0)
@@ -212,27 +212,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     {
         NSLog(@"Successfully deserialized.");
         
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
-        NSString *dateString;
-        
         for(NSDictionary *roundDict in jsonObject)
         {
-            Round *round = [[Round alloc] init];
-            
-            round.id_num = [[roundDict valueForKey:@"id"] longValue];
-            round.user_id = [[roundDict valueForKey:@"user"] longValue];
-            
-            NSDictionary *courseDict = [roundDict objectForKey:@"course"];
-            round.course_name = [courseDict valueForKey:@"name"];
-            round.course_id = [[courseDict valueForKey:@"id"] longValue];
-            
-            dateString = [roundDict objectForKey:@"date"];
-            round.date_played = [dateFormat dateFromString:dateString];
-            round.tee_id = [[roundDict valueForKey:@"tee"] longValue];
-            round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
-            
-            [rounds addObject:round];
+            [rounds addObject:[self parseSingleRoundData:roundDict]];
         }
     }
     return rounds;
@@ -254,22 +236,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         
         for(NSDictionary *rhDict in jsonObject)
         {
-            RoundHole *rh = [[RoundHole alloc] init];
-            
-            rh.score = [[rhDict valueForKey:@"score"] longValue];
-            rh.putts = [[rhDict valueForKey:@"putts"] longValue];
-            rh.penalties = [[rhDict valueForKey:@"penalties"] longValue];
-            
-            rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
-            rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
-            rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
-            rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
-            
-            rh.id_num = [[rhDict valueForKey:@"id"] longValue];
-            rh.round_id = [[rhDict valueForKey:@"round"] longValue];
-            rh.hole_id = [[rhDict valueForKey:@"hole"] longValue];
-            
-            [roundHoles addObject:rh];
+            [roundHoles addObject:[self parseSingleRoundHoleData:rhDict]];
         }
     }
     return roundHoles;
@@ -352,6 +319,193 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         }
     }
     return holeScores;
+}
+
+- (long)postRound:(Round *)round forUser:(long)user_id
+{
+    NSString *post = [NSString stringWithFormat:@"course=%li&tee=%li",round.course_id,round.tee_id];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@user/%li/rounds",baseUrl,user_id];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSLog(@"POSTING TO: %@", urlString);
+    
+    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
+    
+    [urlRequest setTimeoutInterval:30.0f];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
+    [urlRequest setHTTPBody:postData];
+    
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                        returningResponse:&response
+                                                     error:&error];
+    
+    if(error != nil)
+    {
+        NSLog(@"Error returned of %@",error);
+    }
+    else if([data length] == 0)
+    {
+        NSLog(@"Round posting returned no data.");
+    }
+    else
+    {
+        // normal execution here
+        NSString *decodedData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSError *json_error = nil;
+        NSLog(@"Data from round post: %@",decodedData);
+        
+        //parsing the JSON response
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&json_error];
+        if (jsonObject != nil && error == nil && [jsonObject isKindOfClass:[NSDictionary class]])
+        {
+            NSLog(@"Successfully deserialized.");
+            
+            Round *r = [self parseSingleRoundData:jsonObject];
+            
+            [post_delegate roundPostSucceeded];
+            
+            return r.id_num;
+        }
+    }
+    
+    return -1;
+}
+
+- (long)postRoundHole:(RoundHole *)round_hole forUser:(long)user_id
+{
+    NSString *post = [NSString stringWithFormat:@"score=%li&putts=%li&penalties=%li&hit_fairway=%@&hit_green=%@&hit_fairway_bunker=%@&hit_green_bunker=%@",round_hole.score,round_hole.putts,round_hole.penalties,[self getBooleanString:round_hole.hitFairway],[self getBooleanString:round_hole.hitGir],[self getBooleanString:round_hole.hitFairwayBunker], [self getBooleanString:round_hole.hitGreensideBunker]];
+    NSLog(@"POST: %@",post);
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@round/%li/hole/%li",baseUrl,round_hole.round_id,round_hole.hole_id];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSLog(@"POSTING TO: %@", urlString);
+    
+    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
+    
+    [urlRequest setTimeoutInterval:30.0f];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
+    [urlRequest setHTTPBody:postData];
+    
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    if(error != nil)
+    {
+        NSLog(@"Error returned of %@",error);
+    }
+    else if([data length] == 0)
+    {
+        NSLog(@"Round posting returned no data.");
+    }
+    else
+    {
+        // normal execution here
+        NSString *decodedData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSError *json_error = nil;
+        NSLog(@"Data from round post: %@", [decodedData length] > 100 ? [decodedData substringToIndex:100] : decodedData);
+        
+        //parsing the JSON response
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&json_error];
+        if (jsonObject != nil && error == nil && [jsonObject isKindOfClass:[NSDictionary class]])
+        {
+            NSLog(@"Successfully deserialized.");
+            
+            RoundHole *rh = [self parseSingleRoundHoleData:jsonObject];
+            
+            [post_delegate roundholePostSucceeded];
+            
+            return rh.id_num;
+        }
+    }
+    
+    return -1;
+}
+
+-(NSString *)getBooleanString:(BOOL)b
+{
+    return b ? @"true" : @"false";
+}
+
+- (Round *)parseSingleRoundData:(NSDictionary *)roundDict
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    NSString *dateString;
+    
+    Round *round = [[Round alloc] init];
+    
+    round.id_num = [[roundDict valueForKey:@"id"] longValue];
+    round.user_id = [[roundDict valueForKey:@"user"] longValue];
+    
+    NSDictionary *courseDict = [roundDict objectForKey:@"course"];
+    round.course_name = [courseDict valueForKey:@"name"];
+    round.course_id = [[courseDict valueForKey:@"id"] longValue];
+    
+    dateString = [roundDict objectForKey:@"date"];
+    round.date_played = [dateFormat dateFromString:dateString];
+    round.tee_id = [[roundDict valueForKey:@"tee"] longValue];
+    round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
+    
+    return round;
+}
+
+- (RoundHole *)parseSingleRoundHoleData:(NSDictionary *)rhDict
+{
+    RoundHole *rh = [[RoundHole alloc] init];
+    
+    rh.score = [[rhDict valueForKey:@"score"] longValue];
+    rh.putts = [[rhDict valueForKey:@"putts"] longValue];
+    rh.penalties = [[rhDict valueForKey:@"penalties"] longValue];
+    
+    rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
+    rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
+    rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
+    rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
+    
+    rh.id_num = [[rhDict valueForKey:@"id"] longValue];
+    rh.round_id = [[rhDict valueForKey:@"round"] longValue];
+    rh.hole_id = [[rhDict valueForKey:@"hole"] longValue];
+    
+    return rh;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    // post request handlers
+    if([[connection.originalRequest HTTPMethod] isEqualToString:@"GET"])
+    {
+        return;
+    }
+    
+    if (error.code == NSURLErrorTimedOut)
+    {
+        NSLog(@"Round Post Timeout");
+        [post_delegate roundPostTimedOut];
+    }
+    else
+    {
+        NSLog(@"Something else went wrong");
+        [post_delegate roundPostThrewError:error];
+    }
 }
 
 @end

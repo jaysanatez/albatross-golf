@@ -9,7 +9,6 @@
 #import "User.h"
 #import "Course.h"
 #import "Tee.h"
-#import "TeeHole.h"
 #import "Round.h"
 
 @interface Scorecard : NSObject
@@ -17,7 +16,6 @@
 @property User *user;
 @property Course *course;
 @property Tee *tee;
-@property NSMutableArray *tee_holes;
-@property Round *current_round;
+@property Round *round;
 
 @end

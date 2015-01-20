@@ -6,6 +6,13 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
+#import "HoleLookupCollectionViewCell.h"
+#import "HoleLookupTableViewCell.h"
+#import "RoundStats.h"
+#import "HoleScore.h"
+#import "ScorecardVC.h"
+#import "TeeDao.h"
+#import "Tee.h"
 #import "Round.h"
 
 @interface RoundLookupVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate>

@@ -11,7 +11,7 @@
 
 @synthesize hole_par, score;
 
-- (int)getDifference
+- (long)getDifference
 {
     return score - hole_par;
 }

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "HoleScoreVC.h"
-#import "ScorecardVC.h"
 
 @interface HoleScoreVC ()
 {
@@ -33,7 +32,7 @@
     yardLabel.text = [NSString stringWithFormat:@"Length: %li yds",tee_hole.yardage];
     netLabel.adjustsFontSizeToFitWidth = YES;
     
-    if (hole_score)
+    if (hole_score && hole_score.score != -1)
     {
         score_entry_view.hidden = YES;
         data_entry_view.alpha = 1;

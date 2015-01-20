@@ -10,11 +10,15 @@
 #import "Tee.h"
 #import "HoleScoreVC.h"
 #import "Scorecard.h"
-@class LoadingThrobberView;
+#import "RoundDAO.h"
+#import "HoleScoreCell.h"
+#import "TeeHole.h"
+@class SavingThrobberView;
 
-@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundHolePostable>
+@interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundDataPostable, RoundPostDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) Scorecard *scorecard;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
+@property (nonatomic, weak) IBOutlet SavingThrobberView *saving_throbber;
 
 @end

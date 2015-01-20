@@ -5,19 +5,10 @@
 //  Created by Jacob Sanchez on 9/3/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import "Course.h"
 #import <Foundation/Foundation.h>
-
-@protocol CourseFetchDelegate
-
-- (void)refreshCourseList:(NSMutableArray *)array;
-- (void)alertNoCoursesFetched;
-
-@optional
-
-- (void)setPrevButton:(BOOL)prev andNext:(BOOL)next;
-
-@end
+#import "Course.h"
+#import "CourseChoiceVC.h"
+#import "Delegates.h"
 
 @interface CourseDAO : NSObject
 

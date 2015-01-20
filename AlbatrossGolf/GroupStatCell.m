@@ -5,7 +5,7 @@
 //  Created by Jacob Sanchez on 8/20/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import "GroupStatCell.h"
+/*#import "GroupStatCell.h"
 
 @implementation GroupStatCell
 
@@ -30,4 +30,4 @@
     // Configure the view for the selected state
 }
 
-@end
+@end*/

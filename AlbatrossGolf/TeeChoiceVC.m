@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "TeeChoiceVC.h"
-#import "TeeDAO.h"
-#import "TeeChoiceCell.h"
-#import "ScorecardVC.h"
 
 @interface TeeChoiceVC ()
 {
@@ -21,11 +18,14 @@
 
 @implementation TeeChoiceVC
 
-@synthesize course, courseName, table, beginButton;
+@synthesize course, courseName, table, beginButton, loading_throbber;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ((UIView *)loading_throbber).layer.cornerRadius = 8;
+    ((UIView *)loading_throbber).layer.masksToBounds = YES;
     
     // button borders
     beginButton.layer.borderWidth = 1.0f;
@@ -34,11 +34,24 @@
     beginButton.layer.masksToBounds = YES;
         
     dao = [[TeeDAO alloc] init];
-    dao.delegate = self;
-    [dao fetchTeesForCourse:course.id_num];
+    
     courseName.text = course.name;
     courseName.adjustsFontSizeToFitWidth = YES;
+    
     selectedRow = -1;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self displayLoadingView:YES];
+    tees = [dao fetchTeesForCourse:course.id_num];
+    [self displayLoadingView:NO];
+    [table reloadData];
+}
+
+- (void)displayLoadingView:(BOOL)show
+{
+    ((UIView *)loading_throbber).hidden = !show;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -81,12 +94,6 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-- (void)refreshTeeList:(NSMutableArray *)teeList
-{
-    tees = teeList;
-    [table reloadData];
-}
-
 - (void)alertNoTeesFetched
 {
     NSLog(@"No Tees Fetched");
@@ -95,7 +102,6 @@
 - (void)pushScorecard:(id)sender
 {
     ScorecardVC *controller = [[ScorecardVC alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
     
     // CONFIGURE THE SCORECARD
     Scorecard *sc = [[Scorecard alloc] init];
@@ -109,10 +115,9 @@
     sc.user = nil; // MURDER
     sc.course = c;
     sc.tee = t;
-    sc.tee_holes = t.tee_holes;
     
     controller.scorecard = sc;
-    [controller.collecView reloadData];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

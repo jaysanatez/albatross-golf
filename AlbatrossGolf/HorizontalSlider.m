@@ -5,7 +5,7 @@
 //  Created by Jacob Sanchez on 7/22/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import "HorizontalSlider.h"
+/*#import "HorizontalSlider.h"
 
 @implementation HorizontalSlider
 
@@ -45,4 +45,4 @@
     [self displayTitles];
 }
 
-@end
+@end*/

@@ -6,10 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RoundLookupVC.h"
-#import "HoleLookupCollectionViewCell.h"
-#import "HoleLookupTableViewCell.h"
-#import "RoundStats.h"
-#import "HoleScore.h"
 
 @interface RoundLookupVC ()
 
@@ -44,6 +40,12 @@
         statsLabel.textColor = [UIColor whiteColor];
     }
     tableView.allowsSelection = NO;
+    
+    if (!round.is_complete)
+    {
+        UIBarButtonItem *resume = [[UIBarButtonItem alloc] initWithTitle:@"Resume" style:UIBarButtonItemStyleDone target:self action:@selector(pushScorecard:)];
+        self.navigationItem.rightBarButtonItem = resume;
+    }
 }
 
 - (HoleScore *)findHoleScoreForHole:(NSInteger)hole_number
@@ -56,6 +58,30 @@
         }
     }
     return nil;
+}
+
+- (void)pushScorecard:(id)sender
+{
+    ScorecardVC *controller = [[ScorecardVC alloc] initWithNibName:@"ScorecardVC" bundle:[NSBundle mainBundle]];
+    
+    // CONFIGURE THE SCORECARD
+    Scorecard *sc = [[Scorecard alloc] init];
+    
+    Course *c = [[Course alloc] init];
+    c.id_num = round.course_id;
+    c.name = round.course_name;
+    
+    sc.user = nil; // MURDER
+    sc.course = c;
+    sc.round = round;
+    
+    // fetch tees for round
+    TeeDAO *tee_dao = [[TeeDAO alloc] init];
+    Tee *t = [tee_dao fetchTeeWithTeeId:round.tee_id];
+    sc.tee = t;
+    
+    controller.scorecard = sc;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

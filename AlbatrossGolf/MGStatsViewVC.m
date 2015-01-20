@@ -5,8 +5,7 @@
 //  Created by Jacob Sanchez on 6/15/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import "MGStatsViewVC.h"
-#import "GroupStatCell.h"
+/*#import "MGStatsViewVC.h"
 
 @interface MGStatsViewVC ()
 {
@@ -30,7 +29,7 @@
     }
     return self;
 }
-/*
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -870,6 +869,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-*/
 
-@end
+
+@end*/

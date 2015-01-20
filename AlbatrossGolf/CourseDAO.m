@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "CourseDAO.h"
-#import "Course.h"
-#import "CourseChoiceVC.h"
 
 @implementation CourseDAO
 {

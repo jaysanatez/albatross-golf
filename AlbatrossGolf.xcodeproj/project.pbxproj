@@ -60,6 +60,8 @@
 		16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */; };
 		16E723CE1A6A2404008E8FB6 /* HoleScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */; };
 		16E723D01A6A2459008E8FB6 /* ScorecardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */; };
+		16FC6D6F1A6ECBA000D3A5CC /* SavingThrobberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FC6D6E1A6ECBA000D3A5CC /* SavingThrobberView.swift */; };
+		16FC6D711A6ECC9300D3A5CC /* SavingThrobberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16FC6D701A6ECC9300D3A5CC /* SavingThrobberView.xib */; };
 		16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF7BEC1A68E50200D885C2 /* RoundStats.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,7 @@
 /* Begin PBXFileReference section */
 		162439161A697B8E00A7A049 /* HoleScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScore.h; sourceTree = "<group>"; };
 		162439171A697B8E00A7A049 /* HoleScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScore.m; sourceTree = "<group>"; };
+		163543D61A6F0B0C0065563A /* Delegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Delegates.h; sourceTree = "<group>"; };
 		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 		16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingThrobberView.xib; sourceTree = "<group>"; };
 		16E723CC1A6A2404008E8FB6 /* HoleScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleScoreCell.xib; sourceTree = "<group>"; };
 		16E723CF1A6A2459008E8FB6 /* ScorecardVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScorecardVC.xib; sourceTree = "<group>"; };
+		16FC6D6E1A6ECBA000D3A5CC /* SavingThrobberView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingThrobberView.swift; sourceTree = "<group>"; };
+		16FC6D701A6ECC9300D3A5CC /* SavingThrobberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SavingThrobberView.xib; sourceTree = "<group>"; };
 		16FF7BEB1A68E50200D885C2 /* RoundStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundStats.h; sourceTree = "<group>"; };
 		16FF7BEC1A68E50200D885C2 /* RoundStats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundStats.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163543D51A6F0AC20065563A /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				163543D61A6F0B0C0065563A /* Delegates.h */,
+			);
+			name = delegates;
+			sourceTree = "<group>";
+		};
 		1641C9141A263D8000378BA4 = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +271,8 @@
 				16D640CE1A68920C00443472 /* MenuViewController.swift */,
 				16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */,
 				16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */,
+				16FC6D6E1A6ECBA000D3A5CC /* SavingThrobberView.swift */,
+				16FC6D701A6ECC9300D3A5CC /* SavingThrobberView.xib */,
 				16D640CB1A688E3C00443472 /* AlbatrossGolf-Bridging-Header.h */,
 			);
 			name = main;
@@ -268,6 +283,7 @@
 			children = (
 				16FB796C1A6ABE7B008F2277 /* models */,
 				16FB796D1A6ABE82008F2277 /* DAOs */,
+				163543D51A6F0AC20065563A /* delegates */,
 			);
 			name = objects;
 			sourceTree = "<group>";
@@ -509,6 +525,7 @@
 				1641C9341A263D8000378BA4 /* LaunchScreen.xib in Resources */,
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
 				16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */,
+				16FC6D711A6ECC9300D3A5CC /* SavingThrobberView.xib in Resources */,
 				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScoreVC.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
@@ -545,6 +562,7 @@
 				1641C9631A263FB000378BA4 /* Course.m in Sources */,
 				16E723C51A6A20C0008E8FB6 /* LoadingThrobberView.swift in Sources */,
 				1641C9691A263FB000378BA4 /* Round.m in Sources */,
+				16FC6D6F1A6ECBA000D3A5CC /* SavingThrobberView.swift in Sources */,
 				1641C9961A26405C00378BA4 /* HoleScoreVC.m in Sources */,
 				1641C9C71A2641E400378BA4 /* CustomGameList.m in Sources */,
 				1649A9741A6CA1EA00F5198D /* Scorecard.m in Sources */,

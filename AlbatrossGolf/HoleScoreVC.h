@@ -10,17 +10,12 @@
 #import "RoundHole.h"
 #import "HoleScore.h"
 #import "HoleDataView.h"
-
-@protocol RoundHolePostable
-
-- (void)postRoundHole:(RoundHole *)roundHole;
-- (void)postHoleScore:(HoleScore *)holeScore;
-
-@end
+#import "ScorecardVC.h"
+#import "Delegates.h"
 
 @interface HoleScoreVC : UIViewController <HoleDataViewDelegate>
 
-@property (nonatomic, weak) id <RoundHolePostable> delegate;
+@property (nonatomic, weak) id <RoundDataPostable> delegate;
 
 @property (nonatomic, weak) IBOutlet UILabel *handicapLabel, *scoreLabel, *yardLabel, *netLabel;
 @property (nonatomic, weak) IBOutlet UILabel *holeLabel, *courseLabel, *parLabel, *questionLabel;

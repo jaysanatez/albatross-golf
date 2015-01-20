@@ -10,24 +10,20 @@
 #import "RoundHole.h"
 #import "Round.h"
 #import "HoleScore.h"
+#import "Delegates.h"
 
-@protocol RoundFetchDelegate
+@interface RoundDAO : NSObject <NSURLConnectionDataDelegate>
 
-- (void)refreshRoundList:(NSMutableArray *)rounds;
-- (void)roundHolesFetched:(NSMutableArray *)roundHoles forRoundId:(long)round_id;
-- (void)roundStatsFetched:(RoundStats *)roundStats forRoundId:(long)round_id;
-- (void)holeScoresFetched:(NSMutableArray *)holeScores forRoundId:(long)round_id;
-
-@end
-
-@interface RoundDAO : NSObject
-
-@property (nonatomic, weak) id <RoundFetchDelegate> delegate;
+@property (nonatomic, weak) id <RoundFetchDelegate> fetch_delegate;
+@property (nonatomic, weak) id <RoundPostDelegate> post_delegate;
 
 - (void)fetchAllRoundsForUser:(long)user_id;
 - (void)fetchRoundHolesWithRound:(long)round_id;
 - (void)fetchStatsForRound:(long)round_id;
 - (void)fetchHoleScoresForRoundId:(long)round_id;
+
+- (long)postRound:(Round *)round forUser:(long)user_id;
+- (long)postRoundHole:(RoundHole *)round forUser:(long)user_id;
 
 @end
 

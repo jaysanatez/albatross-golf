@@ -11,7 +11,7 @@
 
 @property long hole_number, hole_par, score;
 
-- (int)getDifference;
+- (long)getDifference;
 - (NSString *)getScoreName;
 - (NSString *)getScorecardSymbol;
 

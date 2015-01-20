@@ -6,11 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RecentTeeChoiceVC.h"
-#import "ScorecardVC.h"
-#import "Scorecard.h"
-#import "TeeChoiceCell.h"
-#import "TeeDAO.h"
-#import "Tee.h"
 
 @interface RecentTeeChoiceVC ()
 {
@@ -36,11 +31,18 @@
         v.layer.masksToBounds = YES;
     }
     
-    dao = [[TeeDAO alloc] init];
-    dao.delegate = self;
-    [dao fetchTeesForUser:user.id_num];
-    [self displayLoadingScreen:NO];
     selectedRow = -1;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self displayLoadingScreen:YES];
+    dao = [[TeeDAO alloc] init];
+    tees = [dao fetchTeesForUser:user.id_num];
+    [self displayLoadingScreen:NO];
+    
+    noTees.hidden = [tees count] != 0;
+    [table reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -87,29 +89,14 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
 }
 
-- (void)refreshTeeList:(NSMutableArray *)teeList
+- (void)displayLoadingScreen:(BOOL)show
 {
-    tees = teeList;
-    noTees.hidden = [teeList count] != 0;
-    [table reloadData];
-    [self displayLoadingScreen:YES];
-}
-
-- (void)alertNoTeesFetched
-{
-    noTees.hidden = NO;
-    [self displayLoadingScreen:YES];
-}
-
-- (void)displayLoadingScreen:(BOOL)fetchedCourses
-{
-    ((UIView *)spinnerView).hidden = fetchedCourses;
+    ((UIView *)spinnerView).hidden = !show;
 }
 
 - (void)pushScorecard:(id)sender
 {
     ScorecardVC *controller = [[ScorecardVC alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
     
     // CONFIGURE THE SCORECARD
     Scorecard *sc = [[Scorecard alloc] init];
@@ -123,10 +110,9 @@
     sc.user = user;
     sc.course = c;
     sc.tee = t;
-    sc.tee_holes = t.tee_holes;
     
     controller.scorecard = sc;
-    [controller.collecView reloadData];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
