@@ -323,7 +323,7 @@
                     <navigationItem key="navigationItem" id="jrA-GC-X2E">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="pIP-wG-gEx">
                             <connections>
-                                <action selector="logout" destination="vXZ-lx-hvc" id="5Dv-so-2jy"/>
+                                <action selector="logoutTapped" destination="vXZ-lx-hvc" id="bJo-cD-Usf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -54,4 +54,9 @@ class MenuViewController: UIViewController
         u.id_num = 2
         controller.user = u
     }
+    
+    @IBAction func logoutTapped()
+    {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
