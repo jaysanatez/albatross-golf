@@ -354,4 +354,49 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     return holeScores;
 }
 
+- (void)postRound:(Round *)round forUser:(long)user_id
+{
+    NSString *post = [NSString stringWithFormat:@"course=%li&tee=%li",round.course_id,round.tee_id];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@user/%li/rounds",baseUrl,user_id];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSLog(@"POSTING TO: %@", urlString);
+    
+    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
+    
+    [request setTimeoutInterval:30.0f];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
+    [request setHTTPBody:postData];
+    
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    NSLog(@"Total bytes written: %li",totalBytesWritten);
+    NSLog(@"Bytes to write: %li",totalBytesExpectedToWrite);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    NSLog(@"Response: %@",response);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSLog(@"Data: %@",data);
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"Error: %@",error);
+}
+
 @end

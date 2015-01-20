@@ -17,4 +17,6 @@
 @property (nonatomic, strong) Scorecard *scorecard;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 
+- (IBAction)saveRound:(id)sender;
+
 @end

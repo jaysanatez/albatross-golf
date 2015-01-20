@@ -9,10 +9,12 @@
 #import "HoleScoreCell.h"
 #import "HoleScoreVC.h"
 #import "TeeHole.h"
+#import "RoundDAO.h"
 
 @interface ScorecardVC ()
 {
     Round *round;
+    RoundDAO *dao;
 }
 
 @end
@@ -31,6 +33,8 @@
     round = [[Round alloc] init];
     round.hole_scores = [[NSMutableArray alloc] init];
     round.round_holes = [[NSMutableArray alloc] init];
+    
+    dao = [[RoundDAO alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -106,6 +110,14 @@
 - (void)postHoleScore:(HoleScore *)holeScore
 {
     [round.hole_scores addObject:holeScore];
+}
+
+- (void)saveRound:(id)sender
+{
+    round.course_id = scorecard.course.id_num;
+    round.tee_id = scorecard.tee.id_num;
+    
+    [dao postRound:round forUser:2];
 }
 
 @end
