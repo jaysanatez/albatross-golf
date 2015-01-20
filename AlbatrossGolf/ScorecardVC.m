@@ -14,23 +14,20 @@
 {
     Round *round;
     RoundDAO *dao;
+    _Bool unsaved_data;
 }
 
 @end
 
 @implementation ScorecardVC
 
-@synthesize collecView, scorecard, saveButton, saving_throbber;
+@synthesize collecView, scorecard, saving_throbber;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
-    
-    // save button styling
-    saveButton.layer.cornerRadius = 8;
-    saveButton.layer.masksToBounds = YES;
     
     ((UIView *)saving_throbber).layer.cornerRadius = 8;
     ((UIView *)saving_throbber).layer.masksToBounds = YES;
@@ -42,12 +39,41 @@
     
     dao = [[RoundDAO alloc] init];
     dao.post_delegate = self;
+    
+    // custom back button
+    UIBarButtonItem *exit = [[UIBarButtonItem alloc] initWithTitle:@"Exit" style:UIBarButtonItemStyleDone target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = exit;
+    
+    UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveRound)];
+    self.navigationItem.rightBarButtonItem = save;
+    unsaved_data = false;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [collecView reloadData];
+}
+
+- (void)goBack
+{
+    if (unsaved_data)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WARNING" message:@"Your round will not be saved if you proceed and you will lose any round data." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Leave", nil];
+        [alert show];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -112,14 +138,16 @@
 - (void)postRoundHole:(RoundHole *)roundHole
 {
     [round.round_holes addObject:roundHole];
+    unsaved_data = true;
 }
 
 - (void)postHoleScore:(HoleScore *)holeScore
 {
     [round.hole_scores addObject:holeScore];
+    unsaved_data = true;
 }
 
-- (void)saveRound:(id)sender
+- (void)saveRound
 {
     round.course_id = scorecard.course.id_num;
     round.tee_id = scorecard.tee.id_num;
@@ -139,6 +167,8 @@
     {
         [self roundPostThrewError:nil];
     }
+    
+    unsaved_data = false;
 }
 
 - (void)roundPostSucceeded
