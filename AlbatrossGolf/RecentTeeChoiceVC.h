@@ -8,6 +8,10 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 #import "TeeDAO.h"
+#import "ScorecardVC.h"
+#import "Scorecard.h"
+#import "TeeChoiceCell.h"
+#import "Tee.h"
 @class LoadingThrobberView;
 
 @interface RecentTeeChoiceVC : UIViewController<UITableViewDelegate, UITableViewDataSource>

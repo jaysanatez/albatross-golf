@@ -11,6 +11,8 @@
 #import "HoleScoreVC.h"
 #import "Scorecard.h"
 #import "RoundDAO.h"
+#import "HoleScoreCell.h"
+#import "TeeHole.h"
 @class SavingThrobberView;
 
 @interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundDataPostable, RoundPostDelegate, UIAlertViewDelegate>

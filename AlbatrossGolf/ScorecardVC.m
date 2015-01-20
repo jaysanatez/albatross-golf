@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "ScorecardVC.h"
-#import "HoleScoreCell.h"
-#import "HoleScoreVC.h"
-#import "TeeHole.h"
 
 @interface ScorecardVC ()
 {

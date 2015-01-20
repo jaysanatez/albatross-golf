@@ -10,6 +10,7 @@
 #import "RoundHole.h"
 #import "HoleScore.h"
 #import "HoleDataView.h"
+#import "ScorecardVC.h"
 #import "Delegates.h"
 
 @interface HoleScoreVC : UIViewController <HoleDataViewDelegate>

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "HoleScoreVC.h"
-#import "ScorecardVC.h"
 
 @interface HoleScoreVC ()
 {

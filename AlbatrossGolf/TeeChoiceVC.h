@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "Course.h"
 #import "TeeDAO.h"
+#import "TeeChoiceCell.h"
+#import "ScorecardVC.h"
 
 @interface TeeChoiceVC : UIViewController<UITableViewDataSource, UITableViewDelegate>
 

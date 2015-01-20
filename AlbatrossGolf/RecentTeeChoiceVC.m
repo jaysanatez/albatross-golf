@@ -6,11 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RecentTeeChoiceVC.h"
-#import "ScorecardVC.h"
-#import "Scorecard.h"
-#import "TeeChoiceCell.h"
-#import "TeeDAO.h"
-#import "Tee.h"
 
 @interface RecentTeeChoiceVC ()
 {

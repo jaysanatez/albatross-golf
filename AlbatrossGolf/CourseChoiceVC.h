@@ -9,6 +9,8 @@
 #import "Delegates.h"
 #import "Course.h"
 #import "CourseDAO.h"
+#import "CourseChoiceCell.h"
+#import "TeeChoiceVC.h"
 @class LoadingThrobberView;
 
 @interface CourseChoice : UIViewController <UITableViewDataSource, UITableViewDelegate, CourseFetchDelegate>
