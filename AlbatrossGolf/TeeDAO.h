@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Tee.h"
+#import "TeeHole.h"
+#import "Hole.h"
 
 @interface TeeDAO : NSObject
 

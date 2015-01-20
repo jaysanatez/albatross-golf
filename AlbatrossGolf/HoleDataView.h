@@ -7,12 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RoundHole.h"
-
-@protocol HoleDataViewDelegate
-
-- (void)finishedWithHole:(RoundHole *)rh;
-
-@end
+#import "Delegates.h"
 
 @interface HoleDataView : UIView
 

@@ -6,11 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "TeeDAO.h"
-#import "Tee.h"
-#import "TeeHole.h"
-#import "Hole.h"
-#import "RecentTeeChoiceVC.h"
-#import "TeeChoiceVC.h"
 
 @implementation TeeDAO
 

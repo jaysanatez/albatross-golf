@@ -78,6 +78,7 @@
 /* Begin PBXFileReference section */
 		162439161A697B8E00A7A049 /* HoleScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleScore.h; sourceTree = "<group>"; };
 		162439171A697B8E00A7A049 /* HoleScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleScore.m; sourceTree = "<group>"; };
+		163543D61A6F0B0C0065563A /* Delegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Delegates.h; sourceTree = "<group>"; };
 		1641C91D1A263D8000378BA4 /* AlbatrossGolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbatrossGolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641C9211A263D8000378BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1641C9221A263D8000378BA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -191,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163543D51A6F0AC20065563A /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				163543D61A6F0B0C0065563A /* Delegates.h */,
+			);
+			name = delegates;
+			sourceTree = "<group>";
+		};
 		1641C9141A263D8000378BA4 = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +283,7 @@
 			children = (
 				16FB796C1A6ABE7B008F2277 /* models */,
 				16FB796D1A6ABE82008F2277 /* DAOs */,
+				163543D51A6F0AC20065563A /* delegates */,
 			);
 			name = objects;
 			sourceTree = "<group>";

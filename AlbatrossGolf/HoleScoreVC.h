@@ -10,13 +10,7 @@
 #import "RoundHole.h"
 #import "HoleScore.h"
 #import "HoleDataView.h"
-
-@protocol RoundDataPostable
-
-- (void)postRoundHole:(RoundHole *)roundHole;
-- (void)postHoleScore:(HoleScore *)holeScore;
-
-@end
+#import "Delegates.h"
 
 @interface HoleScoreVC : UIViewController <HoleDataViewDelegate>
 
