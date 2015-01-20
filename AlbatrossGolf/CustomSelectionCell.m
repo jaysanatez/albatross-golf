@@ -5,7 +5,7 @@
 //  Created by Jacob Sanchez on 8/28/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import "CustomSelectionCell.h"
+/*#import "CustomSelectionCell.h"
 
 @implementation CustomSelectionCell
 
@@ -24,4 +24,4 @@
     // Initialization code
 }
 
-@end
+@end*/

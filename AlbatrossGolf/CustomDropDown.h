@@ -5,7 +5,7 @@
 //  Created by Jacob Sanchez on 8/27/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import <UIKit/UIKit.h>
+/*#import <UIKit/UIKit.h>
 #import "CustomGameList.h"
 #import "MGStatsViewVC.h"
 
@@ -16,4 +16,4 @@
 @property (nonatomic, strong) UIViewController *parentController;
 -(void)expandView:(int)height;
 
-@end
+@end*/

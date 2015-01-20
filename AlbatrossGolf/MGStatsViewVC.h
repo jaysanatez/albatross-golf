@@ -5,7 +5,7 @@
 //  Created by Jacob Sanchez on 6/15/14.
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
-#import <UIKit/UIKit.h>
+/*#import <UIKit/UIKit.h>
 #import "HorizontalSlider.h"
 #import "CustomDropDown.h"
 #import "CustomGameList.h"
@@ -20,6 +20,6 @@
 @property (nonatomic, strong) IBOutlet CustomGameList *gameList;
 -(IBAction)nextOptionTapped;
 -(IBAction)previousOptionTapped;
--(void)checkCustomGameSet;
+-(void)checkCustomGameSet;*/
 
 @end
