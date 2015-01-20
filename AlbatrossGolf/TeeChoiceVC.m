@@ -18,11 +18,14 @@
 
 @implementation TeeChoiceVC
 
-@synthesize course, courseName, table, beginButton;
+@synthesize course, courseName, table, beginButton, loading_throbber;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    ((UIView *)loading_throbber).layer.cornerRadius = 8;
+    ((UIView *)loading_throbber).layer.masksToBounds = YES;
     
     // button borders
     beginButton.layer.borderWidth = 1.0f;
@@ -40,8 +43,15 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [self displayLoadingView:YES];
     tees = [dao fetchTeesForCourse:course.id_num];
+    [self displayLoadingView:NO];
     [table reloadData];
+}
+
+- (void)displayLoadingView:(BOOL)show
+{
+    ((UIView *)loading_throbber).hidden = !show;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
