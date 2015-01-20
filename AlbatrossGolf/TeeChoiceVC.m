@@ -95,7 +95,6 @@
 - (void)pushScorecard:(id)sender
 {
     ScorecardVC *controller = [[ScorecardVC alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
     
     // CONFIGURE THE SCORECARD
     Scorecard *sc = [[Scorecard alloc] init];
@@ -112,7 +111,7 @@
     sc.tee_holes = t.tee_holes;
     
     controller.scorecard = sc;
-    [controller.collecView reloadData];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

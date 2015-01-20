@@ -12,7 +12,6 @@
 
 @interface ScorecardVC ()
 {
-    Round *round;
     RoundDAO *dao;
     _Bool unsaved_data;
 }
@@ -21,7 +20,7 @@
 
 @implementation ScorecardVC
 
-@synthesize collecView, scorecard, saving_throbber;
+@synthesize collecView, scorecard, saving_throbber, round;
 
 - (void)viewDidLoad
 {
@@ -33,9 +32,13 @@
     ((UIView *)saving_throbber).layer.masksToBounds = YES;
     
     self.title = scorecard.course.name;
-    round = [[Round alloc] init];
-    round.hole_scores = [[NSMutableArray alloc] init];
-    round.round_holes = [[NSMutableArray alloc] init];
+    
+    if(!round)
+    {
+        round = [[Round alloc] init];
+        round.hole_scores = [[NSMutableArray alloc] init];
+        round.round_holes = [[NSMutableArray alloc] init];
+    }
     
     dao = [[RoundDAO alloc] init];
     dao.post_delegate = self;
