@@ -236,22 +236,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         
         for(NSDictionary *rhDict in jsonObject)
         {
-            RoundHole *rh = [[RoundHole alloc] init];
-            
-            rh.score = [[rhDict valueForKey:@"score"] longValue];
-            rh.putts = [[rhDict valueForKey:@"putts"] longValue];
-            rh.penalties = [[rhDict valueForKey:@"penalties"] longValue];
-            
-            rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
-            rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
-            rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
-            rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
-            
-            rh.id_num = [[rhDict valueForKey:@"id"] longValue];
-            rh.round_id = [[rhDict valueForKey:@"round"] longValue];
-            rh.hole_id = [[rhDict valueForKey:@"hole"] longValue];
-            
-            [roundHoles addObject:rh];
+            [roundHoles addObject:[self parseSingleRoundHoleData:rhDict]];
         }
     }
     return roundHoles;
@@ -397,8 +382,67 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 - (long)postRoundHole:(RoundHole *)round_hole forUser:(long)user_id
 {
-    NSLog(@"Posting Round Hole: %@",round_hole);
-    return 0; // TO-DO
+    NSString *post = [NSString stringWithFormat:@"score=%li&putts=%li&penalties=%li&hit_fairway=%@&hit_green=%@&hit_fairway_bunker=%@&hit_green_bunker=%@",round_hole.score,round_hole.putts,round_hole.penalties,[self getBooleanString:round_hole.hitFairway],[self getBooleanString:round_hole.hitGir],[self getBooleanString:round_hole.hitFairwayBunker], [self getBooleanString:round_hole.hitGreensideBunker]];
+    NSLog(@"POST: %@",post);
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@round/%li/hole/%li",baseUrl,round_hole.round_id,round_hole.hole_id];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSLog(@"POSTING TO: %@", urlString);
+    
+    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
+    
+    [urlRequest setTimeoutInterval:30.0f];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
+    [urlRequest setHTTPBody:postData];
+    
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    if(error != nil)
+    {
+        NSLog(@"Error returned of %@",error);
+    }
+    else if([data length] == 0)
+    {
+        NSLog(@"Round posting returned no data.");
+    }
+    else
+    {
+        // normal execution here
+        NSString *decodedData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSError *json_error = nil;
+        NSLog(@"Data from round post: %@", [decodedData length] > 100 ? [decodedData substringToIndex:100] : decodedData);
+        
+        //parsing the JSON response
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&json_error];
+        if (jsonObject != nil && error == nil && [jsonObject isKindOfClass:[NSDictionary class]])
+        {
+            NSLog(@"Successfully deserialized.");
+            
+            RoundHole *rh = [self parseSingleRoundHoleData:jsonObject];
+            
+            [post_delegate roundholePostSucceeded];
+            
+            return rh.id_num;
+        }
+    }
+    
+    return -1;
+}
+
+-(NSString *)getBooleanString:(BOOL)b
+{
+    return b ? @"true" : @"false";
 }
 
 - (Round *)parseSingleRoundData:(NSDictionary *)roundDict
@@ -422,6 +466,26 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     round.is_complete = [[roundDict valueForKey:@"completed"] boolValue];
     
     return round;
+}
+
+- (RoundHole *)parseSingleRoundHoleData:(NSDictionary *)rhDict
+{
+    RoundHole *rh = [[RoundHole alloc] init];
+    
+    rh.score = [[rhDict valueForKey:@"score"] longValue];
+    rh.putts = [[rhDict valueForKey:@"putts"] longValue];
+    rh.penalties = [[rhDict valueForKey:@"penalties"] longValue];
+    
+    rh.hitFairway = [[rhDict valueForKey:@"hit_fairway"] boolValue];
+    rh.hitGir = [[rhDict valueForKey:@"hit_green"] boolValue];
+    rh.hitFairwayBunker = [[rhDict valueForKey:@"hit_fairway_bunker"] boolValue];
+    rh.hitGreensideBunker = [[rhDict valueForKey:@"hit_green_bunker"] boolValue];
+    
+    rh.id_num = [[rhDict valueForKey:@"id"] longValue];
+    rh.round_id = [[rhDict valueForKey:@"round"] longValue];
+    rh.hole_id = [[rhDict valueForKey:@"hole"] longValue];
+    
+    return rh;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error

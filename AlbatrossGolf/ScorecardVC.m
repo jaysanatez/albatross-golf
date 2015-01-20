@@ -11,6 +11,8 @@
 {
     RoundDAO *dao;
     _Bool unsaved_data;
+    int round_holes_saved;
+    bool round_saved;
 }
 
 @end
@@ -47,6 +49,9 @@
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveRound)];
     self.navigationItem.rightBarButtonItem = save;
     unsaved_data = false;
+    
+    round_holes_saved = 0;
+    round_saved = false;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -175,17 +180,15 @@
 
 - (void)roundPostSucceeded
 {
-    [self displaySavingThrobber:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Successful" message:@"The round was saved successfully! View it under Past Rounds." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-    [alert show];
-    
+    round_saved = true;
+    [self alertFullRoundPostSuccessful];
     // pop to menu / push round lookup view
 }
 
 - (void)roundPostThrewError:(NSError *)error
 {
     [self displaySavingThrobber:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure to Save" message:@"The round was not saved successfully. Please try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure to Save" message:@"The round/hole data was not saved successfully. Please try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
     [alert show];
 }
 
@@ -200,6 +203,22 @@
 {
     ((UIView *)saving_throbber).hidden = !show;
     NSLog(show ? @"SHOW" : @"HIDE");
+}
+
+- (void)roundholePostSucceeded
+{
+    round_holes_saved++;
+    [self alertFullRoundPostSuccessful];
+}
+
+- (void)alertFullRoundPostSuccessful
+{
+    if (round_saved && round_holes_saved == scorecard.round.round_holes.count)
+    {
+        [self displaySavingThrobber:NO];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Successful" message:@"The round was saved successfully! View it under Past Rounds." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 @end

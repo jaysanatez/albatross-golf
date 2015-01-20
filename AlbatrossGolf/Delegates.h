@@ -36,6 +36,7 @@
 - (void)roundPostTimedOut;
 - (void)roundPostThrewError:(NSError *)error;
 - (void)roundPostSucceeded;
+- (void)roundholePostSucceeded;
 
 @end
 
