@@ -21,7 +21,10 @@ static NSString *stateParam = @"";
 
 - (void)fetchFirstPaginatedCourses
 {
-    urlExt = @"courses";
+    searchParam = @"";
+    cityParam = @"";
+    stateParam = @"";
+    [self setUrlExt];
     [self submitCourseFetchRequest:urlExt];
 }
 
@@ -147,6 +150,16 @@ static NSString *stateParam = @"";
         
         prevPag = [jsonObject valueForKey:@"previous"];
         nextPag = [jsonObject valueForKey:@"next"];
+        
+        if (prevPag != (id)[NSNull null])
+        {
+            prevPag = [prevPag stringByReplacingOccurrencesOfString:@"?" withString:@"&"];
+        }
+        
+        if (nextPag != (id)[NSNull null])
+        {
+            nextPag = [nextPag stringByReplacingOccurrencesOfString:@"?" withString:@"&"];
+        }
     }
     return courses;
 }
