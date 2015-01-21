@@ -19,13 +19,12 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *handicapLabel, *scoreLabel, *yardLabel, *netLabel;
 @property (nonatomic, weak) IBOutlet UILabel *holeLabel, *courseLabel, *parLabel, *questionLabel;
-@property (nonatomic, weak) IBOutlet UIView *score_entry_view, *data_entry_view;
+@property (nonatomic, weak) IBOutlet UIView *score_entry_view, *data_entry_view, *intSelectionView;
 @property (nonatomic, weak) IBOutlet UITextField *score_field;
 @property (nonatomic, weak) TeeHole *tee_hole;
 @property (nonatomic, strong) RoundHole *round_hole;
 @property (nonatomic, strong) HoleScore *hole_score;
 @property (nonatomic, weak) NSString *course_name;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *intSelectionRightConstraint;
 @property (nonatomic, weak) IBOutlet HoleDataView *hole_data_view;
 
 - (IBAction)scoreEntered:(id)sender;

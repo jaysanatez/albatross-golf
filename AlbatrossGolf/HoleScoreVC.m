@@ -18,7 +18,7 @@
 
 @implementation HoleScoreVC
 
-@synthesize delegate, handicapLabel, scoreLabel, yardLabel, netLabel, holeLabel, courseLabel, parLabel, tee_hole, course_name, score_entry_view, score_field, data_entry_view, hole_score, round_hole, questionLabel, intSelectionRightConstraint, hole_data_view;
+@synthesize delegate, handicapLabel, scoreLabel, yardLabel, netLabel, holeLabel, courseLabel, parLabel, tee_hole, course_name, score_entry_view, score_field, data_entry_view, hole_score, round_hole, questionLabel,hole_data_view, intSelectionView;
 
 - (void)viewDidLoad
 {
@@ -202,14 +202,20 @@
 - (void)presentNextQuestion
 {
     questionsAsked++;
+    
+    CATransition *animation = [CATransition animation];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.5;
+    [questionLabel.layer addAnimation:animation forKey:@"kCATransitionFade"];
+    
     questionLabel.text = [questions objectAtIndex:questionsAsked];
 }
 
 - (void)switchToIntSelection
 {
-    intSelectionRightConstraint.constant = 5;
     [UIView animateWithDuration:0.5 animations:^{
-        [self.view layoutIfNeeded];
+        intSelectionView.alpha = 1;
     }];
 }
 
