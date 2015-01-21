@@ -41,11 +41,9 @@
     }
     tableView.allowsSelection = NO;
     
-    if (!round.is_complete)
-    {
-        UIBarButtonItem *resume = [[UIBarButtonItem alloc] initWithTitle:@"Resume" style:UIBarButtonItemStyleDone target:self action:@selector(pushScorecard:)];
+   
+    UIBarButtonItem *resume = [[UIBarButtonItem alloc] initWithTitle: round.is_complete ? @"Edit" : @"Resume" style:UIBarButtonItemStyleDone target:self action:@selector(pushScorecard:)];
         self.navigationItem.rightBarButtonItem = resume;
-    }
 }
 
 - (HoleScore *)findHoleScoreForHole:(NSInteger)hole_number
