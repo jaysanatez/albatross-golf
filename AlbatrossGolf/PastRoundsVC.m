@@ -87,7 +87,6 @@
 - (void)tableView:(UITableView *)tabView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Round *round = [self retrieveRoundForIndexPath:indexPath];
-    
     RoundLookupVC *controller = [[RoundLookupVC alloc] initWithNibName:@"RoundLookupVC" bundle:[NSBundle mainBundle]];
     controller.round = round;
     [self.navigationController pushViewController:controller animated:YES];

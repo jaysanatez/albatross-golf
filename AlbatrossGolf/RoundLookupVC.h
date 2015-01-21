@@ -18,8 +18,12 @@
 @interface RoundLookupVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) Round *round;
-@property (nonatomic, strong) IBOutlet UICollectionView *collecView;
-@property (nonatomic, strong) IBOutlet UILabel *statsLabel;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collecView;
+@property (nonatomic, weak) IBOutlet UILabel *statsLabel;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *finalizeButtonHeight;
+@property (nonatomic, weak) IBOutlet UIButton *finalizeButton;
+
+- (IBAction)finalizeRound:(id)sender;
 
 @end
