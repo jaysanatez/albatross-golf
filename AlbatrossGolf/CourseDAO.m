@@ -13,9 +13,9 @@
 }
 
 static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
-static NSString *searchParam = @"%20";
-static NSString *cityParam = @"%20";
-static NSString *stateParam = @"%20";
+static NSString *searchParam = @"";
+static NSString *cityParam = @"";
+static NSString *stateParam = @"";
 
 @synthesize delegate;
 
@@ -28,27 +28,27 @@ static NSString *stateParam = @"%20";
 - (void)fetchCoursesSearchByKeyword:(NSString *)keyword
 {
     searchParam = keyword;
-    cityParam = @"%20";
-    stateParam = @"%20";
-    urlExt = [NSString stringWithFormat:@"courses/search/%@/city/%@/state/%@",searchParam,cityParam,stateParam];
+    cityParam = @"";
+    stateParam = @"";
+    [self setUrlExt];
     [self submitCourseFetchRequest:urlExt];
 }
 
 - (void)fetchCoursesSearchByCity:(NSString *)city
 {
-    searchParam = @"%20";
+    searchParam = @"";
     cityParam = city;
-    stateParam = @"%20";
-    urlExt = [NSString stringWithFormat:@"courses/search/%@/city/%@/state/%@",searchParam,cityParam,stateParam];
+    stateParam = @"";
+    [self setUrlExt];
     [self submitCourseFetchRequest:urlExt];
 }
 
 - (void)fetchCoursesSearchByState:(NSString *)state
 {
-    searchParam = @"%20";
-    cityParam = @"%20";
+    searchParam = @"";
+    cityParam = @"";
     stateParam = state;
-    urlExt = [NSString stringWithFormat:@"courses/search/%@/city/%@/state/%@",searchParam,cityParam,stateParam];
+    [self setUrlExt];
     [self submitCourseFetchRequest:urlExt];
 }
 
@@ -62,6 +62,11 @@ static NSString *stateParam = @"%20";
 {
     NSString *nextString = [NSString stringWithFormat:@"%@%@",urlExt,nextPag];
     [self submitCourseFetchRequest:nextString];
+}
+
+- (void)setUrlExt
+{
+    urlExt = [NSString stringWithFormat:@"courses/search/?search=%@&city=%@&state=%@",searchParam,cityParam,stateParam];
 }
 
 -(void)submitCourseFetchRequest:(NSString *)urlString
