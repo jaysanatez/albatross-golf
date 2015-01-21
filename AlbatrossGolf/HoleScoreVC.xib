@@ -11,7 +11,7 @@
                 <outlet property="handicapLabel" destination="q9Z-dW-5tb" id="4k1-4a-soh"/>
                 <outlet property="holeLabel" destination="wYp-pq-6Ow" id="Iaf-iE-XrD"/>
                 <outlet property="hole_data_view" destination="NtE-wK-Pqo" id="lYk-kd-oEC"/>
-                <outlet property="intSelectionRightConstraint" destination="hj8-xz-hD6" id="b0l-0C-I5E"/>
+                <outlet property="intSelectionView" destination="DVA-me-dqM" id="5lp-9c-p0D"/>
                 <outlet property="netLabel" destination="icD-vz-PGI" id="Rnu-GN-ROU"/>
                 <outlet property="parLabel" destination="bCQ-AG-z36" id="7QU-Ra-jgE"/>
                 <outlet property="questionLabel" destination="qxh-1a-Eww" id="zdO-Vn-VlT"/>
@@ -296,8 +296,8 @@
                                 <constraint firstAttribute="trailing" secondItem="hM8-7i-Sud" secondAttribute="trailing" id="xXd-z7-IR3"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVA-me-dqM" userLabel="View - Int Button Set">
-                            <rect key="frame" x="320" y="0.0" width="120" height="338"/>
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVA-me-dqM" userLabel="View - Int Button Set">
+                            <rect key="frame" x="195" y="0.0" width="120" height="338"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIC-cd-Hsx">
                                     <rect key="frame" x="0.0" y="0.0" width="58" height="109"/>
@@ -409,7 +409,7 @@
                         <constraint firstItem="Pqs-ie-Gu9" firstAttribute="leading" secondItem="gXh-sd-BJC" secondAttribute="leading" id="dge-ac-G4d"/>
                         <constraint firstItem="UcH-Ir-fh6" firstAttribute="leading" secondItem="Pqs-ie-Gu9" secondAttribute="trailing" constant="5" id="e6t-kh-vME"/>
                         <constraint firstAttribute="bottom" secondItem="DVA-me-dqM" secondAttribute="bottom" id="h0q-0s-emX"/>
-                        <constraint firstAttribute="trailing" secondItem="DVA-me-dqM" secondAttribute="trailing" constant="-120" id="hj8-xz-hD6"/>
+                        <constraint firstAttribute="trailing" secondItem="DVA-me-dqM" secondAttribute="trailing" constant="5" id="hj8-xz-hD6"/>
                         <constraint firstAttribute="bottom" secondItem="Pqs-ie-Gu9" secondAttribute="bottom" id="hve-O7-LsG"/>
                     </constraints>
                 </view>
