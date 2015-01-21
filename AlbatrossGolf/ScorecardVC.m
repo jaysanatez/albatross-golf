@@ -58,6 +58,7 @@
 {
     [super viewDidAppear:animated];
     [collecView reloadData];
+    [self checkRoundCompletion];
 }
 
 - (void)goBack
@@ -176,6 +177,18 @@
     unsaved_data = true;
 }
 
+- (void)checkRoundCompletion
+{
+    BOOL completed = scorecard.round.round_holes.count == scorecard.tee.tee_holes.count;
+    scorecard.round.is_complete = completed;
+    
+    if(completed)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Round Complete" message:@"Tap Save to submit your round to the server." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 - (void)saveRound
 {
     scorecard.round.course_id = scorecard.course.id_num;
@@ -186,8 +199,8 @@
     // if id already exists, don't post round
     if(scorecard.round.id_num == 0)
     {
-        scorecard.round.id_num = [dao postRound:scorecard.round forUser:2];
         round_saved = false;
+        scorecard.round.id_num = [dao postRound:scorecard.round forUser:2];
     }
     
     
@@ -219,7 +232,6 @@
 - (void)displaySavingThrobber:(BOOL)show
 {
     ((UIView *)saving_throbber).hidden = !show;
-    NSLog(show ? @"SHOW" : @"HIDE");
 }
 
 - (void)roundPostSucceeded
@@ -238,6 +250,8 @@
 
 - (void)alertFullRoundPostSuccessful
 {
+    
+    NSLog(@"%@-%i-%li", round_saved ? @"TRUE" : @"FALSE", round_holes_saved, scorecard.round.round_holes.count);
     if (round_saved && round_holes_saved == scorecard.round.round_holes.count)
     {
         [self displaySavingThrobber:NO];

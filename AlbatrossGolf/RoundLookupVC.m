@@ -138,7 +138,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 17;
+    return 18;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tabView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,12 +154,12 @@
     
     switch (indexPath.row)
     {
+        
         case 0:
-            cell.statName.text = @"Pars";
-            cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_pars];
+            cell.statName.text = @"Total Score";
+            cell.statFig.text = [NSString stringWithFormat:@"%li",rs.total_score];
             cell.statFrac.text = @"";
             break;
-            
         case 1:
             cell.statName.text = @"Eagles";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_eagles];
@@ -171,85 +171,91 @@
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_birdies];
             cell.statFrac.text = @"";
             break;
-        
+            
         case 3:
+            cell.statName.text = @"Pars";
+            cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_pars];
+            cell.statFrac.text = @"";
+            break;
+        
+        case 4:
             cell.statName.text = @"Bogeys";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_bogeys];
             cell.statFrac.text = @"";
             break;
             
-        case 4:
+        case 5:
             cell.statName.text = @"D. Bogeys+";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_double_bogeys + rs.num_doubles_plus];
             cell.statFrac.text = @"";
             break;
             
-        case 5:
+        case 6:
             cell.statName.text = @"Par 3 Avg.";
             cell.statFig.text = [NSString stringWithFormat:@"%.2f", rs.par_3_avg];
             cell.statFrac.text = @"";
             break;
             
-        case 6:
+        case 7:
             cell.statName.text = @"Par 4 Avg.";
             cell.statFig.text = [NSString stringWithFormat:@"%.2f",rs.par_4_avg];
             cell.statFrac.text = @"";
             break;
             
-        case 7:
+        case 8:
             cell.statName.text = @"Par 5 Avg.";
             cell.statFig.text = [NSString stringWithFormat:@"%.2f",rs.par_5_avg];
             cell.statFrac.text = @"";
             break;
-        case 8:
+        case 9:
             cell.statName.text = @"Fairways";
             cell.statFig.text = [rs getFairwayPerc];
             cell.statFrac.text = [rs getFairwayFrac];
             break;
             
-        case 9:
+        case 10:
             cell.statName.text = @"GIR";
             cell.statFig.text = [rs getGIRPerc];
             cell.statFrac.text = [rs getGIRFrac];
             break;
             
-        case 10:
+        case 11:
             cell.statName.text = @"Putts";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_putts];
             cell.statFrac.text = @"";
             break;
             
-        case 11:
+        case 12:
             cell.statName.text = @"1 Putts";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_one_putts];
             cell.statFrac.text = @"";
             break;
             
-        case 12:
+        case 13:
             cell.statName.text = @"3 Putts";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_three_putts];
             cell.statFrac.text = @"";
             break;
             
-        case 13:
+        case 14:
             cell.statName.text = @"Par Saves";
             cell.statFig.text = [rs getParSavePerc];
             cell.statFrac.text = [rs getParSaveFrac];
             break;
             
-        case 14:
+        case 15:
             cell.statName.text = @"Sand Saves";
             cell.statFig.text = [rs getSandSavePerc];
             cell.statFrac.text = [rs getSandSaveFrac];
             break;
             
-        case 15:
+        case 16:
             cell.statName.text = @"Bunkers";
             cell.statFig.text = [NSString stringWithFormat:@"%li", rs.num_bunkers_hit];
             cell.statFrac.text = @"";
             break;
             
-        case 16:
+        case 17:
             cell.statName.text = @"Penalty Strokes";
             cell.statFig.text = [NSString stringWithFormat:@"%li",rs.num_penalty_strokes];
             cell.statFrac.text = @"";
