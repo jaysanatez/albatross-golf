@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Ivz-gj-4hx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -344,20 +345,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8B-LC-nZz">
-                                <rect key="frame" x="10" y="518" width="145" height="40"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="kVa-aL-BHN"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
-                                <state key="normal" title="Begin">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pushScorecard:" destination="0HN-I4-ohi" eventType="touchUpInside" id="WMG-Jg-vDi"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tees were found." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FuC-4F-xAX">
                                 <rect key="frame" x="16" y="253" width="288" height="61"/>
                                 <constraints>
@@ -376,22 +363,47 @@
                                     <constraint firstAttribute="height" constant="100" id="afD-MA-lRL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qy7-lY-oIe">
-                                <rect key="frame" x="165" y="518" width="145" height="40"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWS-oh-QYH" userLabel="View - Buttons">
+                                <rect key="frame" x="0.0" y="510" width="320" height="58"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8B-LC-nZz">
+                                        <rect key="frame" x="10" y="10" width="145" height="38"/>
+                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
+                                        <state key="normal" title="Begin">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pushScorecard:" destination="0HN-I4-ohi" eventType="touchUpInside" id="WMG-Jg-vDi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qy7-lY-oIe">
+                                        <rect key="frame" x="165" y="10" width="145" height="38"/>
+                                        <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
+                                        <state key="normal" title="More">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gb7-dS-TZs" kind="push" identifier="goToMoreCourses" id="K30-0N-cTg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="plh-r3-l2p"/>
+                                    <constraint firstItem="Qy7-lY-oIe" firstAttribute="width" secondItem="O8B-LC-nZz" secondAttribute="width" id="Dz8-3R-j5h"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qy7-lY-oIe" secondAttribute="bottom" constant="10" id="PVJ-lb-otS"/>
+                                    <constraint firstAttribute="width" secondItem="bWS-oh-QYH" secondAttribute="height" multiplier="160:29" id="RC0-Oh-2Cg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qy7-lY-oIe" secondAttribute="trailing" constant="10" id="Sg4-Jw-msc"/>
+                                    <constraint firstItem="Qy7-lY-oIe" firstAttribute="leading" secondItem="O8B-LC-nZz" secondAttribute="trailing" constant="10" id="Xuk-7r-eb0"/>
+                                    <constraint firstItem="O8B-LC-nZz" firstAttribute="leading" secondItem="bWS-oh-QYH" secondAttribute="leading" constant="10" id="cYA-6Y-ZAL"/>
+                                    <constraint firstAttribute="bottom" secondItem="O8B-LC-nZz" secondAttribute="bottom" constant="10" id="j86-db-heS"/>
+                                    <constraint firstItem="Qy7-lY-oIe" firstAttribute="top" secondItem="bWS-oh-QYH" secondAttribute="top" constant="10" id="sGJ-Ho-fhU"/>
+                                    <constraint firstItem="O8B-LC-nZz" firstAttribute="top" secondItem="bWS-oh-QYH" secondAttribute="top" constant="10" id="ydJ-da-1I6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
-                                <state key="normal" title="More">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gb7-dS-TZs" kind="push" identifier="goToMoreCourses" id="K30-0N-cTg"/>
-                                </connections>
-                            </button>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VIk-hq-phm">
-                                <rect key="frame" x="10" y="74" width="300" height="434"/>
+                                <rect key="frame" x="10" y="74" width="300" height="436"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TeeChoiceCell" rowHeight="60" id="ad5-g4-IQn" customClass="TeeChoiceCell">
@@ -479,20 +491,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Qy7-lY-oIe" secondAttribute="trailing" constant="-6" id="2Ij-KE-xCM"/>
-                            <constraint firstItem="O8B-LC-nZz" firstAttribute="width" secondItem="Qy7-lY-oIe" secondAttribute="width" id="3nD-fa-6ld"/>
-                            <constraint firstItem="Qy7-lY-oIe" firstAttribute="top" secondItem="VIk-hq-phm" secondAttribute="bottom" constant="10" id="AeD-Gx-xyW"/>
-                            <constraint firstItem="vg9-JU-T3f" firstAttribute="top" secondItem="Qy7-lY-oIe" secondAttribute="bottom" constant="10" id="BuP-Jx-G07"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VIk-hq-phm" secondAttribute="trailing" constant="-6" id="FpZ-4e-meD"/>
-                            <constraint firstItem="O8B-LC-nZz" firstAttribute="leading" secondItem="5FF-e6-Bb7" secondAttribute="leadingMargin" constant="-6" id="In9-2j-ato"/>
                             <constraint firstItem="VIk-hq-phm" firstAttribute="top" secondItem="u2G-ps-h2l" secondAttribute="bottom" constant="10" id="S4p-Ac-U0D"/>
+                            <constraint firstItem="vg9-JU-T3f" firstAttribute="top" secondItem="bWS-oh-QYH" secondAttribute="bottom" id="Svy-po-spM"/>
                             <constraint firstAttribute="centerY" secondItem="rZO-K4-Ie3" secondAttribute="centerY" id="WXr-nv-uAy"/>
                             <constraint firstAttribute="centerX" secondItem="FuC-4F-xAX" secondAttribute="centerX" id="aS7-7E-sXp"/>
+                            <constraint firstItem="bWS-oh-QYH" firstAttribute="top" secondItem="VIk-hq-phm" secondAttribute="bottom" id="cW7-Rb-dsJ"/>
                             <constraint firstAttribute="centerX" secondItem="rZO-K4-Ie3" secondAttribute="centerX" id="fiK-d7-BT7"/>
                             <constraint firstItem="VIk-hq-phm" firstAttribute="leading" secondItem="5FF-e6-Bb7" secondAttribute="leadingMargin" constant="-6" id="gq4-pu-bhO"/>
-                            <constraint firstItem="Qy7-lY-oIe" firstAttribute="leading" secondItem="O8B-LC-nZz" secondAttribute="trailing" constant="10" id="miu-hb-z6L"/>
+                            <constraint firstItem="bWS-oh-QYH" firstAttribute="leading" secondItem="5FF-e6-Bb7" secondAttribute="leadingMargin" constant="-16" id="iyh-e2-Kqy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bWS-oh-QYH" secondAttribute="trailing" constant="-16" id="rxk-fa-czw"/>
                             <constraint firstAttribute="centerY" secondItem="FuC-4F-xAX" secondAttribute="centerY" id="wRT-TX-q4i"/>
-                            <constraint firstItem="vg9-JU-T3f" firstAttribute="top" secondItem="O8B-LC-nZz" secondAttribute="bottom" constant="10" id="zwq-zd-aIC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recent Tees" id="EDn-Bo-WxH"/>
