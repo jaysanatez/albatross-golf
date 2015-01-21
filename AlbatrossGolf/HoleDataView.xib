@@ -6,6 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HoleDataView">
             <connections>
+                <outlet property="fairway_bunker_label" destination="8nY-pO-u7r" id="H3r-yz-Bas"/>
+                <outlet property="fairway_hit_label" destination="POi-u8-ire" id="lwV-eK-gbF"/>
+                <outlet property="gir_label" destination="Sro-bX-Nx0" id="TFd-0G-IXN"/>
+                <outlet property="green_bunker_label" destination="OKL-qY-d0R" id="oJw-te-5hK"/>
+                <outlet property="penalties_label" destination="vs5-1R-bGJ" id="SiT-Bi-1Fa"/>
+                <outlet property="putts_label" destination="XM8-uJ-ZcQ" id="Nz9-0W-f7a"/>
+                <outlet property="score_label" destination="TP6-99-TKd" id="xBe-jU-B82"/>
                 <outlet property="view" destination="iN0-l3-epB" id="9la-uk-BD2"/>
             </connections>
         </placeholder>
@@ -16,6 +23,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF6-mG-aTp">
                     <rect key="frame" x="0.0" y="298" width="320" height="40"/>
+                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="a8m-At-eGQ"/>
                     </constraints>
@@ -36,15 +44,57 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8va-a3-Gap" userLabel="View - Score">
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="86"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TP6-99-TKd">
+                                            <rect key="frame" x="15" y="15" width="130" height="56"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="TP6-99-TKd" secondAttribute="trailing" constant="15" id="4nR-gk-J5e"/>
+                                        <constraint firstAttribute="bottom" secondItem="TP6-99-TKd" secondAttribute="bottom" constant="15" id="6NK-fw-GOW"/>
+                                        <constraint firstItem="TP6-99-TKd" firstAttribute="top" secondItem="8va-a3-Gap" secondAttribute="top" constant="15" id="AMD-ad-qys"/>
+                                        <constraint firstItem="TP6-99-TKd" firstAttribute="leading" secondItem="8va-a3-Gap" secondAttribute="leading" constant="15" id="gEk-eY-9or"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTY-mh-pvR" userLabel="View - Putts">
                                     <rect key="frame" x="0.0" y="86" width="160" height="86"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Putts:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XM8-uJ-ZcQ">
+                                            <rect key="frame" x="15" y="15" width="130" height="56"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="XM8-uJ-ZcQ" firstAttribute="leading" secondItem="jTY-mh-pvR" secondAttribute="leading" constant="15" id="8pE-0h-NDs"/>
+                                        <constraint firstAttribute="bottom" secondItem="XM8-uJ-ZcQ" secondAttribute="bottom" constant="15" id="9X8-b7-d5I"/>
+                                        <constraint firstAttribute="trailing" secondItem="XM8-uJ-ZcQ" secondAttribute="trailing" constant="15" id="UdY-Di-nub"/>
+                                        <constraint firstItem="XM8-uJ-ZcQ" firstAttribute="top" secondItem="jTY-mh-pvR" secondAttribute="top" constant="15" id="fhI-PE-hb3"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhF-tr-XW9" userLabel="View - Penalties">
                                     <rect key="frame" x="0.0" y="172" width="160" height="86"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penalties:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vs5-1R-bGJ">
+                                            <rect key="frame" x="15" y="15" width="130" height="56"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="vs5-1R-bGJ" firstAttribute="leading" secondItem="NhF-tr-XW9" secondAttribute="leading" constant="15" id="OEj-2C-dbk"/>
+                                        <constraint firstItem="vs5-1R-bGJ" firstAttribute="top" secondItem="NhF-tr-XW9" secondAttribute="top" constant="15" id="RMn-cg-8fK"/>
+                                        <constraint firstAttribute="bottom" secondItem="vs5-1R-bGJ" secondAttribute="bottom" constant="15" id="USM-do-2Jz"/>
+                                        <constraint firstAttribute="trailing" secondItem="vs5-1R-bGJ" secondAttribute="trailing" constant="15" id="dNi-2I-sBt"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -68,19 +118,75 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-vk-CTg" userLabel="View - Fairway">
                                     <rect key="frame" x="0.0" y="0.0" width="160" height="65"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fairway?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POi-u8-ire">
+                                            <rect key="frame" x="10" y="0.0" width="140" height="65"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="POi-u8-ire" secondAttribute="bottom" id="E0G-G7-xW8"/>
+                                        <constraint firstItem="POi-u8-ire" firstAttribute="leading" secondItem="qqY-vk-CTg" secondAttribute="leading" constant="10" id="L8U-xJ-6se"/>
+                                        <constraint firstAttribute="trailing" secondItem="POi-u8-ire" secondAttribute="trailing" constant="10" id="Zdb-Qr-aB3"/>
+                                        <constraint firstItem="POi-u8-ire" firstAttribute="top" secondItem="qqY-vk-CTg" secondAttribute="top" id="dRg-mQ-VaE"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svu-Ok-fBU" userLabel="View - Green">
                                     <rect key="frame" x="0.0" y="65" width="160" height="64"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sro-bX-Nx0">
+                                            <rect key="frame" x="10" y="0.0" width="140" height="64"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Sro-bX-Nx0" secondAttribute="bottom" id="Z0i-i0-1MC"/>
+                                        <constraint firstItem="Sro-bX-Nx0" firstAttribute="top" secondItem="svu-Ok-fBU" secondAttribute="top" id="kDv-fl-1iR"/>
+                                        <constraint firstItem="Sro-bX-Nx0" firstAttribute="leading" secondItem="svu-Ok-fBU" secondAttribute="leading" constant="10" id="phS-mC-kr1"/>
+                                        <constraint firstAttribute="trailing" secondItem="Sro-bX-Nx0" secondAttribute="trailing" constant="10" id="vbe-w0-3SG"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mip-qk-pEe" userLabel="View - Fairway Bunker">
                                     <rect key="frame" x="0.0" y="129" width="160" height="65"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="F Bunker?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nY-pO-u7r">
+                                            <rect key="frame" x="10" y="0.0" width="140" height="65"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="8nY-pO-u7r" secondAttribute="trailing" constant="10" id="Foh-nL-Cxc"/>
+                                        <constraint firstAttribute="bottom" secondItem="8nY-pO-u7r" secondAttribute="bottom" id="a1u-Ps-nyb"/>
+                                        <constraint firstItem="8nY-pO-u7r" firstAttribute="leading" secondItem="Mip-qk-pEe" secondAttribute="leading" constant="10" id="fUD-AB-oh3"/>
+                                        <constraint firstItem="8nY-pO-u7r" firstAttribute="top" secondItem="Mip-qk-pEe" secondAttribute="top" id="wse-Yh-po4"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nz1-Va-hgo" userLabel="View - Greenside Bunker">
                                     <rect key="frame" x="0.0" y="194" width="160" height="64"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G Bunker?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKL-qY-d0R">
+                                            <rect key="frame" x="10" y="0.0" width="140" height="64"/>
+                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="OKL-qY-d0R" firstAttribute="leading" secondItem="Nz1-Va-hgo" secondAttribute="leading" constant="10" id="0kR-x2-457"/>
+                                        <constraint firstAttribute="trailing" secondItem="OKL-qY-d0R" secondAttribute="trailing" constant="10" id="22i-LW-3UX"/>
+                                        <constraint firstItem="OKL-qY-d0R" firstAttribute="top" secondItem="Nz1-Va-hgo" secondAttribute="top" id="C8D-4O-qft"/>
+                                        <constraint firstAttribute="bottom" secondItem="OKL-qY-d0R" secondAttribute="bottom" id="pe7-1L-2ui"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -118,6 +224,7 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hole Overview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-Il-R2S">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="G1x-rd-INY"/>
                     </constraints>

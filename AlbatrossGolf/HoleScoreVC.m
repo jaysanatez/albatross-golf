@@ -64,7 +64,6 @@
     questions = [[NSArray alloc] initWithObjects:@"Did your drive hit in the fairway?", @"Did you get on the green in regulation?", @"Did you hit it in a fairway bunker?", @"Did you hit it in a greenside bunker?", @"How many putts did you have?", @"How many penalty strokes did you have?", nil];
     questionsAsked = 0;
     questionLabel.text = [questions objectAtIndex:0];
-    
     hole_data_view.delegate = self;
 }
 
@@ -221,7 +220,7 @@
 
 - (void)showDataOverview:(BOOL)animated
 {
-    hole_data_view.round_hole = round_hole;
+    [hole_data_view displayRoundHole:round_hole];
     [UIView animateWithDuration: animated ? 1 : 0 animations:^{
         hole_data_view.alpha = 1;
         data_entry_view.alpha = 0;

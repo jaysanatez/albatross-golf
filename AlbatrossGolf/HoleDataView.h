@@ -11,6 +11,8 @@
 
 @interface HoleDataView : UIView
 
+@property (nonatomic, weak) IBOutlet UILabel *score_label, *putts_label, *penalties_label, *fairway_hit_label;
+@property (nonatomic, weak) IBOutlet UILabel *gir_label, *fairway_bunker_label, *green_bunker_label;
 @property (nonatomic, weak) IBOutlet UIView *view;
 @property RoundHole *round_hole;
 @property (nonatomic, weak) id <HoleDataViewDelegate> delegate;
