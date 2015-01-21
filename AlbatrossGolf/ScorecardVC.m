@@ -51,7 +51,7 @@
     unsaved_data = false;
     
     round_holes_saved = 0;
-    round_saved = false;
+    round_saved = true;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -98,7 +98,7 @@
     TeeHole *tHole = (TeeHole *)[scorecard.tee.tee_holes objectAtIndex:indexPath.row];
     hole.teeHole = tHole;
     
-    HoleScore *hs = [self getAssociatedHoleScore:tHole];
+    HoleScore *hs = [self getAssociatedHoleScore:tHole.hole.number];
     hole.showImage = hs != nil && hs.score != -1;
     [hole reloadLabels];
     return hole;
@@ -111,16 +111,16 @@
     holeScore.tee_hole = tHole;
     holeScore.course_name = scorecard.course.name;
     holeScore.delegate = self;
-    holeScore.hole_score = [self getAssociatedHoleScore:tHole];
-    holeScore.round_hole = [self getAssociatedRoundHole:tHole];
+    holeScore.hole_score = [self getAssociatedHoleScore:tHole.hole.number];
+    holeScore.round_hole = [self getAssociatedRoundHole:tHole.hole.id_num];
     [self.navigationController pushViewController:holeScore animated:YES];
 }
 
-- (HoleScore *)getAssociatedHoleScore:(TeeHole *)tHole
+- (HoleScore *)getAssociatedHoleScore:(long)hole_number
 {
     for(HoleScore *hs in scorecard.round.hole_scores)
     {
-        if (hs.hole_number == tHole.hole.number)
+        if (hs.hole_number == hole_number)
         {
             return hs;
         }
@@ -129,11 +129,11 @@
     return nil;
 }
 
-- (RoundHole *)getAssociatedRoundHole:(TeeHole *)tHole
+- (RoundHole *)getAssociatedRoundHole:(long)hole_id
 {
     for(RoundHole *rh in scorecard.round.round_holes)
     {
-        if (rh.hole_id == tHole.hole.id_num)
+        if (rh.hole_id == hole_id)
         {
             return rh;
         }
@@ -144,12 +144,34 @@
 
 - (void)postRoundHole:(RoundHole *)roundHole
 {
+    RoundHole *rh = [self getAssociatedRoundHole:roundHole.hole_id];
+    
+    // if round hole exists, do nothing
+    if (rh != nil && rh.id_num == roundHole.id_num)
+    {
+        return;
+    }
+    
     [scorecard.round.round_holes addObject:roundHole];
     unsaved_data = true;
 }
 
 - (void)postHoleScore:(HoleScore *)holeScore
 {
+    HoleScore *hs = [self getAssociatedHoleScore:holeScore.hole_number];
+    
+    // if hole score already exists, do nothing
+    if (hs != nil && hs.score != -1)
+    {
+        return;
+    }
+    
+    // see if "blank" hole score exists remove it if yes
+    if (hs != nil && hs.score == -1)
+    {
+        [scorecard.round.hole_scores removeObject:hs];
+    }
+    
     [scorecard.round.hole_scores addObject:holeScore];
     unsaved_data = true;
 }
@@ -160,14 +182,30 @@
     scorecard.round.tee_id = scorecard.tee.id_num;
     
     [self displaySavingThrobber:YES];
-    long round_id = [dao postRound:scorecard.round forUser:2];
     
-    if (round_id != -1)
+    // if id already exists, don't post round
+    if(scorecard.round.id_num == 0)
+    {
+        scorecard.round.id_num = [dao postRound:scorecard.round forUser:2];
+        round_saved = false;
+    }
+    
+    
+    if (scorecard.round.id_num != -1)
     {
         for(RoundHole *rh in scorecard.round.round_holes)
         {
-            rh.round_id = round_id;
-            [dao postRoundHole:rh forUser:2];
+            // if round hasn't been posted
+            if (rh.id_num == 0)
+            {
+                rh.round_id = scorecard.round.id_num;
+                [dao postRoundHole:rh forUser:2];
+            }
+            else
+            {
+                // updated it
+                round_holes_saved++;
+            }
         }
     }
     else // round post returned no data
@@ -178,31 +216,18 @@
     unsaved_data = false;
 }
 
-- (void)roundPostSucceeded
-{
-    round_saved = true;
-    [self alertFullRoundPostSuccessful];
-    // pop to menu / push round lookup view
-}
-
-- (void)roundPostThrewError:(NSError *)error
-{
-    [self displaySavingThrobber:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure to Save" message:@"The round/hole data was not saved successfully. Please try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-    [alert show];
-}
-
-- (void)roundPostTimedOut
-{
-    [self displaySavingThrobber:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"A Timeout Occurred" message:@"A timeout occurred when trying to save your round. Make sure you have a sufficient data connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-    [alert show];
-}
-
 - (void)displaySavingThrobber:(BOOL)show
 {
     ((UIView *)saving_throbber).hidden = !show;
     NSLog(show ? @"SHOW" : @"HIDE");
+}
+
+- (void)roundPostSucceeded
+{
+    round_saved = true;
+    [self alertFullRoundPostSuccessful];
+    
+    // pop to menu / push round lookup view
 }
 
 - (void)roundholePostSucceeded
@@ -219,6 +244,20 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Successful" message:@"The round was saved successfully! View it under Past Rounds." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         [alert show];
     }
+}
+
+- (void)roundPostThrewError:(NSError *)error
+{
+    [self displaySavingThrobber:NO];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure to Save" message:@"The round/hole data was not saved successfully. Please try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)roundPostTimedOut
+{
+    [self displaySavingThrobber:NO];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"A Timeout Occurred" message:@"A timeout occurred when trying to save your round. Make sure you have a sufficient data connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

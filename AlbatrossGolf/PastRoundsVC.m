@@ -37,6 +37,17 @@
     loadingView.clipsToBounds = YES;
     
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     dao = [[RoundDAO alloc] init];
     dao.fetch_delegate = self;
@@ -45,12 +56,6 @@
     
     incompleteRounds = [[NSMutableArray alloc] init];
     completeRounds = [[NSMutableArray alloc] init];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
