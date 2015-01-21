@@ -13,7 +13,7 @@
 
 @implementation RoundLookupVC
 
-@synthesize round, collecView, statsLabel, tableView;
+@synthesize round, collecView, statsLabel, tableView, finalizeButtonHeight, finalizeButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +38,8 @@
     {
         statsLabel.text = @"Round Statistics";
         statsLabel.textColor = [UIColor whiteColor];
+        finalizeButtonHeight.constant = 0;
+        finalizeButton.hidden = YES;
     }
     tableView.allowsSelection = NO;
     
@@ -266,6 +268,11 @@
     }
     
     return cell;
+}
+
+- (void)finalizeRound:(id)sender
+{
+    // update round as final
 }
 
 @end
