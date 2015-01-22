@@ -14,8 +14,11 @@
 #import "TeeDao.h"
 #import "Tee.h"
 #import "Round.h"
+#import "Delegates.h"
 
 @interface RoundLookupVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, weak) id <RoundUpdateDelegate> delegate;
 
 @property (nonatomic, weak) Round *round;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;

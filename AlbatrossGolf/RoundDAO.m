@@ -508,4 +508,10 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     }
 }
 
+- (long)updateRound:(Round *)round
+{
+    // update here (make synchronous)
+    return 0;
+}
+
 @end

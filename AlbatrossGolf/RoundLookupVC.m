@@ -13,7 +13,7 @@
 
 @implementation RoundLookupVC
 
-@synthesize round, collecView, statsLabel, tableView, finalizeButtonHeight, finalizeButton;
+@synthesize round, collecView, statsLabel, tableView, finalizeButtonHeight, finalizeButton, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -272,7 +272,9 @@
 
 - (void)finalizeRound:(id)sender
 {
-    // update round as final
+    round.is_complete = YES;
+    [delegate updateRound:round];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -40,6 +40,12 @@
 
 @end
 
+@protocol RoundUpdateDelegate
+
+- (void)updateRound:(Round *)round;
+
+@end
+
 
 @protocol RoundDataPostable
 

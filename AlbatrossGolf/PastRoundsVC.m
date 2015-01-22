@@ -39,12 +39,14 @@
     sections = [[NSArray alloc] initWithObjects:@"In Progress",@"Completed",nil];
     
     dao = [[RoundDAO alloc] init];
+    [self fetchRounds];
+}
+
+- (void)fetchRounds
+{
     dao.fetch_delegate = self;
     [dao fetchAllRoundsForUser:2];
     [self displaySpinnerView:YES];
-    
-    incompleteRounds = [[NSMutableArray alloc] init];
-    completeRounds = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -88,8 +90,15 @@
 {
     Round *round = [self retrieveRoundForIndexPath:indexPath];
     RoundLookupVC *controller = [[RoundLookupVC alloc] initWithNibName:@"RoundLookupVC" bundle:[NSBundle mainBundle]];
+    controller.delegate = self;
     controller.round = round;
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)updateRound:(Round *)round
+{
+    [dao updateRound:round];
+    [self fetchRounds];
 }
 
 - (Round *)retrieveRoundForIndexPath:(NSIndexPath *)indexPath
@@ -170,6 +179,9 @@
 
 - (void)splitIntoCompletedAndNah
 {
+    incompleteRounds = [[NSMutableArray alloc] init];
+    completeRounds = [[NSMutableArray alloc] init];
+    
     for (Round *r in allRounds)
     {
         if (r.is_complete)
