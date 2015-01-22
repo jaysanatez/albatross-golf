@@ -8,6 +8,7 @@
 #import "RoundHole.h"
 #import "RoundStats.h"
 #import "HoleScore.h"
+#import "Round.h"
 
 @protocol CourseFetchDelegate
 
