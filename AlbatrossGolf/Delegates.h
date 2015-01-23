@@ -8,6 +8,7 @@
 #import "RoundHole.h"
 #import "RoundStats.h"
 #import "HoleScore.h"
+#import "Round.h"
 
 @protocol CourseFetchDelegate
 
@@ -37,6 +38,12 @@
 - (void)roundPostThrewError:(NSError *)error;
 - (void)roundPostSucceeded;
 - (void)roundholePostSucceeded;
+
+@end
+
+@protocol RoundUpdateDelegate
+
+- (void)updateRound:(Round *)round;
 
 @end
 

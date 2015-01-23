@@ -25,6 +25,8 @@
 - (long)postRound:(Round *)round forUser:(long)user_id;
 - (long)postRoundHole:(RoundHole *)round forUser:(long)user_id;
 
+- (long)updateRound:(Round *)round;
+
 @end
 
 

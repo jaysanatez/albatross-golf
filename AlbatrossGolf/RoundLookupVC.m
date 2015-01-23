@@ -13,7 +13,7 @@
 
 @implementation RoundLookupVC
 
-@synthesize round, collecView, statsLabel, tableView, finalizeButtonHeight, finalizeButton;
+@synthesize round, collecView, statsLabel, tableView, finalizeButtonHeight, finalizeButton, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -91,7 +91,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return round.hole_scores.count + 3;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -109,6 +109,7 @@
         cell.holeNo.text = @"OUT";
         cell.holePar.text = [NSString stringWithFormat:@"%i",[round getFrontNinePar]];
         cell.holeScore.text = [round frontNineIsCompleted] ? [NSString stringWithFormat:@"%i",[round getFrontNineTotal]] : @"-";
+        cell.holeScoreWord.text = [round frontNineIsCompleted] ? [round getRelativeFrontNineScore] : @"";
     }
     else if (indexPath.row > 9 && indexPath.row < 19)
     {
@@ -116,11 +117,20 @@
         cell.hole_score = hs;
         [cell loadDisplay];
     }
-    else
+    else if (indexPath.row == 19)
     {
         cell.holeNo.text = @"IN";
         cell.holePar.text = [NSString stringWithFormat:@"%i",[round getBackNinePar]];
         cell.holeScore.text = [round backNineIsComplete] ? [NSString stringWithFormat:@"%i",[round getBackNineTotal]] : @"-";
+        cell.holeScoreWord.text = [round backNineIsComplete] ? [round getRelativeBackNineScore] : @"";
+    }
+    else // total cell
+    {
+        BOOL done = round.frontNineIsCompleted && round.backNineIsComplete;
+        cell.holeNo.text = @"TOTAL";
+        cell.holePar.text = done ? [NSString stringWithFormat:@"%i",[round getCoursePar]] : @"-";
+        cell.holeScore.text = done ? [NSString stringWithFormat:@"%i",[round getRoundScore]] : @"-";
+        cell.holeScoreWord.text = done ? [round getRelativeRoundScore] : @"";
     }
     
     return cell;
@@ -272,7 +282,9 @@
 
 - (void)finalizeRound:(id)sender
 {
-    // update round as final
+    round.is_complete = YES;
+    [delegate updateRound:round];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -20,9 +20,17 @@
 
 - (BOOL)frontNineIsCompleted;
 - (BOOL)backNineIsComplete;
+
 - (int)getFrontNineTotal;
-- (int)getBackNineTotal;
 - (int)getFrontNinePar;
+- (NSString *)getRelativeFrontNineScore;
+
+- (int)getBackNineTotal;
 - (int)getBackNinePar;
+- (NSString *)getRelativeBackNineScore;
+
+- (int)getRoundScore;
+- (int)getCoursePar;
+- (NSString *)getRelativeRoundScore;
 
 @end
