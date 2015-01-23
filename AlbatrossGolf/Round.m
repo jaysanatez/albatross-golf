@@ -95,4 +95,46 @@
     return par_total;
 }
 
+- (int)getRoundScore
+{
+    int par_total = 0;
+    
+    for (HoleScore *hs in hole_scores)
+    {
+        par_total += hs.score;
+    }
+    
+    return par_total;
+}
+
+- (int)getCoursePar
+{
+    int par_total = 0;
+    
+    for (HoleScore *hs in hole_scores)
+    {
+        par_total += hs.hole_par;
+    }
+    
+    return par_total;
+}
+
+- (NSString *)getRelativeFrontNineScore
+{
+    int total = [self getFrontNineTotal] - [self getFrontNinePar];
+    return total < 0 ? [NSString stringWithFormat:@"%i",total] : [NSString stringWithFormat:@"+%i",total];
+}
+
+- (NSString *)getRelativeBackNineScore
+{
+    int total = [self getBackNineTotal] - [self getBackNinePar];
+    return total < 0 ? [NSString stringWithFormat:@"%i",total] : [NSString stringWithFormat:@"+%i",total];
+}
+
+- (NSString *)getRelativeRoundScore
+{
+    int total = [self getRoundScore] - [self getCoursePar];
+    return total < 0 ? [NSString stringWithFormat:@"%i",total] : [NSString stringWithFormat:@"+%i",total];
+}
+
 @end

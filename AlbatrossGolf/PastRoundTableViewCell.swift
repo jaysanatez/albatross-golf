@@ -25,22 +25,10 @@ class PastRoundTableViewCell: UITableViewCell
         course_name.text = round.course_name
         course_name.adjustsFontSizeToFitWidth = true
         
-        total_score.text = round.is_complete ? "\(totalRoundScore())" : "Unfinished"
+        total_score.text = round.is_complete ? "\(round.getRoundScore())" : "Unfinished"
         
         var dateFormatter:NSDateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         date_player.text = dateFormatter.stringFromDate(round.date_played)
-    }
-    
-    func totalRoundScore() -> Int
-    {
-        var score:Int = 0
-        
-        for rh in round.round_holes
-        {
-            score += (rh as RoundHole).score
-        }
-        
-        return score
     }
 }

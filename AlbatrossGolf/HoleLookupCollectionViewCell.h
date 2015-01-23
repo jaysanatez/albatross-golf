@@ -10,8 +10,7 @@
 
 @interface HoleLookupCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *holePar, *holeScore, *holeNo;
-@property (nonatomic, strong) IBOutlet UIImageView *image;
+@property (nonatomic, strong) IBOutlet UILabel *holePar, *holeScore, *holeNo, *holeScoreWord;
 @property (nonatomic, strong) HoleScore *hole_score;
 
 - (void)loadDisplay;
