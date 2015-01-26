@@ -13,6 +13,14 @@ class LoginViewController: UIViewController
     @IBOutlet var password:UITextField!
     @IBOutlet var login_button:UIButton!
     
+    var dao:UserDAO
+    
+    required init(coder aDecoder: NSCoder)
+    {
+        dao = UserDAO()
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -32,5 +40,19 @@ class LoginViewController: UIViewController
         
         login_button.layer.cornerRadius = 8
         login_button.layer.masksToBounds = true
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+    {
+        var username_given:String = user_name.text
+        var password_given:String = password.text
+        var success:Bool = dao.attemptLoginWithUsername(username_given, andPassword:password_given)
+        
+        if !success
+        {
+            // rejection animation
+        }
+        
+        return success
     }
 }
