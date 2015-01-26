@@ -97,7 +97,7 @@
 
 - (void)updateRound:(Round *)round
 {
-    [dao updateRound:round];
+    [dao updateRound:round forUser:2];
     [self fetchRounds];
 }
 

@@ -323,11 +323,20 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 - (long)postRound:(Round *)round forUser:(long)user_id
 {
-    NSString *post = [NSString stringWithFormat:@"course=%li&tee=%li",round.course_id,round.tee_id];
+    return [self submitRoundRequest:round forUser:user_id withMethod:@"POST"];
+}
+
+- (long)updateRound:(Round *)round forUser:(long)user_id
+{
+    return [self submitRoundRequest:round forUser:user_id withMethod:@"PUT"];;
+}
+
+- (long)submitRoundRequest:(Round *)round forUser:(long)user_id withMethod:(NSString *)method
+{
+    NSString *post = [NSString stringWithFormat:@"id=%li&course=%li&tee=%li&completed=%@",round.id_num, round.course_id,round.tee_id, [self getBooleanString:round.is_complete]];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    
     NSString *urlString = [NSString stringWithFormat:@"%@user/%li/rounds",baseUrl,user_id];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSLog(@"POSTING TO: %@", urlString);
@@ -336,7 +345,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     
     [urlRequest setTimeoutInterval:30.0f];
-    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPMethod:method];
     [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];
@@ -345,7 +354,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
     NSURLResponse *response = nil;
     NSError *error = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                        returningResponse:&response
+                                         returningResponse:&response
                                                      error:&error];
     
     if(error != nil)
@@ -491,7 +500,7 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     // post request handlers
-    if([[connection.originalRequest HTTPMethod] isEqualToString:@"GET"])
+    if(![[connection.originalRequest HTTPMethod] isEqualToString:@"POST"])
     {
         return;
     }
@@ -506,12 +515,6 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
         NSLog(@"Something else went wrong");
         [post_delegate roundPostThrewError:error];
     }
-}
-
-- (long)updateRound:(Round *)round
-{
-    // update here (make synchronous)
-    return 0;
 }
 
 @end
