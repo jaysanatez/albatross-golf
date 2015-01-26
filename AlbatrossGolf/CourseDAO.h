@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "Course.h"
 #import "CourseChoiceVC.h"
-#import "Delegates.h"
+#import "Protocols.h"
 
 @interface CourseDAO : NSObject
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
-#import "Delegates.h"
+#import "Protocols.h"
 #import "Course.h"
 #import "CourseDAO.h"
 #import "CourseChoiceCell.h"

@@ -12,7 +12,7 @@
 #import "Course.h"
 #import "Round.h"
 #import "RoundLookupVC.h"
-#import "Delegates.h"
+#import "Protocols.h"
 @class LoadingThrobberView;
 
 @interface PastRoundsVC : UIViewController <UITableViewDelegate, UITableViewDataSource, RoundFetchDelegate, RoundUpdateDelegate>

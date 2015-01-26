@@ -11,7 +11,7 @@
 #import "HoleScore.h"
 #import "HoleDataView.h"
 #import "ScorecardVC.h"
-#import "Delegates.h"
+#import "Protocols.h"
 
 @interface HoleScoreVC : UIViewController <HoleDataViewDelegate>
 

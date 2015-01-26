@@ -14,7 +14,7 @@
 #import "TeeDao.h"
 #import "Tee.h"
 #import "Round.h"
-#import "Delegates.h"
+#import "Protocols.h"
 
 @interface RoundLookupVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate>
 

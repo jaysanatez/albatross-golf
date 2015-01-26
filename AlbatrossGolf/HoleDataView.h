@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RoundHole.h"
-#import "Delegates.h"
+#import "Protocols.h"
 
 @interface HoleDataView : UIView
 

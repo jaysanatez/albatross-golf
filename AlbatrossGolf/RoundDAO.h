@@ -10,7 +10,7 @@
 #import "RoundHole.h"
 #import "Round.h"
 #import "HoleScore.h"
-#import "Delegates.h"
+#import "Protocols.h"
 
 @interface RoundDAO : NSObject <NSURLConnectionDataDelegate>
 

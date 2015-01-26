@@ -1,5 +1,5 @@
 //
-//  Delegates.h
+//  Protocols.h
 //  AlbatrossGolf
 //
 //  Created by Jacob Sanchez on 1/20/15.
