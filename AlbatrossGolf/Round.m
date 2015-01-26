@@ -71,7 +71,7 @@
     
     for (HoleScore *hs in hole_scores)
     {
-        if(hs.hole_number > 0 && hs.hole_number < 10)
+        if(hs.hole_number > 0 && hs.hole_number < 10 && hs.score > 0)
         {
             par_total += hs.score;
         }
@@ -86,7 +86,7 @@
     
     for (HoleScore *hs in hole_scores)
     {
-        if(hs.hole_number > 9 && hs.hole_number < 19)
+        if(hs.hole_number > 9 && hs.hole_number < 19 && hs.score > 0)
         {
             par_total += hs.score;
         }
@@ -101,7 +101,10 @@
     
     for (HoleScore *hs in hole_scores)
     {
-        par_total += hs.score;
+        if (hs.score > 0)
+        {
+            par_total += hs.score;
+        }
     }
     
     return par_total;
