@@ -10,5 +10,6 @@
 @interface User : NSObject
 
 @property long id_num;
+@property NSString *username, *password, *email;
 
 @end
