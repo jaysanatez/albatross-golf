@@ -9,6 +9,7 @@
 
 @interface UserDAO : NSObject
 
+- (void)storeUserAsActiveUer:(NSString *)username;
 - (BOOL)attemptLoginWithUsername:(NSString *)username AndPassword:(NSString *)password;
 
 @end

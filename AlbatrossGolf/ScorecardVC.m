@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "ScorecardVC.h"
+#import "AppDelegate.h"
 
 @interface ScorecardVC ()
 {
@@ -24,6 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    _user = [delegate getActiveUser];
     
     [collecView registerNib:[UINib nibWithNibName:@"HoleScoreCell" bundle:[NSBundle mainBundle]]  forCellWithReuseIdentifier:@"HoleScore"];
     
@@ -200,7 +204,7 @@
     if(scorecard.round.id_num == 0)
     {
         round_saved = false;
-        scorecard.round.id_num = [dao postRound:scorecard.round forUser:2];
+        scorecard.round.id_num = [dao postRound:scorecard.round forUser:_user.id_num];
     }
     
     
@@ -212,7 +216,7 @@
             if (rh.id_num == 0)
             {
                 rh.round_id = scorecard.round.id_num;
-                [dao postRoundHole:rh forUser:2];
+                [dao postRoundHole:rh forUser:_user.id_num];
             }
             else
             {

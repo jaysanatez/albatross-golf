@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RecentTeeChoiceVC.h"
+#import "AppDelegate.h"
 
 @interface RecentTeeChoiceVC ()
 {
@@ -23,6 +24,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    user = [delegate getActiveUser];
     
     NSArray *array = @[spinnerView, playButton, moreButton];
     for (UIView *v in array)

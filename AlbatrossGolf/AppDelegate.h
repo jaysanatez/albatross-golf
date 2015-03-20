@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+#import "User.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -16,9 +18,14 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (nonatomic, strong) User *activeUser;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+- (User *)getActiveUser;
+- (void)setActiveUser:(User *)activeUser;
+- (void)removeActiveUser;
 
 @end
 

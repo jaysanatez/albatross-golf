@@ -48,7 +48,11 @@ class LoginViewController: UIViewController
         var password_given:String = password.text
         var success:Bool = dao.attemptLoginWithUsername(username_given, andPassword:password_given)
         
-        if !success
+        if success
+        {
+            dao.storeUserAsActiveUer(username_given)
+        }
+        else
         {
             // rejection animation
         }
