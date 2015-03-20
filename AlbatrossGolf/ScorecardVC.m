@@ -250,8 +250,6 @@
 
 - (void)alertFullRoundPostSuccessful
 {
-    
-    NSLog(@"%@-%i-%li", round_saved ? @"TRUE" : @"FALSE", round_holes_saved, scorecard.round.round_holes.count);
     if (round_saved && round_holes_saved == scorecard.round.round_holes.count)
     {
         [self displaySavingThrobber:NO];
