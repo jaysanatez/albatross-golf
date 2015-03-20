@@ -19,6 +19,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, strong) User *activeUser;
+@property (nonatomic, strong) NSString *token;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
@@ -26,6 +27,9 @@
 - (User *)getActiveUser;
 - (void)setActiveUser:(User *)activeUser;
 - (void)removeActiveUser;
+
+- (NSString *)getToken;
+- (void)setToken:(NSString *)token;
 
 @end
 

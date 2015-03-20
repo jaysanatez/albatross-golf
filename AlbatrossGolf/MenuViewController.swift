@@ -46,6 +46,17 @@ class MenuViewController: UIViewController
     
     @IBAction func logoutTapped()
     {
+        var error:NSError?
+        var delegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        var user:User = delegate.getActiveUser()
+        var ctx:NSManagedObjectContext = delegate.managedObjectContext
+        
+        ctx.deleteObject(user.cdObject)
+        ctx.save(&error)
+        
+        delegate.removeActiveUser()
+        
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

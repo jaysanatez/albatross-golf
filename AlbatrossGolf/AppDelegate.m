@@ -157,4 +157,16 @@
     _activeUser = nil;
 }
 
+#pragma mark - Token
+
+- (NSString *)getToken
+{
+    return _token;
+}
+
+- (void) setToken:(NSString *)token
+{
+    _token = token;
+}
+
 @end
