@@ -6,10 +6,13 @@
 //  Copyright (c) 2015 jacobSanchez. All rights reserved.
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface UserDAO : NSObject
 
-- (void)storeUserAsActiveUer:(NSString *)username;
+- (User *)createUser:(User *)newUser;
+- (void)fetchAndStoreUserAsActiveUser:(NSString *)username;
+- (void)storeUserAsActiveUser:(User *)user;
 - (BOOL)attemptLoginWithUsername:(NSString *)username AndPassword:(NSString *)password;
 
 @end

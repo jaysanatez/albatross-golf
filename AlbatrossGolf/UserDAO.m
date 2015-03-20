@@ -11,12 +11,18 @@
 
 @implementation UserDAO
 
+- (User *)createUser:(User *)newUser
+{
+    newUser.id_num = 2;
+    return newUser;
+}
+
 - (BOOL)attemptLoginWithUsername:(NSString *)username AndPassword:(NSString *)password
 {
     return YES;
 }
 
-- (void)storeUserAsActiveUer:(NSString *)username
+- (void)fetchAndStoreUserAsActiveUser:(NSString *)username
 {
     User *jay = [[User alloc] init];
     
@@ -24,8 +30,13 @@
     jay.id_num = 2;
     jay.username = @"Jay Sanatez";
     
+    [self storeUserAsActiveUser:jay];
+}
+
+- (void)storeUserAsActiveUser:(User *)user
+{
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    [delegate setActiveUser:jay];
+    [delegate setActiveUser:user];
 }
 
 @end

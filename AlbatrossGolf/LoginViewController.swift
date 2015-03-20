@@ -50,7 +50,7 @@ class LoginViewController: UIViewController
         
         if success
         {
-            dao.storeUserAsActiveUer(username_given)
+            dao.fetchAndStoreUserAsActiveUser(username_given)
         }
         else
         {
@@ -58,5 +58,16 @@ class LoginViewController: UIViewController
         }
         
         return success
+    }
+    
+    @IBAction func forgotPasswordTapped()
+    {
+        print("You're bad, kid");
+    }
+    
+    @IBAction func createAccountTapped()
+    {
+        var controller:CreateAccountViewController = CreateAccountViewController(nibName: "CreateAccountViewController", bundle: NSBundle.mainBundle())
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
