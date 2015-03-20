@@ -13,6 +13,7 @@ class LoginViewController: UIViewController
     @IBOutlet var user_name:UITextField!
     @IBOutlet var password:UITextField!
     @IBOutlet var login_button:UIButton!
+    @IBOutlet var login_message:UILabel!
     
     var dao:UserDAO
     
@@ -25,6 +26,8 @@ class LoginViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        login_message.text = ""
         
         var delegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var ctx:NSManagedObjectContext = delegate.managedObjectContext!
@@ -71,6 +74,15 @@ class LoginViewController: UIViewController
         else
         {
             // rejection animation
+            login_message.text = "Invalid login credentials. Try again."
+            password.text = ""
+            user_name.backgroundColor = UIColor(red:1.0, green:0.5, blue:0.5, alpha:1.0)
+            password.backgroundColor = UIColor(red:1.0, green:0.5, blue:0.5, alpha:1.0)
+            
+            UIView.animateWithDuration(0.75, animations: {
+                self.user_name.backgroundColor = UIColor.whiteColor()
+                self.password.backgroundColor = UIColor.whiteColor()
+            })
         }
         
         return success

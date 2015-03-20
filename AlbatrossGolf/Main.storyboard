@@ -100,6 +100,12 @@
                                     <constraint firstAttribute="height" constant="25" id="fXC-Rn-CHI"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid login credentials" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQj-UP-DaG">
+                                <rect key="frame" x="20" y="93" width="280" height="21"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -122,6 +128,7 @@
                     <navigationItem key="navigationItem" id="HAk-EP-sFu"/>
                     <connections>
                         <outlet property="login_button" destination="440-Gb-NyW" id="6am-TU-JmB"/>
+                        <outlet property="login_message" destination="GQj-UP-DaG" id="vcI-U3-S3j"/>
                         <outlet property="password" destination="WnW-Ye-HTz" id="Sf1-dC-vof"/>
                         <outlet property="user_name" destination="lkC-Wd-wzg" id="T0L-LU-eak"/>
                     </connections>
