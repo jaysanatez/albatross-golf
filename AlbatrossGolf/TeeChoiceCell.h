@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *name, *rating, *slope, *gender;
 @property (nonatomic, weak) Tee *tee;
+@property (nonatomic, strong) IBOutlet UIImageView *accessory;
 
 - (void)reloadLabels;
 

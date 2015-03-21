@@ -48,17 +48,12 @@ class LoginViewController: UIViewController
         for f in field_array
         {
             f.layer.borderColor = UIColor.blackColor().CGColor
-            f.layer.cornerRadius = 8
             f.layer.borderWidth = 1.5
-            f.layer.masksToBounds = true
             
             var field:UITextField = f as UITextField
             field.leftViewMode = UITextFieldViewMode.Always
             field.leftView = UIView(frame:CGRectMake(0,0,7,40))
         }
-        
-        login_button.layer.cornerRadius = 8
-        login_button.layer.masksToBounds = true
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
@@ -97,7 +92,7 @@ class LoginViewController: UIViewController
     
     @IBAction func forgotPasswordTapped()
     {
-        print("You're bad, kid");
+        print("Forgot Password Tapped");
     }
     
     @IBAction func createAccountTapped()

@@ -28,12 +28,8 @@
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     user = [delegate getActiveUser];
     
-    NSArray *array = @[spinnerView, playButton, moreButton];
-    for (UIView *v in array)
-    {
-        v.layer.cornerRadius = 8;
-        v.layer.masksToBounds = YES;
-    }
+    ((UIView *)spinnerView).layer.cornerRadius = 8;
+    ((UIView *)spinnerView).layer.masksToBounds = YES;
     
     selectedRow = -1;
 }
@@ -73,6 +69,7 @@
         }
     }
     
+    cell.accessoryType = UITableViewCellAccessoryNone;
     cell.tee = (Tee *)tees[indexPath.row];
     [cell reloadLabels];
     return cell;
@@ -82,15 +79,15 @@
 {
     TeeChoiceCell *cell = (TeeChoiceCell *)[table cellForRowAtIndexPath:indexPath];
     BOOL alreadyChecked = indexPath.row == selectedRow;
-    cell.accessoryType = alreadyChecked ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+    cell.accessory.image = alreadyChecked ? nil : [UIImage imageNamed:@"white_star"];
     playButton.enabled = !alreadyChecked;
-    selectedRow = alreadyChecked ? -1 : indexPath.row;
+    selectedRow = alreadyChecked ? -1 : (int)indexPath.row;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TeeChoiceCell *cell = (TeeChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessory.image = nil;
 }
 
 - (void)displayLoadingScreen:(BOOL)show

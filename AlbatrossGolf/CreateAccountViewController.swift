@@ -38,31 +38,26 @@ class CreateAccountViewController: UIViewController
         super.viewDidLoad()
         
         self.title = "Create Account"
-        self.collapseErrorLabel()
+        self.collapseErrorLabel(false)
         
         textfields = [nameField, emailField, passwordField, confirmPasswordField]
         
         for f in textfields!
         {
             f.layer.borderColor = UIColor.blackColor().CGColor
-            f.layer.cornerRadius = 8
             f.layer.borderWidth = 1.5
-            f.layer.masksToBounds = true
             
             var field:UITextField = f as UITextField
             field.leftViewMode = UITextFieldViewMode.Always
             field.leftView = UIView(frame:CGRectMake(0,0,7,40))
         }
-        
-        createAccountButton.layer.cornerRadius = 8
-        createAccountButton.layer.masksToBounds = true
     }
     
-    func collapseErrorLabel()
+    func collapseErrorLabel(animated: Bool)
     {
         errorLabelTopSpace.constant = 0
         errorLabelHeight.constant = 0
-        UIView.animateWithDuration(0.2, animations: { self.view.layoutIfNeeded() })
+        UIView.animateWithDuration(animated ? 0.5 : 0, animations: { self.view.layoutIfNeeded() })
     }
     
     func displayErrorLabelWithText(text:String)
@@ -103,7 +98,7 @@ class CreateAccountViewController: UIViewController
         }
         else
         {
-            self.collapseErrorLabel()
+            self.collapseErrorLabel(true)
             var newUser:User = User()
             
             newUser.username = nameField.text
