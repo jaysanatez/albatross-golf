@@ -183,13 +183,15 @@
 
 - (void)checkRoundCompletion
 {
+    BOOL alreadyCompleted = scorecard.round.is_complete;
     BOOL completed = scorecard.round.round_holes.count == scorecard.tee.tee_holes.count;
     scorecard.round.is_complete = completed;
     
-    if(completed)
+    if(completed && !alreadyCompleted)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Round Complete" message:@"Tap Save to submit your round to the server." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
+        [dao updateRound:scorecard.round forUser:scorecard.user.id_num];
     }
 }
 
@@ -216,7 +218,8 @@
             if (rh.id_num == 0)
             {
                 rh.round_id = scorecard.round.id_num;
-                [dao postRoundHole:rh forUser:_user.id_num];
+                long newId = [dao postRoundHole:rh forUser:_user.id_num];
+                rh.id_num = newId;
             }
             else
             {
@@ -256,6 +259,7 @@
 {
     if (round_saved && round_holes_saved == scorecard.round.round_holes.count)
     {
+        round_holes_saved = 0;
         [self displaySavingThrobber:NO];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Successful" message:@"The round was saved successfully! View it under Past Rounds." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
         [alert show];
