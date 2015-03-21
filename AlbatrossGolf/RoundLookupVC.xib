@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ljQ-eU-07E">
-                    <rect key="frame" x="20" y="228" width="280" height="320"/>
+                    <rect key="frame" x="20" y="258" width="280" height="290"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="jqY-Gt-GC3"/>
@@ -28,7 +28,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7h-bX-VR0">
-                    <rect key="frame" x="85" y="188" width="150" height="30"/>
+                    <rect key="frame" x="85" y="218" width="150" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="ciR-Jt-H3a"/>
                         <constraint firstAttribute="height" constant="30" id="wwm-w9-qkZ"/>
@@ -42,15 +42,15 @@
                         <action selector="finalizeRound:" destination="-1" eventType="touchUpInside" id="JJ7-H7-0HU"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-9k-yhB">
-                    <rect key="frame" x="20" y="20" width="280" height="120"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-9k-yhB">
+                    <rect key="frame" x="20" y="20" width="280" height="150"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="120" id="Xqv-GX-TmZ"/>
+                        <constraint firstAttribute="height" constant="150" id="Xqv-GX-TmZ"/>
                     </constraints>
                 </tableView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round Statistics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX1-So-fmV">
-                    <rect key="frame" x="20" y="148" width="280" height="40"/>
+                    <rect key="frame" x="20" y="178" width="280" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="e6U-lu-0oM"/>
                     </constraints>

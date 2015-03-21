@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FullRoundCellContainer.h"
 
 @interface FullRoundTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSMutableArray *holes;
+@property (nonatomic, strong) IBOutlet FullRoundCellContainer *frc1, *frc2, *frc3;
 
 - (void)configureDisplay;
 
