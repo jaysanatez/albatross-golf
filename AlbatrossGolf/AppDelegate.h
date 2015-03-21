@@ -21,6 +21,7 @@
 @property (nonatomic, strong) User *activeUser;
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *baseUrl;
+@property (nonatomic, strong) NSString *apiVersion;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

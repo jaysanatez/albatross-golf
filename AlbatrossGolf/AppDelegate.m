@@ -16,7 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _baseUrl = @"http://brobin.pythonanywhere.com/v1/";
+    _baseUrl = @"http://dev.scorecard.us/";
+    _apiVersion = @"v1/";
     return YES;
 }
 

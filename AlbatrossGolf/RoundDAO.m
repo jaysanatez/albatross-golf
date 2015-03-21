@@ -10,7 +10,7 @@
 
 @implementation RoundDAO
 
-static NSString *baseUrl;
+static NSString *baseUrl, *apiVersion;
 
 @synthesize fetch_delegate, post_delegate;
 
@@ -46,12 +46,13 @@ static NSString *baseUrl;
     
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@",baseUrl,apiVersion,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -89,12 +90,13 @@ static NSString *baseUrl;
     
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@",baseUrl,apiVersion,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -130,12 +132,13 @@ static NSString *baseUrl;
 {
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@",baseUrl,apiVersion,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -170,14 +173,15 @@ static NSString *baseUrl;
 {
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
     __block NSMutableArray *holeScores = [[NSMutableArray alloc] initWithObjects:nil];
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@",baseUrl,apiVersion,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -348,16 +352,17 @@ static NSString *baseUrl;
 {
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
     NSString *post = [NSString stringWithFormat:@"id=%li&course=%li&tee=%li&completed=%@",round.id_num, round.course_id,round.tee_id, [self getBooleanString:round.is_complete]];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-    NSString *urlString = [NSString stringWithFormat:@"%@user/%li/rounds",baseUrl,user_id];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@user/%li/rounds",baseUrl,apiVersion,user_id];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSLog(@"POSTING TO: %@", urlString);
     
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     
     [urlRequest setTimeoutInterval:30.0f];
@@ -419,6 +424,7 @@ static NSString *baseUrl;
 {
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
     NSString *post = [NSString stringWithFormat:@"id=%li&score=%li&putts=%li&penalties=%li&hit_fairway=%@&hit_green=%@&hit_fairway_bunker=%@&hit_green_bunker=%@",round_hole.id_num, round_hole.score,round_hole.putts,round_hole.penalties,[self getBooleanString:round_hole.hitFairway],[self getBooleanString:round_hole.hitGir],[self getBooleanString:round_hole.hitFairwayBunker], [self getBooleanString:round_hole.hitGreensideBunker]];
     NSLog(@"POST: %@",post);
@@ -426,11 +432,11 @@ static NSString *baseUrl;
     
     NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
     
-    NSString *urlString = [NSString stringWithFormat:@"%@round/%li/hole/%li",baseUrl,round_hole.round_id,round_hole.hole_id];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@round/%li/hole/%li",baseUrl,apiVersion,round_hole.round_id,round_hole.hole_id];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSLog(@"POSTING TO: %@", urlString);
     
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     
     [urlRequest setTimeoutInterval:30.0f];

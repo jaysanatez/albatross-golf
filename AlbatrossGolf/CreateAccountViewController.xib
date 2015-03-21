@@ -12,8 +12,10 @@
                 <outlet property="errorLabel" destination="RYG-71-MlC" id="vk4-yn-ZHa"/>
                 <outlet property="errorLabelHeight" destination="Dmu-cZ-Sa5" id="V6r-AW-QTp"/>
                 <outlet property="errorLabelTopSpace" destination="Nkx-dk-Maf" id="eiH-5G-2Nd"/>
-                <outlet property="nameField" destination="iFj-ay-sFN" id="cXY-d7-Ldx"/>
+                <outlet property="firstNameField" destination="iFj-ay-sFN" id="nId-eV-4i4"/>
+                <outlet property="lastNameField" destination="zyN-Kg-Vqu" id="9Ke-Bq-Qxp"/>
                 <outlet property="passwordField" destination="3Du-UX-IOX" id="oWS-DY-niu"/>
+                <outlet property="userNameField" destination="KZu-xm-Kfh" id="YLC-zh-giH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYG-71-MlC">
-                    <rect key="frame" x="20" y="15" width="560" height="20"/>
+                    <rect key="frame" x="20" y="10" width="560" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Dmu-cZ-Sa5"/>
                     </constraints>
@@ -31,44 +33,68 @@
                     <color key="textColor" red="1" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iFj-ay-sFN">
-                    <rect key="frame" x="20" y="50" width="560" height="40"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iFj-ay-sFN">
+                    <rect key="frame" x="20" y="40" width="560" height="40"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="5Fx-11-8sW"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="nEA-d0-cpq"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zyN-Kg-Vqu">
+                    <rect key="frame" x="20" y="90" width="560" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="X5t-3a-Jyj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="VJa-oQ-HbN"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="giy-7F-ecl">
-                    <rect key="frame" x="20" y="105" width="560" height="40"/>
+                    <rect key="frame" x="20" y="190" width="560" height="40"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="CIs-fn-9Lr"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ixO-xz-oba"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Du-UX-IOX">
-                    <rect key="frame" x="20" y="160" width="560" height="40"/>
+                    <rect key="frame" x="20" y="240" width="560" height="40"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="AwT-A1-1fY"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="T5S-a6-14f"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wcR-W2-0hx">
-                    <rect key="frame" x="20" y="215" width="560" height="40"/>
+                    <rect key="frame" x="20" y="290" width="560" height="40"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="5lD-OS-ayI"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="FGC-qp-Q5D"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhW-Vn-d5M">
-                    <rect key="frame" x="20" y="270" width="560" height="40"/>
+                    <rect key="frame" x="20" y="340" width="560" height="40"/>
                     <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="DWD-Dh-yT8"/>
@@ -82,27 +108,45 @@
                         <action selector="createAccountTapped" destination="-1" eventType="touchUpInside" id="iuD-9d-oVk"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-xm-Kfh">
+                    <rect key="frame" x="20" y="140" width="560" height="40"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="gGx-NA-lkh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="3ho-WR-ArV"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="OhW-Vn-d5M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="6Ea-RT-2DB"/>
-                <constraint firstItem="iFj-ay-sFN" firstAttribute="top" secondItem="RYG-71-MlC" secondAttribute="bottom" constant="15" id="75M-zZ-L53"/>
-                <constraint firstItem="3Du-UX-IOX" firstAttribute="top" secondItem="giy-7F-ecl" secondAttribute="bottom" constant="15" id="9vc-Rs-wUn"/>
-                <constraint firstItem="wcR-W2-0hx" firstAttribute="top" secondItem="3Du-UX-IOX" secondAttribute="bottom" constant="15" id="Caw-nm-c5l"/>
+                <constraint firstItem="iFj-ay-sFN" firstAttribute="top" secondItem="RYG-71-MlC" secondAttribute="bottom" constant="10" id="75M-zZ-L53"/>
+                <constraint firstItem="KZu-xm-Kfh" firstAttribute="top" secondItem="zyN-Kg-Vqu" secondAttribute="bottom" constant="10" id="95z-P7-rI8"/>
+                <constraint firstItem="3Du-UX-IOX" firstAttribute="top" secondItem="giy-7F-ecl" secondAttribute="bottom" constant="10" id="9vc-Rs-wUn"/>
+                <constraint firstItem="wcR-W2-0hx" firstAttribute="top" secondItem="3Du-UX-IOX" secondAttribute="bottom" constant="10" id="Caw-nm-c5l"/>
                 <constraint firstAttribute="trailing" secondItem="iFj-ay-sFN" secondAttribute="trailing" constant="20" id="CtA-pT-wws"/>
                 <constraint firstAttribute="trailing" secondItem="giy-7F-ecl" secondAttribute="trailing" constant="20" id="EYT-Y0-Sfc"/>
-                <constraint firstItem="OhW-Vn-d5M" firstAttribute="top" secondItem="wcR-W2-0hx" secondAttribute="bottom" constant="15" id="Ffx-vX-sAq"/>
+                <constraint firstItem="OhW-Vn-d5M" firstAttribute="top" secondItem="wcR-W2-0hx" secondAttribute="bottom" constant="10" id="Ffx-vX-sAq"/>
                 <constraint firstItem="giy-7F-ecl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Gep-JC-5Pm"/>
                 <constraint firstAttribute="trailing" secondItem="OhW-Vn-d5M" secondAttribute="trailing" constant="20" id="J00-mL-cwo"/>
                 <constraint firstAttribute="trailing" secondItem="3Du-UX-IOX" secondAttribute="trailing" constant="20" id="Mb7-3O-ldD"/>
-                <constraint firstItem="giy-7F-ecl" firstAttribute="top" secondItem="iFj-ay-sFN" secondAttribute="bottom" constant="15" id="Nd5-U6-5Dd"/>
-                <constraint firstItem="RYG-71-MlC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="Nkx-dk-Maf"/>
+                <constraint firstItem="RYG-71-MlC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Nkx-dk-Maf"/>
                 <constraint firstItem="3Du-UX-IOX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="QDD-8h-Nzg"/>
                 <constraint firstAttribute="trailing" secondItem="wcR-W2-0hx" secondAttribute="trailing" constant="20" id="UZO-6f-5kA"/>
+                <constraint firstAttribute="trailing" secondItem="zyN-Kg-Vqu" secondAttribute="trailing" constant="20" id="UdC-wJ-LaW"/>
+                <constraint firstAttribute="trailing" secondItem="KZu-xm-Kfh" secondAttribute="trailing" constant="20" id="eEy-bd-r45"/>
                 <constraint firstAttribute="trailing" secondItem="RYG-71-MlC" secondAttribute="trailing" constant="20" id="f1V-Ut-5QK"/>
                 <constraint firstItem="RYG-71-MlC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="fZx-qv-ZdU"/>
                 <constraint firstItem="iFj-ay-sFN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="gZT-NH-pD4"/>
+                <constraint firstItem="zyN-Kg-Vqu" firstAttribute="top" secondItem="iFj-ay-sFN" secondAttribute="bottom" constant="10" id="jHO-wH-Mf8"/>
                 <constraint firstItem="wcR-W2-0hx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="qh4-Js-X1f"/>
+                <constraint firstItem="zyN-Kg-Vqu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="qsQ-KF-RBU"/>
+                <constraint firstItem="KZu-xm-Kfh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="rvz-wK-4Qq"/>
+                <constraint firstItem="giy-7F-ecl" firstAttribute="top" secondItem="KZu-xm-Kfh" secondAttribute="bottom" constant="10" id="ybu-Gv-42q"/>
             </constraints>
             <point key="canvasLocation" x="135" y="393"/>
         </view>
