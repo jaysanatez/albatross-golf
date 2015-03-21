@@ -11,6 +11,7 @@
 
 @property (nonatomic, strong) NSMutableArray *holeScores;
 
+- (void)configureNumbers;
 - (FullRoundView *)initWithHoleScores:(NSMutableArray *)scores;
 
 @end

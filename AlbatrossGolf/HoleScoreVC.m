@@ -77,6 +77,8 @@
 
 - (void)scoreEntered:(id)sender
 {
+    [score_field resignFirstResponder];
+    
     if ([score_field.text isEqualToString:@""])
     {
         return;

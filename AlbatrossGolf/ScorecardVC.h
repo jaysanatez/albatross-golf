@@ -13,6 +13,7 @@
 #import "RoundDAO.h"
 #import "HoleScoreCell.h"
 #import "TeeHole.h"
+#import "FullRoundView.h"
 @class SavingThrobberView;
 
 @interface ScorecardVC : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, RoundDataPostable, RoundPostDelegate, UIAlertViewDelegate>
@@ -21,5 +22,9 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, weak) IBOutlet SavingThrobberView *saving_throbber;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *scorecardTopConstraint;
+@property (nonatomic, strong) IBOutlet UITableView *fullRoundTable;
+
+- (IBAction)toggleScorecard:(id)sender;
 
 @end
