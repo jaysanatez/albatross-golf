@@ -46,11 +46,12 @@
 		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
 		16B233991ABC99890036E7BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CC1A688E3D00443472 /* LoginViewController.swift */; };
 		16B253731A76CC8800686C69 /* UserDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B253721A76CC8700686C69 /* UserDAO.m */; };
+		16D230C91ABD8C08009EF9AC /* FullRoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D230C81ABD8C08009EF9AC /* FullRoundView.m */; };
+		16D230CD1ABD906B009EF9AC /* FullRoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D230CB1ABD906B009EF9AC /* FullRoundTableViewCell.m */; };
+		16D230CE1ABD906B009EF9AC /* FullRoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D230CC1ABD906B009EF9AC /* FullRoundTableViewCell.xib */; };
 		16D451031ABC9DFA0061E225 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D451011ABC9DFA0061E225 /* CreateAccountViewController.swift */; };
 		16D451041ABC9DFA0061E225 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D451021ABC9DFA0061E225 /* CreateAccountViewController.xib */; };
 		16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640BC1A6857F200443472 /* RoundLookupVC.xib */; };
-		16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */; };
-		16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */; };
 		16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */; };
 		16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */; };
 		16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CE1A68920C00443472 /* MenuViewController.swift */; };
@@ -152,12 +153,14 @@
 		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
 		16B253711A76CC8700686C69 /* UserDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDAO.h; sourceTree = "<group>"; };
 		16B253721A76CC8700686C69 /* UserDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDAO.m; sourceTree = "<group>"; };
+		16D230C71ABD8C08009EF9AC /* FullRoundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullRoundView.h; sourceTree = "<group>"; };
+		16D230C81ABD8C08009EF9AC /* FullRoundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullRoundView.m; sourceTree = "<group>"; };
+		16D230CA1ABD906B009EF9AC /* FullRoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullRoundTableViewCell.h; sourceTree = "<group>"; };
+		16D230CB1ABD906B009EF9AC /* FullRoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullRoundTableViewCell.m; sourceTree = "<group>"; };
+		16D230CC1ABD906B009EF9AC /* FullRoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FullRoundTableViewCell.xib; sourceTree = "<group>"; };
 		16D451011ABC9DFA0061E225 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		16D451021ABC9DFA0061E225 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
 		16D640BC1A6857F200443472 /* RoundLookupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundLookupVC.xib; sourceTree = "<group>"; };
-		16D640C11A6863CA00443472 /* HoleLookupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupCollectionViewCell.h; sourceTree = "<group>"; };
-		16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupCollectionViewCell.m; sourceTree = "<group>"; };
-		16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleLookupCollectionViewCell.xib; sourceTree = "<group>"; };
 		16D640C61A686BEB00443472 /* HoleLookupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupTableViewCell.h; sourceTree = "<group>"; };
 		16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupTableViewCell.m; sourceTree = "<group>"; };
 		16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoleLookupTableViewCell.xib; sourceTree = "<group>"; };
@@ -368,12 +371,10 @@
 				1641C9AD1A2641AB00378BA4 /* RoundLookupVC.h */,
 				1641C9AE1A2641AB00378BA4 /* RoundLookupVC.m */,
 				16D640BC1A6857F200443472 /* RoundLookupVC.xib */,
-				16D640C11A6863CA00443472 /* HoleLookupCollectionViewCell.h */,
-				16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */,
-				16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */,
 				16D640C61A686BEB00443472 /* HoleLookupTableViewCell.h */,
 				16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */,
 				16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */,
+				16D230C61ABD8BBF009EF9AC /* Full Round View */,
 			);
 			name = "round lookup";
 			sourceTree = "<group>";
@@ -391,6 +392,18 @@
 				1641C9C41A2641E400378BA4 /* CustomSelectionCell.m */,
 			);
 			name = "sliding stats view";
+			sourceTree = "<group>";
+		};
+		16D230C61ABD8BBF009EF9AC /* Full Round View */ = {
+			isa = PBXGroup;
+			children = (
+				16D230C71ABD8C08009EF9AC /* FullRoundView.h */,
+				16D230C81ABD8C08009EF9AC /* FullRoundView.m */,
+				16D230CA1ABD906B009EF9AC /* FullRoundTableViewCell.h */,
+				16D230CB1ABD906B009EF9AC /* FullRoundTableViewCell.m */,
+				16D230CC1ABD906B009EF9AC /* FullRoundTableViewCell.xib */,
+			);
+			name = "Full Round View";
 			sourceTree = "<group>";
 		};
 		16E214FC1A6D87570076EFD6 /* scorecard */ = {
@@ -538,11 +551,11 @@
 				16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */,
 				16E723C71A6A20E1008E8FB6 /* LoadingThrobberView.xib in Resources */,
 				16FC6D711A6ECC9300D3A5CC /* SavingThrobberView.xib in Resources */,
-				16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */,
 				1641C9971A26405C00378BA4 /* HoleScoreVC.xib in Resources */,
 				1641C9311A263D8000378BA4 /* Images.xcassets in Resources */,
 				16E214FE1A6DA25F0076EFD6 /* HoleDataView.xib in Resources */,
 				16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */,
+				16D230CE1ABD906B009EF9AC /* FullRoundTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,13 +597,14 @@
 				1641C9911A26404900378BA4 /* HoleScoreCell.m in Sources */,
 				1641C9901A26404900378BA4 /* ScorecardVC.m in Sources */,
 				1641C9851A26402400378BA4 /* CourseChoiceCell.m in Sources */,
+				16D230CD1ABD906B009EF9AC /* FullRoundTableViewCell.m in Sources */,
+				16D230C91ABD8C08009EF9AC /* FullRoundView.m in Sources */,
 				16FF7BED1A68E50200D885C2 /* RoundStats.m in Sources */,
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
 				1649A97A1A6CBBB100F5198D /* Hole.m in Sources */,
 				162439181A697B8E00A7A049 /* HoleScore.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
-				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,
 				16E215011A6DA27C0076EFD6 /* HoleDataView.m in Sources */,
 				168E94071A2795500065E1C4 /* RoundHole.m in Sources */,
 				16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */,

@@ -8,12 +8,15 @@
 #import "RoundLookupVC.h"
 
 @interface RoundLookupVC ()
+{
+    FullRoundView *frv;
+}
 
 @end
 
 @implementation RoundLookupVC
 
-@synthesize round, collecView, statsLabel, tableView, finalizeButtonHeight, finalizeButton, delegate;
+@synthesize round, statsLabel, tableView, finalizeButtonHeight, finalizeButton, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,7 +28,10 @@
 {
     [super viewDidLoad];
     
-    [collecView registerNib:[UINib nibWithNibName:@"HoleLookupCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"HoleLookup"];
+    frv = [[FullRoundView alloc] initWithHoleScores:round.hole_scores];
+    _fullRoundTable.dataSource = frv;
+    [_fullRoundTable registerNib:[UINib nibWithNibName:@"FullRoundTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"FullRoundCell"];
+    
     [tableView registerNib:[UINib nibWithNibName:@"HoleLookupTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"RoundStat"];
     self.title = @"Round Lookup";
     
@@ -84,17 +90,8 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return 1;
-}
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return round.hole_scores.count + 3;
-}
-
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+/* -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HoleLookupCollectionViewCell *cell = [collecView dequeueReusableCellWithReuseIdentifier:@"HoleLookup" forIndexPath:indexPath];
     
@@ -134,12 +131,7 @@
     }
     
     return cell;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 2; // This is the minimum inter item spacing, can be more
-}
+}*/
 
 // table view datasource and delegate
  
