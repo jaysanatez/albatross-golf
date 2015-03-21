@@ -21,6 +21,14 @@
     return self;
 }
 
+- (void)setHeight:(CGFloat)height
+{
+    CGFloat x = CGRectGetMinX(self.view.frame);
+    CGFloat y = CGRectGetMinY(self.view.frame);
+    CGFloat width = CGRectGetWidth(self.view.frame);
+    self.view.frame = CGRectMake(x, y, width, height);
+}
+
 - (void)finishTapped:(id)sender
 {
     [delegate finishedWithHole:round_hole];

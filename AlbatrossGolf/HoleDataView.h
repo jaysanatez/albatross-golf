@@ -19,5 +19,6 @@
 
 - (IBAction)finishTapped:(id)sender;
 - (void)displayRoundHole:(RoundHole *)rh;
+- (void)setHeight:(CGFloat)height;
 
 @end
