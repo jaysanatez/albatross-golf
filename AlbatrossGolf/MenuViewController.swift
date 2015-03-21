@@ -31,9 +31,6 @@ class MenuViewController: UIViewController
     @IBAction func pastRoundsTapped()
     {
         var controller:PastRoundsVC = PastRoundsVC(nibName: "PastRoundsVC", bundle: NSBundle.mainBundle())
-        var u:User = User()
-        u.id_num = 2
-        controller.user = u
         navigationController?.pushViewController(controller, animated:true)
     }
     
@@ -47,16 +44,19 @@ class MenuViewController: UIViewController
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        var controller:RecentTeeChoiceVC = segue.destinationViewController as RecentTeeChoiceVC
-        var u:User = User()
-        u.id_num = 2
-        controller.user = u
-    }
-    
     @IBAction func logoutTapped()
     {
+        var error:NSError?
+        var delegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
+        var user:User = delegate.getActiveUser()
+        var ctx:NSManagedObjectContext = delegate.managedObjectContext
+        
+        ctx.deleteObject(user.cdObject)
+        ctx.save(&error)
+        
+        delegate.removeActiveUser()
+        
         self.navigationController?.popViewControllerAnimated(true)
     }
 }

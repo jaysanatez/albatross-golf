@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) Course *course;
 @property (nonatomic, weak) IBOutlet UILabel *name, *location;
+@property (nonatomic, strong) IBOutlet UIImageView *accessory;
 
 - (void)reloadLabels;
 

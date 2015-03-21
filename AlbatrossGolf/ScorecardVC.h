@@ -20,5 +20,6 @@
 @property (nonatomic, strong) Scorecard *scorecard;
 @property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, weak) IBOutlet SavingThrobberView *saving_throbber;
+@property (nonatomic, strong) User *user;
 
 @end

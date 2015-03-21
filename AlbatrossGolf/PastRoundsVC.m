@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "PastRoundsVC.h"
+#import "AppDelegate.h"
 #import "AlbatrossGolf-Swift.h"
 
 @interface PastRoundsVC ()
@@ -30,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    user = [delegate getActiveUser];
+    
     [tableView registerNib:[UINib nibWithNibName:@"PastRoundTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"PastRound"];
     self.title = @"Past Rounds";
     
@@ -45,7 +50,7 @@
 - (void)fetchRounds
 {
     dao.fetch_delegate = self;
-    [dao fetchAllRoundsForUser:2];
+    [dao fetchAllRoundsForUser:user.id_num];
     [self displaySpinnerView:YES];
 }
 
@@ -97,7 +102,7 @@
 
 - (void)updateRound:(Round *)round
 {
-    [dao updateRound:round forUser:2];
+    [dao updateRound:round forUser:user.id_num];
     [self fetchRounds];
 }
 

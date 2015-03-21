@@ -44,12 +44,15 @@
 		1649A9771A6CA2F300F5198D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9761A6CA2F300F5198D /* User.m */; };
 		1649A97A1A6CBBB100F5198D /* Hole.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649A9791A6CBBB100F5198D /* Hole.m */; };
 		168E94071A2795500065E1C4 /* RoundHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 168E94061A2795500065E1C4 /* RoundHole.m */; };
+		16B233991ABC99890036E7BE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CC1A688E3D00443472 /* LoginViewController.swift */; };
+		16B253731A76CC8800686C69 /* UserDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B253721A76CC8700686C69 /* UserDAO.m */; };
+		16D451031ABC9DFA0061E225 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D451011ABC9DFA0061E225 /* CreateAccountViewController.swift */; };
+		16D451041ABC9DFA0061E225 /* CreateAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D451021ABC9DFA0061E225 /* CreateAccountViewController.xib */; };
 		16D640BD1A6857F200443472 /* RoundLookupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640BC1A6857F200443472 /* RoundLookupVC.xib */; };
 		16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */; };
 		16D640C51A6863CA00443472 /* HoleLookupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C31A6863CA00443472 /* HoleLookupCollectionViewCell.xib */; };
 		16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16D640C71A686BEB00443472 /* HoleLookupTableViewCell.m */; };
 		16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640C81A686BEB00443472 /* HoleLookupTableViewCell.xib */; };
-		16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CC1A688E3D00443472 /* LoginViewController.swift */; };
 		16D640CF1A68920C00443472 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640CE1A68920C00443472 /* MenuViewController.swift */; };
 		16D640D31A689F4A00443472 /* PastRoundsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16D640D11A689F4A00443472 /* PastRoundsVC.xib */; };
 		16D640D81A68C0E000443472 /* PastRoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D640D61A68C0E000443472 /* PastRoundTableViewCell.swift */; };
@@ -147,6 +150,10 @@
 		1649A9791A6CBBB100F5198D /* Hole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hole.m; sourceTree = "<group>"; };
 		168E94051A2795500065E1C4 /* RoundHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundHole.h; sourceTree = "<group>"; };
 		168E94061A2795500065E1C4 /* RoundHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundHole.m; sourceTree = "<group>"; };
+		16B253711A76CC8700686C69 /* UserDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDAO.h; sourceTree = "<group>"; };
+		16B253721A76CC8700686C69 /* UserDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDAO.m; sourceTree = "<group>"; };
+		16D451011ABC9DFA0061E225 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		16D451021ABC9DFA0061E225 /* CreateAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateAccountViewController.xib; sourceTree = "<group>"; };
 		16D640BC1A6857F200443472 /* RoundLookupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundLookupVC.xib; sourceTree = "<group>"; };
 		16D640C11A6863CA00443472 /* HoleLookupCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoleLookupCollectionViewCell.h; sourceTree = "<group>"; };
 		16D640C21A6863CA00443472 /* HoleLookupCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoleLookupCollectionViewCell.m; sourceTree = "<group>"; };
@@ -268,6 +275,8 @@
 				1641C9251A263D8000378BA4 /* AppDelegate.m */,
 				1641C9491A263EF400378BA4 /* Main.storyboard */,
 				16D640CC1A688E3D00443472 /* LoginViewController.swift */,
+				16D451011ABC9DFA0061E225 /* CreateAccountViewController.swift */,
+				16D451021ABC9DFA0061E225 /* CreateAccountViewController.xib */,
 				16D640CE1A68920C00443472 /* MenuViewController.swift */,
 				16E723C41A6A20C0008E8FB6 /* LoadingThrobberView.swift */,
 				16E723C61A6A20E1008E8FB6 /* LoadingThrobberView.xib */,
@@ -427,6 +436,8 @@
 		16FB796D1A6ABE82008F2277 /* DAOs */ = {
 			isa = PBXGroup;
 			children = (
+				16B253711A76CC8700686C69 /* UserDAO.h */,
+				16B253721A76CC8700686C69 /* UserDAO.m */,
 				1641C9551A263FB000378BA4 /* CourseDAO.h */,
 				1641C9561A263FB000378BA4 /* CourseDAO.m */,
 				1641C9591A263FB000378BA4 /* TeeDAO.h */,
@@ -519,6 +530,7 @@
 			files = (
 				16D640CA1A686BEB00443472 /* HoleLookupTableViewCell.xib in Resources */,
 				16D640D91A68C0E000443472 /* PastRoundTableViewCell.xib in Resources */,
+				16D451041ABC9DFA0061E225 /* CreateAccountViewController.xib in Resources */,
 				1641C94A1A263EF400378BA4 /* Main.storyboard in Resources */,
 				16E723D01A6A2459008E8FB6 /* ScorecardVC.xib in Resources */,
 				16E723CE1A6A2404008E8FB6 /* HoleScoreCell.xib in Resources */,
@@ -548,9 +560,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D451031ABC9DFA0061E225 /* CreateAccountViewController.swift in Sources */,
+				16B233991ABC99890036E7BE /* LoginViewController.swift in Sources */,
 				1641C9BA1A2641D000378BA4 /* MGStatsViewVC.m in Sources */,
 				1641C9841A26402400378BA4 /* CourseChoiceVC.m in Sources */,
 				1641C9261A263D8000378BA4 /* AppDelegate.m in Sources */,
+				16B253731A76CC8800686C69 /* UserDAO.m in Sources */,
 				16D640C91A686BEB00443472 /* HoleLookupTableViewCell.m in Sources */,
 				1641C9291A263D8000378BA4 /* AlbatrossGolf.xcdatamodeld in Sources */,
 				1641C9BB1A2641D000378BA4 /* GroupStatCell.m in Sources */,
@@ -573,7 +588,6 @@
 				1641C9B31A2641AB00378BA4 /* RoundLookupVC.m in Sources */,
 				1641C9C51A2641E400378BA4 /* HorizontalSlider.m in Sources */,
 				1649A97A1A6CBBB100F5198D /* Hole.m in Sources */,
-				16D640CD1A688E3D00443472 /* LoginViewController.swift in Sources */,
 				162439181A697B8E00A7A049 /* HoleScore.m in Sources */,
 				1641C9C61A2641E400378BA4 /* CustomDropDown.m in Sources */,
 				16D640C41A6863CA00443472 /* HoleLookupCollectionViewCell.m in Sources */,

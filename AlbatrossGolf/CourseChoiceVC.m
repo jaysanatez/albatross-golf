@@ -10,7 +10,7 @@
 @interface CourseChoice ()
 {
     CourseDAO *dao;
-    int selectedRow;
+    Course *selectedCourse;
     NSMutableArray *courses;
 }
 
@@ -24,18 +24,10 @@
 {
     [super viewDidLoad];
     
-    NSArray *array = @[spinnerView, continueButton, previousPage, nextPage];
-    for (UIView *v in array)
-    {
-        v.layer.cornerRadius = 8;
-        v.layer.masksToBounds = YES;
-    }
-    
-    // button borders
-    continueButton.layer.borderWidth = 1.0f;
-    continueButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    ((UIView *)spinnerView).layer.cornerRadius = 8;
+    ((UIView *)spinnerView).layer.masksToBounds = YES;
 
-    selectedRow = -1;
+    continueButton.enabled = NO;
     dao = [[CourseDAO alloc] init];
     [self showAllCourses];
 }
@@ -64,10 +56,12 @@
         }
     }
     
-    BOOL b = (indexPath.row == selectedRow);
-    cell.accessoryType = b ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-        
-    cell.course = (Course *)courses[indexPath.row];
+    Course *c = (Course *)courses[indexPath.row];
+    cell.accessoryType = (c == selectedCourse) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessory.image = c == selectedCourse ? [UIImage imageNamed:@"checkmark"] : [UIImage imageNamed:@"box"];
+    
+    cell.course = c;
     [cell reloadLabels];
     return cell;
 }
@@ -75,23 +69,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CourseChoiceCell *cell = (CourseChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    BOOL alreadyChecked = indexPath.row == selectedRow;
-    cell.accessoryType = alreadyChecked ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+    BOOL alreadyChecked = cell.course == selectedCourse;
+    cell.accessory.image = alreadyChecked ? [UIImage imageNamed:@"box"] : [UIImage imageNamed:@"checkmark"];
     continueButton.enabled = !alreadyChecked;
-    selectedRow = alreadyChecked ? -1 : indexPath.row;
+    selectedCourse = alreadyChecked ? nil : cell.course;
+    continueButton.enabled = selectedCourse != nil;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CourseChoiceCell *cell = (CourseChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessory.image = [UIImage imageNamed:@"box"];
 }
 
 - (IBAction)searchByTapped:(id)sender
 {
     [searchField resignFirstResponder];
     [self displayLoadingScreen:YES];
-    selectedRow = -1;
+    selectedCourse = nil;
     continueButton.enabled = NO;
     NSInteger index = [segment selectedSegmentIndex];
     NSString *searchString = searchField.text;
@@ -121,6 +116,7 @@
 - (IBAction)clearSearchParameters:(id)sender
 {
     searchField.text = @"";
+    [searchField resignFirstResponder];
     [self showAllCourses];
 }
 
@@ -183,8 +179,7 @@
     if([[segue identifier] isEqualToString:@"selectTee"])
     {
         TeeChoiceVC *controller = [segue destinationViewController];
-        NSIndexPath *path = [table indexPathForSelectedRow];
-        controller.course = (Course *)[courses objectAtIndex:path.row];
+        controller.course = selectedCourse;
     }
 }
 
