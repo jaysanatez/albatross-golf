@@ -6,10 +6,11 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "RoundDAO.h"
+#import "AppDelegate.h"
 
 @implementation RoundDAO
 
-static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
+static NSString *baseUrl;
 
 @synthesize fetch_delegate, post_delegate;
 
@@ -42,6 +43,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 - (void)submitRoundFetchRequest:(NSString *)urlString
 {
     __block NSMutableArray *rounds = [[NSMutableArray alloc] initWithObjects:nil];
+    
+    AppDelegate *d = [UIApplication sharedApplication].delegate;
+    baseUrl = d.baseUrl;
     
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
@@ -83,6 +87,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 {
     __block NSMutableArray *roundHoles = [[NSMutableArray alloc] initWithObjects:nil];
     
+    AppDelegate *d = [UIApplication sharedApplication].delegate;
+    baseUrl = d.baseUrl;
+    
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
@@ -121,6 +128,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 - (void)submitRoundStatFetchRequest:(NSString *)urlString forRound:(long)roundId
 {
+    AppDelegate *d = [UIApplication sharedApplication].delegate;
+    baseUrl = d.baseUrl;
+    
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
@@ -158,6 +168,9 @@ static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
 
 - (void)submitHoleScoreFetchRequest:(NSString *)urlString forRound:(long)roundId
 {
+    AppDelegate *d = [UIApplication sharedApplication].delegate;
+    baseUrl = d.baseUrl;
+    
     __block NSMutableArray *holeScores = [[NSMutableArray alloc] initWithObjects:nil];
     
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];

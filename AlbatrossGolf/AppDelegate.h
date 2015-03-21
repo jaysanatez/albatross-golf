@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) User *activeUser;
 @property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *baseUrl;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "CourseDAO.h"
+#import "AppDelegate.h"
 
 @implementation CourseDAO
 {
     NSString *urlExt, *prevPag, *nextPag;
 }
 
-static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
+static NSString *baseUrl;
 static NSString *searchParam = @"";
 static NSString *cityParam = @"";
 static NSString *stateParam = @"";
@@ -75,6 +76,9 @@ static NSString *stateParam = @"";
 -(void)submitCourseFetchRequest:(NSString *)urlString
 {
     __block NSMutableArray *courses = [[NSMutableArray alloc] initWithObjects:nil];
+    
+    AppDelegate *d = [UIApplication sharedApplication].delegate;
+    baseUrl = d.baseUrl;
     
     NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
