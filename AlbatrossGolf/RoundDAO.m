@@ -339,9 +339,9 @@ static NSString *baseUrl;
     return [self submitRoundRequest:round forUser:user_id withMethod:@"POST"];
 }
 
-- (long)updateRound:(Round *)round forUser:(long)user_id
+- (void)updateRound:(Round *)round forUser:(long)user_id
 {
-    return [self submitRoundRequest:round forUser:user_id withMethod:@"PUT"];;
+    [self submitRoundRequest:round forUser:user_id withMethod:@"PUT"];;
 }
 
 - (long)submitRoundRequest:(Round *)round forUser:(long)user_id withMethod:(NSString *)method
@@ -407,10 +407,20 @@ static NSString *baseUrl;
 
 - (long)postRoundHole:(RoundHole *)round_hole forUser:(long)user_id
 {
+    return [self submitRoundHoleRequest:round_hole forUser:user_id withMethod:@"POST"];
+}
+
+- (void)updateRoundHole:(RoundHole *)round_hole forUser:(long)user_id
+{
+    [self submitRoundHoleRequest:round_hole forUser:user_id withMethod:@"PUT"];
+}
+
+- (long)submitRoundHoleRequest:(RoundHole *)round_hole forUser:(long)user_id withMethod:(NSString *)method
+{
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
     
-    NSString *post = [NSString stringWithFormat:@"score=%li&putts=%li&penalties=%li&hit_fairway=%@&hit_green=%@&hit_fairway_bunker=%@&hit_green_bunker=%@",round_hole.score,round_hole.putts,round_hole.penalties,[self getBooleanString:round_hole.hitFairway],[self getBooleanString:round_hole.hitGir],[self getBooleanString:round_hole.hitFairwayBunker], [self getBooleanString:round_hole.hitGreensideBunker]];
+    NSString *post = [NSString stringWithFormat:@"id=%li&score=%li&putts=%li&penalties=%li&hit_fairway=%@&hit_green=%@&hit_fairway_bunker=%@&hit_green_bunker=%@",round_hole.id_num, round_hole.score,round_hole.putts,round_hole.penalties,[self getBooleanString:round_hole.hitFairway],[self getBooleanString:round_hole.hitGir],[self getBooleanString:round_hole.hitFairwayBunker], [self getBooleanString:round_hole.hitGreensideBunker]];
     NSLog(@"POST: %@",post);
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
@@ -424,7 +434,7 @@ static NSString *baseUrl;
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     
     [urlRequest setTimeoutInterval:30.0f];
-    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPMethod:method];
     [urlRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [urlRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [urlRequest addValue:tokenHeader forHTTPHeaderField:@"Authorization"];

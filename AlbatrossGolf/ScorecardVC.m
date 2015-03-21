@@ -223,8 +223,8 @@
             }
             else
             {
-                // updated it
-                round_holes_saved++;
+                // update it
+                [dao updateRoundHole:rh forUser:_user.id_num];
             }
         }
     }
@@ -257,6 +257,7 @@
 
 - (void)alertFullRoundPostSuccessful
 {
+    NSLog(@"%@ SAVED:%i POSSIBLE:%lu",round_saved ? @"TRUE" : @"FALSE", round_holes_saved, (unsigned long)scorecard.round.round_holes.count);
     if (round_saved && round_holes_saved == scorecard.round.round_holes.count)
     {
         round_holes_saved = 0;
