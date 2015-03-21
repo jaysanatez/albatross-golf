@@ -67,11 +67,11 @@
     hole_data_view.delegate = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     CGFloat height = data_entry_view.frame.size.height;
     [hole_data_view setHeight:height];
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
 }
 
