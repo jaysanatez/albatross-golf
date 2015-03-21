@@ -16,13 +16,23 @@
     {
         _numberLabel.text = [NSString stringWithFormat:@"%li", _hs.hole_number];
         _parLabel.text = [NSString stringWithFormat:@"%li", _hs.hole_par];
-        _scoreLabel.text = [NSString stringWithFormat:@"%li", _hs.score];
+        if (_hs.score == -1)
+        {
+            _scoreLabel.text = @"-";
+            _scorecardSymbol.image = nil;
+        }
+        else
+        {
+            _scoreLabel.text = [NSString stringWithFormat:@"%li", _hs.score];
+            _scorecardSymbol.image = [UIImage imageNamed:[_hs getScorecardSymbol]];
+        }
     }
     else
     {
         _numberLabel.text = @"-";
         _parLabel.text = @"-";
         _scoreLabel.text = @"-";
+        _scorecardSymbol.image = nil;
     }
 }
 

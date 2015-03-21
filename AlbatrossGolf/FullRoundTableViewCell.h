@@ -12,7 +12,7 @@
 @interface FullRoundTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSMutableArray *holes;
-@property (nonatomic, strong) IBOutlet FullRoundCellContainer *frc1, *frc2, *frc3;
+@property (nonatomic, strong) IBOutlet FullRoundCellContainer *frc1, *frc2, *frc3, *frc4, *frc5, *frc6, *frc7, *frc8, *frc9, *frcTotal;
 
 - (void)configureDisplay;
 

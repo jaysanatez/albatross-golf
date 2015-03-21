@@ -12,6 +12,7 @@
 @interface FullRoundCellContainer : UIView
 
 @property (nonatomic, strong) HoleScore *hs;
+@property (nonatomic, strong) IBOutlet UIImageView *scorecardSymbol;
 @property (nonatomic, strong) IBOutlet UILabel *numberLabel, *parLabel, *scoreLabel;
 
 - (void)refreshDisplay;
