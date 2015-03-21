@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import <UIKit/UIKit.h>
-#import "HoleLookupCollectionViewCell.h"
 #import "HoleLookupTableViewCell.h"
 #import "RoundStats.h"
 #import "HoleScore.h"
@@ -15,15 +14,15 @@
 #import "Tee.h"
 #import "Round.h"
 #import "Protocols.h"
+#import "FullRoundView.h"
 
-@interface RoundLookupVC : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate>
+@interface RoundLookupVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) id <RoundUpdateDelegate> delegate;
 
 @property (nonatomic, weak) Round *round;
-@property (nonatomic, weak) IBOutlet UICollectionView *collecView;
 @property (nonatomic, weak) IBOutlet UILabel *statsLabel;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView, *fullRoundTable;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *finalizeButtonHeight;
 @property (nonatomic, weak) IBOutlet UIButton *finalizeButton;
 

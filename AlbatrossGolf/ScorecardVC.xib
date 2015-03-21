@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScorecardVC">
             <connections>
                 <outlet property="collecView" destination="gpa-EL-Yzb" id="CQp-vp-jRM"/>
+                <outlet property="fullRoundTable" destination="pmK-Hd-2Kb" id="9tq-e1-MQB"/>
                 <outlet property="saving_throbber" destination="5Kn-OY-84b" id="JEP-0B-CXu"/>
+                <outlet property="scorecardTopConstraint" destination="sPF-ZQ-IMh" id="qYk-Ma-I4R"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ka7-cC-Kz3"/>
             </connections>
         </placeholder>
@@ -38,6 +40,60 @@
                         <constraint firstAttribute="height" constant="100" id="lRg-lf-V4e"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dl4-U8-IqZ">
+                    <rect key="frame" x="0.0" y="-190" width="320" height="190"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bdw-9t-NAL">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pmK-Hd-2Kb">
+                                    <rect key="frame" x="20" y="20" width="280" height="150"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="pmK-Hd-2Kb" secondAttribute="bottom" constant="15" id="GJY-OY-QMR"/>
+                                <constraint firstItem="pmK-Hd-2Kb" firstAttribute="leading" secondItem="Bdw-9t-NAL" secondAttribute="leading" constant="20" id="gMQ-YQ-zHn"/>
+                                <constraint firstItem="pmK-Hd-2Kb" firstAttribute="top" secondItem="Bdw-9t-NAL" secondAttribute="top" constant="20" id="mOC-NI-0ow"/>
+                                <constraint firstAttribute="trailing" secondItem="pmK-Hd-2Kb" secondAttribute="trailing" constant="20" id="oU9-f0-u7b"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Bdw-9t-NAL" secondAttribute="bottom" constant="5" id="7Op-Ko-5Tc"/>
+                        <constraint firstItem="Bdw-9t-NAL" firstAttribute="leading" secondItem="dl4-U8-IqZ" secondAttribute="leading" id="gr0-4o-siV"/>
+                        <constraint firstItem="Bdw-9t-NAL" firstAttribute="top" secondItem="dl4-U8-IqZ" secondAttribute="top" id="jRo-jv-ieR"/>
+                        <constraint firstAttribute="trailing" secondItem="Bdw-9t-NAL" secondAttribute="trailing" id="kgf-iA-F6x"/>
+                        <constraint firstAttribute="height" constant="190" id="x4n-Mq-25n"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dcv-Nj-agz">
+                    <rect key="frame" x="0.0" y="0.0" width="105" height="25"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfn-Fd-CmR">
+                            <rect key="frame" x="0.0" y="0.0" width="105" height="25"/>
+                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                            <state key="normal" title="Scorecard">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="toggleScorecard:" destination="-1" eventType="touchUpInside" id="UkE-lq-gcP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="105" id="1Sm-rQ-eVj"/>
+                        <constraint firstAttribute="trailing" secondItem="tfn-Fd-CmR" secondAttribute="trailing" id="Nju-vr-D6U"/>
+                        <constraint firstAttribute="bottom" secondItem="tfn-Fd-CmR" secondAttribute="bottom" id="fPT-NQ-DEa"/>
+                        <constraint firstItem="tfn-Fd-CmR" firstAttribute="leading" secondItem="dcv-Nj-agz" secondAttribute="leading" id="ftJ-fv-c7p"/>
+                        <constraint firstItem="tfn-Fd-CmR" firstAttribute="top" secondItem="dcv-Nj-agz" secondAttribute="top" id="yzz-sz-Zb1"/>
+                        <constraint firstAttribute="height" constant="25" id="zG5-lc-mNl"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -46,7 +102,12 @@
                 <constraint firstItem="gpa-EL-Yzb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="BBR-cK-7jE"/>
                 <constraint firstAttribute="centerX" secondItem="5Kn-OY-84b" secondAttribute="centerX" id="IEp-9o-Onu"/>
                 <constraint firstItem="gpa-EL-Yzb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Iz3-t3-Ci7"/>
+                <constraint firstAttribute="trailing" secondItem="dl4-U8-IqZ" secondAttribute="trailing" id="Xxc-1N-gD4"/>
                 <constraint firstAttribute="centerY" secondItem="5Kn-OY-84b" secondAttribute="centerY" id="at5-eW-OTf"/>
+                <constraint firstItem="dcv-Nj-agz" firstAttribute="top" secondItem="dl4-U8-IqZ" secondAttribute="bottom" id="c0d-NI-bvg"/>
+                <constraint firstItem="dl4-U8-IqZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p67-fD-Lgk"/>
+                <constraint firstItem="dcv-Nj-agz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qg6-YU-Fvk"/>
+                <constraint firstItem="dl4-U8-IqZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-190" id="sPF-ZQ-IMh"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

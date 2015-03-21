@@ -13,7 +13,8 @@
     RoundDAO *dao;
     _Bool unsaved_data;
     int round_holes_saved;
-    bool round_saved;
+    bool round_saved, scorecardShowing;
+    FullRoundView *frv;
 }
 
 @end
@@ -25,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    frv = [[FullRoundView alloc] initWithHoleScores:[[NSMutableArray alloc] init]];
+    _fullRoundTable.dataSource = frv;
+    [_fullRoundTable registerNib:[UINib nibWithNibName:@"FullRoundTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"FullRoundCell"];
     
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     _user = [delegate getActiveUser];
@@ -52,10 +57,12 @@
     
     UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(saveRound)];
     self.navigationItem.rightBarButtonItem = save;
-    unsaved_data = false;
+    unsaved_data = NO;
     
     round_holes_saved = 0;
-    round_saved = true;
+    round_saved = YES;
+    
+    scorecardShowing = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -279,6 +286,46 @@
     [self displaySavingThrobber:NO];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"A Timeout Occurred" message:@"A timeout occurred when trying to save your round. Make sure you have a sufficient data connection and try again." delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)toggleScorecard:(id)sender
+{
+    _scorecardTopConstraint.constant = scorecardShowing ? -190 : 0;
+    scorecardShowing = !scorecardShowing;
+    
+    if(scorecardShowing)
+    {
+        [self assembleHoleScores];
+    }
+    
+    [UIView animateWithDuration:0.5f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+- (void)assembleHoleScores
+{
+    NSInteger size = scorecard.tee.tee_holes.count;
+    NSMutableArray *holeScores = [[NSMutableArray alloc] initWithCapacity:size];
+    for(int i=0; i<size; i++)
+    {
+        HoleScore *hs = [[HoleScore alloc] init];
+        TeeHole *th = (TeeHole *)scorecard.tee.tee_holes[i];
+        hs.hole_number = th.hole.number;
+        hs.hole_par = th.par;
+        hs.score = -1;
+        [holeScores insertObject:hs atIndex:i];
+    }
+    
+    for(int i=0; i<scorecard.round.round_holes.count; i++)
+    {
+        RoundHole *rh = scorecard.round.round_holes[i];
+        ((HoleScore *)[holeScores objectAtIndex:i]).score = rh.score;
+    }
+    
+    frv.holeScores = holeScores;
+    [frv configureNumbers];
+    [_fullRoundTable reloadData];
 }
 
 @end
