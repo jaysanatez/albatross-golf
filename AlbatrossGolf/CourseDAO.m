@@ -13,7 +13,7 @@
     NSString *urlExt, *prevPag, *nextPag;
 }
 
-static NSString *baseUrl;
+static NSString *baseUrl, *apiVersion;
 static NSString *searchParam = @"";
 static NSString *cityParam = @"";
 static NSString *stateParam = @"";
@@ -79,12 +79,13 @@ static NSString *stateParam = @"";
     
     AppDelegate *d = [UIApplication sharedApplication].delegate;
     baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@",baseUrl,apiVersion,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
