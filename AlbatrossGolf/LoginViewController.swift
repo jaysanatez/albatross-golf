@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class LoginViewController: UIViewController
+class LoginViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet var user_name:UITextField!
     @IBOutlet var password:UITextField!
@@ -38,10 +38,24 @@ class LoginViewController: UIViewController
         
         if results.count > 0
         {
+            // loading user
             let activeUserObject = results[0] as NSManagedObject
             var activeUser:User = User.instanceFromManagedObject(activeUserObject)
             delegate.activeUser = activeUser
-            self.routeToMenu()
+            
+            // loading token
+            var tokRequest:NSFetchRequest = NSFetchRequest(entityName: "Token")
+            var tokError: NSError?
+            let tokResults = ctx.executeFetchRequest(tokRequest, error: &tokError) as [NSManagedObject]!
+            
+            if results.count > 0
+            {
+                let tokenObject = tokResults[0] as NSManagedObject
+                var tkn:String = tokenObject.valueForKey("token") as String
+                delegate.token = tkn
+                
+                self.routeToMenu()
+            }
         }
         
         var field_array:NSArray = [user_name, password]
@@ -65,6 +79,16 @@ class LoginViewController: UIViewController
         if success
         {
             dao.fetchAndStoreUserAsActiveUser(username_given)
+            
+            var delegate:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            var activeUser = delegate.getActiveUser()
+            
+            if activeUser == nil
+            {
+                var alert:UIAlertView = UIAlertView(title:"Internal Failure", message:"Your user could not be retrieved. Please contact support.", delegate:nil, cancelButtonTitle:"Ok")
+                alert.show()
+                return false;
+            }
         }
         else
         {
@@ -87,7 +111,7 @@ class LoginViewController: UIViewController
     {
         var storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         var controller : MenuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as MenuViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: false)
     }
     
     @IBAction func forgotPasswordTapped()
@@ -99,5 +123,11 @@ class LoginViewController: UIViewController
     {
         var controller:CreateAccountViewController = CreateAccountViewController(nibName: "CreateAccountViewController", bundle: NSBundle.mainBundle())
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -16,7 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    _baseUrl = @"http://dev.scorecard.us/";
+    _apiVersion = @"v1/";
     return YES;
 }
 

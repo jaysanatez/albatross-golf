@@ -1,5 +1,5 @@
 //
-//  USe.h
+//  User.h
 //  AlbatrossGolf
 //
 //  Created by Jacob Sanchez on 1/18/15.
@@ -11,9 +11,10 @@
 @interface User : NSObject
 
 @property long id_num;
-@property NSString *username, *password, *email;
+@property NSString *userName, *firstName, *lastName, *password, *email;
 @property (nonatomic, strong) NSManagedObject *cdObject;
 
 + (instancetype) instanceFromManagedObject:(NSManagedObject *)object;
++ (instancetype) instanceFromDictionary:(NSDictionary *)dict;
 
 @end

@@ -67,6 +67,14 @@
     hole_data_view.delegate = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    CGFloat height = data_entry_view.frame.size.height;
+    [hole_data_view setHeight:height];
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)scoreEntered:(id)sender
 {
     if ([score_field.text isEqualToString:@""])

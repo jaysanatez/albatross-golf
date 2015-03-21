@@ -23,9 +23,10 @@
 - (void)fetchHoleScoresForRoundId:(long)round_id;
 
 - (long)postRound:(Round *)round forUser:(long)user_id;
-- (long)postRoundHole:(RoundHole *)round forUser:(long)user_id;
+- (long)postRoundHole:(RoundHole *)round_hole forUser:(long)user_id;
 
-- (long)updateRound:(Round *)round forUser:(long)user_id;
+- (void)updateRound:(Round *)round forUser:(long)user_id;
+- (void)updateRoundHole:(RoundHole *)round_hole forUser:(long)user_id;
 
 @end
 

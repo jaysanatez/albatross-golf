@@ -6,38 +6,42 @@
 //  Copyright (c) 2014 jacobSanchez. All rights reserved.
 
 #import "TeeDAO.h"
+#import "AppDelegate.h"
 
 @implementation TeeDAO
 
 
-static NSString *baseUrl = @"http://brobin.pythonanywhere.com/v1/";
+static NSString *baseUrl, *apiVersion;
 
 - (NSMutableArray *)fetchTeesForCourse:(long)courseId
 {
     NSString *urlString = [NSString stringWithFormat:@"course/%li/tees",courseId];
-    return [self submitCourseFetchRequest:urlString];
+    return [self submitTeeFetchRequest:urlString];
 }
 
 - (NSMutableArray *)fetchTeesForUser:(long)userId
 {
     NSString *urlString = [NSString stringWithFormat:@"user/%li/tees",userId];
-    return [self submitCourseFetchRequest:urlString];
+    return [self submitTeeFetchRequest:urlString];
 }
 
 - (Tee *)fetchTeeWithTeeId:(long)teeId
 {
     NSString *urlString = [NSString stringWithFormat:@"tee/%li",teeId];
-    return (Tee *)[[self submitCourseFetchRequest:urlString] objectAtIndex:0];
+    return (Tee *)[[self submitTeeFetchRequest:urlString] objectAtIndex:0];
 }
 
-- (NSMutableArray *)submitCourseFetchRequest:(NSString *)urlString
+- (NSMutableArray *)submitTeeFetchRequest:(NSString *)urlString
 {
+    AppDelegate *d = [UIApplication sharedApplication].delegate;
+    baseUrl = d.baseUrl;
+    apiVersion = d.apiVersion;
     
-    NSString *apiUrl = [NSString stringWithFormat:@"%@%@",baseUrl,urlString];
+    NSString *apiUrl = [NSString stringWithFormat:@"%@%@%@",baseUrl,apiVersion,urlString];
     NSLog(@"REQUESTED URL: %@",apiUrl);
     NSURL *url = [NSURL URLWithString:apiUrl];
     NSString *body = @"";
-    NSString *token = @"7ebb3f3d899a23bcb680ebcdc50e247fc4d21fca";
+    NSString *token = [d getToken];
     NSString *tokenHeader = [NSString stringWithFormat:@"Token %@",token];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     [urlRequest setTimeoutInterval:30.0f];

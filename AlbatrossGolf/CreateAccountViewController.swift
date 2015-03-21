@@ -8,9 +8,11 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController
+class CreateAccountViewController: UIViewController, UITextFieldDelegate
 {
-    @IBOutlet var nameField:UITextField!
+    @IBOutlet var firstNameField:UITextField!
+    @IBOutlet var lastNameField:UITextField!
+    @IBOutlet var userNameField:UITextField!
     @IBOutlet var emailField:UITextField!
     @IBOutlet var passwordField:UITextField!
     @IBOutlet var confirmPasswordField:UITextField!
@@ -40,7 +42,7 @@ class CreateAccountViewController: UIViewController
         self.title = "Create Account"
         self.collapseErrorLabel(false)
         
-        textfields = [nameField, emailField, passwordField, confirmPasswordField]
+        textfields = [userNameField, firstNameField, lastNameField, emailField, passwordField, confirmPasswordField]
         
         for f in textfields!
         {
@@ -101,7 +103,9 @@ class CreateAccountViewController: UIViewController
             self.collapseErrorLabel(true)
             var newUser:User = User()
             
-            newUser.username = nameField.text
+            newUser.firstName = firstNameField.text
+            newUser.lastName = lastNameField.text
+            newUser.userName = userNameField.text;
             newUser.email = emailField.text
             newUser.password = passwordField.text
             
@@ -125,5 +129,11 @@ class CreateAccountViewController: UIViewController
     func emailIsRegistered() -> Bool
     {
         return false
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
 }
