@@ -10,4 +10,8 @@
 
 @interface FullRoundTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) NSMutableArray *holes;
+
+- (void)configureDisplay;
+
 @end

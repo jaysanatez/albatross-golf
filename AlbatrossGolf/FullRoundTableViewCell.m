@@ -10,4 +10,9 @@
 
 @implementation FullRoundTableViewCell
 
+- (void)configureDisplay
+{
+    NSLog(@"Configure");
+}
+
 @end
