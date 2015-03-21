@@ -11,7 +11,7 @@
 @interface RecentTeeChoiceVC ()
 {
     TeeDAO *dao;
-    int selectedRow;
+    Tee *selectedTee;
     NSMutableArray *tees;
 }
 
@@ -30,8 +30,6 @@
     
     ((UIView *)spinnerView).layer.cornerRadius = 8;
     ((UIView *)spinnerView).layer.masksToBounds = YES;
-    
-    selectedRow = -1;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,6 +69,7 @@
     
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.tee = (Tee *)tees[indexPath.row];
+    cell.accessory.image = cell.tee == selectedTee ? [UIImage imageNamed:@"checkmark"] : [UIImage imageNamed:@"box"];
     [cell reloadLabels];
     return cell;
 }
@@ -78,16 +77,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TeeChoiceCell *cell = (TeeChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    BOOL alreadyChecked = indexPath.row == selectedRow;
-    cell.accessory.image = alreadyChecked ? nil : [UIImage imageNamed:@"white_star"];
+    BOOL alreadyChecked = cell.tee == selectedTee;
+    cell.accessory.image = alreadyChecked ? [UIImage imageNamed:@"box"] : [UIImage imageNamed:@"checkmark"];
     playButton.enabled = !alreadyChecked;
-    selectedRow = alreadyChecked ? -1 : (int)indexPath.row;
+    selectedTee = alreadyChecked ? nil : cell.tee;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TeeChoiceCell *cell = (TeeChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    cell.accessory.image = nil;
+    cell.accessory.image = [UIImage imageNamed:@"box"];
 }
 
 - (void)displayLoadingScreen:(BOOL)show

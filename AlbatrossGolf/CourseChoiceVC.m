@@ -59,7 +59,7 @@
     Course *c = (Course *)courses[indexPath.row];
     cell.accessoryType = (c == selectedCourse) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.accessory.image = c == selectedCourse ? [UIImage imageNamed:@"white_star"] : nil;
+    cell.accessory.image = c == selectedCourse ? [UIImage imageNamed:@"checkmark"] : [UIImage imageNamed:@"box"];
     
     cell.course = c;
     [cell reloadLabels];
@@ -70,7 +70,7 @@
 {
     CourseChoiceCell *cell = (CourseChoiceCell *)[table cellForRowAtIndexPath:indexPath];
     BOOL alreadyChecked = cell.course == selectedCourse;
-    cell.accessory.image = alreadyChecked ? nil : [UIImage imageNamed:@"white_star"];
+    cell.accessory.image = alreadyChecked ? [UIImage imageNamed:@"box"] : [UIImage imageNamed:@"checkmark"];
     continueButton.enabled = !alreadyChecked;
     selectedCourse = alreadyChecked ? nil : cell.course;
     continueButton.enabled = selectedCourse != nil;
@@ -79,7 +79,7 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CourseChoiceCell *cell = (CourseChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    cell.accessory.image = nil;
+    cell.accessory.image = [UIImage imageNamed:@"box"];
 }
 
 - (IBAction)searchByTapped:(id)sender
@@ -179,8 +179,7 @@
     if([[segue identifier] isEqualToString:@"selectTee"])
     {
         TeeChoiceVC *controller = [segue destinationViewController];
-        NSIndexPath *path = [table indexPathForSelectedRow];
-        controller.course = (Course *)[courses objectAtIndex:path.row];
+        controller.course = selectedCourse;
     }
 }
 

@@ -10,7 +10,7 @@
 @interface TeeChoiceVC ()
 {
     TeeDAO *dao;
-    int selectedRow;
+    Tee *selectedTee;
     NSMutableArray *tees;
 }
 
@@ -26,19 +26,11 @@
     
     ((UIView *)loading_throbber).layer.cornerRadius = 8;
     ((UIView *)loading_throbber).layer.masksToBounds = YES;
-    
-    // button borders
-    beginButton.layer.borderWidth = 1.0f;
-    beginButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    beginButton.layer.cornerRadius = 8;
-    beginButton.layer.masksToBounds = YES;
         
     dao = [[TeeDAO alloc] init];
     
     courseName.text = course.name;
     courseName.adjustsFontSizeToFitWidth = YES;
-    
-    selectedRow = -1;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -74,7 +66,9 @@
         cell = [[TeeChoiceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+    cell.accessoryType = UITableViewCellAccessoryNone;
     cell.tee = (Tee *)tees[indexPath.row];
+    cell.accessory.image = cell.tee == selectedTee ? [UIImage imageNamed:@"checkmark"] : [UIImage imageNamed:@"box"];
     [cell reloadLabels];
     return cell;
 }
@@ -82,16 +76,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TeeChoiceCell *cell = (TeeChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    BOOL alreadyChecked = indexPath.row == selectedRow;
-    cell.accessoryType = alreadyChecked ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+    BOOL alreadyChecked = cell.tee == selectedTee;
+    cell.accessory.image = alreadyChecked ? [UIImage imageNamed:@"box"] : [UIImage imageNamed:@"checkmark"];
     beginButton.enabled = !alreadyChecked;
-    selectedRow = alreadyChecked ? -1 : indexPath.row;
+    selectedTee = alreadyChecked ? nil : cell.tee;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TeeChoiceCell *cell = (TeeChoiceCell *)[table cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessory.image = [UIImage imageNamed:@"box"];
 }
 
 - (void)alertNoTeesFetched
@@ -101,18 +95,16 @@
 
 - (void)pushScorecard:(id)sender
 {
-    ScorecardVC *controller = [[ScorecardVC alloc] init];
+    ScorecardVC *controller = [[ScorecardVC alloc] initWithNibName:@"ScorecardVC" bundle:[NSBundle mainBundle]];
     
     // CONFIGURE THE SCORECARD
     Scorecard *sc = [[Scorecard alloc] init];
-    NSIndexPath *path = [table indexPathForSelectedRow];
-    Tee *t = (Tee *)[tees objectAtIndex:path.row];
+    Tee *t = selectedTee;
     
     Course *c = [[Course alloc] init];
     c.id_num = t.course_id;
     c.name = t.course_name;
     
-    sc.user = nil; // MURDER
     sc.course = c;
     sc.tee = t;
     
